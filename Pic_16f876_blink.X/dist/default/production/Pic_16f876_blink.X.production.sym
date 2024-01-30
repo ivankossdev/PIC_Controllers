@@ -24,7 +24,6 @@ __Lcommon 0 0 ABS 0
 __Heeprom_data 0 0 EEDATA 3
 __Leeprom_data 0 0 EEDATA 3
 ___int_sp 0 0 STACK 2
-__end_of_ConrolInit 7CD 0 CODE 0
 __Habs1 0 0 ABS 0
 __Labs1 0 0 ABS 0
 __Hsfr0 0 0 ABS 0
@@ -38,6 +37,7 @@ __Lsfr3 0 0 ABS 0
 ___stackhi 0 0 ABS 0
 __Hcode 0 0 ABS 0
 __Lcode 0 0 ABS 0
+__size_of_PortslInit 0 0 ABS 0
 __Hinit 0 0 CODE 0
 __Linit 0 0 CODE 0
 __end_of_main 7FC 0 CODE 0
@@ -45,6 +45,7 @@ __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
 end_of_initialization 7FC 0 CODE 0
 ___stacklo 0 0 ABS 0
+__end_of_PortslInit 7CD 0 CODE 0
 __Hstrings 0 0 ABS 0
 __Lstrings 0 0 ABS 0
 __Hbank0 0 0 ABS 0
@@ -78,7 +79,7 @@ __CFG_FOSC$HS 0 0 ABS 0
 __Hspace_3 0 0 ABS 0
 __Lspace_3 0 0 ABS 0
 __size_of_main 0 0 ABS 0
-_ConrolInit 7C6 0 CODE 0
+_PortslInit 7C6 0 CODE 0
 __CFG_BOREN$OFF 0 0 ABS 0
 __CFG_PWRTE$OFF 0 0 ABS 0
 __Hend_init 3 0 CODE 0
@@ -100,7 +101,6 @@ start_initialization 7FC 0 CODE 0
 __Hmaintext 0 0 ABS 0
 __Lmaintext 0 0 ABS 0
 __pmaintext 7CD 0 CODE 0
-__size_of_ConrolInit 0 0 ABS 0
 __initialization 7FC 0 CODE 0
 __CFG_CP$OFF 0 0 ABS 0
 __CFG_LVP$OFF 0 0 ABS 0
@@ -113,7 +113,7 @@ maintext F9A FF7 CODE F9A 0
 text1 F8C F99 CODE F8C 0
 %locals
 dist/default/production\Pic_16f876_blink.X.production.o
-C:\Users\RR\AppData\Local\Temp\sob4.s
+C:\Users\RR\AppData\Local\Temp\s988.s
 331 7FC 0 CODE 0
 334 7FC 0 CODE 0
 340 7FC 0 CODE 0

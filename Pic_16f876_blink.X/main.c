@@ -1,11 +1,11 @@
 #include <xc.h>
 #include "settings.h"
 
-void ConrolInit(void);
+void PortslInit(void);
 
 void main(void) {
     
-    ConrolInit();
+    PortslInit();
     PORTB = 0x00;
     
     while(1){
@@ -18,7 +18,7 @@ void main(void) {
     return;
 }
 
-void ConrolInit(void){
+void PortslInit(void){
     PORTB = 0x00; // Output port
     TRISB = 0x00;
 }

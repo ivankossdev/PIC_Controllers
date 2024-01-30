@@ -1,7 +1,7 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "4 main.c
-[v _ConrolInit `(v ~T0 @X0 0 ef ]
+[v _PortslInit `(v ~T0 @X0 0 ef ]
 "216 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876.h
 [v _PORTB `Vuc ~T0 @X0 0 e@6 ]
 [v F708 `(v ~T0 @X0 1 tf1`ul ]
@@ -888,7 +888,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x CPD=OFF ]
 "11
 [p x WRT=OFF ]
-[; ;main.c: 4: void ConrolInit(void);
+[; ;main.c: 4: void PortslInit(void);
 [v $root$_main `(v ~T0 @X0 0 e ]
 "6 main.c
 [v _main `(v ~T0 @X0 1 ef ]
@@ -896,9 +896,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 6: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 8: ConrolInit();
+[; ;main.c: 8: PortslInit();
 "8
-[e ( _ConrolInit ..  ]
+[e ( _PortslInit ..  ]
 [; ;main.c: 9: PORTB = 0x00;
 "9
 [e = _PORTB -> -> 0 `i `uc ]
@@ -933,10 +933,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 82 ]
 }
 "21
-[v _ConrolInit `(v ~T0 @X0 1 ef ]
+[v _PortslInit `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 21: void ConrolInit(void){
-[e :U _ConrolInit ]
+[; ;main.c: 21: void PortslInit(void){
+[e :U _PortslInit ]
 [f ]
 [; ;main.c: 22: PORTB = 0x00;
 "22

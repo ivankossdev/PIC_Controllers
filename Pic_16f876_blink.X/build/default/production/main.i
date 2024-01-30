@@ -1451,11 +1451,11 @@ extern __bank0 __bit __timeout;
 #pragma config WRT = OFF
 
 # 4 "main.c"
-void ConrolInit(void);
+void PortslInit(void);
 
 void main(void) {
 
-ConrolInit();
+PortslInit();
 PORTB = 0x00;
 
 while(1){
@@ -1468,7 +1468,7 @@ _delay((unsigned long)((1000)*(16000000/4000.0)));
 return;
 }
 
-void ConrolInit(void){
+void PortslInit(void){
 PORTB = 0x00;
 TRISB = 0x00;
 }

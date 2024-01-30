@@ -14,7 +14,7 @@
 "6 C:\Users\RR\MPLABXProjects\Pic_16f876_blink.X\main.c
 [v _main main `(v  1 e 1 0 ]
 "21
-[v _ConrolInit ConrolInit `(v  1 e 1 0 ]
+[v _PortslInit PortslInit `(v  1 e 1 0 ]
 "216 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876.h
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
 "1270
@@ -25,7 +25,7 @@
 "19
 } 0
 "21
-[v _ConrolInit ConrolInit `(v  1 e 1 0 ]
+[v _PortslInit PortslInit `(v  1 e 1 0 ]
 {
 "24
 } 0
