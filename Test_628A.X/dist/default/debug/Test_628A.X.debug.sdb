@@ -1,0 +1,39 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F628A ]
+[d frameptr 0 ]
+"10 /opt/microchip/xc8/v2.50/pic/sources/c99/common/sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 /opt/microchip/xc8/v2.50/pic/sources/c99/common/Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 /opt/microchip/xc8/v2.50/pic/sources/c99/pic/__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"6 /home/ivan/MPLABXProjects/Test_628A.X/main.c
+[v _main main `(v  1 e 1 0 ]
+"19
+[v _PortOn PortOn `(v  1 e 1 0 ]
+"166 /opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f628a.h
+[v _PORTA PORTA `VEuc  1 e 1 @5 ]
+"228
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"767
+[v _CMCON CMCON `VEuc  1 e 1 @31 ]
+"907
+[v _TRISA TRISA `VEuc  1 e 1 @133 ]
+"969
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"6 /home/ivan/MPLABXProjects/Test_628A.X/main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"17
+} 0
+"19
+[v _PortOn PortOn `(v  1 e 1 0 ]
+{
+"21
+[v PortOn@i i `i  1 a 2 1 ]
+"28
+} 0
