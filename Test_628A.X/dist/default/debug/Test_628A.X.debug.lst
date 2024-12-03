@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.50 build 20240725155939 
-                                                                                               Mon Nov 25 14:01:10 2024
+                                                                                               Tue Nov 26 17:10:15 2024
 
 Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1 
      1                           	processor	16F628A
@@ -182,7 +182,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    168 ;;
    169 ;; *************** function _main *****************
    170 ;; Defined at:
-   171 ;;		line 6 in file "main.c"
+   171 ;;		line 13 in file "main.c"
    172 ;; Parameters:    Size  Location     Type
    173 ;;		None
    174 ;; Auto vars:     Size  Location     Type
@@ -217,33 +217,33 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    203                           ; Regs used in _main: [wreg+status,2+status,0+btemp+1+pclath+cstack]
    204                           
    205                           
-   206                           ;main.c: 7:     TRISB = 0x00;
+   206                           ;main.c: 14:     TRISB = 0x00;
    207     07C2  1683               	bsf	3,5	;RP0=1, select bank1
    208     07C3  1303               	bcf	3,6	;RP1=0, select bank1
    209     07C4  0186               	clrf	6	;volatile
    210                           
-   211                           ;main.c: 8:     PORTB = 0x00;
+   211                           ;main.c: 15:     PORTB = 0x00;
    212     07C5  1283               	bcf	3,5	;RP0=0, select bank0
    213     07C6  1303               	bcf	3,6	;RP1=0, select bank0
    214     07C7  0186               	clrf	6	;volatile
    215                           
-   216                           ;main.c: 9:     TRISA = 0x00;
+   216                           ;main.c: 16:     TRISA = 0x00;
    217     07C8  1683               	bsf	3,5	;RP0=1, select bank1
    218     07C9  1303               	bcf	3,6	;RP1=0, select bank1
    219     07CA  0185               	clrf	5	;volatile
    220                           
-   221                           ;main.c: 10:     PORTA = 0x00;
+   221                           ;main.c: 17:     PORTA = 0x00;
    222     07CB  1283               	bcf	3,5	;RP0=0, select bank0
    223     07CC  1303               	bcf	3,6	;RP1=0, select bank0
    224     07CD  0185               	clrf	5	;volatile
    225     07CE                     l587:
    226                           
-   227                           ;main.c: 11:     CMCON = 0x07;
+   227                           ;main.c: 18:     CMCON = 0x07;
    228     07CE  3007               	movlw	7
    229     07CF  009F               	movwf	31	;volatile
    230     07D0                     l589:
    231                           
-   232                           ;main.c: 13:         PortOn();
+   232                           ;main.c: 20:         PortOn();
    233     07D0  27D3               	fcall	_PortOn
    234     07D1  2FD0               	goto	l589
    235     07D2  2800               	ljmp	start
@@ -253,7 +253,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    239     07D3                     __ptext1:	
    240 ;; *************** function _PortOn *****************
    241 ;; Defined at:
-   242 ;;		line 19 in file "main.c"
+   242 ;;		line 26 in file "main.c"
    243 ;; Parameters:    Size  Location     Type
    244 ;;		None
    245 ;; Auto vars:     Size  Location     Type
@@ -288,7 +288,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    274                           ; Regs used in _PortOn: [wreg+status,2+status,0+btemp+1]
    275                           
    276                           
-   277                           ;main.c: 21:     for(int i = 0; i < 8; i++ ){
+   277                           ;main.c: 28:     for(int i = 0; i < 8; i++ ){
    278     07D3  01F1               	clrf	PortOn@i
    279     07D4  01F2               	clrf	PortOn@i+1
    280     07D5                     l571:
@@ -311,7 +311,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    297     07E2  2FF7               	goto	l581
    298     07E3                     l575:
    299                           
-   300                           ;main.c: 22:         PORTB = 0x03 << i;
+   300                           ;main.c: 29:         PORTB = 0x03 << i;
    301     07E3  3003               	movlw	3
    302     07E4  00F0               	movwf	??_PortOn
    303     07E5  0A71               	incf	PortOn@i,w
@@ -329,7 +329,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    315     07EF  0086               	movwf	6	;volatile
    316     07F0                     l577:
    317                           
-   318                           ;main.c: 23:     }
+   318                           ;main.c: 30:     }
    319     07F0  3001               	movlw	1
    320     07F1  07F1               	addwf	PortOn@i,f
    321     07F2  1803               	skipnc
@@ -339,17 +339,17 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    325     07F6  2FD5               	goto	l571
    326     07F7                     l581:
    327                           
-   328                           ;main.c: 25:     PORTB = 0x00;
+   328                           ;main.c: 32:     PORTB = 0x00;
    329     07F7  1283               	bcf	3,5	;RP0=0, select bank0
    330     07F8  1303               	bcf	3,6	;RP1=0, select bank0
    331     07F9  0186               	clrf	6	;volatile
    332     07FA                     l583:
    333                           
-   334                           ;main.c: 26:     PORTB = 0xff;
+   334                           ;main.c: 33:     PORTB = 0xff;
    335     07FA  30FF               	movlw	255
    336     07FB  0086               	movwf	6	;volatile
    337                           
-   338                           ;main.c: 27:     PORTB = 0x00;
+   338                           ;main.c: 34:     PORTB = 0x00;
    339     07FC  0186               	clrf	6	;volatile
    340     07FD                     l25:
    341     07FD  0008               	return
@@ -450,7 +450,7 @@ DATA                 0      0       3      0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.50 build 20240725155939 
-Symbol Table                                                                                   Mon Nov 25 14:01:10 2024
+Symbol Table                                                                                   Tue Nov 26 17:10:15 2024
 
                      l25 07FD                       u10 07E2                       u11 07E1  
                      u15 07DE                       u24 07E9                       u25 07E7  
