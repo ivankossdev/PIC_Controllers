@@ -1,11 +1,15 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"5 ./portsinit.h
-[; ;./portsinit.h: 5: void PortAInit(void);
-[v _PortAInit `(v ~T0 @X0 0 ef ]
-"4
+"4 ./portsinit.h
 [; ;./portsinit.h: 4: void PortBInit(void);
 [v _PortBInit `(v ~T0 @X0 0 ef ]
+"216 /opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h
+[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h: 216: extern volatile unsigned char PORTB __attribute__((address(0x006)));
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+[v F164 `(v ~T0 @X0 1 tf1`ul ]
+"20 /opt/microchip/xc8/v2.50/pic/include/builtins.h
+[v __delay `JF164 ~T0 @X0 0 e ]
+[p i __delay ]
 "54 /opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h
 [; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -185,32 +189,41 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12
 [p x WRT  =  OFF  ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"4 main.c
-[; ;main.c: 4: void main(void) {
+"5 main.c
+[; ;main.c: 5: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"5
-[; ;main.c: 5:     PortAInit();
-[e ( _PortAInit ..  ]
-"6
-[; ;main.c: 6:     PortBInit();
+"8
+[; ;main.c: 8:     PortBInit();
 [e ( _PortBInit ..  ]
-"7
-[; ;main.c: 7:     while(1){
+"10
+[; ;main.c: 10:     while(1){
 [e :U 88 ]
 {
-"9
-[; ;main.c: 9:     }
+"11
+[; ;main.c: 11:         PORTB = 0b00000111;
+[e = _PORTB -> -> 7 `i `uc ]
+"12
+[; ;main.c: 12:         _delay((unsigned long)((1000)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"13
+[; ;main.c: 13:         PORTB = 0x00;
+[e = _PORTB -> -> 0 `i `uc ]
+"14
+[; ;main.c: 14:         _delay((unsigned long)((1000)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"15
+[; ;main.c: 15:     }
 }
 [e :U 87 ]
 [e $U 88  ]
 [e :U 89 ]
-"10
-[; ;main.c: 10:     return;
+"17
+[; ;main.c: 17:     return;
 [e $UE 86  ]
-"11
-[; ;main.c: 11: }
+"18
+[; ;main.c: 18: }
 [e :UE 86 ]
 }

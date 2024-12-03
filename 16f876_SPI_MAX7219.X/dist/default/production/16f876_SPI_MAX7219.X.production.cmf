@@ -11,14 +11,14 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/xcXGcDcOm/driver_tmp_12.o
-end_init CODE 0 0 0 3 2 1
-config CONFIG 4 2007 2007 1 2 1
-$dist/default/debug/16f876_SPI_MAX7219.X.debug.o
+$dist/default/production/16f876_SPI_MAX7219.X.production.o
 cinit CODE 0 7FC 7FC 4 2 1
 text1 CODE 0 7CB 7CB 7 2 1
 maintext CODE 0 7D2 7D2 2A 2 1
 cstackCOMMON COMMON 1 70 70 3 1 1
+config CONFIG 4 2007 2007 1 2 1
+$/tmp/xcXBOePHh/driver_tmp_12.o
+end_init CODE 0 0 0 3 2 1
 config CONFIG 4 2007 2007 1 2 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -64,12 +64,12 @@ STRING 800-1FFF 2
 # are in ascending order of addresses.
 # All other numeric values are in decimal.
 %LINETAB
-$dist/default/debug/16f876_SPI_MAX7219.X.debug.o
-7FC cinit CODE >561:/tmp/xcXGcDcOm/driver_tmp_1.s
-7FC cinit CODE >564:/tmp/xcXGcDcOm/driver_tmp_1.s
-7FC cinit CODE >570:/tmp/xcXGcDcOm/driver_tmp_1.s
-7FC cinit CODE >572:/tmp/xcXGcDcOm/driver_tmp_1.s
-7FD cinit CODE >573:/tmp/xcXGcDcOm/driver_tmp_1.s
+$dist/default/production/16f876_SPI_MAX7219.X.production.o
+7FC cinit CODE >561:/tmp/xcXBOePHh/driver_tmp_1.s
+7FC cinit CODE >564:/tmp/xcXBOePHh/driver_tmp_1.s
+7FC cinit CODE >570:/tmp/xcXBOePHh/driver_tmp_1.s
+7FC cinit CODE >572:/tmp/xcXBOePHh/driver_tmp_1.s
+7FD cinit CODE >573:/tmp/xcXBOePHh/driver_tmp_1.s
 7CB text1 CODE >13:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/portsinit.c
 7CB text1 CODE >14:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/portsinit.c
 7CE text1 CODE >15:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/portsinit.c
@@ -92,7 +92,7 @@ $dist/default/debug/16f876_SPI_MAX7219.X.debug.o
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-___latbits 2 0 ABS 0 - dist/default/debug/16f876_SPI_MAX7219.X.debug.o
+___latbits 2 0 ABS 0 - dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Hspace_0 800 0 ABS 0 - -
 __Hspace_1 73 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
@@ -101,29 +101,29 @@ __Hspace_4 400F 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __L__absolute__ 0 0 ABS 0 __absolute__ -
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack /tmp/xcXGcDcOm/driver_tmp_12.o
-_main FA4 0 CODE 0 maintext dist/default/debug/16f876_SPI_MAX7219.X.debug.o
-btemp 7E 0 ABS 0 - dist/default/debug/16f876_SPI_MAX7219.X.debug.o
-___stack_hi 0 0 STACK 2 stack /tmp/xcXGcDcOm/driver_tmp_12.o
-___stack_lo 0 0 STACK 2 stack /tmp/xcXGcDcOm/driver_tmp_12.o
-start 0 0 CODE 0 init /tmp/xcXGcDcOm/driver_tmp_12.o
+___sp 0 0 STACK 2 stack /tmp/xcXBOePHh/driver_tmp_12.o
+_main FA4 0 CODE 0 maintext dist/default/production/16f876_SPI_MAX7219.X.production.o
+btemp 7E 0 ABS 0 - dist/default/production/16f876_SPI_MAX7219.X.production.o
+___stack_hi 0 0 STACK 2 stack /tmp/xcXBOePHh/driver_tmp_12.o
+___stack_lo 0 0 STACK 2 stack /tmp/xcXBOePHh/driver_tmp_12.o
+start 0 0 CODE 0 init /tmp/xcXBOePHh/driver_tmp_12.o
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab /tmp/xcXGcDcOm/driver_tmp_12.o
-intlevel1 0 0 ENTRY 0 functab /tmp/xcXGcDcOm/driver_tmp_12.o
-intlevel2 0 0 ENTRY 0 functab /tmp/xcXGcDcOm/driver_tmp_12.o
-intlevel3 0 0 ENTRY 0 functab /tmp/xcXGcDcOm/driver_tmp_12.o
-intlevel4 0 0 ENTRY 0 functab /tmp/xcXGcDcOm/driver_tmp_12.o
-intlevel5 0 0 ENTRY 0 functab /tmp/xcXGcDcOm/driver_tmp_12.o
-wtemp0 7E 0 ABS 0 - dist/default/debug/16f876_SPI_MAX7219.X.debug.o
+intlevel0 0 0 ENTRY 0 functab /tmp/xcXBOePHh/driver_tmp_12.o
+intlevel1 0 0 ENTRY 0 functab /tmp/xcXBOePHh/driver_tmp_12.o
+intlevel2 0 0 ENTRY 0 functab /tmp/xcXBOePHh/driver_tmp_12.o
+intlevel3 0 0 ENTRY 0 functab /tmp/xcXBOePHh/driver_tmp_12.o
+intlevel4 0 0 ENTRY 0 functab /tmp/xcXBOePHh/driver_tmp_12.o
+intlevel5 0 0 ENTRY 0 functab /tmp/xcXBOePHh/driver_tmp_12.o
+wtemp0 7E 0 ABS 0 - dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - /tmp/xcXGcDcOm/driver_tmp_12.o
-___stacklo 0 0 ABS 0 - /tmp/xcXGcDcOm/driver_tmp_12.o
-start_initialization FF8 0 CODE 0 cinit dist/default/debug/16f876_SPI_MAX7219.X.debug.o
-_SSPBUF 13 0 ABS 0 - dist/default/debug/16f876_SPI_MAX7219.X.debug.o
-_SSPCON 14 0 ABS 0 - dist/default/debug/16f876_SPI_MAX7219.X.debug.o
-___int_sp 0 0 STACK 2 stack /tmp/xcXGcDcOm/driver_tmp_12.o
+___stackhi 0 0 ABS 0 - /tmp/xcXBOePHh/driver_tmp_12.o
+___stacklo 0 0 ABS 0 - /tmp/xcXBOePHh/driver_tmp_12.o
+start_initialization FF8 0 CODE 0 cinit dist/default/production/16f876_SPI_MAX7219.X.production.o
+_SSPBUF 13 0 ABS 0 - dist/default/production/16f876_SPI_MAX7219.X.production.o
+_SSPCON 14 0 ABS 0 - dist/default/production/16f876_SPI_MAX7219.X.production.o
+___int_sp 0 0 STACK 2 stack /tmp/xcXBOePHh/driver_tmp_12.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -160,13 +160,13 @@ __Lsfr3 0 0 ABS 0 sfr3 -
 __Lsivt 0 0 CODE 0 sivt -
 __Ltext 0 0 ABS 0 text -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-_RA5 2D 0 ABS 0 - dist/default/debug/16f876_SPI_MAX7219.X.debug.o
+_RA5 2D 0 ABS 0 - dist/default/production/16f876_SPI_MAX7219.X.production.o
 __S0 800 0 ABS 0 - -
 __S1 73 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 __Lintentry 0 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec /tmp/xcXGcDcOm/driver_tmp_12.o
-__pmaintext FA4 0 CODE 0 maintext dist/default/debug/16f876_SPI_MAX7219.X.debug.o
+reset_vec 0 0 CODE 0 reset_vec /tmp/xcXBOePHh/driver_tmp_12.o
+__pmaintext FA4 0 CODE 0 maintext dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
 __Lspace_0 0 0 ABS 0 - -
@@ -176,37 +176,37 @@ __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
 __Lend_init 0 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-end_of_initialization FF8 0 CODE 0 cinit dist/default/debug/16f876_SPI_MAX7219.X.debug.o
+end_of_initialization FF8 0 CODE 0 cinit dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Hintentry 0 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
 __Hreset_vec 0 0 CODE 0 reset_vec -
-__ptext1 F96 0 CODE 0 text1 dist/default/debug/16f876_SPI_MAX7219.X.debug.o
+__ptext1 F96 0 CODE 0 text1 dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __H__absolute__ 0 0 ABS 0 __absolute__ -
 __Lreset_vec 0 0 CODE 0 reset_vec -
-___heap_hi 0 0 ABS 0 - /tmp/xcXGcDcOm/driver_tmp_12.o
-___heap_lo 0 0 ABS 0 - /tmp/xcXGcDcOm/driver_tmp_12.o
-__end_of__initialization FF8 0 CODE 0 cinit dist/default/debug/16f876_SPI_MAX7219.X.debug.o
+___heap_hi 0 0 ABS 0 - /tmp/xcXBOePHh/driver_tmp_12.o
+___heap_lo 0 0 ABS 0 - /tmp/xcXBOePHh/driver_tmp_12.o
+__end_of__initialization FF8 0 CODE 0 cinit dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
-__end_of_PortBInit FA4 0 CODE 0 text1 dist/default/debug/16f876_SPI_MAX7219.X.debug.o
+__end_of_PortBInit FA4 0 CODE 0 text1 dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext -
-__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/debug/16f876_SPI_MAX7219.X.debug.o
-_SSPSTAT 94 0 ABS 0 - dist/default/debug/16f876_SPI_MAX7219.X.debug.o
+__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production/16f876_SPI_MAX7219.X.production.o
+_SSPSTAT 94 0 ABS 0 - dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Hend_init 6 0 CODE 0 end_init -
-_PortBInit F96 0 CODE 0 text1 dist/default/debug/16f876_SPI_MAX7219.X.debug.o
-__end_of_main FF8 0 CODE 0 maintext dist/default/debug/16f876_SPI_MAX7219.X.debug.o
-_PORTA 5 0 ABS 0 - dist/default/debug/16f876_SPI_MAX7219.X.debug.o
-_PORTB 6 0 ABS 0 - dist/default/debug/16f876_SPI_MAX7219.X.debug.o
-_SSPIF 63 0 ABS 0 - dist/default/debug/16f876_SPI_MAX7219.X.debug.o
-_TRISA 85 0 ABS 0 - dist/default/debug/16f876_SPI_MAX7219.X.debug.o
-_TRISB 86 0 ABS 0 - dist/default/debug/16f876_SPI_MAX7219.X.debug.o
-_TRISC 87 0 ABS 0 - dist/default/debug/16f876_SPI_MAX7219.X.debug.o
+_PortBInit F96 0 CODE 0 text1 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__end_of_main FF8 0 CODE 0 maintext dist/default/production/16f876_SPI_MAX7219.X.production.o
+_PORTA 5 0 ABS 0 - dist/default/production/16f876_SPI_MAX7219.X.production.o
+_PORTB 6 0 ABS 0 - dist/default/production/16f876_SPI_MAX7219.X.production.o
+_SSPIF 63 0 ABS 0 - dist/default/production/16f876_SPI_MAX7219.X.production.o
+_TRISA 85 0 ABS 0 - dist/default/production/16f876_SPI_MAX7219.X.production.o
+_TRISB 86 0 ABS 0 - dist/default/production/16f876_SPI_MAX7219.X.production.o
+_TRISC 87 0 ABS 0 - dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
-__initialization FF8 0 CODE 0 cinit dist/default/debug/16f876_SPI_MAX7219.X.debug.o
-___int_stack_hi 0 0 STACK 2 stack /tmp/xcXGcDcOm/driver_tmp_12.o
-___int_stack_lo 0 0 STACK 2 stack /tmp/xcXGcDcOm/driver_tmp_12.o
+__initialization FF8 0 CODE 0 cinit dist/default/production/16f876_SPI_MAX7219.X.production.o
+___int_stack_hi 0 0 STACK 2 stack /tmp/xcXBOePHh/driver_tmp_12.o
+___int_stack_lo 0 0 STACK 2 stack /tmp/xcXBOePHh/driver_tmp_12.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.

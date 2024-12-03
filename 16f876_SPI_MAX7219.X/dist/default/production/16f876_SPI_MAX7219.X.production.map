@@ -3,11 +3,12 @@ Microchip MPLAB XC8 Compiler V2.50
 Linker command line:
 
 -W-3 --edf=/opt/microchip/xc8/v2.50/pic/dat/20240725155939_en.msgs -cn \
-  -h+dist/default/debug/16f876_SPI_MAX7219.X.debug.sym \
-  --cmf=dist/default/debug/16f876_SPI_MAX7219.X.debug.cmf -z -Q16F876 \
-  -o/tmp/xcXGcDcOm/driver_tmp_3.o --defsym=__MPLAB_BUILD=1 \
-  --fixupoverflow=error -Mdist/default/debug/16f876_SPI_MAX7219.X.debug.map \
-  --md=/tmp/xcXGcDcOm/driver_tmp_0.dat -E1 -ver=XC8 Compiler --acfsm=1493 \
+  -h+dist/default/production/16f876_SPI_MAX7219.X.production.sym \
+  --cmf=dist/default/production/16f876_SPI_MAX7219.X.production.cmf -z \
+  -Q16F876 -o/tmp/xcXBOePHh/driver_tmp_3.o --defsym=__MPLAB_BUILD=1 \
+  --fixupoverflow=error \
+  -Mdist/default/production/16f876_SPI_MAX7219.X.production.map \
+  --md=/tmp/xcXBOePHh/driver_tmp_0.dat -E1 -ver=XC8 Compiler --acfsm=1493 \
   -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 \
   -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 -ACOMMON=070h-07Fh \
   -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh -ABANK2=0110h-016Fh \
@@ -18,8 +19,8 @@ Linker command line:
   -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry,sivt,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k /tmp/xcXGcDcOm/driver_tmp_12.o \
-  dist/default/debug/16f876_SPI_MAX7219.X.debug.o 
+  -pfunctab=ENTRY -k /tmp/xcXBOePHh/driver_tmp_12.o \
+  dist/default/production/16f876_SPI_MAX7219.X.production.o 
 
 Object code version is 3.11
 
@@ -28,10 +29,10 @@ Machine type is 16F876
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcXGcDcOm/driver_tmp_12.o
+/tmp/xcXBOePHh/driver_tmp_12.o
                 end_init                              0        0        3        0       0
                 config                             2007     2007        1        0       4
-dist/default/debug/16f876_SPI_MAX7219.X.debug.o
+dist/default/production/16f876_SPI_MAX7219.X.production.o
                 cinit                               7FC      7FC        4      FF8       0
                 config                             2007     2007        1        0       4
                 text1                               7CB      7CB        7      F96       0

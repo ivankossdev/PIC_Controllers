@@ -1,4 +1,4 @@
-# 1 "portsinit.c"
+# 1 "spi.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,10 @@
 # 1 "<built-in>" 2
 # 1 "/opt/microchip/xc8/v2.50/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "portsinit.c" 2
+# 1 "spi.c" 2
+# 1 "./spi.h" 1
+
+
 # 1 "/opt/microchip/xc8/v2.50/pic/include/xc.h" 1 3
 # 18 "/opt/microchip/xc8/v2.50/pic/include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1636,7 +1639,12 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "/opt/microchip/xc8/v2.50/pic/include/xc.h" 2 3
-# 2 "portsinit.c" 2
+# 3 "./spi.h" 2
+
+# 1 "./settings.h" 1
+
+
+
 # 1 "./portsinit.h" 1
 
 
@@ -1644,9 +1652,60 @@ extern __bank0 __bit __timeout;
 void PortBInit(void);
 void PortAInit(void);
 void PortCInit(void);
-# 3 "portsinit.c" 2
-# 13 "portsinit.c"
-void PortBInit(void){
-    TRISB = 0x00;
-    PORTB = 0x00;
+# 5 "./settings.h" 2
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config CP = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+# 4 "./spi.h" 2
+
+void spi_init(void);
+void send_byte_spi(char data);
+void send_spi(char rg, char dt );
+void MATR_7219_init(void);
+void clrf (void);
+# 1 "spi.c" 2
+# 10 "spi.c"
+void spi_init() {
+
+    TRISC |= 0x10;
+    TRISC &= ~0x28;
+    TRISA &= ~0x20;
+    PORTA &= ~0x20;
+    SSPCON = 0x30;
+    SSPSTAT = 0x80;
+}
+
+void send_byte_spi(char data) {
+    SSPBUF = data;
+    while (!SSPIF);
+    SSPIF = 0;
+}
+
+void send_spi(char rg, char dt) {
+    RA5 = 0;
+    send_byte_spi(rg);
+    send_byte_spi(dt);
+    RA5 = 1;
+}
+void clrf (void)
+{
+  char i=8;
+  do
+  {
+    send_spi(i,0x00);
+  } while (--i);
+}
+void MATR_7219_init() {
+    _delay((unsigned long)((100)*(16000000/4000.0)));
+    RA5=1;
+    send_spi(0x09, 0x00);
+    send_spi(0x0b, 0x07);
+    send_spi(0x0A, 0x02);
+    send_spi(0x0c, 0x01);
+    clrf();
 }

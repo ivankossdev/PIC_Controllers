@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.50 build 20240725155939 
-                                                                                               Tue Dec  3 17:22:21 2024
+                                                                                               Tue Dec  3 17:25:14 2024
 
 Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1 
      1                           	processor	16F876
@@ -365,8 +365,8 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    351     07D2  120A  118A  27CB  120A  118A  	fcall	_PortBInit
    352     07D7                     l621:
    353                           
-   354                           ;main.c: 11:         PORTB = 0b00000111;
-   355     07D7  3007               	movlw	7
+   354                           ;main.c: 11:         PORTB = 0b00011111;
+   355     07D7  301F               	movlw	31
    356     07D8  1283               	bcf	3,5	;RP0=0, select bank0
    357     07D9  1303               	bcf	3,6	;RP1=0, select bank0
    358     07DA  0086               	movwf	6	;volatile
@@ -569,7 +569,7 @@ DATA                 0      0       3      0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.50 build 20240725155939 
-Symbol Table                                                                                   Tue Dec  3 17:22:21 2024
+Symbol Table                                                                                   Tue Dec  3 17:25:14 2024
 
                      l21 07D1                       u37 07E1                       u47 07F1  
                     l611 07CB                      l621 07D7                      l623 07DB  

@@ -1,4 +1,4 @@
-# 1 "portsinit.c"
+# 1 "main.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "/opt/microchip/xc8/v2.50/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "portsinit.c" 2
+# 1 "main.c" 2
 # 1 "/opt/microchip/xc8/v2.50/pic/include/xc.h" 1 3
 # 18 "/opt/microchip/xc8/v2.50/pic/include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1636,7 +1636,11 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "/opt/microchip/xc8/v2.50/pic/include/xc.h" 2 3
-# 2 "portsinit.c" 2
+# 2 "main.c" 2
+# 1 "./settings.h" 1
+
+
+
 # 1 "./portsinit.h" 1
 
 
@@ -1644,9 +1648,39 @@ extern __bank0 __bit __timeout;
 void PortBInit(void);
 void PortAInit(void);
 void PortCInit(void);
-# 3 "portsinit.c" 2
-# 13 "portsinit.c"
-void PortBInit(void){
-    TRISB = 0x00;
-    PORTB = 0x00;
+# 5 "./settings.h" 2
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config CP = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+# 3 "main.c" 2
+# 1 "./spi.h" 1
+
+
+
+
+void spi_init(void);
+void send_byte_spi(char data);
+void send_spi(char rg, char dt );
+void MATR_7219_init(void);
+void clrf (void);
+# 4 "main.c" 2
+
+void main(void) {
+
+
+    PortBInit();
+
+    while(1){
+        PORTB = 0b00011111;
+        _delay((unsigned long)((1000)*(16000000/4000.0)));
+        PORTB = 0x00;
+        _delay((unsigned long)((1000)*(16000000/4000.0)));
+    }
+
+    return;
 }

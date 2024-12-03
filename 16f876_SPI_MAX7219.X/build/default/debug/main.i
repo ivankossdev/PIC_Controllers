@@ -1658,12 +1658,29 @@ void PortCInit(void);
 #pragma config CPD = OFF
 #pragma config WRT = OFF
 # 3 "main.c" 2
+# 1 "./spi.h" 1
+
+
+
+
+void spi_init(void);
+void send_byte_spi(char data);
+void send_spi(char rg, char dt );
+void MATR_7219_init(void);
+void clrf (void);
+# 4 "main.c" 2
 
 void main(void) {
-    PortAInit();
-    PortBInit();
-    while(1){
 
+
+    PortBInit();
+
+    while(1){
+        PORTB = 0b00000111;
+        _delay((unsigned long)((1000)*(16000000/4000.0)));
+        PORTB = 0x00;
+        _delay((unsigned long)((1000)*(16000000/4000.0)));
     }
+
     return;
 }

@@ -120,8 +120,8 @@ cstackCOMMON 70 72 COMMON 70 1
 maintext FA4 FF7 CODE FA4 0
 text1 F96 FA3 CODE F96 0
 %locals
-dist/default/debug/16f876_SPI_MAX7219.X.debug.o
-/tmp/xcXGcDcOm/driver_tmp_1.s
+dist/default/production/16f876_SPI_MAX7219.X.production.o
+/tmp/xcXBOePHh/driver_tmp_1.s
 561 7FC 0 CODE 0
 564 7FC 0 CODE 0
 570 7FC 0 CODE 0
