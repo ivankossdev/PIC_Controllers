@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.50 build 20240725155939 
-                                                                                               Tue Dec  3 17:22:21 2024
+                                                                                               Wed Dec  4 13:01:45 2024
 
 Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1 
      1                           	processor	16F876
@@ -11,487 +11,869 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
      5                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
      6                           	psect	maintext,global,class=CODE,space=0,split=1,delta=2
      7                           	psect	text1,local,class=CODE,space=0,merge=1,delta=2
-     8                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
-     9                           	dabs	1,0x7E,2
-    10     0000                     
-    11                           ; Generated 12/10/2023 GMT
-    12                           ; 
-    13                           ; Copyright © 2023, Microchip Technology Inc. and its subsidiaries ("Microchip")
-    14                           ; All rights reserved.
-    15                           ; 
-    16                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
-      +                          ip").
+     8                           	psect	text2,local,class=CODE,space=0,merge=1,delta=2
+     9                           	psect	text3,local,class=CODE,space=0,merge=1,delta=2
+    10                           	psect	text4,local,class=CODE,space=0,merge=1,delta=2
+    11                           	psect	text5,local,class=CODE,space=0,merge=1,delta=2
+    12                           	psect	text6,local,class=CODE,space=0,merge=1,delta=2
+    13                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    14                           	dabs	1,0x7E,2
+    15     0000                     
+    16                           ; Generated 12/10/2023 GMT
     17                           ; 
-    18                           ; Redistribution and use in source and binary forms, with or without modification, are
-    19                           ; permitted provided that the following conditions are met:
+    18                           ; Copyright © 2023, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    19                           ; All rights reserved.
     20                           ; 
-    21                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+    21                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    22                           ; 
+    23                           ; Redistribution and use in source and binary forms, with or without modification, are
+    24                           ; permitted provided that the following conditions are met:
+    25                           ; 
+    26                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
       +                          t of
-    22                           ;        conditions and the following disclaimer.
-    23                           ; 
-    24                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
-      +                          list
-    25                           ;        of conditions and the following disclaimer in the documentation and/or other
-    26                           ;        materials provided with the distribution. Publication is not required when
-    27                           ;        this file is used in an embedded application.
+    27                           ;        conditions and the following disclaimer.
     28                           ; 
-    29                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+    29                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    30                           ;        of conditions and the following disclaimer in the documentation and/or other
+    31                           ;        materials provided with the distribution. Publication is not required when
+    32                           ;        this file is used in an embedded application.
+    33                           ; 
+    34                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
       +                          is
-    30                           ;        software without specific prior written permission.
-    31                           ; 
-    32                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-    33                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+    35                           ;        software without specific prior written permission.
+    36                           ; 
+    37                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    38                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
       +                          OR
-    34                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+    39                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
       +                          T,
-    35                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
-    36                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
-    37                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+    40                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    41                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    42                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
       +                          RICT
-    38                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+    43                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
       +                          SE OF
-    39                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-    40                           ; 
-    41                           ; 
-    42                           ; Code-generator required, PIC16F876 Definitions
-    43                           ; 
-    44                           ; SFR Addresses
-    45     0004                     fsr             equ	4
-    46     0004                     fsr0            equ	4
-    47     0000                     indf            equ	0
-    48     0000                     indf0           equ	0
-    49     0002                     pc              equ	2
-    50     0002                     pcl             equ	2
-    51     000A                     pclath          equ	10
-    52     0003                     status          equ	3
-    53     0000                     INDF            equ	0	;# 
-    54     0001                     TMR0            equ	1	;# 
-    55     0002                     PCL             equ	2	;# 
-    56     0003                     STATUS          equ	3	;# 
-    57     0004                     FSR             equ	4	;# 
-    58     0005                     PORTA           equ	5	;# 
-    59     0006                     PORTB           equ	6	;# 
-    60     0007                     PORTC           equ	7	;# 
-    61     000A                     PCLATH          equ	10	;# 
-    62     000B                     INTCON          equ	11	;# 
-    63     000C                     PIR1            equ	12	;# 
-    64     000D                     PIR2            equ	13	;# 
-    65     000E                     TMR1            equ	14	;# 
-    66     000E                     TMR1L           equ	14	;# 
-    67     000F                     TMR1H           equ	15	;# 
-    68     0010                     T1CON           equ	16	;# 
-    69     0011                     TMR2            equ	17	;# 
-    70     0012                     T2CON           equ	18	;# 
-    71     0013                     SSPBUF          equ	19	;# 
-    72     0014                     SSPCON          equ	20	;# 
-    73     0015                     CCPR1           equ	21	;# 
-    74     0015                     CCPR1L          equ	21	;# 
-    75     0016                     CCPR1H          equ	22	;# 
-    76     0017                     CCP1CON         equ	23	;# 
-    77     0018                     RCSTA           equ	24	;# 
-    78     0019                     TXREG           equ	25	;# 
-    79     001A                     RCREG           equ	26	;# 
-    80     001B                     CCPR2           equ	27	;# 
-    81     001B                     CCPR2L          equ	27	;# 
-    82     001C                     CCPR2H          equ	28	;# 
-    83     001D                     CCP2CON         equ	29	;# 
-    84     001E                     ADRESH          equ	30	;# 
-    85     001F                     ADCON0          equ	31	;# 
-    86     0081                     OPTION_REG      equ	129	;# 
-    87     0085                     TRISA           equ	133	;# 
-    88     0086                     TRISB           equ	134	;# 
-    89     0087                     TRISC           equ	135	;# 
-    90     008C                     PIE1            equ	140	;# 
-    91     008D                     PIE2            equ	141	;# 
-    92     008E                     PCON            equ	142	;# 
-    93     0091                     SSPCON2         equ	145	;# 
-    94     0092                     PR2             equ	146	;# 
-    95     0093                     SSPADD          equ	147	;# 
-    96     0094                     SSPSTAT         equ	148	;# 
-    97     0098                     TXSTA           equ	152	;# 
-    98     0099                     SPBRG           equ	153	;# 
-    99     009E                     ADRESL          equ	158	;# 
-   100     009F                     ADCON1          equ	159	;# 
-   101     010C                     EEDATA          equ	268	;# 
-   102     010D                     EEADR           equ	269	;# 
-   103     010E                     EEDATH          equ	270	;# 
-   104     010F                     EEADRH          equ	271	;# 
-   105     018C                     EECON1          equ	396	;# 
-   106     018D                     EECON2          equ	397	;# 
-   107     0000                     INDF            equ	0	;# 
-   108     0001                     TMR0            equ	1	;# 
-   109     0002                     PCL             equ	2	;# 
-   110     0003                     STATUS          equ	3	;# 
-   111     0004                     FSR             equ	4	;# 
-   112     0005                     PORTA           equ	5	;# 
-   113     0006                     PORTB           equ	6	;# 
-   114     0007                     PORTC           equ	7	;# 
-   115     000A                     PCLATH          equ	10	;# 
-   116     000B                     INTCON          equ	11	;# 
-   117     000C                     PIR1            equ	12	;# 
-   118     000D                     PIR2            equ	13	;# 
-   119     000E                     TMR1            equ	14	;# 
-   120     000E                     TMR1L           equ	14	;# 
-   121     000F                     TMR1H           equ	15	;# 
-   122     0010                     T1CON           equ	16	;# 
-   123     0011                     TMR2            equ	17	;# 
-   124     0012                     T2CON           equ	18	;# 
-   125     0013                     SSPBUF          equ	19	;# 
-   126     0014                     SSPCON          equ	20	;# 
-   127     0015                     CCPR1           equ	21	;# 
-   128     0015                     CCPR1L          equ	21	;# 
-   129     0016                     CCPR1H          equ	22	;# 
-   130     0017                     CCP1CON         equ	23	;# 
-   131     0018                     RCSTA           equ	24	;# 
-   132     0019                     TXREG           equ	25	;# 
-   133     001A                     RCREG           equ	26	;# 
-   134     001B                     CCPR2           equ	27	;# 
-   135     001B                     CCPR2L          equ	27	;# 
-   136     001C                     CCPR2H          equ	28	;# 
-   137     001D                     CCP2CON         equ	29	;# 
-   138     001E                     ADRESH          equ	30	;# 
-   139     001F                     ADCON0          equ	31	;# 
-   140     0081                     OPTION_REG      equ	129	;# 
-   141     0085                     TRISA           equ	133	;# 
-   142     0086                     TRISB           equ	134	;# 
-   143     0087                     TRISC           equ	135	;# 
-   144     008C                     PIE1            equ	140	;# 
-   145     008D                     PIE2            equ	141	;# 
-   146     008E                     PCON            equ	142	;# 
-   147     0091                     SSPCON2         equ	145	;# 
-   148     0092                     PR2             equ	146	;# 
-   149     0093                     SSPADD          equ	147	;# 
-   150     0094                     SSPSTAT         equ	148	;# 
-   151     0098                     TXSTA           equ	152	;# 
-   152     0099                     SPBRG           equ	153	;# 
-   153     009E                     ADRESL          equ	158	;# 
-   154     009F                     ADCON1          equ	159	;# 
-   155     010C                     EEDATA          equ	268	;# 
-   156     010D                     EEADR           equ	269	;# 
-   157     010E                     EEDATH          equ	270	;# 
-   158     010F                     EEADRH          equ	271	;# 
-   159     018C                     EECON1          equ	396	;# 
-   160     018D                     EECON2          equ	397	;# 
-   161     0000                     INDF            equ	0	;# 
-   162     0001                     TMR0            equ	1	;# 
-   163     0002                     PCL             equ	2	;# 
-   164     0003                     STATUS          equ	3	;# 
-   165     0004                     FSR             equ	4	;# 
-   166     0005                     PORTA           equ	5	;# 
-   167     0006                     PORTB           equ	6	;# 
-   168     0007                     PORTC           equ	7	;# 
-   169     000A                     PCLATH          equ	10	;# 
-   170     000B                     INTCON          equ	11	;# 
-   171     000C                     PIR1            equ	12	;# 
-   172     000D                     PIR2            equ	13	;# 
-   173     000E                     TMR1            equ	14	;# 
-   174     000E                     TMR1L           equ	14	;# 
-   175     000F                     TMR1H           equ	15	;# 
-   176     0010                     T1CON           equ	16	;# 
-   177     0011                     TMR2            equ	17	;# 
-   178     0012                     T2CON           equ	18	;# 
-   179     0013                     SSPBUF          equ	19	;# 
-   180     0014                     SSPCON          equ	20	;# 
-   181     0015                     CCPR1           equ	21	;# 
-   182     0015                     CCPR1L          equ	21	;# 
-   183     0016                     CCPR1H          equ	22	;# 
-   184     0017                     CCP1CON         equ	23	;# 
-   185     0018                     RCSTA           equ	24	;# 
-   186     0019                     TXREG           equ	25	;# 
-   187     001A                     RCREG           equ	26	;# 
-   188     001B                     CCPR2           equ	27	;# 
-   189     001B                     CCPR2L          equ	27	;# 
-   190     001C                     CCPR2H          equ	28	;# 
-   191     001D                     CCP2CON         equ	29	;# 
-   192     001E                     ADRESH          equ	30	;# 
-   193     001F                     ADCON0          equ	31	;# 
-   194     0081                     OPTION_REG      equ	129	;# 
-   195     0085                     TRISA           equ	133	;# 
-   196     0086                     TRISB           equ	134	;# 
-   197     0087                     TRISC           equ	135	;# 
-   198     008C                     PIE1            equ	140	;# 
-   199     008D                     PIE2            equ	141	;# 
-   200     008E                     PCON            equ	142	;# 
-   201     0091                     SSPCON2         equ	145	;# 
-   202     0092                     PR2             equ	146	;# 
-   203     0093                     SSPADD          equ	147	;# 
-   204     0094                     SSPSTAT         equ	148	;# 
-   205     0098                     TXSTA           equ	152	;# 
-   206     0099                     SPBRG           equ	153	;# 
-   207     009E                     ADRESL          equ	158	;# 
-   208     009F                     ADCON1          equ	159	;# 
-   209     010C                     EEDATA          equ	268	;# 
-   210     010D                     EEADR           equ	269	;# 
-   211     010E                     EEDATH          equ	270	;# 
-   212     010F                     EEADRH          equ	271	;# 
-   213     018C                     EECON1          equ	396	;# 
-   214     018D                     EECON2          equ	397	;# 
-   215     0000                     INDF            equ	0	;# 
-   216     0001                     TMR0            equ	1	;# 
-   217     0002                     PCL             equ	2	;# 
-   218     0003                     STATUS          equ	3	;# 
-   219     0004                     FSR             equ	4	;# 
-   220     0005                     PORTA           equ	5	;# 
-   221     0006                     PORTB           equ	6	;# 
-   222     0007                     PORTC           equ	7	;# 
-   223     000A                     PCLATH          equ	10	;# 
-   224     000B                     INTCON          equ	11	;# 
-   225     000C                     PIR1            equ	12	;# 
-   226     000D                     PIR2            equ	13	;# 
-   227     000E                     TMR1            equ	14	;# 
-   228     000E                     TMR1L           equ	14	;# 
-   229     000F                     TMR1H           equ	15	;# 
-   230     0010                     T1CON           equ	16	;# 
-   231     0011                     TMR2            equ	17	;# 
-   232     0012                     T2CON           equ	18	;# 
-   233     0013                     SSPBUF          equ	19	;# 
-   234     0014                     SSPCON          equ	20	;# 
-   235     0015                     CCPR1           equ	21	;# 
-   236     0015                     CCPR1L          equ	21	;# 
-   237     0016                     CCPR1H          equ	22	;# 
-   238     0017                     CCP1CON         equ	23	;# 
-   239     0018                     RCSTA           equ	24	;# 
-   240     0019                     TXREG           equ	25	;# 
-   241     001A                     RCREG           equ	26	;# 
-   242     001B                     CCPR2           equ	27	;# 
-   243     001B                     CCPR2L          equ	27	;# 
-   244     001C                     CCPR2H          equ	28	;# 
-   245     001D                     CCP2CON         equ	29	;# 
-   246     001E                     ADRESH          equ	30	;# 
-   247     001F                     ADCON0          equ	31	;# 
-   248     0081                     OPTION_REG      equ	129	;# 
-   249     0085                     TRISA           equ	133	;# 
-   250     0086                     TRISB           equ	134	;# 
-   251     0087                     TRISC           equ	135	;# 
-   252     008C                     PIE1            equ	140	;# 
-   253     008D                     PIE2            equ	141	;# 
-   254     008E                     PCON            equ	142	;# 
-   255     0091                     SSPCON2         equ	145	;# 
-   256     0092                     PR2             equ	146	;# 
-   257     0093                     SSPADD          equ	147	;# 
-   258     0094                     SSPSTAT         equ	148	;# 
-   259     0098                     TXSTA           equ	152	;# 
-   260     0099                     SPBRG           equ	153	;# 
-   261     009E                     ADRESL          equ	158	;# 
-   262     009F                     ADCON1          equ	159	;# 
-   263     010C                     EEDATA          equ	268	;# 
-   264     010D                     EEADR           equ	269	;# 
-   265     010E                     EEDATH          equ	270	;# 
-   266     010F                     EEADRH          equ	271	;# 
-   267     018C                     EECON1          equ	396	;# 
-   268     018D                     EECON2          equ	397	;# 
-   269     0013                     _SSPBUF         set	19
-   270     0014                     _SSPCON         set	20
-   271     0005                     _PORTA          set	5
-   272     0006                     _PORTB          set	6
-   273     002D                     _RA5            set	45
-   274     0063                     _SSPIF          set	99
-   275     0094                     _SSPSTAT        set	148
-   276     0085                     _TRISA          set	133
-   277     0087                     _TRISC          set	135
-   278     0086                     _TRISB          set	134
-   279                           
-   280                           	psect	cinit
-   281     07FC                     start_initialization:	
-   282                           ; #config settings
-   283                           
-   284     07FC                     __initialization:
-   285     07FC                     end_of_initialization:	
-   286                           ;End of C runtime variable initialization code
-   287                           
-   288     07FC                     __end_of__initialization:
-   289     07FC  0183               	clrf	3
-   290     07FD  120A  118A  2FD2   	ljmp	_main	;jump to C main() function
-   291                           
-   292                           	psect	cstackCOMMON
-   293     0070                     __pcstackCOMMON:
-   294     0070                     ?_PortBInit:
-   295     0070                     ?_main:	
-   296                           ; 1 bytes @ 0x0
-   297                           
-   298     0070                     ??_PortBInit:	
-   299                           ; 1 bytes @ 0x0
-   300                           
-   301     0070                     ??_main:	
-   302                           ; 1 bytes @ 0x0
-   303                           
-   304                           
-   305                           ; 1 bytes @ 0x0
-   306     0070                     	ds	3
-   307                           
-   308                           	psect	maintext
-   309     07D2                     __pmaintext:	
-   310 ;;
-   311 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
-   312 ;;
-   313 ;; *************** function _main *****************
-   314 ;; Defined at:
-   315 ;;		line 5 in file "main.c"
-   316 ;; Parameters:    Size  Location     Type
-   317 ;;		None
-   318 ;; Auto vars:     Size  Location     Type
-   319 ;;		None
-   320 ;; Return value:  Size  Location     Type
-   321 ;;                  1    wreg      void 
-   322 ;; Registers used:
-   323 ;;		wreg, status,2, status,0, pclath, cstack
-   324 ;; Tracked objects:
-   325 ;;		On entry : B00/0
-   326 ;;		On exit  : 0/0
-   327 ;;		Unchanged: 0/0
-   328 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   329 ;;      Params:         0       0       0       0       0
-   330 ;;      Locals:         0       0       0       0       0
-   331 ;;      Temps:          3       0       0       0       0
-   332 ;;      Totals:         3       0       0       0       0
-   333 ;;Total ram usage:        3 bytes
-   334 ;; Hardware stack levels required when called: 1
-   335 ;; This function calls:
-   336 ;;		_PortBInit
-   337 ;; This function is called by:
-   338 ;;		Startup code after reset
-   339 ;; This function uses a non-reentrant model
-   340 ;;
+    44                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    45                           ; 
+    46                           ; 
+    47                           ; Code-generator required, PIC16F876 Definitions
+    48                           ; 
+    49                           ; SFR Addresses
+    50     0004                     fsr             equ	4
+    51     0004                     fsr0            equ	4
+    52     0000                     indf            equ	0
+    53     0000                     indf0           equ	0
+    54     0002                     pc              equ	2
+    55     0002                     pcl             equ	2
+    56     000A                     pclath          equ	10
+    57     0003                     status          equ	3
+    58     0000                     INDF            equ	0	;# 
+    59     0001                     TMR0            equ	1	;# 
+    60     0002                     PCL             equ	2	;# 
+    61     0003                     STATUS          equ	3	;# 
+    62     0004                     FSR             equ	4	;# 
+    63     0005                     PORTA           equ	5	;# 
+    64     0006                     PORTB           equ	6	;# 
+    65     0007                     PORTC           equ	7	;# 
+    66     000A                     PCLATH          equ	10	;# 
+    67     000B                     INTCON          equ	11	;# 
+    68     000C                     PIR1            equ	12	;# 
+    69     000D                     PIR2            equ	13	;# 
+    70     000E                     TMR1            equ	14	;# 
+    71     000E                     TMR1L           equ	14	;# 
+    72     000F                     TMR1H           equ	15	;# 
+    73     0010                     T1CON           equ	16	;# 
+    74     0011                     TMR2            equ	17	;# 
+    75     0012                     T2CON           equ	18	;# 
+    76     0013                     SSPBUF          equ	19	;# 
+    77     0014                     SSPCON          equ	20	;# 
+    78     0015                     CCPR1           equ	21	;# 
+    79     0015                     CCPR1L          equ	21	;# 
+    80     0016                     CCPR1H          equ	22	;# 
+    81     0017                     CCP1CON         equ	23	;# 
+    82     0018                     RCSTA           equ	24	;# 
+    83     0019                     TXREG           equ	25	;# 
+    84     001A                     RCREG           equ	26	;# 
+    85     001B                     CCPR2           equ	27	;# 
+    86     001B                     CCPR2L          equ	27	;# 
+    87     001C                     CCPR2H          equ	28	;# 
+    88     001D                     CCP2CON         equ	29	;# 
+    89     001E                     ADRESH          equ	30	;# 
+    90     001F                     ADCON0          equ	31	;# 
+    91     0081                     OPTION_REG      equ	129	;# 
+    92     0085                     TRISA           equ	133	;# 
+    93     0086                     TRISB           equ	134	;# 
+    94     0087                     TRISC           equ	135	;# 
+    95     008C                     PIE1            equ	140	;# 
+    96     008D                     PIE2            equ	141	;# 
+    97     008E                     PCON            equ	142	;# 
+    98     0091                     SSPCON2         equ	145	;# 
+    99     0092                     PR2             equ	146	;# 
+   100     0093                     SSPADD          equ	147	;# 
+   101     0094                     SSPSTAT         equ	148	;# 
+   102     0098                     TXSTA           equ	152	;# 
+   103     0099                     SPBRG           equ	153	;# 
+   104     009E                     ADRESL          equ	158	;# 
+   105     009F                     ADCON1          equ	159	;# 
+   106     010C                     EEDATA          equ	268	;# 
+   107     010D                     EEADR           equ	269	;# 
+   108     010E                     EEDATH          equ	270	;# 
+   109     010F                     EEADRH          equ	271	;# 
+   110     018C                     EECON1          equ	396	;# 
+   111     018D                     EECON2          equ	397	;# 
+   112     0000                     INDF            equ	0	;# 
+   113     0001                     TMR0            equ	1	;# 
+   114     0002                     PCL             equ	2	;# 
+   115     0003                     STATUS          equ	3	;# 
+   116     0004                     FSR             equ	4	;# 
+   117     0005                     PORTA           equ	5	;# 
+   118     0006                     PORTB           equ	6	;# 
+   119     0007                     PORTC           equ	7	;# 
+   120     000A                     PCLATH          equ	10	;# 
+   121     000B                     INTCON          equ	11	;# 
+   122     000C                     PIR1            equ	12	;# 
+   123     000D                     PIR2            equ	13	;# 
+   124     000E                     TMR1            equ	14	;# 
+   125     000E                     TMR1L           equ	14	;# 
+   126     000F                     TMR1H           equ	15	;# 
+   127     0010                     T1CON           equ	16	;# 
+   128     0011                     TMR2            equ	17	;# 
+   129     0012                     T2CON           equ	18	;# 
+   130     0013                     SSPBUF          equ	19	;# 
+   131     0014                     SSPCON          equ	20	;# 
+   132     0015                     CCPR1           equ	21	;# 
+   133     0015                     CCPR1L          equ	21	;# 
+   134     0016                     CCPR1H          equ	22	;# 
+   135     0017                     CCP1CON         equ	23	;# 
+   136     0018                     RCSTA           equ	24	;# 
+   137     0019                     TXREG           equ	25	;# 
+   138     001A                     RCREG           equ	26	;# 
+   139     001B                     CCPR2           equ	27	;# 
+   140     001B                     CCPR2L          equ	27	;# 
+   141     001C                     CCPR2H          equ	28	;# 
+   142     001D                     CCP2CON         equ	29	;# 
+   143     001E                     ADRESH          equ	30	;# 
+   144     001F                     ADCON0          equ	31	;# 
+   145     0081                     OPTION_REG      equ	129	;# 
+   146     0085                     TRISA           equ	133	;# 
+   147     0086                     TRISB           equ	134	;# 
+   148     0087                     TRISC           equ	135	;# 
+   149     008C                     PIE1            equ	140	;# 
+   150     008D                     PIE2            equ	141	;# 
+   151     008E                     PCON            equ	142	;# 
+   152     0091                     SSPCON2         equ	145	;# 
+   153     0092                     PR2             equ	146	;# 
+   154     0093                     SSPADD          equ	147	;# 
+   155     0094                     SSPSTAT         equ	148	;# 
+   156     0098                     TXSTA           equ	152	;# 
+   157     0099                     SPBRG           equ	153	;# 
+   158     009E                     ADRESL          equ	158	;# 
+   159     009F                     ADCON1          equ	159	;# 
+   160     010C                     EEDATA          equ	268	;# 
+   161     010D                     EEADR           equ	269	;# 
+   162     010E                     EEDATH          equ	270	;# 
+   163     010F                     EEADRH          equ	271	;# 
+   164     018C                     EECON1          equ	396	;# 
+   165     018D                     EECON2          equ	397	;# 
+   166     0000                     INDF            equ	0	;# 
+   167     0001                     TMR0            equ	1	;# 
+   168     0002                     PCL             equ	2	;# 
+   169     0003                     STATUS          equ	3	;# 
+   170     0004                     FSR             equ	4	;# 
+   171     0005                     PORTA           equ	5	;# 
+   172     0006                     PORTB           equ	6	;# 
+   173     0007                     PORTC           equ	7	;# 
+   174     000A                     PCLATH          equ	10	;# 
+   175     000B                     INTCON          equ	11	;# 
+   176     000C                     PIR1            equ	12	;# 
+   177     000D                     PIR2            equ	13	;# 
+   178     000E                     TMR1            equ	14	;# 
+   179     000E                     TMR1L           equ	14	;# 
+   180     000F                     TMR1H           equ	15	;# 
+   181     0010                     T1CON           equ	16	;# 
+   182     0011                     TMR2            equ	17	;# 
+   183     0012                     T2CON           equ	18	;# 
+   184     0013                     SSPBUF          equ	19	;# 
+   185     0014                     SSPCON          equ	20	;# 
+   186     0015                     CCPR1           equ	21	;# 
+   187     0015                     CCPR1L          equ	21	;# 
+   188     0016                     CCPR1H          equ	22	;# 
+   189     0017                     CCP1CON         equ	23	;# 
+   190     0018                     RCSTA           equ	24	;# 
+   191     0019                     TXREG           equ	25	;# 
+   192     001A                     RCREG           equ	26	;# 
+   193     001B                     CCPR2           equ	27	;# 
+   194     001B                     CCPR2L          equ	27	;# 
+   195     001C                     CCPR2H          equ	28	;# 
+   196     001D                     CCP2CON         equ	29	;# 
+   197     001E                     ADRESH          equ	30	;# 
+   198     001F                     ADCON0          equ	31	;# 
+   199     0081                     OPTION_REG      equ	129	;# 
+   200     0085                     TRISA           equ	133	;# 
+   201     0086                     TRISB           equ	134	;# 
+   202     0087                     TRISC           equ	135	;# 
+   203     008C                     PIE1            equ	140	;# 
+   204     008D                     PIE2            equ	141	;# 
+   205     008E                     PCON            equ	142	;# 
+   206     0091                     SSPCON2         equ	145	;# 
+   207     0092                     PR2             equ	146	;# 
+   208     0093                     SSPADD          equ	147	;# 
+   209     0094                     SSPSTAT         equ	148	;# 
+   210     0098                     TXSTA           equ	152	;# 
+   211     0099                     SPBRG           equ	153	;# 
+   212     009E                     ADRESL          equ	158	;# 
+   213     009F                     ADCON1          equ	159	;# 
+   214     010C                     EEDATA          equ	268	;# 
+   215     010D                     EEADR           equ	269	;# 
+   216     010E                     EEDATH          equ	270	;# 
+   217     010F                     EEADRH          equ	271	;# 
+   218     018C                     EECON1          equ	396	;# 
+   219     018D                     EECON2          equ	397	;# 
+   220     0000                     INDF            equ	0	;# 
+   221     0001                     TMR0            equ	1	;# 
+   222     0002                     PCL             equ	2	;# 
+   223     0003                     STATUS          equ	3	;# 
+   224     0004                     FSR             equ	4	;# 
+   225     0005                     PORTA           equ	5	;# 
+   226     0006                     PORTB           equ	6	;# 
+   227     0007                     PORTC           equ	7	;# 
+   228     000A                     PCLATH          equ	10	;# 
+   229     000B                     INTCON          equ	11	;# 
+   230     000C                     PIR1            equ	12	;# 
+   231     000D                     PIR2            equ	13	;# 
+   232     000E                     TMR1            equ	14	;# 
+   233     000E                     TMR1L           equ	14	;# 
+   234     000F                     TMR1H           equ	15	;# 
+   235     0010                     T1CON           equ	16	;# 
+   236     0011                     TMR2            equ	17	;# 
+   237     0012                     T2CON           equ	18	;# 
+   238     0013                     SSPBUF          equ	19	;# 
+   239     0014                     SSPCON          equ	20	;# 
+   240     0015                     CCPR1           equ	21	;# 
+   241     0015                     CCPR1L          equ	21	;# 
+   242     0016                     CCPR1H          equ	22	;# 
+   243     0017                     CCP1CON         equ	23	;# 
+   244     0018                     RCSTA           equ	24	;# 
+   245     0019                     TXREG           equ	25	;# 
+   246     001A                     RCREG           equ	26	;# 
+   247     001B                     CCPR2           equ	27	;# 
+   248     001B                     CCPR2L          equ	27	;# 
+   249     001C                     CCPR2H          equ	28	;# 
+   250     001D                     CCP2CON         equ	29	;# 
+   251     001E                     ADRESH          equ	30	;# 
+   252     001F                     ADCON0          equ	31	;# 
+   253     0081                     OPTION_REG      equ	129	;# 
+   254     0085                     TRISA           equ	133	;# 
+   255     0086                     TRISB           equ	134	;# 
+   256     0087                     TRISC           equ	135	;# 
+   257     008C                     PIE1            equ	140	;# 
+   258     008D                     PIE2            equ	141	;# 
+   259     008E                     PCON            equ	142	;# 
+   260     0091                     SSPCON2         equ	145	;# 
+   261     0092                     PR2             equ	146	;# 
+   262     0093                     SSPADD          equ	147	;# 
+   263     0094                     SSPSTAT         equ	148	;# 
+   264     0098                     TXSTA           equ	152	;# 
+   265     0099                     SPBRG           equ	153	;# 
+   266     009E                     ADRESL          equ	158	;# 
+   267     009F                     ADCON1          equ	159	;# 
+   268     010C                     EEDATA          equ	268	;# 
+   269     010D                     EEADR           equ	269	;# 
+   270     010E                     EEDATH          equ	270	;# 
+   271     010F                     EEADRH          equ	271	;# 
+   272     018C                     EECON1          equ	396	;# 
+   273     018D                     EECON2          equ	397	;# 
+   274     0013                     _SSPBUF         set	19
+   275     0014                     _SSPCON         set	20
+   276     0005                     _PORTA          set	5
+   277     0006                     _PORTB          set	6
+   278     002D                     _RA5            set	45
+   279     0063                     _SSPIF          set	99
+   280     0094                     _SSPSTAT        set	148
+   281     0085                     _TRISA          set	133
+   282     0087                     _TRISC          set	135
+   283     0086                     _TRISB          set	134
+   284                           
+   285                           	psect	cinit
+   286     07FC                     start_initialization:	
+   287                           ; #config settings
+   288                           
+   289     07FC                     __initialization:
+   290     07FC                     end_of_initialization:	
+   291                           ;End of C runtime variable initialization code
+   292                           
+   293     07FC                     __end_of__initialization:
+   294     07FC  0183               	clrf	3
+   295     07FD  120A  118A  2FA1   	ljmp	_main	;jump to C main() function
+   296                           
+   297                           	psect	cstackCOMMON
+   298     0071                     __pcstackCOMMON:
+   299     0071                     ?_SpiInit:
+   300     0071                     ?_MATR_7219_init:	
+   301                           ; 1 bytes @ 0x0
+   302                           
+   303     0071                     ?_PortBInit:	
+   304                           ; 1 bytes @ 0x0
+   305                           
+   306     0071                     ?_main:	
+   307                           ; 1 bytes @ 0x0
+   308                           
+   309     0071                     ?_SpiSendByte:	
+   310                           ; 1 bytes @ 0x0
+   311                           
+   312     0071                     ?_SpiClearMatrix:	
+   313                           ; 1 bytes @ 0x0
+   314                           
+   315     0071                     SpiSendByte@data:	
+   316                           ; 1 bytes @ 0x0
+   317                           
+   318     0071                     ??_SpiInit:	
+   319                           ; 1 bytes @ 0x0
+   320                           
+   321     0071                     ??_PortBInit:	
+   322                           ; 1 bytes @ 0x0
+   323                           
+   324     0071                     ??_SpiSendByte:	
+   325                           ; 1 bytes @ 0x0
+   326                           
+   327                           
+   328                           ; 1 bytes @ 0x0
+   329     0071                     	ds	1
+   330     0072                     ?_SpiSendBus:
+   331     0072                     SpiSendBus@dt:	
+   332                           ; 1 bytes @ 0x1
+   333                           
+   334                           
+   335                           ; 1 bytes @ 0x1
+   336     0072                     	ds	1
+   337     0073                     SpiSendBus@rg:
+   338     0073                     ??_SpiSendBus:	
+   339                           ; 1 bytes @ 0x2
+   340                           
    341                           
-   342     07D2                     _main:	
-   343                           ;psect for function _main
-   344                           
-   345     07D2                     l619:	
-   346                           ;incstack = 0
-   347                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   342                           ; 1 bytes @ 0x2
+   343     0073                     	ds	1
+   344     0074                     SpiClearMatrix@i:
+   345     0074                     ??_SpiClearMatrix:	
+   346                           ; 1 bytes @ 0x3
+   347                           
    348                           
-   349                           
-   350                           ;main.c: 8:     PortBInit();
-   351     07D2  120A  118A  27CB  120A  118A  	fcall	_PortBInit
-   352     07D7                     l621:
-   353                           
-   354                           ;main.c: 11:         PORTB = 0b00000111;
-   355     07D7  3007               	movlw	7
-   356     07D8  1283               	bcf	3,5	;RP0=0, select bank0
-   357     07D9  1303               	bcf	3,6	;RP1=0, select bank0
-   358     07DA  0086               	movwf	6	;volatile
-   359     07DB                     l623:
-   360                           
-   361                           ;main.c: 12:         _delay((unsigned long)((1000)*(16000000/4000.0)));
-   362     07DB  3015               	movlw	21
-   363     07DC  00F2               	movwf	??_main+2
-   364     07DD  304B               	movlw	75
-   365     07DE  00F1               	movwf	??_main+1
-   366     07DF  30BE               	movlw	190
-   367     07E0  00F0               	movwf	??_main
-   368     07E1                     u37:
-   369     07E1  0BF0               	decfsz	??_main,f
-   370     07E2  2FE1               	goto	u37
-   371     07E3  0BF1               	decfsz	??_main+1,f
-   372     07E4  2FE1               	goto	u37
-   373     07E5  0BF2               	decfsz	??_main+2,f
-   374     07E6  2FE1               	goto	u37
-   375     07E7  0000               	nop
-   376     07E8                     l625:
-   377                           
-   378                           ;main.c: 13:         PORTB = 0x00;
-   379     07E8  1283               	bcf	3,5	;RP0=0, select bank0
-   380     07E9  1303               	bcf	3,6	;RP1=0, select bank0
-   381     07EA  0186               	clrf	6	;volatile
-   382     07EB                     l627:
-   383                           
-   384                           ;main.c: 14:         _delay((unsigned long)((1000)*(16000000/4000.0)));
-   385     07EB  3015               	movlw	21
-   386     07EC  00F2               	movwf	??_main+2
-   387     07ED  304B               	movlw	75
-   388     07EE  00F1               	movwf	??_main+1
-   389     07EF  30BE               	movlw	190
-   390     07F0  00F0               	movwf	??_main
-   391     07F1                     u47:
-   392     07F1  0BF0               	decfsz	??_main,f
-   393     07F2  2FF1               	goto	u47
-   394     07F3  0BF1               	decfsz	??_main+1,f
-   395     07F4  2FF1               	goto	u47
-   396     07F5  0BF2               	decfsz	??_main+2,f
-   397     07F6  2FF1               	goto	u47
-   398     07F7  0000               	nop
-   399     07F8  2FD7               	goto	l621
-   400     07F9  120A  118A  2800   	ljmp	start
-   401     07FC                     __end_of_main:
-   402                           
-   403                           	psect	text1
-   404     07CB                     __ptext1:	
-   405 ;; *************** function _PortBInit *****************
-   406 ;; Defined at:
-   407 ;;		line 13 in file "portsinit.c"
-   408 ;; Parameters:    Size  Location     Type
-   409 ;;		None
-   410 ;; Auto vars:     Size  Location     Type
-   411 ;;		None
-   412 ;; Return value:  Size  Location     Type
-   413 ;;                  1    wreg      void 
-   414 ;; Registers used:
-   415 ;;		status,2
-   416 ;; Tracked objects:
-   417 ;;		On entry : 0/0
-   418 ;;		On exit  : 0/0
-   419 ;;		Unchanged: 0/0
-   420 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   421 ;;      Params:         0       0       0       0       0
-   422 ;;      Locals:         0       0       0       0       0
-   423 ;;      Temps:          0       0       0       0       0
-   424 ;;      Totals:         0       0       0       0       0
-   425 ;;Total ram usage:        0 bytes
-   426 ;; Hardware stack levels used: 1
-   427 ;; This function calls:
-   428 ;;		Nothing
-   429 ;; This function is called by:
-   430 ;;		_main
-   431 ;; This function uses a non-reentrant model
-   432 ;;
-   433                           
-   434     07CB                     _PortBInit:	
-   435                           ;psect for function _PortBInit
-   436                           
-   437     07CB                     l611:	
-   438                           ;incstack = 0
-   439                           ; Regs used in _PortBInit: [status,2]
-   440                           
-   441                           
-   442                           ;portsinit.c: 14:     TRISB = 0x00;
-   443     07CB  1683               	bsf	3,5	;RP0=1, select bank1
-   444     07CC  1303               	bcf	3,6	;RP1=0, select bank1
-   445     07CD  0186               	clrf	6	;volatile
-   446                           
-   447                           ;portsinit.c: 15:     PORTB = 0x00;
-   448     07CE  1283               	bcf	3,5	;RP0=0, select bank0
-   449     07CF  1303               	bcf	3,6	;RP1=0, select bank0
-   450     07D0  0186               	clrf	6	;volatile
-   451     07D1                     l21:
-   452     07D1  0008               	return
-   453     07D2                     __end_of_PortBInit:
-   454     0002                     ___latbits      equ	2
-   455     007E                     btemp           set	126	;btemp
-   456     007E                     wtemp0          set	126
-   457                           
-   458                           	psect	config
+   349                           ; 1 bytes @ 0x3
+   350     0074                     	ds	1
+   351     0075                     ??_MATR_7219_init:
+   352                           
+   353                           ; 1 bytes @ 0x4
+   354     0075                     	ds	3
+   355     0078                     ??_main:
+   356                           
+   357                           	psect	maintext
+   358     07A1                     __pmaintext:	
+   359                           ; 1 bytes @ 0x7
+   360 ;;
+   361 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   362 ;;
+   363 ;; *************** function _main *****************
+   364 ;; Defined at:
+   365 ;;		line 16 in file "main.c"
+   366 ;; Parameters:    Size  Location     Type
+   367 ;;		None
+   368 ;; Auto vars:     Size  Location     Type
+   369 ;;		None
+   370 ;; Return value:  Size  Location     Type
+   371 ;;                  1    wreg      void 
+   372 ;; Registers used:
+   373 ;;		wreg, status,2, status,0, pclath, cstack
+   374 ;; Tracked objects:
+   375 ;;		On entry : B00/0
+   376 ;;		On exit  : 0/0
+   377 ;;		Unchanged: 0/0
+   378 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   379 ;;      Params:         0       0       0       0       0
+   380 ;;      Locals:         0       0       0       0       0
+   381 ;;      Temps:          0       0       0       0       0
+   382 ;;      Totals:         0       0       0       0       0
+   383 ;;Total ram usage:        0 bytes
+   384 ;; Hardware stack levels required when called: 4
+   385 ;; This function calls:
+   386 ;;		_MATR_7219_init
+   387 ;;		_PortBInit
+   388 ;;		_SpiInit
+   389 ;; This function is called by:
+   390 ;;		Startup code after reset
+   391 ;; This function uses a non-reentrant model
+   392 ;;
+   393                           
+   394     07A1                     _main:	
+   395                           ;psect for function _main
+   396                           
+   397     07A1                     l671:	
+   398                           ;incstack = 0
+   399                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   400                           
+   401                           
+   402                           ;main.c: 17:     SpiInit();
+   403     07A1  120A  118A  278F  120A  118A  	fcall	_SpiInit
+   404                           
+   405                           ;main.c: 18:     MATR_7219_init();
+   406     07A6  120A  118A  27C8  120A  118A  	fcall	_MATR_7219_init
+   407     07AB                     l673:
+   408                           
+   409                           ;main.c: 19:     PortBInit();
+   410     07AB  120A  118A  276D  120A  118A  	fcall	_PortBInit
+   411     07B0                     l11:	
+   412                           ;main.c: 21:     while(1){
+   413                           
+   414     07B0                     l12:	
+   415                           ;main.c: 23:     }
+   416                           
+   417     07B0  2FB0               	goto	l11
+   418     07B1  120A  118A  2800   	ljmp	start
+   419     07B4                     __end_of_main:
+   420                           
+   421                           	psect	text1
+   422     078F                     __ptext1:	
+   423 ;; *************** function _SpiInit *****************
+   424 ;; Defined at:
+   425 ;;		line 10 in file "spi.c"
+   426 ;; Parameters:    Size  Location     Type
+   427 ;;		None
+   428 ;; Auto vars:     Size  Location     Type
+   429 ;;		None
+   430 ;; Return value:  Size  Location     Type
+   431 ;;                  1    wreg      void 
+   432 ;; Registers used:
+   433 ;;		wreg, status,2, status,0
+   434 ;; Tracked objects:
+   435 ;;		On entry : 0/0
+   436 ;;		On exit  : 0/0
+   437 ;;		Unchanged: 0/0
+   438 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   439 ;;      Params:         0       0       0       0       0
+   440 ;;      Locals:         0       0       0       0       0
+   441 ;;      Temps:          0       0       0       0       0
+   442 ;;      Totals:         0       0       0       0       0
+   443 ;;Total ram usage:        0 bytes
+   444 ;; Hardware stack levels used: 1
+   445 ;; This function calls:
+   446 ;;		Nothing
+   447 ;; This function is called by:
+   448 ;;		_main
+   449 ;; This function uses a non-reentrant model
+   450 ;;
+   451                           
+   452     078F                     _SpiInit:	
+   453                           ;psect for function _SpiInit
+   454                           
+   455     078F                     l617:	
+   456                           ;incstack = 0
+   457                           ; Regs used in _SpiInit: [wreg+status,2+status,0]
+   458                           
    459                           
-   460                           ;Config register CONFIG @ 0x2007
-   461                           ;	Oscillator Selection bits
-   462                           ;	FOSC = HS, HS oscillator
-   463                           ;	Watchdog Timer Enable bit
-   464                           ;	WDTE = OFF, WDT disabled
-   465                           ;	Power-up Timer Enable bit
-   466                           ;	PWRTE = OFF, PWRT disabled
-   467                           ;	FLASH Program Memory Code Protection bits
-   468                           ;	CP = OFF, Code protection off
-   469                           ;	Brown-out Reset Enable bit
-   470                           ;	BOREN = OFF, BOR disabled
-   471                           ;	Low Voltage In-Circuit Serial Programming Enable bit
-   472                           ;	LVP = OFF, RB3 is digital I/O, HV on MCLR must be used for programming
-   473                           ;	Data EE Memory Code Protection
-   474                           ;	CPD = OFF, Code Protection off
-   475                           ;	FLASH Program Memory Write Enable
-   476                           ;	WRT = OFF, Unprotected program memory may not be written to by EECON control
-   477                           ;	In-Circuit Debugger Mode bit
-   478                           ;	DEBUG = 0x1, unprogrammed default
-   479     2007                     	org	8199
-   480     2007  3D3A               	dw	15674
+   460                           ;spi.c: 12:     TRISC |= 0x10;
+   461     078F  1683               	bsf	3,5	;RP0=1, select bank1
+   462     0790  1303               	bcf	3,6	;RP1=0, select bank1
+   463     0791  1607               	bsf	7,4	;volatile
+   464     0792                     l619:
+   465                           
+   466                           ;spi.c: 13:     TRISC &= ~0x28;
+   467     0792  30D7               	movlw	215
+   468     0793  0587               	andwf	7,f	;volatile
+   469                           
+   470                           ;spi.c: 14:     TRISA &= ~0x20;
+   471     0794  30DF               	movlw	223
+   472     0795  0585               	andwf	5,f	;volatile
+   473                           
+   474                           ;spi.c: 15:     PORTA &= ~0x20;
+   475     0796  30DF               	movlw	223
+   476     0797  1283               	bcf	3,5	;RP0=0, select bank0
+   477     0798  1303               	bcf	3,6	;RP1=0, select bank0
+   478     0799  0585               	andwf	5,f	;volatile
+   479     079A                     l621:
+   480                           
+   481                           ;spi.c: 16:     SSPCON = 0x30;
+   482     079A  3030               	movlw	48
+   483     079B  0094               	movwf	20	;volatile
+   484     079C                     l623:
+   485                           
+   486                           ;spi.c: 17:     SSPSTAT = 0x80;
+   487     079C  3080               	movlw	128
+   488     079D  1683               	bsf	3,5	;RP0=1, select bank1
+   489     079E  1303               	bcf	3,6	;RP1=0, select bank1
+   490     079F  0094               	movwf	20	;volatile
+   491     07A0                     l42:
+   492     07A0  0008               	return
+   493     07A1                     __end_of_SpiInit:
+   494                           
+   495                           	psect	text2
+   496     076D                     __ptext2:	
+   497 ;; *************** function _PortBInit *****************
+   498 ;; Defined at:
+   499 ;;		line 13 in file "portsinit.c"
+   500 ;; Parameters:    Size  Location     Type
+   501 ;;		None
+   502 ;; Auto vars:     Size  Location     Type
+   503 ;;		None
+   504 ;; Return value:  Size  Location     Type
+   505 ;;                  1    wreg      void 
+   506 ;; Registers used:
+   507 ;;		status,2
+   508 ;; Tracked objects:
+   509 ;;		On entry : 0/0
+   510 ;;		On exit  : 0/0
+   511 ;;		Unchanged: 0/0
+   512 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   513 ;;      Params:         0       0       0       0       0
+   514 ;;      Locals:         0       0       0       0       0
+   515 ;;      Temps:          0       0       0       0       0
+   516 ;;      Totals:         0       0       0       0       0
+   517 ;;Total ram usage:        0 bytes
+   518 ;; Hardware stack levels used: 1
+   519 ;; This function calls:
+   520 ;;		Nothing
+   521 ;; This function is called by:
+   522 ;;		_main
+   523 ;; This function uses a non-reentrant model
+   524 ;;
+   525                           
+   526     076D                     _PortBInit:	
+   527                           ;psect for function _PortBInit
+   528                           
+   529     076D                     l639:	
+   530                           ;incstack = 0
+   531                           ; Regs used in _PortBInit: [status,2]
+   532                           
+   533                           
+   534                           ;portsinit.c: 14:     TRISB = 0x00;
+   535     076D  1683               	bsf	3,5	;RP0=1, select bank1
+   536     076E  1303               	bcf	3,6	;RP1=0, select bank1
+   537     076F  0186               	clrf	6	;volatile
+   538                           
+   539                           ;portsinit.c: 15:     PORTB = 0x00;
+   540     0770  1283               	bcf	3,5	;RP0=0, select bank0
+   541     0771  1303               	bcf	3,6	;RP1=0, select bank0
+   542     0772  0186               	clrf	6	;volatile
+   543     0773                     l21:
+   544     0773  0008               	return
+   545     0774                     __end_of_PortBInit:
+   546                           
+   547                           	psect	text3
+   548     07C8                     __ptext3:	
+   549 ;; *************** function _MATR_7219_init *****************
+   550 ;; Defined at:
+   551 ;;		line 40 in file "spi.c"
+   552 ;; Parameters:    Size  Location     Type
+   553 ;;		None
+   554 ;; Auto vars:     Size  Location     Type
+   555 ;;		None
+   556 ;; Return value:  Size  Location     Type
+   557 ;;                  1    wreg      void 
+   558 ;; Registers used:
+   559 ;;		wreg, status,2, status,0, pclath, cstack
+   560 ;; Tracked objects:
+   561 ;;		On entry : 0/0
+   562 ;;		On exit  : 0/0
+   563 ;;		Unchanged: 0/0
+   564 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   565 ;;      Params:         0       0       0       0       0
+   566 ;;      Locals:         0       0       0       0       0
+   567 ;;      Temps:          3       0       0       0       0
+   568 ;;      Totals:         3       0       0       0       0
+   569 ;;Total ram usage:        3 bytes
+   570 ;; Hardware stack levels used: 1
+   571 ;; Hardware stack levels required when called: 3
+   572 ;; This function calls:
+   573 ;;		_SpiClearMatrix
+   574 ;;		_SpiSendBus
+   575 ;; This function is called by:
+   576 ;;		_main
+   577 ;; This function uses a non-reentrant model
+   578 ;;
+   579                           
+   580     07C8                     _MATR_7219_init:	
+   581                           ;psect for function _MATR_7219_init
+   582                           
+   583     07C8                     l657:	
+   584                           ;incstack = 0
+   585                           ; Regs used in _MATR_7219_init: [wreg+status,2+status,0+pclath+cstack]
+   586                           
+   587                           
+   588                           ;spi.c: 41:     _delay((unsigned long)((100)*(16000000/4000.0)));
+   589     07C8  3003               	movlw	3
+   590     07C9  00F7               	movwf	??_MATR_7219_init+2
+   591     07CA  3008               	movlw	8
+   592     07CB  00F6               	movwf	??_MATR_7219_init+1
+   593     07CC  3077               	movlw	119
+   594     07CD  00F5               	movwf	??_MATR_7219_init
+   595     07CE                     u47:
+   596     07CE  0BF5               	decfsz	??_MATR_7219_init,f
+   597     07CF  2FCE               	goto	u47
+   598     07D0  0BF6               	decfsz	??_MATR_7219_init+1,f
+   599     07D1  2FCE               	goto	u47
+   600     07D2  0BF7               	decfsz	??_MATR_7219_init+2,f
+   601     07D3  2FCE               	goto	u47
+   602     07D4                     l659:
+   603                           
+   604                           ;spi.c: 42:     RA5=1;
+   605     07D4  1283               	bcf	3,5	;RP0=0, select bank0
+   606     07D5  1303               	bcf	3,6	;RP1=0, select bank0
+   607     07D6  1685               	bsf	5,5	;volatile
+   608     07D7                     l661:
+   609                           
+   610                           ;spi.c: 43:     SpiSendBus(0x09, 0x00);
+   611     07D7  01F2               	clrf	SpiSendBus@dt
+   612     07D8  3009               	movlw	9
+   613     07D9  120A  118A  27B4  120A  118A  	fcall	_SpiSendBus
+   614     07DE                     l663:
+   615                           
+   616                           ;spi.c: 44:     SpiSendBus(0x0b, 0x07);
+   617     07DE  3007               	movlw	7
+   618     07DF  00F2               	movwf	SpiSendBus@dt
+   619     07E0  300B               	movlw	11
+   620     07E1  120A  118A  27B4  120A  118A  	fcall	_SpiSendBus
+   621     07E6                     l665:
+   622                           
+   623                           ;spi.c: 45:     SpiSendBus(0x0A, 0x02);
+   624     07E6  3002               	movlw	2
+   625     07E7  00F2               	movwf	SpiSendBus@dt
+   626     07E8  300A               	movlw	10
+   627     07E9  120A  118A  27B4  120A  118A  	fcall	_SpiSendBus
+   628     07EE                     l667:
+   629                           
+   630                           ;spi.c: 46:     SpiSendBus(0x0c, 0x01);
+   631     07EE  01F2               	clrf	SpiSendBus@dt
+   632     07EF  0AF2               	incf	SpiSendBus@dt,f
+   633     07F0  300C               	movlw	12
+   634     07F1  120A  118A  27B4  120A  118A  	fcall	_SpiSendBus
+   635     07F6                     l669:
+   636                           
+   637                           ;spi.c: 47:     SpiClearMatrix();
+   638     07F6  120A  118A  277F  120A  118A  	fcall	_SpiClearMatrix
+   639     07FB                     l59:
+   640     07FB  0008               	return
+   641     07FC                     __end_of_MATR_7219_init:
+   642                           
+   643                           	psect	text4
+   644     077F                     __ptext4:	
+   645 ;; *************** function _SpiClearMatrix *****************
+   646 ;; Defined at:
+   647 ;;		line 32 in file "spi.c"
+   648 ;; Parameters:    Size  Location     Type
+   649 ;;		None
+   650 ;; Auto vars:     Size  Location     Type
+   651 ;;  i               1    3[COMMON] unsigned char 
+   652 ;; Return value:  Size  Location     Type
+   653 ;;                  1    wreg      void 
+   654 ;; Registers used:
+   655 ;;		wreg, status,2, status,0, pclath, cstack
+   656 ;; Tracked objects:
+   657 ;;		On entry : 0/0
+   658 ;;		On exit  : 0/0
+   659 ;;		Unchanged: 0/0
+   660 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   661 ;;      Params:         0       0       0       0       0
+   662 ;;      Locals:         1       0       0       0       0
+   663 ;;      Temps:          0       0       0       0       0
+   664 ;;      Totals:         1       0       0       0       0
+   665 ;;Total ram usage:        1 bytes
+   666 ;; Hardware stack levels used: 1
+   667 ;; Hardware stack levels required when called: 2
+   668 ;; This function calls:
+   669 ;;		_SpiSendBus
+   670 ;; This function is called by:
+   671 ;;		_MATR_7219_init
+   672 ;; This function uses a non-reentrant model
+   673 ;;
+   674                           
+   675     077F                     _SpiClearMatrix:	
+   676                           ;psect for function _SpiClearMatrix
+   677                           
+   678     077F                     l651:	
+   679                           ;incstack = 0
+   680                           ; Regs used in _SpiClearMatrix: [wreg+status,2+status,0+pclath+cstack]
+   681                           
+   682                           
+   683                           ;spi.c: 34:   char i=8;
+   684     077F  3008               	movlw	8
+   685     0780  00F4               	movwf	SpiClearMatrix@i
+   686     0781                     l653:
+   687                           
+   688                           ;spi.c: 36:   {;spi.c: 37:     SpiSendBus(i,0x00);
+   689     0781  01F2               	clrf	SpiSendBus@dt
+   690     0782  0874               	movf	SpiClearMatrix@i,w
+   691     0783  120A  118A  27B4  120A  118A  	fcall	_SpiSendBus
+   692     0788                     l655:
+   693                           
+   694                           ;spi.c: 38:   } while (--i);
+   695     0788  3001               	movlw	1
+   696     0789  02F4               	subwf	SpiClearMatrix@i,f
+   697     078A  1D03               	btfss	3,2
+   698     078B  2F8D               	goto	u31
+   699     078C  2F8E               	goto	u30
+   700     078D                     u31:
+   701     078D  2F81               	goto	l653
+   702     078E                     u30:
+   703     078E                     l56:
+   704     078E  0008               	return
+   705     078F                     __end_of_SpiClearMatrix:
+   706                           
+   707                           	psect	text5
+   708     07B4                     __ptext5:	
+   709 ;; *************** function _SpiSendBus *****************
+   710 ;; Defined at:
+   711 ;;		line 26 in file "spi.c"
+   712 ;; Parameters:    Size  Location     Type
+   713 ;;  rg              1    wreg     unsigned char 
+   714 ;;  dt              1    1[COMMON] unsigned char 
+   715 ;; Auto vars:     Size  Location     Type
+   716 ;;  rg              1    2[COMMON] unsigned char 
+   717 ;; Return value:  Size  Location     Type
+   718 ;;                  1    wreg      void 
+   719 ;; Registers used:
+   720 ;;		wreg, status,2, status,0, pclath, cstack
+   721 ;; Tracked objects:
+   722 ;;		On entry : 0/0
+   723 ;;		On exit  : 0/0
+   724 ;;		Unchanged: 0/0
+   725 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   726 ;;      Params:         1       0       0       0       0
+   727 ;;      Locals:         1       0       0       0       0
+   728 ;;      Temps:          0       0       0       0       0
+   729 ;;      Totals:         2       0       0       0       0
+   730 ;;Total ram usage:        2 bytes
+   731 ;; Hardware stack levels used: 1
+   732 ;; Hardware stack levels required when called: 1
+   733 ;; This function calls:
+   734 ;;		_SpiSendByte
+   735 ;; This function is called by:
+   736 ;;		_SpiClearMatrix
+   737 ;;		_MATR_7219_init
+   738 ;; This function uses a non-reentrant model
+   739 ;;
+   740                           
+   741     07B4                     _SpiSendBus:	
+   742                           ;psect for function _SpiSendBus
+   743                           
+   744                           
+   745                           ;incstack = 0
+   746                           ; Regs used in _SpiSendBus: [wreg+status,2+status,0+pclath+cstack]
+   747                           ;SpiSendBus@rg stored from wreg
+   748     07B4  00F3               	movwf	SpiSendBus@rg
+   749     07B5                     l645:
+   750                           
+   751                           ;spi.c: 27:     RA5 = 0;
+   752     07B5  1283               	bcf	3,5	;RP0=0, select bank0
+   753     07B6  1303               	bcf	3,6	;RP1=0, select bank0
+   754     07B7  1285               	bcf	5,5	;volatile
+   755     07B8                     l647:
+   756                           
+   757                           ;spi.c: 28:     SpiSendByte(rg);
+   758     07B8  0873               	movf	SpiSendBus@rg,w
+   759     07B9  120A  118A  2774  120A  118A  	fcall	_SpiSendByte
+   760                           
+   761                           ;spi.c: 29:     SpiSendByte(dt);
+   762     07BE  0872               	movf	SpiSendBus@dt,w
+   763     07BF  120A  118A  2774  120A  118A  	fcall	_SpiSendByte
+   764     07C4                     l649:
+   765                           
+   766                           ;spi.c: 30:     RA5 = 1;
+   767     07C4  1283               	bcf	3,5	;RP0=0, select bank0
+   768     07C5  1303               	bcf	3,6	;RP1=0, select bank0
+   769     07C6  1685               	bsf	5,5	;volatile
+   770     07C7                     l51:
+   771     07C7  0008               	return
+   772     07C8                     __end_of_SpiSendBus:
+   773                           
+   774                           	psect	text6
+   775     0774                     __ptext6:	
+   776 ;; *************** function _SpiSendByte *****************
+   777 ;; Defined at:
+   778 ;;		line 20 in file "spi.c"
+   779 ;; Parameters:    Size  Location     Type
+   780 ;;  data            1    wreg     unsigned char 
+   781 ;; Auto vars:     Size  Location     Type
+   782 ;;  data            1    0[COMMON] unsigned char 
+   783 ;; Return value:  Size  Location     Type
+   784 ;;                  1    wreg      void 
+   785 ;; Registers used:
+   786 ;;		wreg
+   787 ;; Tracked objects:
+   788 ;;		On entry : 0/0
+   789 ;;		On exit  : 0/0
+   790 ;;		Unchanged: 0/0
+   791 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   792 ;;      Params:         0       0       0       0       0
+   793 ;;      Locals:         1       0       0       0       0
+   794 ;;      Temps:          0       0       0       0       0
+   795 ;;      Totals:         1       0       0       0       0
+   796 ;;Total ram usage:        1 bytes
+   797 ;; Hardware stack levels used: 1
+   798 ;; This function calls:
+   799 ;;		Nothing
+   800 ;; This function is called by:
+   801 ;;		_SpiSendBus
+   802 ;; This function uses a non-reentrant model
+   803 ;;
+   804                           
+   805     0774                     _SpiSendByte:	
+   806                           ;psect for function _SpiSendByte
+   807                           
+   808                           
+   809                           ;incstack = 0
+   810                           ; Regs used in _SpiSendByte: [wreg]
+   811                           ;SpiSendByte@data stored from wreg
+   812     0774  00F1               	movwf	SpiSendByte@data
+   813     0775                     l603:
+   814                           
+   815                           ;spi.c: 21:     SSPBUF = data;
+   816     0775  0871               	movf	SpiSendByte@data,w
+   817     0776  1283               	bcf	3,5	;RP0=0, select bank0
+   818     0777  1303               	bcf	3,6	;RP1=0, select bank0
+   819     0778  0093               	movwf	19	;volatile
+   820     0779                     l45:	
+   821                           ;spi.c: 22:     while (!SSPIF);
+   822                           
+   823     0779  1D8C               	btfss	12,3	;volatile
+   824     077A  2F7C               	goto	u11
+   825     077B  2F7D               	goto	u10
+   826     077C                     u11:
+   827     077C  2F79               	goto	l45
+   828     077D                     u10:
+   829     077D                     l47:
+   830                           
+   831                           ;spi.c: 23:     SSPIF = 0;
+   832     077D  118C               	bcf	12,3	;volatile
+   833     077E                     l48:
+   834     077E  0008               	return
+   835     077F                     __end_of_SpiSendByte:
+   836     0002                     ___latbits      equ	2
+   837     007E                     btemp           set	126	;btemp
+   838     007E                     wtemp0          set	126
+   839                           
+   840                           	psect	config
+   841                           
+   842                           ;Config register CONFIG @ 0x2007
+   843                           ;	Oscillator Selection bits
+   844                           ;	FOSC = HS, HS oscillator
+   845                           ;	Watchdog Timer Enable bit
+   846                           ;	WDTE = OFF, WDT disabled
+   847                           ;	Power-up Timer Enable bit
+   848                           ;	PWRTE = OFF, PWRT disabled
+   849                           ;	FLASH Program Memory Code Protection bits
+   850                           ;	CP = OFF, Code protection off
+   851                           ;	Brown-out Reset Enable bit
+   852                           ;	BOREN = OFF, BOR disabled
+   853                           ;	Low Voltage In-Circuit Serial Programming Enable bit
+   854                           ;	LVP = OFF, RB3 is digital I/O, HV on MCLR must be used for programming
+   855                           ;	Data EE Memory Code Protection
+   856                           ;	CPD = OFF, Code Protection off
+   857                           ;	FLASH Program Memory Write Enable
+   858                           ;	WRT = OFF, Unprotected program memory may not be written to by EECON control
+   859                           ;	In-Circuit Debugger Mode bit
+   860                           ;	DEBUG = 0x1, unprogrammed default
+   861     2007                     	org	8199
+   862     2007  3D3A               	dw	15674
 
 Data Sizes:
     Strings     0
@@ -503,10 +885,10 @@ Data Sizes:
 
 Auto Spaces:
     Space          Size  Autos    Used
-    COMMON           14      3       3
+    COMMON           13      7       7
     BANK0            80      0       0
     BANK1            80      0       0
-    BANK3            96      0       0
+    BANK3            85      0       0
     BANK2            96      0       0
 
 Pointer List with Targets:
@@ -515,7 +897,10 @@ Pointer List with Targets:
 
 Critical Paths under _main in COMMON
 
-    None.
+    _main->_MATR_7219_init
+    _MATR_7219_init->_SpiClearMatrix
+    _SpiClearMatrix->_SpiSendBus
+    _SpiSendBus->_SpiSendByte
 
 Critical Paths under _main in BANK0
 
@@ -538,49 +923,93 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 3     3      0       0
-                                              0 COMMON     3     3      0
+ (0) _main                                                 0     0      0     187
+                     _MATR_7219_init
                           _PortBInit
+                            _SpiInit
+ ---------------------------------------------------------------------------------
+ (1) _SpiInit                                              0     0      0       0
  ---------------------------------------------------------------------------------
  (1) _PortBInit                                            0     0      0       0
  ---------------------------------------------------------------------------------
- Estimated maximum stack depth 1
+ (1) _MATR_7219_init                                       3     3      0     187
+                                              4 COMMON     3     3      0
+                     _SpiClearMatrix
+                         _SpiSendBus
+ ---------------------------------------------------------------------------------
+ (2) _SpiClearMatrix                                       1     1      0     116
+                                              3 COMMON     1     1      0
+                         _SpiSendBus
+ ---------------------------------------------------------------------------------
+ (2) _SpiSendBus                                           2     1      1      71
+                                              1 COMMON     2     1      1
+                        _SpiSendByte
+ ---------------------------------------------------------------------------------
+ (3) _SpiSendByte                                          1     1      0      15
+                                              0 COMMON     1     1      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 3
  ---------------------------------------------------------------------------------
 
  Call Graph Graphs:
 
  _main (ROOT)
+   _MATR_7219_init
+     _SpiClearMatrix
+       _SpiSendBus
+         _SpiSendByte
+     _SpiSendBus
    _PortBInit
+   _SpiInit
 
 Address spaces:
 Name               Size   Autos  Total    Usage
-BITCOMMON           14      0       0      0.0%
+BITCOMMON           13      0       0      0.0%
 BITBANK0            80      0       0      0.0%
 BITBANK1            80      0       0      0.0%
-BITBANK3            96      0       0      0.0%
+BITBANK3            85      0       0      0.0%
 BITBANK2            96      0       0      0.0%
-COMMON              14      3       3     21.4%
+COMMON              13      7       7     53.8%
 BANK0               80      0       0      0.0%
 BANK1               80      0       0      0.0%
-BANK3               96      0       0      0.0%
+BANK3               85      0       0      0.0%
 BANK2               96      0       0      0.0%
 STACK                0      0       0      0.0%
-DATA                 0      0       3      0.0%
+DATA                 0      0       7      0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.50 build 20240725155939 
-Symbol Table                                                                                   Tue Dec  3 17:22:21 2024
+Symbol Table                                                                                   Wed Dec  4 13:01:45 2024
 
-                     l21 07D1                       u37 07E1                       u47 07F1  
-                    l611 07CB                      l621 07D7                      l623 07DB  
-                    l625 07E8                      l627 07EB                      l619 07D2  
-                    _RA5 002D                     _main 07D2                     btemp 007E  
-                   start 0000                    ?_main 0070                    _PORTA 0005  
-                  _PORTB 0006                    _TRISA 0085                    _TRISB 0086  
-                  _TRISC 0087                    _SSPIF 0063                    status 0003  
-                  wtemp0 007E          __initialization 07FC             __end_of_main 07FC  
-                 ??_main 0070                   _SSPCON 0014                   _SSPBUF 0013  
-__end_of__initialization 07FC           __pcstackCOMMON 0070        __end_of_PortBInit 07D2  
-             __pmaintext 07D2                  _SSPSTAT 0094                  __ptext1 07CB  
-   end_of_initialization 07FC      start_initialization 07FC                _PortBInit 07CB  
-              ___latbits 0002               ?_PortBInit 0070              ??_PortBInit 0070  
+         _SpiClearMatrix 077F                       l11 07B0                       l12 07B0  
+                     l21 0773                       l42 07A0                       l51 07C7  
+                     l45 0779                       l47 077D                       l48 077E  
+                     l56 078E                       l59 07FB                       u10 077D  
+                     u11 077C                       u30 078E                       u31 078D  
+                     u47 07CE          SpiSendByte@data 0071                      l603 0775  
+                    l621 079A                      l623 079C                      l617 078F  
+                    l651 077F                      l619 0792                      l645 07B5  
+                    l653 0781                      l661 07D7                      l647 07B8  
+                    l655 0788                      l663 07DE                      l639 076D  
+                    l671 07A1                      l649 07C4                      l665 07E6  
+                    l657 07C8                      l673 07AB                      l667 07EE  
+                    l659 07D4                      l669 07F6                      _RA5 002D  
+                   _main 07A1                     btemp 007E                     start 0000  
+ __end_of_SpiClearMatrix 078F           _MATR_7219_init 07C8          __end_of_SpiInit 07A1  
+                  ?_main 0071                    _PORTA 0005                    _PORTB 0006  
+                  _TRISA 0085                    _TRISB 0086                    _TRISC 0087  
+                  _SSPIF 0063          SpiClearMatrix@i 0074                    status 0003  
+                  wtemp0 007E   __end_of_MATR_7219_init 07FC          ?_SpiClearMatrix 0071  
+        __initialization 07FC             __end_of_main 07B4                   ??_main 0078  
+                 _SSPCON 0014                   _SSPBUF 0013          ?_MATR_7219_init 0071  
+              ??_SpiInit 0071            ??_SpiSendByte 0071               _SpiSendBus 07B4  
+__end_of__initialization 07FC           __pcstackCOMMON 0071      __end_of_SpiSendByte 077F  
+      __end_of_PortBInit 0774               __pmaintext 07A1              ?_SpiSendBus 0072  
+                _SSPSTAT 0094         ??_SpiClearMatrix 0074                  _SpiInit 078F  
+            _SpiSendByte 0774                  __ptext1 078F                  __ptext2 076D  
+                __ptext3 07C8                  __ptext4 077F                  __ptext5 07B4  
+                __ptext6 0774     end_of_initialization 07FC         ??_MATR_7219_init 0075  
+    start_initialization 07FC             ??_SpiSendBus 0073                _PortBInit 076D  
+              ___latbits 0002       __end_of_SpiSendBus 07C8                 ?_SpiInit 0071  
+             ?_PortBInit 0071             ?_SpiSendByte 0071             SpiSendBus@dt 0072  
+           SpiSendBus@rg 0073              ??_PortBInit 0071  

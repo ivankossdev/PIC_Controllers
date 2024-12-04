@@ -1663,23 +1663,33 @@ void PortCInit(void);
 
 
 
-void spi_init(void);
-void send_byte_spi(char data);
-void send_spi(char rg, char dt );
+void SpiInit(void);
+void SpiSendByte(char data);
+void SpiSendBus(char rg, char dt );
 void MATR_7219_init(void);
-void clrf (void);
+void SpiClearMatrix (void);
 # 4 "main.c" 2
-
+# 16 "main.c"
 void main(void) {
-
-
+    SpiInit();
+    MATR_7219_init();
     PortBInit();
-
+    int sh = 0;
     while(1){
-        PORTB = 0b00011111;
-        _delay((unsigned long)((1000)*(16000000/4000.0)));
+        for(int i = 1; i < 9; i++){
+            if(i <= 5){
+                PORTB = 0x01 << (i - 1);
+            }
+            SpiSendBus(i, (1 << sh));
+            _delay((unsigned long)((100)*(16000000/4000.0)));
+        }
+        sh++;
+        if(sh > 7){
+            sh = 0;
+            SpiClearMatrix();
+        }
         PORTB = 0x00;
-        _delay((unsigned long)((1000)*(16000000/4000.0)));
+        _delay((unsigned long)((500)*(16000000/4000.0)));
     }
 
     return;

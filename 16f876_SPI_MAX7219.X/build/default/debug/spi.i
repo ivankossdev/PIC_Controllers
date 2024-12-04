@@ -1663,14 +1663,14 @@ void PortCInit(void);
 #pragma config WRT = OFF
 # 4 "./spi.h" 2
 
-void spi_init(void);
-void send_byte_spi(char data);
-void send_spi(char rg, char dt );
+void SpiInit(void);
+void SpiSendByte(char data);
+void SpiSendBus(char rg, char dt );
 void MATR_7219_init(void);
-void clrf (void);
+void SpiClearMatrix (void);
 # 1 "spi.c" 2
 # 10 "spi.c"
-void spi_init() {
+void SpiInit() {
 
     TRISC |= 0x10;
     TRISC &= ~0x28;
@@ -1680,32 +1680,32 @@ void spi_init() {
     SSPSTAT = 0x80;
 }
 
-void send_byte_spi(char data) {
+void SpiSendByte(char data) {
     SSPBUF = data;
     while (!SSPIF);
     SSPIF = 0;
 }
 
-void send_spi(char rg, char dt) {
+void SpiSendBus(char rg, char dt) {
     RA5 = 0;
-    send_byte_spi(rg);
-    send_byte_spi(dt);
+    SpiSendByte(rg);
+    SpiSendByte(dt);
     RA5 = 1;
 }
-void clrf (void)
+void SpiClearMatrix (void)
 {
   char i=8;
   do
   {
-    send_spi(i,0x00);
+    SpiSendBus(i,0x00);
   } while (--i);
 }
 void MATR_7219_init() {
     _delay((unsigned long)((100)*(16000000/4000.0)));
     RA5=1;
-    send_spi(0x09, 0x00);
-    send_spi(0x0b, 0x07);
-    send_spi(0x0A, 0x02);
-    send_spi(0x0c, 0x01);
-    clrf();
+    SpiSendBus(0x09, 0x00);
+    SpiSendBus(0x0b, 0x07);
+    SpiSendBus(0x0A, 0x02);
+    SpiSendBus(0x0c, 0x01);
+    SpiClearMatrix();
 }

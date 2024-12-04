@@ -14,15 +14,25 @@
  *******************END******************/
 
 void main(void) {
-//    spi_init();
-//    MATR_7219_init();
+    SpiInit();
+    MATR_7219_init();
     PortBInit();
-    
+    int sh = 0;
     while(1){
-        PORTB = 0b00011111;
-        __delay_ms(1000);
+        for(int i = 1; i < 9; i++){
+            if(i <= 5){
+                PORTB = 0x01 << (i - 1);
+            }
+            SpiSendBus(i, (1 << sh));
+            __delay_ms(100);
+        }
+        sh++;
+        if(sh > 7){
+            sh = 0;      
+            SpiClearMatrix();
+        }
         PORTB = 0x00;
-        __delay_ms(1000);
+        __delay_ms(500);
     }
     
     return;

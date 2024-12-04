@@ -206,10 +206,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12
 [p x WRT  =  OFF  ]
 "10 spi.c
-[; ;spi.c: 10: void spi_init() {
-[v _spi_init `(v ~T0 @X0 1 ef ]
+[; ;spi.c: 10: void SpiInit() {
+[v _SpiInit `(v ~T0 @X0 1 ef ]
 {
-[e :U _spi_init ]
+[e :U _SpiInit ]
 [f ]
 "12
 [; ;spi.c: 12:     TRISC |= 0x10;
@@ -234,10 +234,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 86 ]
 }
 "20
-[; ;spi.c: 20: void send_byte_spi(char data) {
-[v _send_byte_spi `(v ~T0 @X0 1 ef1`uc ]
+[; ;spi.c: 20: void SpiSendByte(char data) {
+[v _SpiSendByte `(v ~T0 @X0 1 ef1`uc ]
 {
-[e :U _send_byte_spi ]
+[e :U _SpiSendByte ]
 [v _data `uc ~T0 @X0 1 r1 ]
 [f ]
 "21
@@ -258,10 +258,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 87 ]
 }
 "26
-[; ;spi.c: 26: void send_spi(char rg, char dt) {
-[v _send_spi `(v ~T0 @X0 1 ef2`uc`uc ]
+[; ;spi.c: 26: void SpiSendBus(char rg, char dt) {
+[v _SpiSendBus `(v ~T0 @X0 1 ef2`uc`uc ]
 {
-[e :U _send_spi ]
+[e :U _SpiSendBus ]
 [v _rg `uc ~T0 @X0 1 r1 ]
 [v _dt `uc ~T0 @X0 1 r2 ]
 [f ]
@@ -269,11 +269,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;spi.c: 27:     RA5 = 0;
 [e = _RA5 -> -> 0 `i `b ]
 "28
-[; ;spi.c: 28:     send_byte_spi(rg);
-[e ( _send_byte_spi (1 _rg ]
+[; ;spi.c: 28:     SpiSendByte(rg);
+[e ( _SpiSendByte (1 _rg ]
 "29
-[; ;spi.c: 29:     send_byte_spi(dt);
-[e ( _send_byte_spi (1 _dt ]
+[; ;spi.c: 29:     SpiSendByte(dt);
+[e ( _SpiSendByte (1 _dt ]
 "30
 [; ;spi.c: 30:     RA5 = 1;
 [e = _RA5 -> -> 1 `i `b ]
@@ -282,12 +282,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 91 ]
 }
 "32
-[; ;spi.c: 32: void clrf (void)
-[v _clrf `(v ~T0 @X0 1 ef ]
+[; ;spi.c: 32: void SpiClearMatrix (void)
+[v _SpiClearMatrix `(v ~T0 @X0 1 ef ]
 "33
 [; ;spi.c: 33: {
 {
-[e :U _clrf ]
+[e :U _SpiClearMatrix ]
 [f ]
 "34
 [; ;spi.c: 34:   char i=8;
@@ -300,8 +300,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;spi.c: 36:   {
 {
 "37
-[; ;spi.c: 37:     send_spi(i,0x00);
-[e ( _send_spi (2 , _i -> -> 0 `i `uc ]
+[; ;spi.c: 37:     SpiSendBus(i,0x00);
+[e ( _SpiSendBus (2 , _i -> -> 0 `i `uc ]
 "38
 [; ;spi.c: 38:   } while (--i);
 }
@@ -324,20 +324,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;spi.c: 42:     RA5=1;
 [e = _RA5 -> -> 1 `i `b ]
 "43
-[; ;spi.c: 43:     send_spi(0x09, 0x00);
-[e ( _send_spi (2 , -> -> 9 `i `uc -> -> 0 `i `uc ]
+[; ;spi.c: 43:     SpiSendBus(0x09, 0x00);
+[e ( _SpiSendBus (2 , -> -> 9 `i `uc -> -> 0 `i `uc ]
 "44
-[; ;spi.c: 44:     send_spi(0x0b, 0x07);
-[e ( _send_spi (2 , -> -> 11 `i `uc -> -> 7 `i `uc ]
+[; ;spi.c: 44:     SpiSendBus(0x0b, 0x07);
+[e ( _SpiSendBus (2 , -> -> 11 `i `uc -> -> 7 `i `uc ]
 "45
-[; ;spi.c: 45:     send_spi(0x0A, 0x02);
-[e ( _send_spi (2 , -> -> 10 `i `uc -> -> 2 `i `uc ]
+[; ;spi.c: 45:     SpiSendBus(0x0A, 0x02);
+[e ( _SpiSendBus (2 , -> -> 10 `i `uc -> -> 2 `i `uc ]
 "46
-[; ;spi.c: 46:     send_spi(0x0c, 0x01);
-[e ( _send_spi (2 , -> -> 12 `i `uc -> -> 1 `i `uc ]
+[; ;spi.c: 46:     SpiSendBus(0x0c, 0x01);
+[e ( _SpiSendBus (2 , -> -> 12 `i `uc -> -> 1 `i `uc ]
 "47
-[; ;spi.c: 47:     clrf();
-[e ( _clrf ..  ]
+[; ;spi.c: 47:     SpiClearMatrix();
+[e ( _SpiClearMatrix ..  ]
 "48
 [; ;spi.c: 48: }
 [e :UE 96 ]
