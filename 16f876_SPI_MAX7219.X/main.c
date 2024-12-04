@@ -32,7 +32,7 @@ void main(void) {
             SpiClearMatrix();
         }
         PORTB = 0x00;
-        __delay_ms(500);
+        __delay_ms(100);
     }
     
     return;

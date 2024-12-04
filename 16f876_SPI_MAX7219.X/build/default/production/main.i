@@ -1689,7 +1689,7 @@ void main(void) {
             SpiClearMatrix();
         }
         PORTB = 0x00;
-        _delay((unsigned long)((500)*(16000000/4000.0)));
+        _delay((unsigned long)((100)*(16000000/4000.0)));
     }
 
     return;
