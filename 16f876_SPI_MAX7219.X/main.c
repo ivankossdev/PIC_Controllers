@@ -19,22 +19,28 @@ void main(void) {
     MatrixInit();
     PortBInit();
     
-    int sh = 0;
-    int bar = 0;
     
     while(1){
-        for(int i = 1; i <= 8; i++){
-            SpiClearMatrix();
-            bar = 1 << sh;
-            SendToSegment((char)i, (char)bar);
-            __delay_ms(500);
+        for(int x = 1; x <=4; x++){
+            SendToSegment(x, 0x0f);
         }
-        sh++;
-        if(sh > 7){
-            bar = 0;
-            sh = 0;      
-            SpiClearMatrix();
+        __delay_ms(500);
+        for(int x = 5; x <=8; x++){
+            SendToSegment(x, 0xf0);
         }
+        __delay_ms(500);
+        SpiClearMatrix();
+        
+        for(int x = 5; x <=8; x++){
+            SendToSegment(x, 0x0f);
+        }
+        __delay_ms(500);
+        for(int x = 1; x <=4; x++){
+            SendToSegment(x, 0xf0);
+        }
+        __delay_ms(500);
+        SpiClearMatrix();
+//        __delay_ms(500);
     }
     
     return;

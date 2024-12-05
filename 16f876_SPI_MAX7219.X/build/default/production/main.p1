@@ -9,16 +9,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4 ./portsinit.h
 [; ;./portsinit.h: 4: void PortBInit(void);
 [v _PortBInit `(v ~T0 @X0 0 ef ]
-"9 ./matrix.h
-[; ;./matrix.h: 9: void SpiClearMatrix (void);
-[v _SpiClearMatrix `(v ~T0 @X0 0 ef ]
-"10
-[; ;./matrix.h: 10: void SendToSegment(char rg, char dt );
-[v _SendToSegment `(v ~T0 @X0 0 ef2`uc`uc ]
+"10 ./matrix.h
+[; ;./matrix.h: 10: void SendToSegment(int segment, char dt );
+[v _SendToSegment `(v ~T0 @X0 0 ef2`i`uc ]
 [v F164 `(v ~T0 @X0 1 tf1`ul ]
 "20 /opt/microchip/xc8/v2.50/pic/include/builtins.h
 [v __delay `JF164 ~T0 @X0 0 e ]
 [p i __delay ]
+"9 ./matrix.h
+[; ;./matrix.h: 9: void SpiClearMatrix (void);
+[v _SpiClearMatrix `(v ~T0 @X0 0 ef ]
 "54 /opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h
 [; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -213,76 +213,114 @@ Version 4.0 HI-TECH Software Intermediate Code
 "20
 [; ;main.c: 20:     PortBInit();
 [e ( _PortBInit ..  ]
-"22
-[; ;main.c: 22:     int sh = 0;
-[v _sh `i ~T0 @X0 1 a ]
-[e = _sh -> 0 `i ]
 "23
-[; ;main.c: 23:     int bar = 0;
-[v _bar `i ~T0 @X0 1 a ]
-[e = _bar -> 0 `i ]
-"25
-[; ;main.c: 25:     while(1){
+[; ;main.c: 23:     while(1){
 [e :U 88 ]
 {
-"26
-[; ;main.c: 26:         for(int i = 1; i <= 8; i++){
+"24
+[; ;main.c: 24:         for(int x = 1; x <=4; x++){
 {
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 1 `i ]
-[e $ <= _i -> 8 `i 90  ]
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 1 `i ]
+[e $ <= _x -> 4 `i 90  ]
 [e $U 91  ]
 [e :U 90 ]
 {
-"27
-[; ;main.c: 27:             SpiClearMatrix();
-[e ( _SpiClearMatrix ..  ]
-"28
-[; ;main.c: 28:             bar = 1 << sh;
-[e = _bar << -> 1 `i _sh ]
-"29
-[; ;main.c: 29:             SendToSegment((char)i, (char)bar);
-[e ( _SendToSegment (2 , -> _i `uc -> _bar `uc ]
-"30
-[; ;main.c: 30:             _delay((unsigned long)((500)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"31
-[; ;main.c: 31:         }
+"25
+[; ;main.c: 25:             SendToSegment(x, 0x0f);
+[e ( _SendToSegment (2 , _x -> -> 15 `i `uc ]
+"26
+[; ;main.c: 26:         }
 }
-[e ++ _i -> 1 `i ]
-[e $ <= _i -> 8 `i 90  ]
+[e ++ _x -> 1 `i ]
+[e $ <= _x -> 4 `i 90  ]
 [e :U 91 ]
 }
-"32
-[; ;main.c: 32:         sh++;
-[e ++ _sh -> 1 `i ]
-"33
-[; ;main.c: 33:         if(sh > 7){
-[e $ ! > _sh -> 7 `i 93  ]
+"27
+[; ;main.c: 27:         _delay((unsigned long)((500)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"28
+[; ;main.c: 28:         for(int x = 5; x <=8; x++){
 {
-"34
-[; ;main.c: 34:             bar = 0;
-[e = _bar -> 0 `i ]
-"35
-[; ;main.c: 35:             sh = 0;
-[e = _sh -> 0 `i ]
-"36
-[; ;main.c: 36:             SpiClearMatrix();
-[e ( _SpiClearMatrix ..  ]
-"37
-[; ;main.c: 37:         }
-}
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 5 `i ]
+[e $ <= _x -> 8 `i 93  ]
+[e $U 94  ]
 [e :U 93 ]
+{
+"29
+[; ;main.c: 29:             SendToSegment(x, 0xf0);
+[e ( _SendToSegment (2 , _x -> -> 240 `i `uc ]
+"30
+[; ;main.c: 30:         }
+}
+[e ++ _x -> 1 `i ]
+[e $ <= _x -> 8 `i 93  ]
+[e :U 94 ]
+}
+"31
+[; ;main.c: 31:         _delay((unsigned long)((500)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"32
+[; ;main.c: 32:         SpiClearMatrix();
+[e ( _SpiClearMatrix ..  ]
+"34
+[; ;main.c: 34:         for(int x = 5; x <=8; x++){
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 5 `i ]
+[e $ <= _x -> 8 `i 96  ]
+[e $U 97  ]
+[e :U 96 ]
+{
+"35
+[; ;main.c: 35:             SendToSegment(x, 0x0f);
+[e ( _SendToSegment (2 , _x -> -> 15 `i `uc ]
+"36
+[; ;main.c: 36:         }
+}
+[e ++ _x -> 1 `i ]
+[e $ <= _x -> 8 `i 96  ]
+[e :U 97 ]
+}
+"37
+[; ;main.c: 37:         _delay((unsigned long)((500)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
 "38
-[; ;main.c: 38:     }
+[; ;main.c: 38:         for(int x = 1; x <=4; x++){
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 1 `i ]
+[e $ <= _x -> 4 `i 99  ]
+[e $U 100  ]
+[e :U 99 ]
+{
+"39
+[; ;main.c: 39:             SendToSegment(x, 0xf0);
+[e ( _SendToSegment (2 , _x -> -> 240 `i `uc ]
+"40
+[; ;main.c: 40:         }
+}
+[e ++ _x -> 1 `i ]
+[e $ <= _x -> 4 `i 99  ]
+[e :U 100 ]
+}
+"41
+[; ;main.c: 41:         _delay((unsigned long)((500)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"42
+[; ;main.c: 42:         SpiClearMatrix();
+[e ( _SpiClearMatrix ..  ]
+"44
+[; ;main.c: 44:     }
 }
 [e :U 87 ]
 [e $U 88  ]
 [e :U 89 ]
-"40
-[; ;main.c: 40:     return;
+"46
+[; ;main.c: 46:     return;
 [e $UE 86  ]
-"41
-[; ;main.c: 41: }
+"47
+[; ;main.c: 47: }
 [e :UE 86 ]
 }

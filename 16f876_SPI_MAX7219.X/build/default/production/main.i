@@ -1,4 +1,4 @@
-# 1 "matrix.c"
+# 1 "main.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,11 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "/opt/microchip/xc8/v2.50/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "matrix.c" 2
-# 1 "./matrix.h" 1
-
-
-
+# 1 "main.c" 2
 # 1 "/opt/microchip/xc8/v2.50/pic/include/xc.h" 1 3
 # 18 "/opt/microchip/xc8/v2.50/pic/include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1640,7 +1636,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "/opt/microchip/xc8/v2.50/pic/include/xc.h" 2 3
-# 5 "./matrix.h" 2
+# 2 "main.c" 2
 # 1 "./settings.h" 1
 
 
@@ -1661,7 +1657,7 @@ void PortCInit(void);
 #pragma config LVP = OFF
 #pragma config CPD = OFF
 #pragma config WRT = OFF
-# 6 "./matrix.h" 2
+# 3 "main.c" 2
 # 1 "./spi.h" 1
 
 
@@ -1670,47 +1666,48 @@ void PortCInit(void);
 
 void SpiInit(void);
 void SpiSendByte(char data);
-# 7 "./matrix.h" 2
+# 4 "main.c" 2
+# 1 "./matrix.h" 1
+
+
+
+
+
+
 
 void MatrixInit(void);
 void SpiClearMatrix (void);
 void SendToSegment(int segment, char dt );
-# 2 "matrix.c" 2
+# 5 "main.c" 2
+# 17 "main.c"
+void main(void) {
+    SpiInit();
+    MatrixInit();
+    PortBInit();
 
 
+    while(1){
+        for(int x = 1; x <=4; x++){
+            SendToSegment(x, 0x0f);
+        }
+        _delay((unsigned long)((500)*(16000000/4000.0)));
+        for(int x = 5; x <=8; x++){
+            SendToSegment(x, 0xf0);
+        }
+        _delay((unsigned long)((500)*(16000000/4000.0)));
+        SpiClearMatrix();
 
+        for(int x = 5; x <=8; x++){
+            SendToSegment(x, 0x0f);
+        }
+        _delay((unsigned long)((500)*(16000000/4000.0)));
+        for(int x = 1; x <=4; x++){
+            SendToSegment(x, 0xf0);
+        }
+        _delay((unsigned long)((500)*(16000000/4000.0)));
+        SpiClearMatrix();
 
+    }
 
-
-
-
-void SpiClearMatrix (void)
-{
-  char i = 8;
-  do
-  {
-    SendToSegment(i, 0x00);
-  } while (--i);
-}
-
-
-void MatrixInit(void) {
-    _delay((unsigned long)((100)*(16000000/4000.0)));
-    RA5=1;
-    SendToSegment(0x09, 0x00);
-    SendToSegment(0x0b, 0x07);
-    SendToSegment(0x0A, 0x02);
-    SendToSegment(0x0c, 0x01);
-    SpiClearMatrix();
-}
-
-
-
-
-
-void SendToSegment(int segment, char data) {
-    RA5 = 0;
-    SpiSendByte(segment);
-    SpiSendByte(data);
-    RA5 = 1;
+    return;
 }

@@ -7,6 +7,6 @@
 
 void MatrixInit(void);
 void SpiClearMatrix (void);
-void SendToSegment(char rg, char dt );
+void SendToSegment(int segment, char dt );
 #endif	/* MATRIX_H */
 

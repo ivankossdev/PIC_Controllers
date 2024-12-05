@@ -1,4 +1,4 @@
-# 1 "matrix.c"
+# 1 "portsinit.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,11 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "/opt/microchip/xc8/v2.50/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "matrix.c" 2
-# 1 "./matrix.h" 1
-
-
-
+# 1 "portsinit.c" 2
 # 1 "/opt/microchip/xc8/v2.50/pic/include/xc.h" 1 3
 # 18 "/opt/microchip/xc8/v2.50/pic/include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1640,11 +1636,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "/opt/microchip/xc8/v2.50/pic/include/xc.h" 2 3
-# 5 "./matrix.h" 2
-# 1 "./settings.h" 1
-
-
-
+# 2 "portsinit.c" 2
 # 1 "./portsinit.h" 1
 
 
@@ -1652,65 +1644,9 @@ extern __bank0 __bit __timeout;
 void PortBInit(void);
 void PortAInit(void);
 void PortCInit(void);
-# 5 "./settings.h" 2
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config CP = OFF
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-# 6 "./matrix.h" 2
-# 1 "./spi.h" 1
-
-
-
-
-
-void SpiInit(void);
-void SpiSendByte(char data);
-# 7 "./matrix.h" 2
-
-void MatrixInit(void);
-void SpiClearMatrix (void);
-void SendToSegment(int segment, char dt );
-# 2 "matrix.c" 2
-
-
-
-
-
-
-
-
-void SpiClearMatrix (void)
-{
-  char i = 8;
-  do
-  {
-    SendToSegment(i, 0x00);
-  } while (--i);
-}
-
-
-void MatrixInit(void) {
-    _delay((unsigned long)((100)*(16000000/4000.0)));
-    RA5=1;
-    SendToSegment(0x09, 0x00);
-    SendToSegment(0x0b, 0x07);
-    SendToSegment(0x0A, 0x02);
-    SendToSegment(0x0c, 0x01);
-    SpiClearMatrix();
-}
-
-
-
-
-
-void SendToSegment(int segment, char data) {
-    RA5 = 0;
-    SpiSendByte(segment);
-    SpiSendByte(data);
-    RA5 = 1;
+# 3 "portsinit.c" 2
+# 13 "portsinit.c"
+void PortBInit(void){
+    TRISB = 0x00;
+    PORTB = 0x00;
 }

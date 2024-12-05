@@ -1,17 +1,25 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"10 ./matrix.h
-[; ;./matrix.h: 10: void SendToSegment(int segment, char dt );
-[v _SendToSegment `(v ~T0 @X0 0 ef2`i`uc ]
-[v F164 `(v ~T0 @X0 1 tf1`ul ]
-"20 /opt/microchip/xc8/v2.50/pic/include/builtins.h
-[v __delay `JF164 ~T0 @X0 0 e ]
-[p i __delay ]
-"2225 /opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h
-[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h: 2225: extern volatile __bit RA5 __attribute__((address(0x2D)));
-[v _RA5 `Vb ~T0 @X0 0 e@45 ]
-"7 ./spi.h
-[; ;./spi.h: 7: void SpiSendByte(char data);
-[v _SpiSendByte `(v ~T0 @X0 0 ef1`uc ]
+"1332 /opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h
+[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h: 1332: extern volatile unsigned char TRISC __attribute__((address(0x087)));
+[v _TRISC `Vuc ~T0 @X0 0 e@135 ]
+"1220
+[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h: 1220: extern volatile unsigned char TRISA __attribute__((address(0x085)));
+[v _TRISA `Vuc ~T0 @X0 0 e@133 ]
+"166
+[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h: 166: extern volatile unsigned char PORTA __attribute__((address(0x005)));
+[v _PORTA `Vuc ~T0 @X0 0 e@5 ]
+"710
+[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h: 710: extern volatile unsigned char SSPCON __attribute__((address(0x014)));
+[v _SSPCON `Vuc ~T0 @X0 0 e@20 ]
+"1593
+[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h: 1593: extern volatile unsigned char SSPSTAT __attribute__((address(0x094)));
+[v _SSPSTAT `Vuc ~T0 @X0 0 e@148 ]
+"703
+[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h: 703: extern volatile unsigned char SSPBUF __attribute__((address(0x013)));
+[v _SSPBUF `Vuc ~T0 @X0 0 e@19 ]
+"2345
+[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h: 2345: extern volatile __bit SSPIF __attribute__((address(0x63)));
+[v _SSPIF `Vb ~T0 @X0 0 e@99 ]
 "54 /opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h
 [; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -190,88 +198,55 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x CPD  =  OFF         ]
 "12
 [p x WRT  =  OFF  ]
-"10 matrix.c
-[; ;matrix.c: 10: void SpiClearMatrix (void)
-[v _SpiClearMatrix `(v ~T0 @X0 1 ef ]
-"11
-[; ;matrix.c: 11: {
+"9 spi.c
+[; ;spi.c: 9: void SpiInit() {
+[v _SpiInit `(v ~T0 @X0 1 ef ]
 {
-[e :U _SpiClearMatrix ]
+[e :U _SpiInit ]
 [f ]
+"10
+[; ;spi.c: 10:     TRISC |= 0x10;
+[e =| _TRISC -> -> 16 `i `Vuc ]
+"11
+[; ;spi.c: 11:     TRISC &= ~0x28;
+[e =& _TRISC -> ~ -> 40 `i `Vuc ]
 "12
-[; ;matrix.c: 12:   char i = 8;
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 8 `i `uc ]
+[; ;spi.c: 12:     TRISA &= ~0x20;
+[e =& _TRISA -> ~ -> 32 `i `Vuc ]
 "13
-[; ;matrix.c: 13:   do
-[e :U 89 ]
+[; ;spi.c: 13:     PORTA &= ~0x20;
+[e =& _PORTA -> ~ -> 32 `i `Vuc ]
 "14
-[; ;matrix.c: 14:   {
-{
+[; ;spi.c: 14:     SSPCON = 0x30;
+[e = _SSPCON -> -> 48 `i `uc ]
 "15
-[; ;matrix.c: 15:     SendToSegment(i, 0x00);
-[e ( _SendToSegment (2 , -> _i `i -> -> 0 `i `uc ]
+[; ;spi.c: 15:     SSPSTAT = 0x80;
+[e = _SSPSTAT -> -> 128 `i `uc ]
 "16
-[; ;matrix.c: 16:   } while (--i);
-}
-[e $ != -> =- _i -> -> 1 `i `uc `i -> 0 `i 89  ]
-[e :U 88 ]
-"17
-[; ;matrix.c: 17: }
+[; ;spi.c: 16: }
 [e :UE 86 ]
 }
+"18
+[; ;spi.c: 18: void SpiSendByte(char data) {
+[v _SpiSendByte `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _SpiSendByte ]
+[v _data `uc ~T0 @X0 1 r1 ]
+[f ]
+"19
+[; ;spi.c: 19:     SSPBUF = data;
+[e = _SSPBUF -> _data `uc ]
 "20
-[; ;matrix.c: 20: void MatrixInit(void) {
-[v _MatrixInit `(v ~T0 @X0 1 ef ]
-{
-[e :U _MatrixInit ]
-[f ]
+[; ;spi.c: 20:     while (!SSPIF);
+[e $U 88  ]
+[e :U 89 ]
+[e :U 88 ]
+[e $ ! _SSPIF 89  ]
+[e :U 90 ]
 "21
-[; ;matrix.c: 21:     _delay((unsigned long)((100)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+[; ;spi.c: 21:     SSPIF = 0;
+[e = _SSPIF -> -> 0 `i `b ]
 "22
-[; ;matrix.c: 22:     RA5=1;
-[e = _RA5 -> -> 1 `i `b ]
-"23
-[; ;matrix.c: 23:     SendToSegment(0x09, 0x00);
-[e ( _SendToSegment (2 , -> 9 `i -> -> 0 `i `uc ]
-"24
-[; ;matrix.c: 24:     SendToSegment(0x0b, 0x07);
-[e ( _SendToSegment (2 , -> 11 `i -> -> 7 `i `uc ]
-"25
-[; ;matrix.c: 25:     SendToSegment(0x0A, 0x02);
-[e ( _SendToSegment (2 , -> 10 `i -> -> 2 `i `uc ]
-"26
-[; ;matrix.c: 26:     SendToSegment(0x0c, 0x01);
-[e ( _SendToSegment (2 , -> 12 `i -> -> 1 `i `uc ]
-"27
-[; ;matrix.c: 27:     SpiClearMatrix();
-[e ( _SpiClearMatrix ..  ]
-"28
-[; ;matrix.c: 28: }
-[e :UE 90 ]
-}
-"34
-[; ;matrix.c: 34: void SendToSegment(int segment, char data) {
-[v _SendToSegment `(v ~T0 @X0 1 ef2`i`uc ]
-{
-[e :U _SendToSegment ]
-[v _segment `i ~T0 @X0 1 r1 ]
-[v _data `uc ~T0 @X0 1 r2 ]
-[f ]
-"35
-[; ;matrix.c: 35:     RA5 = 0;
-[e = _RA5 -> -> 0 `i `b ]
-"36
-[; ;matrix.c: 36:     SpiSendByte(segment);
-[e ( _SpiSendByte (1 -> _segment `uc ]
-"37
-[; ;matrix.c: 37:     SpiSendByte(data);
-[e ( _SpiSendByte (1 _data ]
-"38
-[; ;matrix.c: 38:     RA5 = 1;
-[e = _RA5 -> -> 1 `i `b ]
-"39
-[; ;matrix.c: 39: }
-[e :UE 91 ]
+[; ;spi.c: 22: }
+[e :UE 87 ]
 }

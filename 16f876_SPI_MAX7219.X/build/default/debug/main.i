@@ -1677,7 +1677,7 @@ void SpiSendByte(char data);
 
 void MatrixInit(void);
 void SpiClearMatrix (void);
-void SendToSegment(char rg, char dt );
+void SendToSegment(int segment, char dt );
 # 5 "main.c" 2
 # 17 "main.c"
 void main(void) {
@@ -1685,22 +1685,14 @@ void main(void) {
     MatrixInit();
     PortBInit();
 
-    int sh = 0;
-    int bar = 0;
 
     while(1){
-        for(int i = 1; i <= 8; i++){
-            SpiClearMatrix();
-            bar = 1 << sh;
-            SendToSegment((char)i, (char)bar);
-            _delay((unsigned long)((500)*(16000000/4000.0)));
+        for(int x = 1; x <=8; x++){
+            SendToSegment();
         }
-        sh++;
-        if(sh > 7){
-            bar = 0;
-            sh = 0;
-            SpiClearMatrix();
-        }
+        _delay((unsigned long)((500)*(16000000/4000.0)));
+        SpiClearMatrix();
+        _delay((unsigned long)((500)*(16000000/4000.0)));
     }
 
     return;

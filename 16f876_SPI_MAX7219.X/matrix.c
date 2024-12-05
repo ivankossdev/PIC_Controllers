@@ -31,7 +31,7 @@ void MatrixInit(void) {
  * char rg регистр (разряд) микросхемы
  * char dt данне которые передаем в регистр (разряд)
  */
-void SendToSegment(char segment, char data) {
+void SendToSegment(int segment, char data) {
     cs = 0;
     SpiSendByte(segment);
     SpiSendByte(data);

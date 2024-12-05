@@ -1,4 +1,4 @@
-# 1 "matrix.c"
+# 1 "spi.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,9 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "/opt/microchip/xc8/v2.50/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "matrix.c" 2
-# 1 "./matrix.h" 1
-
+# 1 "spi.c" 2
+# 1 "./spi.h" 1
 
 
 # 1 "/opt/microchip/xc8/v2.50/pic/include/xc.h" 1 3
@@ -1640,7 +1639,8 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "/opt/microchip/xc8/v2.50/pic/include/xc.h" 2 3
-# 5 "./matrix.h" 2
+# 3 "./spi.h" 2
+
 # 1 "./settings.h" 1
 
 
@@ -1661,21 +1661,12 @@ void PortCInit(void);
 #pragma config LVP = OFF
 #pragma config CPD = OFF
 #pragma config WRT = OFF
-# 6 "./matrix.h" 2
-# 1 "./spi.h" 1
-
-
-
+# 4 "./spi.h" 2
 
 
 void SpiInit(void);
 void SpiSendByte(char data);
-# 7 "./matrix.h" 2
-
-void MatrixInit(void);
-void SpiClearMatrix (void);
-void SendToSegment(int segment, char dt );
-# 2 "matrix.c" 2
+# 1 "spi.c" 2
 
 
 
@@ -1684,33 +1675,17 @@ void SendToSegment(int segment, char dt );
 
 
 
-void SpiClearMatrix (void)
-{
-  char i = 8;
-  do
-  {
-    SendToSegment(i, 0x00);
-  } while (--i);
+void SpiInit() {
+    TRISC |= 0x10;
+    TRISC &= ~0x28;
+    TRISA &= ~0x20;
+    PORTA &= ~0x20;
+    SSPCON = 0x30;
+    SSPSTAT = 0x80;
 }
 
-
-void MatrixInit(void) {
-    _delay((unsigned long)((100)*(16000000/4000.0)));
-    RA5=1;
-    SendToSegment(0x09, 0x00);
-    SendToSegment(0x0b, 0x07);
-    SendToSegment(0x0A, 0x02);
-    SendToSegment(0x0c, 0x01);
-    SpiClearMatrix();
-}
-
-
-
-
-
-void SendToSegment(int segment, char data) {
-    RA5 = 0;
-    SpiSendByte(segment);
-    SpiSendByte(data);
-    RA5 = 1;
+void SpiSendByte(char data) {
+    SSPBUF = data;
+    while (!SSPIF);
+    SSPIF = 0;
 }
