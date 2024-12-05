@@ -1666,7 +1666,6 @@ void PortCInit(void);
 
 void SpiInit(void);
 void SpiSendByte(char data);
-void SpiSendBus(char rg, char dt );
 # 4 "main.c" 2
 # 1 "./matrix.h" 1
 
@@ -1676,22 +1675,25 @@ void SpiSendBus(char rg, char dt );
 
 
 
-void MATR_7219_init(void);
+void MatrixInit(void);
 void SpiClearMatrix (void);
+void SendToSegment(char rg, char dt );
 # 5 "main.c" 2
 # 17 "main.c"
 void main(void) {
     SpiInit();
-    MATR_7219_init();
+    MatrixInit();
     PortBInit();
+
     int sh = 0;
     int bar = 0;
+
     while(1){
-        for(int i = 1; i < 9; i++){
+        for(int i = 1; i <= 8; i++){
             SpiClearMatrix();
             bar = 1 << sh;
-            SpiSendBus(i, bar);
-            _delay((unsigned long)((250)*(16000000/4000.0)));
+            SendToSegment((char)i, (char)bar);
+            _delay((unsigned long)((500)*(16000000/4000.0)));
         }
         sh++;
         if(sh > 7){

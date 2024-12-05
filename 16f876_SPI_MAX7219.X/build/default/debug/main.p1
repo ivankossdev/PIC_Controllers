@@ -4,17 +4,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./spi.h: 6: void SpiInit(void);
 [v _SpiInit `(v ~T0 @X0 0 ef ]
 "8 ./matrix.h
-[; ;./matrix.h: 8: void MATR_7219_init(void);
-[v _MATR_7219_init `(v ~T0 @X0 0 ef ]
+[; ;./matrix.h: 8: void MatrixInit(void);
+[v _MatrixInit `(v ~T0 @X0 0 ef ]
 "4 ./portsinit.h
 [; ;./portsinit.h: 4: void PortBInit(void);
 [v _PortBInit `(v ~T0 @X0 0 ef ]
 "9 ./matrix.h
 [; ;./matrix.h: 9: void SpiClearMatrix (void);
 [v _SpiClearMatrix `(v ~T0 @X0 0 ef ]
-"8 ./spi.h
-[; ;./spi.h: 8: void SpiSendBus(char rg, char dt );
-[v _SpiSendBus `(v ~T0 @X0 0 ef2`uc`uc ]
+"10
+[; ;./matrix.h: 10: void SendToSegment(char rg, char dt );
+[v _SendToSegment `(v ~T0 @X0 0 ef2`uc`uc ]
 [v F164 `(v ~T0 @X0 1 tf1`ul ]
 "20 /opt/microchip/xc8/v2.50/pic/include/builtins.h
 [v __delay `JF164 ~T0 @X0 0 e ]
@@ -208,81 +208,81 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 18:     SpiInit();
 [e ( _SpiInit ..  ]
 "19
-[; ;main.c: 19:     MATR_7219_init();
-[e ( _MATR_7219_init ..  ]
+[; ;main.c: 19:     MatrixInit();
+[e ( _MatrixInit ..  ]
 "20
 [; ;main.c: 20:     PortBInit();
 [e ( _PortBInit ..  ]
-"21
-[; ;main.c: 21:     int sh = 0;
+"22
+[; ;main.c: 22:     int sh = 0;
 [v _sh `i ~T0 @X0 1 a ]
 [e = _sh -> 0 `i ]
-"22
-[; ;main.c: 22:     int bar = 0;
+"23
+[; ;main.c: 23:     int bar = 0;
 [v _bar `i ~T0 @X0 1 a ]
 [e = _bar -> 0 `i ]
-"23
-[; ;main.c: 23:     while(1){
+"25
+[; ;main.c: 25:     while(1){
 [e :U 88 ]
 {
-"24
-[; ;main.c: 24:         for(int i = 1; i < 9; i++){
+"26
+[; ;main.c: 26:         for(int i = 1; i <= 8; i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 1 `i ]
-[e $ < _i -> 9 `i 90  ]
+[e $ <= _i -> 8 `i 90  ]
 [e $U 91  ]
 [e :U 90 ]
 {
-"25
-[; ;main.c: 25:             SpiClearMatrix();
-[e ( _SpiClearMatrix ..  ]
-"26
-[; ;main.c: 26:             bar = 1 << sh;
-[e = _bar << -> 1 `i _sh ]
 "27
-[; ;main.c: 27:             SpiSendBus(i, bar);
-[e ( _SpiSendBus (2 , -> _i `uc -> _bar `uc ]
+[; ;main.c: 27:             SpiClearMatrix();
+[e ( _SpiClearMatrix ..  ]
 "28
-[; ;main.c: 28:             _delay((unsigned long)((250)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+[; ;main.c: 28:             bar = 1 << sh;
+[e = _bar << -> 1 `i _sh ]
 "29
-[; ;main.c: 29:         }
+[; ;main.c: 29:             SendToSegment((char)i, (char)bar);
+[e ( _SendToSegment (2 , -> _i `uc -> _bar `uc ]
+"30
+[; ;main.c: 30:             _delay((unsigned long)((500)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"31
+[; ;main.c: 31:         }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 9 `i 90  ]
+[e $ <= _i -> 8 `i 90  ]
 [e :U 91 ]
 }
-"30
-[; ;main.c: 30:         sh++;
+"32
+[; ;main.c: 32:         sh++;
 [e ++ _sh -> 1 `i ]
-"31
-[; ;main.c: 31:         if(sh > 7){
+"33
+[; ;main.c: 33:         if(sh > 7){
 [e $ ! > _sh -> 7 `i 93  ]
 {
-"32
-[; ;main.c: 32:             bar = 0;
-[e = _bar -> 0 `i ]
-"33
-[; ;main.c: 33:             sh = 0;
-[e = _sh -> 0 `i ]
 "34
-[; ;main.c: 34:             SpiClearMatrix();
-[e ( _SpiClearMatrix ..  ]
+[; ;main.c: 34:             bar = 0;
+[e = _bar -> 0 `i ]
 "35
-[; ;main.c: 35:         }
+[; ;main.c: 35:             sh = 0;
+[e = _sh -> 0 `i ]
+"36
+[; ;main.c: 36:             SpiClearMatrix();
+[e ( _SpiClearMatrix ..  ]
+"37
+[; ;main.c: 37:         }
 }
 [e :U 93 ]
-"36
-[; ;main.c: 36:     }
+"38
+[; ;main.c: 38:     }
 }
 [e :U 87 ]
 [e $U 88  ]
 [e :U 89 ]
-"38
-[; ;main.c: 38:     return;
+"40
+[; ;main.c: 40:     return;
 [e $UE 86  ]
-"39
-[; ;main.c: 39: }
+"41
+[; ;main.c: 41: }
 [e :UE 86 ]
 }

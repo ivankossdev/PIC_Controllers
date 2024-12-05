@@ -5,8 +5,8 @@
 #include "settings.h"
 #include "spi.h"
 
-void MATR_7219_init(void);
+void MatrixInit(void);
 void SpiClearMatrix (void);
-
+void SendToSegment(char rg, char dt );
 #endif	/* MATRIX_H */
 

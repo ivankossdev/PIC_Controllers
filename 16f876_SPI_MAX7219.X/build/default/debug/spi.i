@@ -1666,9 +1666,15 @@ void PortCInit(void);
 
 void SpiInit(void);
 void SpiSendByte(char data);
-void SpiSendBus(char rg, char dt );
 # 1 "spi.c" 2
-# 11 "spi.c"
+
+
+
+
+
+
+
+
 void SpiInit() {
     TRISC |= 0x10;
     TRISC &= ~0x28;
@@ -1682,11 +1688,4 @@ void SpiSendByte(char data) {
     SSPBUF = data;
     while (!SSPIF);
     SSPIF = 0;
-}
-
-void SpiSendBus(char rg, char dt) {
-    RA5 = 0;
-    SpiSendByte(rg);
-    SpiSendByte(dt);
-    RA5 = 1;
 }

@@ -5,6 +5,5 @@
 #define cs RA5
 void SpiInit(void);
 void SpiSendByte(char data);
-void SpiSendBus(char rg, char dt );
 #endif	/* SPI_H */
 

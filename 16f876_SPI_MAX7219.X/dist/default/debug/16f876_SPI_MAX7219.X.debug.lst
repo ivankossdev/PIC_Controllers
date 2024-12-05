@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.50 build 20240725155939 
-                                                                                               Thu Dec  5 09:26:48 2024
+                                                                                               Thu Dec  5 11:48:33 2024
 
 Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1 
      1                           	processor	16F876
@@ -366,7 +366,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    352                           	psect	cstackCOMMON
    353     0071                     __pcstackCOMMON:
    354     0071                     ?_SpiInit:
-   355     0071                     ?_MATR_7219_init:	
+   355     0071                     ?_MatrixInit:	
    356                           ; 1 bytes @ 0x0
    357                           
    358     0071                     ?_PortBInit:	
@@ -396,15 +396,15 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    382                           
    383                           ; 1 bytes @ 0x0
    384     0071                     	ds	1
-   385     0072                     ?_SpiSendBus:
-   386     0072                     SpiSendBus@dt:	
+   385     0072                     ?_SendToSegment:
+   386     0072                     SendToSegment@data:	
    387                           ; 1 bytes @ 0x1
    388                           
    389                           
    390                           ; 1 bytes @ 0x1
    391     0072                     	ds	1
-   392     0073                     SpiSendBus@rg:
-   393     0073                     ??_SpiSendBus:	
+   392     0073                     SendToSegment@segment:
+   393     0073                     ??_SendToSegment:	
    394                           ; 1 bytes @ 0x2
    395                           
    396                           
@@ -417,7 +417,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    403                           
    404                           ; 1 bytes @ 0x3
    405     0074                     	ds	1
-   406     0075                     ??_MATR_7219_init:
+   406     0075                     ??_MatrixInit:
    407                           
    408                           ; 1 bytes @ 0x4
    409     0075                     	ds	3
@@ -471,11 +471,11 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    457 ;;Total ram usage:        9 bytes
    458 ;; Hardware stack levels required when called: 4
    459 ;; This function calls:
-   460 ;;		_MATR_7219_init
+   460 ;;		_MatrixInit
    461 ;;		_PortBInit
-   462 ;;		_SpiClearMatrix
-   463 ;;		_SpiInit
-   464 ;;		_SpiSendBus
+   462 ;;		_SendToSegment
+   463 ;;		_SpiClearMatrix
+   464 ;;		_SpiInit
    465 ;; This function is called by:
    466 ;;		Startup code after reset
    467 ;; This function uses a non-reentrant model
@@ -492,25 +492,25 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    478                           ;main.c: 18:     SpiInit();
    479     0780  120A  118A  2726  120A  118A  	fcall	_SpiInit
    480                           
-   481                           ;main.c: 19:     MATR_7219_init();
-   482     0785  120A  118A  274C  120A  118A  	fcall	_MATR_7219_init
+   481                           ;main.c: 19:     MatrixInit();
+   482     0785  120A  118A  274C  120A  118A  	fcall	_MatrixInit
    483     078A                     l726:
    484                           
    485                           ;main.c: 20:     PortBInit();
    486     078A  120A  118A  2704  120A  118A  	fcall	_PortBInit
    487     078F                     l728:
    488                           
-   489                           ;main.c: 21:     int sh = 0;
+   489                           ;main.c: 22:     int sh = 0;
    490     078F  1283               	bcf	3,5	;RP0=0, select bank0
    491     0790  1303               	bcf	3,6	;RP1=0, select bank0
    492     0791  01A2               	clrf	main@sh
    493     0792  01A3               	clrf	main@sh+1
    494     0793                     l730:
    495     0793                     l17:	
-   496                           ;main.c: 23:     while(1){
+   496                           ;main.c: 25:     while(1){
    497                           
    498                           
-   499                           ;main.c: 24:         for(int i = 1; i < 9; i++){
+   499                           ;main.c: 26:         for(int i = 1; i <= 8; i++){
    500     0793  3001               	movlw	1
    501     0794  1283               	bcf	3,5	;RP0=0, select bank0
    502     0795  1303               	bcf	3,6	;RP1=0, select bank0
@@ -519,11 +519,11 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    505     0798  00A5               	movwf	main@i+1
    506     0799                     l736:
    507                           
-   508                           ;main.c: 25:             SpiClearMatrix();
+   508                           ;main.c: 27:             SpiClearMatrix();
    509     0799  120A  118A  2716  120A  118A  	fcall	_SpiClearMatrix
    510     079E                     l738:
    511                           
-   512                           ;main.c: 26:             bar = 1 << sh;
+   512                           ;main.c: 28:             bar = 1 << sh;
    513     079E  1283               	bcf	3,5	;RP0=0, select bank0
    514     079F  1303               	bcf	3,6	;RP1=0, select bank0
    515     07A0  0A22               	incf	main@sh,w
@@ -546,19 +546,19 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    532     07AF  00A1               	movwf	main@bar+1
    533     07B0                     l740:
    534                           
-   535                           ;main.c: 27:             SpiSendBus(i, bar);
+   535                           ;main.c: 29:             SendToSegment((char)i, (char)bar);
    536     07B0  0820               	movf	main@bar,w
-   537     07B1  00F2               	movwf	SpiSendBus@dt
+   537     07B1  00F2               	movwf	SendToSegment@data
    538     07B2  0824               	movf	main@i,w
-   539     07B3  120A  118A  2738  120A  118A  	fcall	_SpiSendBus
+   539     07B3  120A  118A  2738  120A  118A  	fcall	_SendToSegment
    540     07B8                     l742:
    541                           
-   542                           ;main.c: 28:             _delay((unsigned long)((250)*(16000000/4000.0)));
-   543     07B8  3006               	movlw	6
+   542                           ;main.c: 30:             _delay((unsigned long)((500)*(16000000/4000.0)));
+   543     07B8  300B               	movlw	11
    544     07B9  00FA               	movwf	??_main+2
-   545     07BA  3013               	movlw	19
+   545     07BA  3026               	movlw	38
    546     07BB  00F9               	movwf	??_main+1
-   547     07BC  30AD               	movlw	173
+   547     07BC  305D               	movlw	93
    548     07BD  00F8               	movwf	??_main
    549     07BE                     u117:
    550     07BE  0BF8               	decfsz	??_main,f
@@ -570,7 +570,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    556     07C4  2FC5               	nop2
    557     07C5                     l744:
    558                           
-   559                           ;main.c: 29:         }
+   559                           ;main.c: 31:         }
    560     07C5  3001               	movlw	1
    561     07C6  1283               	bcf	3,5	;RP0=0, select bank0
    562     07C7  1303               	bcf	3,6	;RP1=0, select bank0
@@ -598,7 +598,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    584     07DA                     u90:
    585     07DA                     l748:
    586                           
-   587                           ;main.c: 30:         sh++;
+   587                           ;main.c: 32:         sh++;
    588     07DA  3001               	movlw	1
    589     07DB  1283               	bcf	3,5	;RP0=0, select bank0
    590     07DC  1303               	bcf	3,6	;RP1=0, select bank0
@@ -609,7 +609,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    595     07E1  07A3               	addwf	main@sh+1,f
    596     07E2                     l750:
    597                           
-   598                           ;main.c: 31:         if(sh > 7){
+   598                           ;main.c: 33:         if(sh > 7){
    599     07E2  0823               	movf	main@sh+1,w
    600     07E3  3A80               	xorlw	128
    601     07E4  00FF               	movwf	btemp+1
@@ -628,14 +628,14 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    614     07EF                     u100:
    615     07EF                     l752:
    616                           
-   617                           ;main.c: 33:             sh = 0;
+   617                           ;main.c: 35:             sh = 0;
    618     07EF  1283               	bcf	3,5	;RP0=0, select bank0
    619     07F0  1303               	bcf	3,6	;RP1=0, select bank0
    620     07F1  01A2               	clrf	main@sh
    621     07F2  01A3               	clrf	main@sh+1
    622     07F3                     l754:
    623                           
-   624                           ;main.c: 34:             SpiClearMatrix();
+   624                           ;main.c: 36:             SpiClearMatrix();
    625     07F3  120A  118A  2716  120A  118A  	fcall	_SpiClearMatrix
    626     07F8  2F93               	goto	l17
    627     07F9  120A  118A  2800   	ljmp	start
@@ -645,7 +645,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    631     0726                     __ptext1:	
    632 ;; *************** function _SpiInit *****************
    633 ;; Defined at:
-   634 ;;		line 11 in file "spi.c"
+   634 ;;		line 9 in file "spi.c"
    635 ;; Parameters:    Size  Location     Type
    636 ;;		None
    637 ;; Auto vars:     Size  Location     Type
@@ -680,38 +680,38 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    666                           ; Regs used in _SpiInit: [wreg+status,2+status,0]
    667                           
    668                           
-   669                           ;spi.c: 12:     TRISC |= 0x10;
+   669                           ;spi.c: 10:     TRISC |= 0x10;
    670     0726  1683               	bsf	3,5	;RP0=1, select bank1
    671     0727  1303               	bcf	3,6	;RP1=0, select bank1
    672     0728  1607               	bsf	7,4	;volatile
    673     0729                     l702:
    674                           
-   675                           ;spi.c: 13:     TRISC &= ~0x28;
+   675                           ;spi.c: 11:     TRISC &= ~0x28;
    676     0729  30D7               	movlw	215
    677     072A  0587               	andwf	7,f	;volatile
    678                           
-   679                           ;spi.c: 14:     TRISA &= ~0x20;
+   679                           ;spi.c: 12:     TRISA &= ~0x20;
    680     072B  30DF               	movlw	223
    681     072C  0585               	andwf	5,f	;volatile
    682                           
-   683                           ;spi.c: 15:     PORTA &= ~0x20;
+   683                           ;spi.c: 13:     PORTA &= ~0x20;
    684     072D  30DF               	movlw	223
    685     072E  1283               	bcf	3,5	;RP0=0, select bank0
    686     072F  1303               	bcf	3,6	;RP1=0, select bank0
    687     0730  0585               	andwf	5,f	;volatile
    688     0731                     l704:
    689                           
-   690                           ;spi.c: 16:     SSPCON = 0x30;
+   690                           ;spi.c: 14:     SSPCON = 0x30;
    691     0731  3030               	movlw	48
    692     0732  0094               	movwf	20	;volatile
    693     0733                     l706:
    694                           
-   695                           ;spi.c: 17:     SSPSTAT = 0x80;
+   695                           ;spi.c: 15:     SSPSTAT = 0x80;
    696     0733  3080               	movlw	128
    697     0734  1683               	bsf	3,5	;RP0=1, select bank1
    698     0735  1303               	bcf	3,6	;RP1=0, select bank1
    699     0736  0094               	movwf	20	;volatile
-   700     0737                     l49:
+   700     0737                     l47:
    701     0737  0008               	return
    702     0738                     __end_of_SpiInit:
    703                           
@@ -769,9 +769,9 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    755                           
    756                           	psect	text3
    757     074C                     __ptext3:	
-   758 ;; *************** function _MATR_7219_init *****************
+   758 ;; *************** function _MatrixInit *****************
    759 ;; Defined at:
-   760 ;;		line 12 in file "matrix.c"
+   760 ;;		line 20 in file "matrix.c"
    761 ;; Parameters:    Size  Location     Type
    762 ;;		None
    763 ;; Auto vars:     Size  Location     Type
@@ -793,81 +793,81 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    779 ;; Hardware stack levels used: 1
    780 ;; Hardware stack levels required when called: 3
    781 ;; This function calls:
-   782 ;;		_SpiClearMatrix
-   783 ;;		_SpiSendBus
+   782 ;;		_SendToSegment
+   783 ;;		_SpiClearMatrix
    784 ;; This function is called by:
    785 ;;		_main
    786 ;; This function uses a non-reentrant model
    787 ;;
    788                           
-   789     074C                     _MATR_7219_init:	
-   790                           ;psect for function _MATR_7219_init
+   789     074C                     _MatrixInit:	
+   790                           ;psect for function _MatrixInit
    791                           
    792     074C                     l708:	
    793                           ;incstack = 0
-   794                           ; Regs used in _MATR_7219_init: [wreg+status,2+status,0+pclath+cstack]
+   794                           ; Regs used in _MatrixInit: [wreg+status,2+status,0+pclath+cstack]
    795                           
    796                           
-   797                           ;matrix.c: 13:     _delay((unsigned long)((100)*(16000000/4000.0)));
+   797                           ;matrix.c: 21:     _delay((unsigned long)((100)*(16000000/4000.0)));
    798     074C  3003               	movlw	3
-   799     074D  00F7               	movwf	??_MATR_7219_init+2
+   799     074D  00F7               	movwf	??_MatrixInit+2
    800     074E  3008               	movlw	8
-   801     074F  00F6               	movwf	??_MATR_7219_init+1
+   801     074F  00F6               	movwf	??_MatrixInit+1
    802     0750  3077               	movlw	119
-   803     0751  00F5               	movwf	??_MATR_7219_init
+   803     0751  00F5               	movwf	??_MatrixInit
    804     0752                     u127:
-   805     0752  0BF5               	decfsz	??_MATR_7219_init,f
+   805     0752  0BF5               	decfsz	??_MatrixInit,f
    806     0753  2F52               	goto	u127
-   807     0754  0BF6               	decfsz	??_MATR_7219_init+1,f
+   807     0754  0BF6               	decfsz	??_MatrixInit+1,f
    808     0755  2F52               	goto	u127
-   809     0756  0BF7               	decfsz	??_MATR_7219_init+2,f
+   809     0756  0BF7               	decfsz	??_MatrixInit+2,f
    810     0757  2F52               	goto	u127
    811     0758                     l710:
    812                           
-   813                           ;matrix.c: 14:     RA5=1;
+   813                           ;matrix.c: 22:     RA5=1;
    814     0758  1283               	bcf	3,5	;RP0=0, select bank0
    815     0759  1303               	bcf	3,6	;RP1=0, select bank0
    816     075A  1685               	bsf	5,5	;volatile
    817     075B                     l712:
    818                           
-   819                           ;matrix.c: 15:     SpiSendBus(0x09, 0x00);
-   820     075B  01F2               	clrf	SpiSendBus@dt
+   819                           ;matrix.c: 23:     SendToSegment(0x09, 0x00);
+   820     075B  01F2               	clrf	SendToSegment@data
    821     075C  3009               	movlw	9
-   822     075D  120A  118A  2738  120A  118A  	fcall	_SpiSendBus
+   822     075D  120A  118A  2738  120A  118A  	fcall	_SendToSegment
    823     0762                     l714:
    824                           
-   825                           ;matrix.c: 16:     SpiSendBus(0x0b, 0x07);
+   825                           ;matrix.c: 24:     SendToSegment(0x0b, 0x07);
    826     0762  3007               	movlw	7
-   827     0763  00F2               	movwf	SpiSendBus@dt
+   827     0763  00F2               	movwf	SendToSegment@data
    828     0764  300B               	movlw	11
-   829     0765  120A  118A  2738  120A  118A  	fcall	_SpiSendBus
+   829     0765  120A  118A  2738  120A  118A  	fcall	_SendToSegment
    830     076A                     l716:
    831                           
-   832                           ;matrix.c: 17:     SpiSendBus(0x0A, 0x02);
+   832                           ;matrix.c: 25:     SendToSegment(0x0A, 0x02);
    833     076A  3002               	movlw	2
-   834     076B  00F2               	movwf	SpiSendBus@dt
+   834     076B  00F2               	movwf	SendToSegment@data
    835     076C  300A               	movlw	10
-   836     076D  120A  118A  2738  120A  118A  	fcall	_SpiSendBus
+   836     076D  120A  118A  2738  120A  118A  	fcall	_SendToSegment
    837     0772                     l718:
    838                           
-   839                           ;matrix.c: 18:     SpiSendBus(0x0c, 0x01);
-   840     0772  01F2               	clrf	SpiSendBus@dt
-   841     0773  0AF2               	incf	SpiSendBus@dt,f
+   839                           ;matrix.c: 26:     SendToSegment(0x0c, 0x01);
+   840     0772  01F2               	clrf	SendToSegment@data
+   841     0773  0AF2               	incf	SendToSegment@data,f
    842     0774  300C               	movlw	12
-   843     0775  120A  118A  2738  120A  118A  	fcall	_SpiSendBus
+   843     0775  120A  118A  2738  120A  118A  	fcall	_SendToSegment
    844     077A                     l720:
    845                           
-   846                           ;matrix.c: 19:     SpiClearMatrix();
+   846                           ;matrix.c: 27:     SpiClearMatrix();
    847     077A  120A  118A  2716  120A  118A  	fcall	_SpiClearMatrix
-   848     077F                     l72:
+   848     077F                     l69:
    849     077F  0008               	return
-   850     0780                     __end_of_MATR_7219_init:
+   850     0780                     __end_of_MatrixInit:
    851                           
    852                           	psect	text4
    853     0716                     __ptext4:	
    854 ;; *************** function _SpiClearMatrix *****************
    855 ;; Defined at:
-   856 ;;		line 3 in file "matrix.c"
+   856 ;;		line 10 in file "matrix.c"
    857 ;; Parameters:    Size  Location     Type
    858 ;;		None
    859 ;; Auto vars:     Size  Location     Type
@@ -889,10 +889,10 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    875 ;; Hardware stack levels used: 1
    876 ;; Hardware stack levels required when called: 2
    877 ;; This function calls:
-   878 ;;		_SpiSendBus
+   878 ;;		_SendToSegment
    879 ;; This function is called by:
    880 ;;		_main
-   881 ;;		_MATR_7219_init
+   881 ;;		_MatrixInit
    882 ;; This function uses a non-reentrant model
    883 ;;
    884                           
@@ -904,18 +904,18 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    890                           ; Regs used in _SpiClearMatrix: [wreg+status,2+status,0+pclath+cstack]
    891                           
    892                           
-   893                           ;matrix.c: 5:   char i = 8;
+   893                           ;matrix.c: 12:   char i = 8;
    894     0716  3008               	movlw	8
    895     0717  00F4               	movwf	SpiClearMatrix@i
    896     0718                     l696:
    897                           
-   898                           ;matrix.c: 7:   {;matrix.c: 8:     SpiSendBus(i, 0x00);
-   899     0718  01F2               	clrf	SpiSendBus@dt
+   898                           ;matrix.c: 14:   {;matrix.c: 15:     SendToSegment(i, 0x00);
+   899     0718  01F2               	clrf	SendToSegment@data
    900     0719  0874               	movf	SpiClearMatrix@i,w
-   901     071A  120A  118A  2738  120A  118A  	fcall	_SpiSendBus
+   901     071A  120A  118A  2738  120A  118A  	fcall	_SendToSegment
    902     071F                     l698:
    903                           
-   904                           ;matrix.c: 9:   } while (--i);
+   904                           ;matrix.c: 16:   } while (--i);
    905     071F  3001               	movlw	1
    906     0720  02F4               	subwf	SpiClearMatrix@i,f
    907     0721  1D03               	btfss	3,2
@@ -924,20 +924,20 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    910     0724                     u71:
    911     0724  2F18               	goto	l696
    912     0725                     u70:
-   913     0725                     l69:
+   913     0725                     l66:
    914     0725  0008               	return
    915     0726                     __end_of_SpiClearMatrix:
    916                           
    917                           	psect	text5
    918     0738                     __ptext5:	
-   919 ;; *************** function _SpiSendBus *****************
+   919 ;; *************** function _SendToSegment *****************
    920 ;; Defined at:
-   921 ;;		line 26 in file "spi.c"
+   921 ;;		line 34 in file "matrix.c"
    922 ;; Parameters:    Size  Location     Type
-   923 ;;  rg              1    wreg     unsigned char 
-   924 ;;  dt              1    1[COMMON] unsigned char 
+   923 ;;  segment         1    wreg     unsigned char 
+   924 ;;  data            1    1[COMMON] unsigned char 
    925 ;; Auto vars:     Size  Location     Type
-   926 ;;  rg              1    2[COMMON] unsigned char 
+   926 ;;  segment         1    2[COMMON] unsigned char 
    927 ;; Return value:  Size  Location     Type
    928 ;;                  1    wreg      void 
    929 ;; Registers used:
@@ -959,48 +959,48 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    945 ;; This function is called by:
    946 ;;		_main
    947 ;;		_SpiClearMatrix
-   948 ;;		_MATR_7219_init
+   948 ;;		_MatrixInit
    949 ;; This function uses a non-reentrant model
    950 ;;
    951                           
-   952     0738                     _SpiSendBus:	
-   953                           ;psect for function _SpiSendBus
+   952     0738                     _SendToSegment:	
+   953                           ;psect for function _SendToSegment
    954                           
    955                           
    956                           ;incstack = 0
-   957                           ; Regs used in _SpiSendBus: [wreg+status,2+status,0+pclath+cstack]
-   958                           ;SpiSendBus@rg stored from wreg
-   959     0738  00F3               	movwf	SpiSendBus@rg
+   957                           ; Regs used in _SendToSegment: [wreg+status,2+status,0+pclath+cstack]
+   958                           ;SendToSegment@segment stored from wreg
+   959     0738  00F3               	movwf	SendToSegment@segment
    960     0739                     l688:
    961                           
-   962                           ;spi.c: 27:     RA5 = 0;
+   962                           ;matrix.c: 35:     RA5 = 0;
    963     0739  1283               	bcf	3,5	;RP0=0, select bank0
    964     073A  1303               	bcf	3,6	;RP1=0, select bank0
    965     073B  1285               	bcf	5,5	;volatile
    966     073C                     l690:
    967                           
-   968                           ;spi.c: 28:     SpiSendByte(rg);
-   969     073C  0873               	movf	SpiSendBus@rg,w
+   968                           ;matrix.c: 36:     SpiSendByte(segment);
+   969     073C  0873               	movf	SendToSegment@segment,w
    970     073D  120A  118A  270B  120A  118A  	fcall	_SpiSendByte
    971                           
-   972                           ;spi.c: 29:     SpiSendByte(dt);
-   973     0742  0872               	movf	SpiSendBus@dt,w
+   972                           ;matrix.c: 37:     SpiSendByte(data);
+   973     0742  0872               	movf	SendToSegment@data,w
    974     0743  120A  118A  270B  120A  118A  	fcall	_SpiSendByte
    975     0748                     l692:
    976                           
-   977                           ;spi.c: 30:     RA5 = 1;
+   977                           ;matrix.c: 38:     RA5 = 1;
    978     0748  1283               	bcf	3,5	;RP0=0, select bank0
    979     0749  1303               	bcf	3,6	;RP1=0, select bank0
    980     074A  1685               	bsf	5,5	;volatile
-   981     074B                     l58:
+   981     074B                     l72:
    982     074B  0008               	return
-   983     074C                     __end_of_SpiSendBus:
+   983     074C                     __end_of_SendToSegment:
    984                           
    985                           	psect	text6
    986     070B                     __ptext6:	
    987 ;; *************** function _SpiSendByte *****************
    988 ;; Defined at:
-   989 ;;		line 20 in file "spi.c"
+   989 ;;		line 18 in file "spi.c"
    990 ;; Parameters:    Size  Location     Type
    991 ;;  data            1    wreg     unsigned char 
    992 ;; Auto vars:     Size  Location     Type
@@ -1023,7 +1023,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
   1009 ;; This function calls:
   1010 ;;		Nothing
   1011 ;; This function is called by:
-  1012 ;;		_SpiSendBus
+  1012 ;;		_SendToSegment
   1013 ;; This function uses a non-reentrant model
   1014 ;;
   1015                           
@@ -1037,25 +1037,25 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
   1023     070B  00F1               	movwf	SpiSendByte@data
   1024     070C                     l686:
   1025                           
-  1026                           ;spi.c: 21:     SSPBUF = data;
+  1026                           ;spi.c: 19:     SSPBUF = data;
   1027     070C  0871               	movf	SpiSendByte@data,w
   1028     070D  1283               	bcf	3,5	;RP0=0, select bank0
   1029     070E  1303               	bcf	3,6	;RP1=0, select bank0
   1030     070F  0093               	movwf	19	;volatile
-  1031     0710                     l52:	
-  1032                           ;spi.c: 22:     while (!SSPIF);
+  1031     0710                     l50:	
+  1032                           ;spi.c: 20:     while (!SSPIF);
   1033                           
   1034     0710  1D8C               	btfss	12,3	;volatile
   1035     0711  2F13               	goto	u61
   1036     0712  2F14               	goto	u60
   1037     0713                     u61:
-  1038     0713  2F10               	goto	l52
+  1038     0713  2F10               	goto	l50
   1039     0714                     u60:
-  1040     0714                     l54:
+  1040     0714                     l52:
   1041                           
-  1042                           ;spi.c: 23:     SSPIF = 0;
+  1042                           ;spi.c: 21:     SSPIF = 0;
   1043     0714  118C               	bcf	12,3	;volatile
-  1044     0715                     l55:
+  1044     0715                     l53:
   1045     0715  0008               	return
   1046     0716                     __end_of_SpiSendByte:
   1047     0002                     ___latbits      equ	2
@@ -1108,10 +1108,10 @@ Pointer List with Targets:
 
 Critical Paths under _main in COMMON
 
-    _main->_MATR_7219_init
-    _MATR_7219_init->_SpiClearMatrix
-    _SpiClearMatrix->_SpiSendBus
-    _SpiSendBus->_SpiSendByte
+    _main->_MatrixInit
+    _MatrixInit->_SpiClearMatrix
+    _SpiClearMatrix->_SendToSegment
+    _SendToSegment->_SpiSendByte
 
 Critical Paths under _main in BANK0
 
@@ -1137,47 +1137,47 @@ Call Graph Tables:
  (0) _main                                                 9     9      0     574
                                               7 COMMON     3     3      0
                                               0 BANK0      6     6      0
-                     _MATR_7219_init
+                         _MatrixInit
                           _PortBInit
+                      _SendToSegment
                      _SpiClearMatrix
                             _SpiInit
-                         _SpiSendBus
  ---------------------------------------------------------------------------------
  (1) _SpiInit                                              0     0      0       0
  ---------------------------------------------------------------------------------
  (1) _PortBInit                                            0     0      0       0
  ---------------------------------------------------------------------------------
- (1) _MATR_7219_init                                       3     3      0     217
+ (1) _MatrixInit                                           3     3      0     217
                                               4 COMMON     3     3      0
+                      _SendToSegment
                      _SpiClearMatrix
-                         _SpiSendBus
  ---------------------------------------------------------------------------------
  (1) _SpiClearMatrix                                       1     1      0     131
                                               3 COMMON     1     1      0
-                         _SpiSendBus
+                      _SendToSegment
  ---------------------------------------------------------------------------------
- (1) _SpiSendBus                                           2     1      1      86
+ (2) _SendToSegment                                        2     1      1      86
                                               1 COMMON     2     1      1
                         _SpiSendByte
  ---------------------------------------------------------------------------------
- (2) _SpiSendByte                                          1     1      0      29
+ (3) _SpiSendByte                                          1     1      0      29
                                               0 COMMON     1     1      0
  ---------------------------------------------------------------------------------
- Estimated maximum stack depth 2
+ Estimated maximum stack depth 3
  ---------------------------------------------------------------------------------
 
  Call Graph Graphs:
 
  _main (ROOT)
-   _MATR_7219_init
+   _MatrixInit
+     _SendToSegment
+       _SpiSendByte
      _SpiClearMatrix
-       _SpiSendBus
-         _SpiSendByte
-     _SpiSendBus
+       _SendToSegment
    _PortBInit
+   _SendToSegment
    _SpiClearMatrix
    _SpiInit
-   _SpiSendBus
 
 Address spaces:
 Name               Size   Autos  Total    Usage
@@ -1196,12 +1196,12 @@ DATA                 0      0      16      0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.50 build 20240725155939 
-Symbol Table                                                                                   Thu Dec  5 09:26:48 2024
+Symbol Table                                                                                   Thu Dec  5 11:48:33 2024
 
          _SpiClearMatrix 0716                       l30 070A                       l17 0793  
-                     l52 0710                       l54 0714                       l55 0715  
-                     l72 077F                       l49 0737                       l58 074B  
-                     l69 0725                       u60 0714                       u61 0713  
+                     l50 0710                       l52 0714                       l53 0715  
+                     l47 0737                       l72 074B                       l66 0725  
+                     l69 077F                       u60 0714                       u61 0713  
                      u70 0725                       u71 0724                       u90 07DA  
                      u91 07D9                       u84 07AA                       u85 07A7  
                      u95 07D6          SpiSendByte@data 0071                      l700 0726  
@@ -1219,22 +1219,22 @@ Symbol Table                                                                    
                     u100 07EF                      u101 07EE                      u105 07EB  
                     u117 07BE                      u127 0752                     _main 0780  
                    btemp 007E                     start 0000   __end_of_SpiClearMatrix 0726  
-         _MATR_7219_init 074C          __end_of_SpiInit 0738                    ?_main 0071  
-                  _PORTA 0005                    _PORTB 0006                    _TRISA 0085  
-                  _TRISB 0086                    _TRISC 0087                    _SSPIF 0063  
-        SpiClearMatrix@i 0074                    main@i 0024                    status 0003  
-                  wtemp0 007E   __end_of_MATR_7219_init 0780          ?_SpiClearMatrix 0071  
-        __initialization 07FC             __end_of_main 07FC                   ??_main 0078  
-                 _SSPCON 0014                   _SSPBUF 0013          ?_MATR_7219_init 0071  
-              ??_SpiInit 0071            ??_SpiSendByte 0071               _SpiSendBus 0738  
-                 main@sh 0022  __end_of__initialization 07FC           __pcstackCOMMON 0071  
-    __end_of_SpiSendByte 0716        __end_of_PortBInit 070B               __pmaintext 0780  
-            ?_SpiSendBus 0072                  _SSPSTAT 0094         ??_SpiClearMatrix 0074  
-                _SpiInit 0726              _SpiSendByte 070B                  __ptext1 0726  
-                __ptext2 0704                  __ptext3 074C                  __ptext4 0716  
-                __ptext5 0738                  __ptext6 070B                  main@bar 0020  
-   end_of_initialization 07FC         ??_MATR_7219_init 0075      start_initialization 07FC  
-           ??_SpiSendBus 0073                _PortBInit 0704                ___latbits 0002  
-          __pcstackBANK0 0020       __end_of_SpiSendBus 074C                 ?_SpiInit 0071  
-             ?_PortBInit 0071             ?_SpiSendByte 0071             SpiSendBus@dt 0072  
-           SpiSendBus@rg 0073              ??_PortBInit 0071  
+        __end_of_SpiInit 0738                    ?_main 0071                    _PORTA 0005  
+                  _PORTB 0006                    _TRISA 0085                    _TRISB 0086  
+                  _TRISC 0087                    _SSPIF 0063          SpiClearMatrix@i 0074  
+      SendToSegment@data 0072                    main@i 0024                    status 0003  
+                  wtemp0 007E          ?_SpiClearMatrix 0071          __initialization 07FC  
+           __end_of_main 07FC               _MatrixInit 074C                   ??_main 0078  
+                 _SSPCON 0014                   _SSPBUF 0013                ??_SpiInit 0071  
+          ??_SpiSendByte 0071                   main@sh 0022  __end_of__initialization 07FC  
+         __pcstackCOMMON 0071              ?_MatrixInit 0071      __end_of_SpiSendByte 0716  
+      __end_of_PortBInit 070B               __pmaintext 0780                  _SSPSTAT 0094  
+       ??_SpiClearMatrix 0074                  _SpiInit 0726            _SendToSegment 0738  
+            _SpiSendByte 070B                  __ptext1 0726                  __ptext2 0704  
+                __ptext3 074C                  __ptext4 0716                  __ptext5 0738  
+                __ptext6 070B                  main@bar 0020     end_of_initialization 07FC  
+         ?_SendToSegment 0072             ??_MatrixInit 0075      start_initialization 07FC  
+     __end_of_MatrixInit 0780          ??_SendToSegment 0073                _PortBInit 0704  
+              ___latbits 0002            __pcstackBANK0 0020                 ?_SpiInit 0071  
+             ?_PortBInit 0071             ?_SpiSendByte 0071              ??_PortBInit 0071  
+   SendToSegment@segment 0073    __end_of_SendToSegment 074C  

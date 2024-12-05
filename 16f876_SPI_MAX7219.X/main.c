@@ -16,15 +16,17 @@
 
 void main(void) {
     SpiInit();
-    MATR_7219_init();
+    MatrixInit();
     PortBInit();
+    
     int sh = 0;
     int bar = 0;
+    
     while(1){
         for(int i = 1; i <= 8; i++){
             SpiClearMatrix();
             bar = 1 << sh;
-            SpiSendBus(i, bar);
+            SendToSegment((char)i, (char)bar);
             __delay_ms(500);
         }
         sh++;
