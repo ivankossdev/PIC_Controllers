@@ -1,6 +1,7 @@
 #include <xc.h>
 #include "settings.h"
 #include "spi.h"
+#include "matrix.h"
 
 /****************PIC16F876***************
  * Connection PICkit4                   *
@@ -18,21 +19,20 @@ void main(void) {
     MATR_7219_init();
     PortBInit();
     int sh = 0;
+    int bar = 0;
     while(1){
-        for(int i = 1; i < 9; i++){
-            if(i <= 5){
-                PORTB = 0x01 << (i - 1);
-            }
-            SpiSendBus(i, (1 << sh));
-            __delay_ms(100);
+        for(int i = 1; i <= 8; i++){
+            SpiClearMatrix();
+            bar = 1 << sh;
+            SpiSendBus(i, bar);
+            __delay_ms(500);
         }
         sh++;
         if(sh > 7){
+            bar = 0;
             sh = 0;      
             SpiClearMatrix();
         }
-        PORTB = 0x00;
-        __delay_ms(100);
     }
     
     return;

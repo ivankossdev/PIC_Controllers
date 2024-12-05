@@ -5,10 +5,10 @@ Linker command line:
 -W-3 --edf=/opt/microchip/xc8/v2.50/pic/dat/20240725155939_en.msgs -cn \
   -h+dist/default/production/16f876_SPI_MAX7219.X.production.sym \
   --cmf=dist/default/production/16f876_SPI_MAX7219.X.production.cmf -z \
-  -Q16F876 -o/tmp/xcXfdfkEO/driver_tmp_3.o --defsym=__MPLAB_BUILD=1 \
+  -Q16F876 -o/tmp/xcXKIENJE/driver_tmp_3.o --defsym=__MPLAB_BUILD=1 \
   --fixupoverflow=error \
   -Mdist/default/production/16f876_SPI_MAX7219.X.production.map \
-  --md=/tmp/xcXfdfkEO/driver_tmp_0.dat -E1 -ver=XC8 Compiler --acfsm=1493 \
+  --md=/tmp/xcXKIENJE/driver_tmp_0.dat -E1 -ver=XC8 Compiler --acfsm=1493 \
   -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 \
   -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 -ACOMMON=070h-07Fh \
   -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh -ABANK2=0110h-016Fh \
@@ -19,7 +19,7 @@ Linker command line:
   -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry,sivt,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k /tmp/xcXfdfkEO/driver_tmp_12.o \
+  -pfunctab=ENTRY -k /tmp/xcXKIENJE/driver_tmp_12.o \
   dist/default/production/16f876_SPI_MAX7219.X.production.o 
 
 Object code version is 3.11
@@ -29,32 +29,33 @@ Machine type is 16F876
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcXfdfkEO/driver_tmp_12.o
+/tmp/xcXKIENJE/driver_tmp_12.o
                 end_init                              0        0        3        0       0
                 config                             2007     2007        1        0       4
 dist/default/production/16f876_SPI_MAX7219.X.production.o
                 cinit                               7FC      7FC        4      FF8       0
                 config                             2007     2007        1        0       4
-                text6                               6F7      6F7        B      DEE       0
-                text5                               724      724       14      E48       0
-                text4                               702      702       10      E04       0
-                text3                               738      738       34      E70       0
-                text2                               6F0      6F0        7      DE0       0
-                text1                               712      712       12      E24       0
-                maintext                            76C      76C       90      ED8       0
-                cstackCOMMON                         70       70        E       70       1
+                text6                               70B      70B        B      E16       0
+                text5                               738      738       14      E70       0
+                text4                               716      716       10      E2C       0
+                text3                               74C      74C       34      E98       0
+                text2                               704      704        7      E08       0
+                text1                               726      726       12      E4C       0
+                maintext                            780      780       7C      F00       0
+                cstackBANK0                          20       20        6       20       1
+                cstackCOMMON                         70       70        A       70       1
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
                 end_init                              0        0        3         0
                 cinit                               7FC      7FC        4         0
-                text6                               6F7      6F7        B         0
-                text5                               724      724       14         0
-                text4                               702      702       10         0
-                text3                               738      738       34         0
-                text2                               6F0      6F0        7         0
-                text1                               712      712       12         0
-                maintext                            76C      76C       90         0
+                text6                               70B      70B        B         0
+                text5                               738      738       14         0
+                text4                               716      716       10         0
+                text3                               74C      74C       34         0
+                text2                               704      704        7         0
+                text1                               726      726       12         0
+                maintext                            780      780       7C         0
 
         CLASS   STRCODE        
 
@@ -65,9 +66,10 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   ENTRY          
 
         CLASS   COMMON         
-                cstackCOMMON                         70       70        E         1
+                cstackCOMMON                         70       70        A         1
 
         CLASS   BANK0          
+                cstackBANK0                          20       20        6         1
 
         CLASS   BANK1          
 
@@ -103,34 +105,36 @@ TOTAL           Name                               Link     Load   Length     Sp
 
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
-                text1                          000712  000012  000724       E24       0  CODE        2
-                text5                          000724  000014  000738       E48       0  CODE        2
+                text1                          000726  000012  000738       E4C       0  CODE        2
+                text5                          000738  000014  00074C       E70       0  CODE        2
                 reset_vec                      000000  000003  000003         0       0  CODE        2
-                text4                          000702  000010  000712       E04       0  CODE        2
-                maintext                       00076C  000090  0007FC       ED8       0  CODE        2
-                text3                          000738  000034  00076C       E70       0  CODE        2
-                text6                          0006F7  00000B  000702       DEE       0  CODE        2
-                text2                          0006F0  000007  0006F7       DE0       0  CODE        2
+                text4                          000716  000010  000726       E2C       0  CODE        2
+                maintext                       000780  00007C  0007FC       F00       0  CODE        2
+                text3                          00074C  000034  000780       E98       0  CODE        2
+                text6                          00070B  00000B  000716       E16       0  CODE        2
+                text2                          000704  000007  00070B       E08       0  CODE        2
+                cstackBANK0                    000020  000006  000026        20       1  BANK0       1
                 cinit                          0007FC  000004  000800       FF8       0  CODE        2
-                cstackCOMMON                   000070  00000E  00007E        70       1  COMMON      1
+                cstackCOMMON                   000070  00000A  00007A        70       1  COMMON      1
 
 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK0            0020-006F             50           1
+        BANK0            0026-006F             4A           1
         BANK1            00A0-00EF             50           1
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
-        CODE             0003-06EF            6ED           2
+        CODE             0003-0703            701           2
                          0800-1FFF            800
-        CONST            0003-06EF            100           2
+        COMMON           007A-007D              4           1
+        CONST            0003-0703            100           2
                          0800-1FFF            100
         EEDATA           2100-21FF            100           2
-        ENTRY            0003-06EF            100           2
+        ENTRY            0003-0703            100           2
                          0800-1FFF            100
         IDLOC            2000-2003              4           2
-        RAM              0020-006F             50           1
+        RAM              0026-006F             4A           1
                          00A0-00EF             50
                          0110-016F             60
                          0190-01EF             60
@@ -138,9 +142,9 @@ UNUSED ADDRESS RANGES
         SFR1             0080-009F             20           1
         SFR2             0100-010F             10           1
         SFR3             0180-018F             10           1
-        STRCODE          0003-06EF            6ED           2
+        STRCODE          0003-0703            701           2
                          0800-1FFF           1800
-        STRING           0003-06EF            100           2
+        STRING           0003-0703            100           2
                          0800-1FFF            100
 
                                   Symbol Table
@@ -149,19 +153,19 @@ SpiClearMatrix@i         cstackCOMMON 0073
 SpiSendBus@dt            cstackCOMMON 0071
 SpiSendBus@rg            cstackCOMMON 0072
 SpiSendByte@data         cstackCOMMON 0070
-_MATR_7219_init          text3        0738
+_MATR_7219_init          text3        074C
 _PORTA                   (abs)        0005
 _PORTB                   (abs)        0006
-_PortBInit               text2        06F0
+_PortBInit               text2        0704
 _RA5                     (abs)        002D
 _SSPBUF                  (abs)        0013
 _SSPCON                  (abs)        0014
 _SSPIF                   (abs)        0063
 _SSPSTAT                 (abs)        0094
-_SpiClearMatrix          text4        0702
-_SpiInit                 text1        0712
-_SpiSendBus              text5        0724
-_SpiSendByte             text6        06F7
+_SpiClearMatrix          text4        0716
+_SpiInit                 text1        0726
+_SpiSendBus              text5        0738
+_SpiSendByte             text6        070B
 _TRISA                   (abs)        0085
 _TRISB                   (abs)        0086
 _TRISC                   (abs)        0087
@@ -176,6 +180,7 @@ __Hclrtext               clrtext      0000
 __Hcode                  code         0000
 __Hcommon                common       0000
 __Hconfig                config       2008
+__HcstackBANK0           cstackBANK0  0000
 __HcstackCOMMON          cstackCOMMON 0000
 __Heeprom_data           eeprom_data  0000
 __Hend_init              end_init     0003
@@ -193,7 +198,7 @@ __Hsfr2                  sfr2         0000
 __Hsfr3                  sfr3         0000
 __Hsivt                  sivt         0000
 __Hspace_0               (abs)        0800
-__Hspace_1               (abs)        007E
+__Hspace_1               (abs)        007A
 __Hspace_2               (abs)        0000
 __Hspace_3               (abs)        0000
 __Hspace_4               (abs)        400F
@@ -211,6 +216,7 @@ __Lclrtext               clrtext      0000
 __Lcode                  code         0000
 __Lcommon                common       0000
 __Lconfig                config       0000
+__LcstackBANK0           cstackBANK0  0000
 __LcstackCOMMON          cstackCOMMON 0000
 __Leeprom_data           eeprom_data  0000
 __Lend_init              end_init     0000
@@ -236,7 +242,7 @@ __Lstack                 stack        0000
 __Lstrings               strings      0000
 __Ltext                  text         0000
 __S0                     (abs)        0800
-__S1                     (abs)        007E
+__S1                     (abs)        007A
 __S3                     (abs)        0000
 ___heap_hi               (abs)        0000
 ___heap_lo               (abs)        0000
@@ -249,24 +255,25 @@ ___stack_hi              stack        0000
 ___stack_lo              stack        0000
 ___stackhi               (abs)        0000
 ___stacklo               (abs)        0000
-__end_of_MATR_7219_init  text3        076C
-__end_of_PortBInit       text2        06F7
-__end_of_SpiClearMatrix  text4        0712
-__end_of_SpiInit         text1        0724
-__end_of_SpiSendBus      text5        0738
-__end_of_SpiSendByte     text6        0702
+__end_of_MATR_7219_init  text3        0780
+__end_of_PortBInit       text2        070B
+__end_of_SpiClearMatrix  text4        0726
+__end_of_SpiInit         text1        0738
+__end_of_SpiSendBus      text5        074C
+__end_of_SpiSendByte     text6        0716
 __end_of__initialization cinit        07FC
 __end_of_main            maintext     07FC
 __initialization         cinit        07FC
+__pcstackBANK0           cstackBANK0  0020
 __pcstackCOMMON          cstackCOMMON 0070
-__pmaintext              maintext     076C
-__ptext1                 text1        0712
-__ptext2                 text2        06F0
-__ptext3                 text3        0738
-__ptext4                 text4        0702
-__ptext5                 text5        0724
-__ptext6                 text6        06F7
-_main                    maintext     076C
+__pmaintext              maintext     0780
+__ptext1                 text1        0726
+__ptext2                 text2        0704
+__ptext3                 text3        074C
+__ptext4                 text4        0716
+__ptext5                 text5        0738
+__ptext6                 text6        070B
+_main                    maintext     0780
 btemp                    (abs)        007E
 end_of_initialization    cinit        07FC
 intlevel0                functab      0000
@@ -275,8 +282,9 @@ intlevel2                functab      0000
 intlevel3                functab      0000
 intlevel4                functab      0000
 intlevel5                functab      0000
-main@i                   cstackCOMMON 007C
-main@sh                  cstackCOMMON 007A
+main@bar                 cstackBANK0  0020
+main@i                   cstackBANK0  0024
+main@sh                  cstackBANK0  0022
 reset_vec                reset_vec    0000
 start                    init         0000
 start_initialization     cinit        07FC
@@ -286,14 +294,18 @@ wtemp0                   (abs)        007E
 MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
-spi.c
-		_SpiInit       		CODE           	0712	0000	18
-		_SpiSendBus    		CODE           	0724	0000	20
-		_SpiSendByte   		CODE           	06F7	0000	11
-		_MATR_7219_init		CODE           	0738	0000	52
-		_SpiClearMatrix		CODE           	0702	0000	16
+matrix.c
+		_MATR_7219_init		CODE           	074C	0000	52
+		_SpiClearMatrix		CODE           	0716	0000	16
 
-spi.c estimated size: 117
+matrix.c estimated size: 68
+
+spi.c
+		_SpiInit       		CODE           	0726	0000	18
+		_SpiSendBus    		CODE           	0738	0000	20
+		_SpiSendByte   		CODE           	070B	0000	11
+
+spi.c estimated size: 49
 
 shared
 		__initialization		CODE           	07FC	0000	1
@@ -301,12 +313,12 @@ shared
 shared estimated size: 1
 
 portsinit.c
-		_PortBInit     		CODE           	06F0	0000	7
+		_PortBInit     		CODE           	0704	0000	7
 
 portsinit.c estimated size: 7
 
 main.c
-		_main          		CODE           	076C	0000	144
+		_main          		CODE           	0780	0000	124
 
-main.c estimated size: 144
+main.c estimated size: 124
 

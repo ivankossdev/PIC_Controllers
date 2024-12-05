@@ -1,4 +1,4 @@
-# 1 "spi.c"
+# 1 "matrix.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,9 @@
 # 1 "<built-in>" 2
 # 1 "/opt/microchip/xc8/v2.50/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "spi.c" 2
-# 1 "./spi.h" 1
+# 1 "matrix.c" 2
+# 1 "./matrix.h" 1
+
 
 
 # 1 "/opt/microchip/xc8/v2.50/pic/include/xc.h" 1 3
@@ -1639,8 +1640,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "/opt/microchip/xc8/v2.50/pic/include/xc.h" 2 3
-# 3 "./spi.h" 2
-
+# 5 "./matrix.h" 2
 # 1 "./settings.h" 1
 
 
@@ -1661,32 +1661,37 @@ void PortCInit(void);
 #pragma config LVP = OFF
 #pragma config CPD = OFF
 #pragma config WRT = OFF
-# 4 "./spi.h" 2
+# 6 "./matrix.h" 2
+# 1 "./spi.h" 1
+
+
+
 
 
 void SpiInit(void);
 void SpiSendByte(char data);
 void SpiSendBus(char rg, char dt );
-# 1 "spi.c" 2
-# 11 "spi.c"
-void SpiInit() {
-    TRISC |= 0x10;
-    TRISC &= ~0x28;
-    TRISA &= ~0x20;
-    PORTA &= ~0x20;
-    SSPCON = 0x30;
-    SSPSTAT = 0x80;
+# 7 "./matrix.h" 2
+
+void MATR_7219_init(void);
+void SpiClearMatrix (void);
+# 2 "matrix.c" 2
+
+void SpiClearMatrix (void)
+{
+  char i = 8;
+  do
+  {
+    SpiSendBus(i, 0x00);
+  } while (--i);
 }
 
-void SpiSendByte(char data) {
-    SSPBUF = data;
-    while (!SSPIF);
-    SSPIF = 0;
-}
-
-void SpiSendBus(char rg, char dt) {
-    RA5 = 0;
-    SpiSendByte(rg);
-    SpiSendByte(dt);
-    RA5 = 1;
+void MATR_7219_init(void) {
+    _delay((unsigned long)((100)*(16000000/4000.0)));
+    RA5=1;
+    SpiSendBus(0x09, 0x00);
+    SpiSendBus(0x0b, 0x07);
+    SpiSendBus(0x0A, 0x02);
+    SpiSendBus(0x0c, 0x01);
+    SpiClearMatrix();
 }

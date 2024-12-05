@@ -1663,15 +1663,13 @@ void PortCInit(void);
 #pragma config WRT = OFF
 # 4 "./spi.h" 2
 
+
 void SpiInit(void);
 void SpiSendByte(char data);
 void SpiSendBus(char rg, char dt );
-void MATR_7219_init(void);
-void SpiClearMatrix (void);
 # 1 "spi.c" 2
-# 10 "spi.c"
+# 11 "spi.c"
 void SpiInit() {
-
     TRISC |= 0x10;
     TRISC &= ~0x28;
     TRISA &= ~0x20;
@@ -1691,21 +1689,4 @@ void SpiSendBus(char rg, char dt) {
     SpiSendByte(rg);
     SpiSendByte(dt);
     RA5 = 1;
-}
-void SpiClearMatrix (void)
-{
-  char i=8;
-  do
-  {
-    SpiSendBus(i,0x00);
-  } while (--i);
-}
-void MATR_7219_init() {
-    _delay((unsigned long)((100)*(16000000/4000.0)));
-    RA5=1;
-    SpiSendBus(0x09, 0x00);
-    SpiSendBus(0x0b, 0x07);
-    SpiSendBus(0x0A, 0x02);
-    SpiSendBus(0x0c, 0x01);
-    SpiClearMatrix();
 }

@@ -2,7 +2,7 @@
 #include "portsinit.h"
 
 
-///* Инициализация порта A */
+/* Инициализация порта A */
 //void PortAInit(void){
 //    PORTA = 0x00; 
 //    TRISA = 0x00;   // Порт А на выход 

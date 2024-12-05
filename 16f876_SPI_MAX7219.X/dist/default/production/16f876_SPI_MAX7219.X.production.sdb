@@ -11,20 +11,20 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"16 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+"17 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
 [v _main main `(v  1 e 1 0 ]
+"3 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
+[v _SpiClearMatrix SpiClearMatrix `(v  1 e 1 0 ]
+"12
+[v _MATR_7219_init MATR_7219_init `(v  1 e 1 0 ]
 "13 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/portsinit.c
 [v _PortBInit PortBInit `(v  1 e 1 0 ]
-"10 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
+"11 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
 [v _SpiInit SpiInit `(v  1 e 1 0 ]
 "20
 [v _SpiSendByte SpiSendByte `(v  1 e 1 0 ]
 "26
 [v _SpiSendBus SpiSendBus `(v  1 e 1 0 ]
-"32
-[v _SpiClearMatrix SpiClearMatrix `(v  1 e 1 0 ]
-"40
-[v _MATR_7219_init MATR_7219_init `(v  1 e 1 0 ]
 "166 /opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
 "216
@@ -45,16 +45,18 @@
 [v _RA5 RA5 `VEb  1 e 0 @45 ]
 "2345
 [v _SSPIF SSPIF `VEb  1 e 0 @99 ]
-"16 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+"17 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
 [v _main main `(v  1 e 1 0 ]
 {
+"24
+[v main@i i `i  1 a 2 4 ]
+"21
+[v main@sh sh `i  1 a 2 2 ]
 "22
-[v main@i i `i  1 a 2 12 ]
-"20
-[v main@sh sh `i  1 a 2 10 ]
+[v main@bar bar `i  1 a 2 0 ]
 "39
 } 0
-"10 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
+"11 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
 [v _SpiInit SpiInit `(v  1 e 1 0 ]
 {
 "18
@@ -64,19 +66,19 @@
 {
 "16
 } 0
-"40 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
+"12 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
 [v _MATR_7219_init MATR_7219_init `(v  1 e 1 0 ]
 {
-"48
+"20
 } 0
-"32
+"3
 [v _SpiClearMatrix SpiClearMatrix `(v  1 e 1 0 ]
 {
-"34
+"5
 [v SpiClearMatrix@i i `uc  1 a 1 3 ]
-"39
+"10
 } 0
-"26
+"26 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
 [v _SpiSendBus SpiSendBus `(v  1 e 1 0 ]
 {
 [v SpiSendBus@rg rg `uc  1 p 1 wreg ]
