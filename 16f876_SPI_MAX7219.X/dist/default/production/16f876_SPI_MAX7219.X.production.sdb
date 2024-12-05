@@ -48,15 +48,13 @@
 "17 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"38
-[v main@x_58 x `i  1 a 2 6 ]
-"34
-[v main@x_57 x `i  1 a 2 4 ]
-"28
-[v main@x_56 x `i  1 a 2 2 ]
+"26
+[v main@y_coord y_coord `i  1 a 2 0 ]
 "24
-[v main@x x `i  1 a 2 0 ]
-"47
+[v main@sh sh `i  1 a 2 2 ]
+"23
+[v main@k k `i  1 a 2 4 ]
+"36
 } 0
 "9 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
 [v _SpiInit SpiInit `(v  1 e 1 0 ]

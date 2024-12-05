@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.50 build 20240725155939 
-                                                                                               Thu Dec  5 15:07:59 2024
+                                                                                               Thu Dec  5 16:22:55 2024
 
 Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1 
      1                           	processor	16F876
@@ -361,7 +361,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    347                           
    348     07FC                     __end_of__initialization:
    349     07FC  0183               	clrf	3
-   350     07FD  120A  118A  2F0B   	ljmp	_main	;jump to C main() function
+   350     07FD  120A  118A  2F60   	ljmp	_main	;jump to C main() function
    351                           
    352                           	psect	cstackCOMMON
    353     0070                     __pcstackCOMMON:
@@ -407,8 +407,8 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    393                           
    394                           ; 1 bytes @ 0x3
    395     0073                     	ds	1
-   396     0074                     ??_SendToSegment:
-   397     0074                     ??_SpiClearMatrix:	
+   396     0074                     ??_SpiClearMatrix:
+   397     0074                     ??_SendToSegment:	
    398                           ; 1 bytes @ 0x4
    399                           
    400                           
@@ -429,492 +429,492 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    415                           
    416                           	psect	cstackBANK0
    417     0020                     __pcstackBANK0:
-   418     0020                     main@x:
+   418     0020                     main@y_coord:
    419                           
    420                           ; 2 bytes @ 0x0
    421     0020                     	ds	2
-   422     0022                     main@x_56:
+   422     0022                     main@sh:
    423                           
    424                           ; 2 bytes @ 0x2
    425     0022                     	ds	2
-   426     0024                     main@x_57:
+   426     0024                     main@k:
    427                           
    428                           ; 2 bytes @ 0x4
    429     0024                     	ds	2
-   430     0026                     main@x_58:
-   431                           
-   432                           ; 2 bytes @ 0x6
-   433     0026                     	ds	2
-   434                           
-   435                           	psect	maintext
-   436     070B                     __pmaintext:	
-   437 ;;
-   438 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
-   439 ;;
-   440 ;; *************** function _main *****************
-   441 ;; Defined at:
-   442 ;;		line 17 in file "main.c"
-   443 ;; Parameters:    Size  Location     Type
-   444 ;;		None
-   445 ;; Auto vars:     Size  Location     Type
-   446 ;;  x               2    6[BANK0 ] int 
-   447 ;;  x               2    4[BANK0 ] int 
-   448 ;;  x               2    2[BANK0 ] int 
-   449 ;;  x               2    0[BANK0 ] int 
-   450 ;; Return value:  Size  Location     Type
-   451 ;;                  1    wreg      void 
-   452 ;; Registers used:
-   453 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
-   454 ;; Tracked objects:
-   455 ;;		On entry : B00/0
-   456 ;;		On exit  : 0/0
-   457 ;;		Unchanged: 0/0
-   458 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   459 ;;      Params:         0       0       0       0       0
-   460 ;;      Locals:         0       8       0       0       0
-   461 ;;      Temps:          3       0       0       0       0
-   462 ;;      Totals:         3       8       0       0       0
-   463 ;;Total ram usage:       11 bytes
-   464 ;; Hardware stack levels required when called: 4
-   465 ;; This function calls:
-   466 ;;		_MatrixInit
-   467 ;;		_PortBInit
-   468 ;;		_SendToSegment
-   469 ;;		_SpiClearMatrix
-   470 ;;		_SpiInit
-   471 ;; This function is called by:
-   472 ;;		Startup code after reset
-   473 ;; This function uses a non-reentrant model
-   474 ;;
-   475                           
-   476     070B                     _main:	
-   477                           ;psect for function _main
+   430                           
+   431                           	psect	maintext
+   432     0760                     __pmaintext:	
+   433 ;;
+   434 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+   435 ;;
+   436 ;; *************** function _main *****************
+   437 ;; Defined at:
+   438 ;;		line 17 in file "main.c"
+   439 ;; Parameters:    Size  Location     Type
+   440 ;;		None
+   441 ;; Auto vars:     Size  Location     Type
+   442 ;;  y_coord         2    0[BANK0 ] int 
+   443 ;;  sh              2    2[BANK0 ] int 
+   444 ;;  k               2    4[BANK0 ] int 
+   445 ;; Return value:  Size  Location     Type
+   446 ;;                  1    wreg      void 
+   447 ;; Registers used:
+   448 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   449 ;; Tracked objects:
+   450 ;;		On entry : B00/0
+   451 ;;		On exit  : 0/0
+   452 ;;		Unchanged: 0/0
+   453 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   454 ;;      Params:         0       0       0       0       0
+   455 ;;      Locals:         0       6       0       0       0
+   456 ;;      Temps:          3       0       0       0       0
+   457 ;;      Totals:         3       6       0       0       0
+   458 ;;Total ram usage:        9 bytes
+   459 ;; Hardware stack levels required when called: 4
+   460 ;; This function calls:
+   461 ;;		_MatrixInit
+   462 ;;		_PortBInit
+   463 ;;		_SendToSegment
+   464 ;;		_SpiClearMatrix
+   465 ;;		_SpiInit
+   466 ;; This function is called by:
+   467 ;;		Startup code after reset
+   468 ;; This function uses a non-reentrant model
+   469 ;;
+   470                           
+   471     0760                     _main:	
+   472                           ;psect for function _main
+   473                           
+   474     0760                     l732:	
+   475                           ;incstack = 0
+   476                           ; Regs used in _main: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+   477                           
    478                           
-   479     070B                     l755:	
-   480                           ;incstack = 0
-   481                           ; Regs used in _main: [wreg+status,2+status,0+btemp+1+pclath+cstack]
-   482                           
-   483                           
-   484                           ;main.c: 18:     SpiInit();
-   485     070B  120A  118A  2690  120A  118A  	fcall	_SpiInit
-   486                           
-   487                           ;main.c: 19:     MatrixInit();
-   488     0710  120A  118A  26CB  120A  118A  	fcall	_MatrixInit
-   489     0715                     l757:
-   490                           
-   491                           ;main.c: 20:     PortBInit();
-   492     0715  120A  118A  267E  120A  118A  	fcall	_PortBInit
-   493     071A                     l17:	
-   494                           ;main.c: 23:     while(1){
-   495                           
+   479                           ;main.c: 18:     SpiInit();
+   480     0760  120A  118A  26E5  120A  118A  	fcall	_SpiInit
+   481                           
+   482                           ;main.c: 19:     MatrixInit();
+   483     0765  120A  118A  2720  120A  118A  	fcall	_MatrixInit
+   484     076A                     l734:
+   485                           
+   486                           ;main.c: 20:     PortBInit();
+   487     076A  120A  118A  26D3  120A  118A  	fcall	_PortBInit
+   488     076F                     l736:
+   489                           
+   490                           ;main.c: 23:         for(int k = 0; k <= 6; k++){
+   491     076F  1283               	bcf	3,5	;RP0=0, select bank0
+   492     0770  1303               	bcf	3,6	;RP1=0, select bank0
+   493     0771  01A4               	clrf	main@k
+   494     0772  01A5               	clrf	main@k+1
+   495     0773                     l742:
    496                           
-   497                           ;main.c: 24:         for(int x = 1; x <=4; x++){
-   498     071A  3001               	movlw	1
-   499     071B  1283               	bcf	3,5	;RP0=0, select bank0
-   500     071C  1303               	bcf	3,6	;RP1=0, select bank0
-   501     071D  00A0               	movwf	main@x
-   502     071E  3000               	movlw	0
-   503     071F  00A1               	movwf	main@x+1
-   504     0720                     l763:
-   505                           
-   506                           ;main.c: 25:             SendToSegment(x, 0x0f);
-   507     0720  1283               	bcf	3,5	;RP0=0, select bank0
-   508     0721  1303               	bcf	3,6	;RP1=0, select bank0
-   509     0722  0821               	movf	main@x+1,w
-   510     0723  00F2               	movwf	SendToSegment@segment+1
-   511     0724  0820               	movf	main@x,w
-   512     0725  00F1               	movwf	SendToSegment@segment
-   513     0726  300F               	movlw	15
-   514     0727  00F3               	movwf	SendToSegment@data
-   515     0728  120A  118A  26A2  120A  118A  	fcall	_SendToSegment
-   516     072D                     l765:
-   517                           
-   518                           ;main.c: 26:         }
-   519     072D  3001               	movlw	1
-   520     072E  1283               	bcf	3,5	;RP0=0, select bank0
-   521     072F  1303               	bcf	3,6	;RP1=0, select bank0
-   522     0730  07A0               	addwf	main@x,f
-   523     0731  1803               	skipnc
-   524     0732  0AA1               	incf	main@x+1,f
-   525     0733  3000               	movlw	0
-   526     0734  07A1               	addwf	main@x+1,f
-   527     0735                     l767:
-   528     0735  0821               	movf	main@x+1,w
-   529     0736  3A80               	xorlw	128
-   530     0737  00FF               	movwf	btemp+1
-   531     0738  3080               	movlw	128
-   532     0739  027F               	subwf	btemp+1,w
-   533     073A  1D03               	skipz
-   534     073B  2F3E               	goto	u95
-   535     073C  3005               	movlw	5
-   536     073D  0220               	subwf	main@x,w
-   537     073E                     u95:
-   538     073E  1C03               	skipc
-   539     073F  2F41               	goto	u91
-   540     0740  2F42               	goto	u90
-   541     0741                     u91:
-   542     0741  2F20               	goto	l763
-   543     0742                     u90:
-   544     0742                     l769:
-   545                           
-   546                           ;main.c: 27:         _delay((unsigned long)((500)*(16000000/4000.0)));
-   547     0742  300B               	movlw	11
-   548     0743  00FC               	movwf	??_main+2
-   549     0744  3026               	movlw	38
-   550     0745  00FB               	movwf	??_main+1
-   551     0746  305D               	movlw	93
-   552     0747  00FA               	movwf	??_main
-   553     0748                     u137:
-   554     0748  0BFA               	decfsz	??_main,f
-   555     0749  2F48               	goto	u137
-   556     074A  0BFB               	decfsz	??_main+1,f
-   557     074B  2F48               	goto	u137
-   558     074C  0BFC               	decfsz	??_main+2,f
-   559     074D  2F48               	goto	u137
-   560     074E  2F4F               	nop2
-   561                           
-   562                           ;main.c: 28:         for(int x = 5; x <=8; x++){
-   563     074F  3005               	movlw	5
-   564     0750  1283               	bcf	3,5	;RP0=0, select bank0
-   565     0751  1303               	bcf	3,6	;RP1=0, select bank0
-   566     0752  00A2               	movwf	main@x_56
-   567     0753  3000               	movlw	0
-   568     0754  00A3               	movwf	main@x_56+1
-   569     0755                     l775:
-   570                           
-   571                           ;main.c: 29:             SendToSegment(x, 0xf0);
-   572     0755  1283               	bcf	3,5	;RP0=0, select bank0
-   573     0756  1303               	bcf	3,6	;RP1=0, select bank0
-   574     0757  0823               	movf	main@x_56+1,w
-   575     0758  00F2               	movwf	SendToSegment@segment+1
-   576     0759  0822               	movf	main@x_56,w
-   577     075A  00F1               	movwf	SendToSegment@segment
-   578     075B  30F0               	movlw	240
-   579     075C  00F3               	movwf	SendToSegment@data
-   580     075D  120A  118A  26A2  120A  118A  	fcall	_SendToSegment
-   581     0762                     l777:
-   582                           
-   583                           ;main.c: 30:         }
-   584     0762  3001               	movlw	1
-   585     0763  1283               	bcf	3,5	;RP0=0, select bank0
-   586     0764  1303               	bcf	3,6	;RP1=0, select bank0
-   587     0765  07A2               	addwf	main@x_56,f
-   588     0766  1803               	skipnc
-   589     0767  0AA3               	incf	main@x_56+1,f
-   590     0768  3000               	movlw	0
-   591     0769  07A3               	addwf	main@x_56+1,f
-   592     076A                     l779:
-   593     076A  0823               	movf	main@x_56+1,w
-   594     076B  3A80               	xorlw	128
-   595     076C  00FF               	movwf	btemp+1
-   596     076D  3080               	movlw	128
-   597     076E  027F               	subwf	btemp+1,w
-   598     076F  1D03               	skipz
-   599     0770  2F73               	goto	u105
-   600     0771  3009               	movlw	9
-   601     0772  0222               	subwf	main@x_56,w
-   602     0773                     u105:
-   603     0773  1C03               	skipc
-   604     0774  2F76               	goto	u101
-   605     0775  2F77               	goto	u100
-   606     0776                     u101:
-   607     0776  2F55               	goto	l775
-   608     0777                     u100:
-   609     0777                     l781:
-   610                           
-   611                           ;main.c: 31:         _delay((unsigned long)((500)*(16000000/4000.0)));
-   612     0777  300B               	movlw	11
-   613     0778  00FC               	movwf	??_main+2
-   614     0779  3026               	movlw	38
-   615     077A  00FB               	movwf	??_main+1
-   616     077B  305D               	movlw	93
-   617     077C  00FA               	movwf	??_main
-   618     077D                     u147:
-   619     077D  0BFA               	decfsz	??_main,f
-   620     077E  2F7D               	goto	u147
-   621     077F  0BFB               	decfsz	??_main+1,f
-   622     0780  2F7D               	goto	u147
-   623     0781  0BFC               	decfsz	??_main+2,f
-   624     0782  2F7D               	goto	u147
-   625     0783  2F84               	nop2
-   626     0784                     l783:
-   627                           
-   628                           ;main.c: 32:         SpiClearMatrix();
-   629     0784  120A  118A  26B5  120A  118A  	fcall	_SpiClearMatrix
-   630     0789                     l785:
-   631                           
-   632                           ;main.c: 34:         for(int x = 5; x <=8; x++){
-   633     0789  3005               	movlw	5
-   634     078A  1283               	bcf	3,5	;RP0=0, select bank0
-   635     078B  1303               	bcf	3,6	;RP1=0, select bank0
-   636     078C  00A4               	movwf	main@x_57
-   637     078D  3000               	movlw	0
-   638     078E  00A5               	movwf	main@x_57+1
-   639     078F                     l791:
-   640                           
-   641                           ;main.c: 35:             SendToSegment(x, 0x0f);
-   642     078F  1283               	bcf	3,5	;RP0=0, select bank0
-   643     0790  1303               	bcf	3,6	;RP1=0, select bank0
-   644     0791  0825               	movf	main@x_57+1,w
-   645     0792  00F2               	movwf	SendToSegment@segment+1
-   646     0793  0824               	movf	main@x_57,w
-   647     0794  00F1               	movwf	SendToSegment@segment
-   648     0795  300F               	movlw	15
-   649     0796  00F3               	movwf	SendToSegment@data
-   650     0797  120A  118A  26A2  120A  118A  	fcall	_SendToSegment
-   651     079C                     l793:
-   652                           
-   653                           ;main.c: 36:         }
-   654     079C  3001               	movlw	1
-   655     079D  1283               	bcf	3,5	;RP0=0, select bank0
-   656     079E  1303               	bcf	3,6	;RP1=0, select bank0
-   657     079F  07A4               	addwf	main@x_57,f
-   658     07A0  1803               	skipnc
-   659     07A1  0AA5               	incf	main@x_57+1,f
-   660     07A2  3000               	movlw	0
-   661     07A3  07A5               	addwf	main@x_57+1,f
-   662     07A4                     l795:
-   663     07A4  0825               	movf	main@x_57+1,w
-   664     07A5  3A80               	xorlw	128
-   665     07A6  00FF               	movwf	btemp+1
-   666     07A7  3080               	movlw	128
-   667     07A8  027F               	subwf	btemp+1,w
-   668     07A9  1D03               	skipz
-   669     07AA  2FAD               	goto	u115
-   670     07AB  3009               	movlw	9
-   671     07AC  0224               	subwf	main@x_57,w
-   672     07AD                     u115:
-   673     07AD  1C03               	skipc
-   674     07AE  2FB0               	goto	u111
-   675     07AF  2FB1               	goto	u110
-   676     07B0                     u111:
-   677     07B0  2F8F               	goto	l791
-   678     07B1                     u110:
-   679     07B1                     l797:
-   680                           
-   681                           ;main.c: 37:         _delay((unsigned long)((500)*(16000000/4000.0)));
-   682     07B1  300B               	movlw	11
-   683     07B2  00FC               	movwf	??_main+2
-   684     07B3  3026               	movlw	38
-   685     07B4  00FB               	movwf	??_main+1
-   686     07B5  305D               	movlw	93
-   687     07B6  00FA               	movwf	??_main
-   688     07B7                     u157:
-   689     07B7  0BFA               	decfsz	??_main,f
-   690     07B8  2FB7               	goto	u157
-   691     07B9  0BFB               	decfsz	??_main+1,f
-   692     07BA  2FB7               	goto	u157
-   693     07BB  0BFC               	decfsz	??_main+2,f
-   694     07BC  2FB7               	goto	u157
-   695     07BD  2FBE               	nop2
-   696                           
-   697                           ;main.c: 38:         for(int x = 1; x <=4; x++){
-   698     07BE  3001               	movlw	1
-   699     07BF  1283               	bcf	3,5	;RP0=0, select bank0
-   700     07C0  1303               	bcf	3,6	;RP1=0, select bank0
-   701     07C1  00A6               	movwf	main@x_58
-   702     07C2  3000               	movlw	0
-   703     07C3  00A7               	movwf	main@x_58+1
-   704     07C4                     l803:
+   497                           ;main.c: 24:             for(int sh = 0; sh <= 8; sh++){
+   498     0773  1283               	bcf	3,5	;RP0=0, select bank0
+   499     0774  1303               	bcf	3,6	;RP1=0, select bank0
+   500     0775  01A2               	clrf	main@sh
+   501     0776  01A3               	clrf	main@sh+1
+   502     0777                     l744:
+   503     0777  0823               	movf	main@sh+1,w
+   504     0778  3A80               	xorlw	128
+   505     0779  00FF               	movwf	btemp+1
+   506     077A  3080               	movlw	128
+   507     077B  027F               	subwf	btemp+1,w
+   508     077C  1D03               	skipz
+   509     077D  2F80               	goto	u95
+   510     077E  3009               	movlw	9
+   511     077F  0222               	subwf	main@sh,w
+   512     0780                     u95:
+   513     0780  1C03               	skipc
+   514     0781  2F83               	goto	u91
+   515     0782  2F84               	goto	u90
+   516     0783                     u91:
+   517     0783  2F85               	goto	l748
+   518     0784                     u90:
+   519     0784  2FDE               	goto	l762
+   520     0785                     l748:
+   521                           
+   522                           ;main.c: 25:                 SpiClearMatrix();
+   523     0785  120A  118A  270A  120A  118A  	fcall	_SpiClearMatrix
+   524     078A                     l750:
+   525                           
+   526                           ;main.c: 26:                 for(int y_coord = 1 + k; y_coord <=2 + k; y_coord++){
+   527     078A  1283               	bcf	3,5	;RP0=0, select bank0
+   528     078B  1303               	bcf	3,6	;RP1=0, select bank0
+   529     078C  0824               	movf	main@k,w
+   530     078D  3E01               	addlw	1
+   531     078E  00A0               	movwf	main@y_coord
+   532     078F  0825               	movf	main@k+1,w
+   533     0790  1803               	skipnc
+   534     0791  3E01               	addlw	1
+   535     0792  3E00               	addlw	0
+   536     0793  00A1               	movwf	main@y_coord+1
+   537     0794  2FB3               	goto	l756
+   538     0795                     l752:
+   539                           
+   540                           ;main.c: 27:                    SendToSegment(y_coord, (char)(0x03 << sh));
+   541     0795  1283               	bcf	3,5	;RP0=0, select bank0
+   542     0796  1303               	bcf	3,6	;RP1=0, select bank0
+   543     0797  0821               	movf	main@y_coord+1,w
+   544     0798  00F2               	movwf	SendToSegment@segment+1
+   545     0799  0820               	movf	main@y_coord,w
+   546     079A  00F1               	movwf	SendToSegment@segment
+   547     079B  3003               	movlw	3
+   548     079C  00FA               	movwf	??_main
+   549     079D  0A22               	incf	main@sh,w
+   550     079E  2FA1               	goto	u104
+   551     079F                     u105:
+   552     079F  1003               	clrc
+   553     07A0  0DFA               	rlf	??_main,f
+   554     07A1                     u104:
+   555     07A1  3EFF               	addlw	-1
+   556     07A2  1D03               	skipz
+   557     07A3  2F9F               	goto	u105
+   558     07A4  087A               	movf	??_main,w
+   559     07A5  00F3               	movwf	SendToSegment@data
+   560     07A6  120A  118A  26F7  120A  118A  	fcall	_SendToSegment
+   561     07AB                     l754:
+   562                           
+   563                           ;main.c: 28:                 }
+   564     07AB  3001               	movlw	1
+   565     07AC  1283               	bcf	3,5	;RP0=0, select bank0
+   566     07AD  1303               	bcf	3,6	;RP1=0, select bank0
+   567     07AE  07A0               	addwf	main@y_coord,f
+   568     07AF  1803               	skipnc
+   569     07B0  0AA1               	incf	main@y_coord+1,f
+   570     07B1  3000               	movlw	0
+   571     07B2  07A1               	addwf	main@y_coord+1,f
+   572     07B3                     l756:
+   573     07B3  0824               	movf	main@k,w
+   574     07B4  3E02               	addlw	2
+   575     07B5  00FA               	movwf	??_main
+   576     07B6  0825               	movf	main@k+1,w
+   577     07B7  1803               	skipnc
+   578     07B8  3E01               	addlw	1
+   579     07B9  3E00               	addlw	0
+   580     07BA  00FB               	movwf	??_main+1
+   581     07BB  087B               	movf	??_main+1,w
+   582     07BC  3A80               	xorlw	128
+   583     07BD  00FC               	movwf	??_main+2
+   584     07BE  0821               	movf	main@y_coord+1,w
+   585     07BF  3A80               	xorlw	128
+   586     07C0  027C               	subwf	??_main+2,w
+   587     07C1  1D03               	skipz
+   588     07C2  2FC5               	goto	u115
+   589     07C3  0820               	movf	main@y_coord,w
+   590     07C4  027A               	subwf	??_main,w
+   591     07C5                     u115:
+   592     07C5  1803               	skipnc
+   593     07C6  2FC8               	goto	u111
+   594     07C7  2FC9               	goto	u110
+   595     07C8                     u111:
+   596     07C8  2F95               	goto	l752
+   597     07C9                     u110:
+   598     07C9                     l758:
+   599                           
+   600                           ;main.c: 29:                 _delay((unsigned long)((100)*(16000000/4000.0)));
+   601     07C9  3003               	movlw	3
+   602     07CA  00FC               	movwf	??_main+2
+   603     07CB  3008               	movlw	8
+   604     07CC  00FB               	movwf	??_main+1
+   605     07CD  3077               	movlw	119
+   606     07CE  00FA               	movwf	??_main
+   607     07CF                     u137:
+   608     07CF  0BFA               	decfsz	??_main,f
+   609     07D0  2FCF               	goto	u137
+   610     07D1  0BFB               	decfsz	??_main+1,f
+   611     07D2  2FCF               	goto	u137
+   612     07D3  0BFC               	decfsz	??_main+2,f
+   613     07D4  2FCF               	goto	u137
+   614                           
+   615                           ;main.c: 30:             }
+   616     07D5  3001               	movlw	1
+   617     07D6  1283               	bcf	3,5	;RP0=0, select bank0
+   618     07D7  1303               	bcf	3,6	;RP1=0, select bank0
+   619     07D8  07A2               	addwf	main@sh,f
+   620     07D9  1803               	skipnc
+   621     07DA  0AA3               	incf	main@sh+1,f
+   622     07DB  3000               	movlw	0
+   623     07DC  07A3               	addwf	main@sh+1,f
+   624     07DD  2F77               	goto	l744
+   625     07DE                     l762:
+   626                           
+   627                           ;main.c: 31:         }
+   628     07DE  3001               	movlw	1
+   629     07DF  1283               	bcf	3,5	;RP0=0, select bank0
+   630     07E0  1303               	bcf	3,6	;RP1=0, select bank0
+   631     07E1  07A4               	addwf	main@k,f
+   632     07E2  1803               	skipnc
+   633     07E3  0AA5               	incf	main@k+1,f
+   634     07E4  3000               	movlw	0
+   635     07E5  07A5               	addwf	main@k+1,f
+   636     07E6                     l764:
+   637     07E6  0825               	movf	main@k+1,w
+   638     07E7  3A80               	xorlw	128
+   639     07E8  00FF               	movwf	btemp+1
+   640     07E9  3080               	movlw	128
+   641     07EA  027F               	subwf	btemp+1,w
+   642     07EB  1D03               	skipz
+   643     07EC  2FEF               	goto	u125
+   644     07ED  3007               	movlw	7
+   645     07EE  0224               	subwf	main@k,w
+   646     07EF                     u125:
+   647     07EF  1C03               	skipc
+   648     07F0  2FF2               	goto	u121
+   649     07F1  2FF3               	goto	u120
+   650     07F2                     u121:
+   651     07F2  2F73               	goto	l742
+   652     07F3                     u120:
+   653     07F3                     l766:
+   654                           
+   655                           ;main.c: 32:         SpiClearMatrix();
+   656     07F3  120A  118A  270A  120A  118A  	fcall	_SpiClearMatrix
+   657     07F8  2F6F               	goto	l736
+   658     07F9  120A  118A  2800   	ljmp	start
+   659     07FC                     __end_of_main:
+   660                           
+   661                           	psect	text1
+   662     06E5                     __ptext1:	
+   663 ;; *************** function _SpiInit *****************
+   664 ;; Defined at:
+   665 ;;		line 9 in file "spi.c"
+   666 ;; Parameters:    Size  Location     Type
+   667 ;;		None
+   668 ;; Auto vars:     Size  Location     Type
+   669 ;;		None
+   670 ;; Return value:  Size  Location     Type
+   671 ;;                  1    wreg      void 
+   672 ;; Registers used:
+   673 ;;		wreg, status,2, status,0
+   674 ;; Tracked objects:
+   675 ;;		On entry : 0/0
+   676 ;;		On exit  : 0/0
+   677 ;;		Unchanged: 0/0
+   678 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   679 ;;      Params:         0       0       0       0       0
+   680 ;;      Locals:         0       0       0       0       0
+   681 ;;      Temps:          0       0       0       0       0
+   682 ;;      Totals:         0       0       0       0       0
+   683 ;;Total ram usage:        0 bytes
+   684 ;; Hardware stack levels used: 1
+   685 ;; This function calls:
+   686 ;;		Nothing
+   687 ;; This function is called by:
+   688 ;;		_main
+   689 ;; This function uses a non-reentrant model
+   690 ;;
+   691                           
+   692     06E5                     _SpiInit:	
+   693                           ;psect for function _SpiInit
+   694                           
+   695     06E5                     l708:	
+   696                           ;incstack = 0
+   697                           ; Regs used in _SpiInit: [wreg+status,2+status,0]
+   698                           
+   699                           
+   700                           ;spi.c: 10:     TRISC |= 0x10;
+   701     06E5  1683               	bsf	3,5	;RP0=1, select bank1
+   702     06E6  1303               	bcf	3,6	;RP1=0, select bank1
+   703     06E7  1607               	bsf	7,4	;volatile
+   704     06E8                     l710:
    705                           
-   706                           ;main.c: 39:             SendToSegment(x, 0xf0);
-   707     07C4  1283               	bcf	3,5	;RP0=0, select bank0
-   708     07C5  1303               	bcf	3,6	;RP1=0, select bank0
-   709     07C6  0827               	movf	main@x_58+1,w
-   710     07C7  00F2               	movwf	SendToSegment@segment+1
-   711     07C8  0826               	movf	main@x_58,w
-   712     07C9  00F1               	movwf	SendToSegment@segment
-   713     07CA  30F0               	movlw	240
-   714     07CB  00F3               	movwf	SendToSegment@data
-   715     07CC  120A  118A  26A2  120A  118A  	fcall	_SendToSegment
-   716     07D1                     l805:
-   717                           
-   718                           ;main.c: 40:         }
-   719     07D1  3001               	movlw	1
-   720     07D2  1283               	bcf	3,5	;RP0=0, select bank0
-   721     07D3  1303               	bcf	3,6	;RP1=0, select bank0
-   722     07D4  07A6               	addwf	main@x_58,f
-   723     07D5  1803               	skipnc
-   724     07D6  0AA7               	incf	main@x_58+1,f
-   725     07D7  3000               	movlw	0
-   726     07D8  07A7               	addwf	main@x_58+1,f
-   727     07D9                     l807:
-   728     07D9  0827               	movf	main@x_58+1,w
-   729     07DA  3A80               	xorlw	128
-   730     07DB  00FF               	movwf	btemp+1
-   731     07DC  3080               	movlw	128
-   732     07DD  027F               	subwf	btemp+1,w
-   733     07DE  1D03               	skipz
-   734     07DF  2FE2               	goto	u125
-   735     07E0  3005               	movlw	5
-   736     07E1  0226               	subwf	main@x_58,w
-   737     07E2                     u125:
-   738     07E2  1C03               	skipc
-   739     07E3  2FE5               	goto	u121
-   740     07E4  2FE6               	goto	u120
-   741     07E5                     u121:
-   742     07E5  2FC4               	goto	l803
-   743     07E6                     u120:
-   744     07E6                     l809:
-   745                           
-   746                           ;main.c: 41:         _delay((unsigned long)((500)*(16000000/4000.0)));
-   747     07E6  300B               	movlw	11
-   748     07E7  00FC               	movwf	??_main+2
-   749     07E8  3026               	movlw	38
-   750     07E9  00FB               	movwf	??_main+1
-   751     07EA  305D               	movlw	93
-   752     07EB  00FA               	movwf	??_main
-   753     07EC                     u167:
-   754     07EC  0BFA               	decfsz	??_main,f
-   755     07ED  2FEC               	goto	u167
-   756     07EE  0BFB               	decfsz	??_main+1,f
-   757     07EF  2FEC               	goto	u167
-   758     07F0  0BFC               	decfsz	??_main+2,f
-   759     07F1  2FEC               	goto	u167
-   760     07F2  2FF3               	nop2
-   761     07F3                     l811:
-   762                           
-   763                           ;main.c: 42:         SpiClearMatrix();
-   764     07F3  120A  118A  26B5  120A  118A  	fcall	_SpiClearMatrix
-   765     07F8  2F1A               	goto	l17
-   766     07F9  120A  118A  2800   	ljmp	start
-   767     07FC                     __end_of_main:
+   706                           ;spi.c: 11:     TRISC &= ~0x28;
+   707     06E8  30D7               	movlw	215
+   708     06E9  0587               	andwf	7,f	;volatile
+   709                           
+   710                           ;spi.c: 12:     TRISA &= ~0x20;
+   711     06EA  30DF               	movlw	223
+   712     06EB  0585               	andwf	5,f	;volatile
+   713                           
+   714                           ;spi.c: 13:     PORTA &= ~0x20;
+   715     06EC  30DF               	movlw	223
+   716     06ED  1283               	bcf	3,5	;RP0=0, select bank0
+   717     06EE  1303               	bcf	3,6	;RP1=0, select bank0
+   718     06EF  0585               	andwf	5,f	;volatile
+   719     06F0                     l712:
+   720                           
+   721                           ;spi.c: 14:     SSPCON = 0x30;
+   722     06F0  3030               	movlw	48
+   723     06F1  0094               	movwf	20	;volatile
+   724     06F2                     l714:
+   725                           
+   726                           ;spi.c: 15:     SSPSTAT = 0x80;
+   727     06F2  3080               	movlw	128
+   728     06F3  1683               	bsf	3,5	;RP0=1, select bank1
+   729     06F4  1303               	bcf	3,6	;RP1=0, select bank1
+   730     06F5  0094               	movwf	20	;volatile
+   731     06F6                     l51:
+   732     06F6  0008               	return
+   733     06F7                     __end_of_SpiInit:
+   734                           
+   735                           	psect	text2
+   736     06D3                     __ptext2:	
+   737 ;; *************** function _PortBInit *****************
+   738 ;; Defined at:
+   739 ;;		line 13 in file "portsinit.c"
+   740 ;; Parameters:    Size  Location     Type
+   741 ;;		None
+   742 ;; Auto vars:     Size  Location     Type
+   743 ;;		None
+   744 ;; Return value:  Size  Location     Type
+   745 ;;                  1    wreg      void 
+   746 ;; Registers used:
+   747 ;;		status,2
+   748 ;; Tracked objects:
+   749 ;;		On entry : 0/0
+   750 ;;		On exit  : 0/0
+   751 ;;		Unchanged: 0/0
+   752 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   753 ;;      Params:         0       0       0       0       0
+   754 ;;      Locals:         0       0       0       0       0
+   755 ;;      Temps:          0       0       0       0       0
+   756 ;;      Totals:         0       0       0       0       0
+   757 ;;Total ram usage:        0 bytes
+   758 ;; Hardware stack levels used: 1
+   759 ;; This function calls:
+   760 ;;		Nothing
+   761 ;; This function is called by:
+   762 ;;		_main
+   763 ;; This function uses a non-reentrant model
+   764 ;;
+   765                           
+   766     06D3                     _PortBInit:	
+   767                           ;psect for function _PortBInit
    768                           
-   769                           	psect	text1
-   770     0690                     __ptext1:	
-   771 ;; *************** function _SpiInit *****************
-   772 ;; Defined at:
-   773 ;;		line 9 in file "spi.c"
-   774 ;; Parameters:    Size  Location     Type
-   775 ;;		None
-   776 ;; Auto vars:     Size  Location     Type
-   777 ;;		None
-   778 ;; Return value:  Size  Location     Type
-   779 ;;                  1    wreg      void 
-   780 ;; Registers used:
-   781 ;;		wreg, status,2, status,0
-   782 ;; Tracked objects:
-   783 ;;		On entry : 0/0
-   784 ;;		On exit  : 0/0
-   785 ;;		Unchanged: 0/0
-   786 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   787 ;;      Params:         0       0       0       0       0
-   788 ;;      Locals:         0       0       0       0       0
-   789 ;;      Temps:          0       0       0       0       0
-   790 ;;      Totals:         0       0       0       0       0
-   791 ;;Total ram usage:        0 bytes
-   792 ;; Hardware stack levels used: 1
-   793 ;; This function calls:
-   794 ;;		Nothing
-   795 ;; This function is called by:
-   796 ;;		_main
-   797 ;; This function uses a non-reentrant model
-   798 ;;
-   799                           
-   800     0690                     _SpiInit:	
-   801                           ;psect for function _SpiInit
-   802                           
-   803     0690                     l731:	
-   804                           ;incstack = 0
-   805                           ; Regs used in _SpiInit: [wreg+status,2+status,0]
-   806                           
-   807                           
-   808                           ;spi.c: 10:     TRISC |= 0x10;
-   809     0690  1683               	bsf	3,5	;RP0=1, select bank1
-   810     0691  1303               	bcf	3,6	;RP1=0, select bank1
-   811     0692  1607               	bsf	7,4	;volatile
-   812     0693                     l733:
-   813                           
-   814                           ;spi.c: 11:     TRISC &= ~0x28;
-   815     0693  30D7               	movlw	215
-   816     0694  0587               	andwf	7,f	;volatile
-   817                           
-   818                           ;spi.c: 12:     TRISA &= ~0x20;
-   819     0695  30DF               	movlw	223
-   820     0696  0585               	andwf	5,f	;volatile
-   821                           
-   822                           ;spi.c: 13:     PORTA &= ~0x20;
-   823     0697  30DF               	movlw	223
-   824     0698  1283               	bcf	3,5	;RP0=0, select bank0
-   825     0699  1303               	bcf	3,6	;RP1=0, select bank0
-   826     069A  0585               	andwf	5,f	;volatile
-   827     069B                     l735:
-   828                           
-   829                           ;spi.c: 14:     SSPCON = 0x30;
-   830     069B  3030               	movlw	48
-   831     069C  0094               	movwf	20	;volatile
-   832     069D                     l737:
-   833                           
-   834                           ;spi.c: 15:     SSPSTAT = 0x80;
-   835     069D  3080               	movlw	128
-   836     069E  1683               	bsf	3,5	;RP0=1, select bank1
-   837     069F  1303               	bcf	3,6	;RP1=0, select bank1
-   838     06A0  0094               	movwf	20	;volatile
-   839     06A1                     l52:
-   840     06A1  0008               	return
-   841     06A2                     __end_of_SpiInit:
-   842                           
-   843                           	psect	text2
-   844     067E                     __ptext2:	
-   845 ;; *************** function _PortBInit *****************
-   846 ;; Defined at:
-   847 ;;		line 13 in file "portsinit.c"
-   848 ;; Parameters:    Size  Location     Type
-   849 ;;		None
-   850 ;; Auto vars:     Size  Location     Type
-   851 ;;		None
-   852 ;; Return value:  Size  Location     Type
-   853 ;;                  1    wreg      void 
-   854 ;; Registers used:
-   855 ;;		status,2
-   856 ;; Tracked objects:
-   857 ;;		On entry : 0/0
-   858 ;;		On exit  : 0/0
-   859 ;;		Unchanged: 0/0
-   860 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   861 ;;      Params:         0       0       0       0       0
-   862 ;;      Locals:         0       0       0       0       0
-   863 ;;      Temps:          0       0       0       0       0
-   864 ;;      Totals:         0       0       0       0       0
-   865 ;;Total ram usage:        0 bytes
-   866 ;; Hardware stack levels used: 1
-   867 ;; This function calls:
-   868 ;;		Nothing
-   869 ;; This function is called by:
-   870 ;;		_main
-   871 ;; This function uses a non-reentrant model
-   872 ;;
-   873                           
-   874     067E                     _PortBInit:	
-   875                           ;psect for function _PortBInit
-   876                           
-   877     067E                     l753:	
-   878                           ;incstack = 0
-   879                           ; Regs used in _PortBInit: [status,2]
-   880                           
-   881                           
-   882                           ;portsinit.c: 14:     TRISB = 0x00;
-   883     067E  1683               	bsf	3,5	;RP0=1, select bank1
-   884     067F  1303               	bcf	3,6	;RP1=0, select bank1
-   885     0680  0186               	clrf	6	;volatile
-   886                           
-   887                           ;portsinit.c: 15:     PORTB = 0x00;
-   888     0681  1283               	bcf	3,5	;RP0=0, select bank0
-   889     0682  1303               	bcf	3,6	;RP1=0, select bank0
-   890     0683  0186               	clrf	6	;volatile
-   891     0684                     l35:
-   892     0684  0008               	return
-   893     0685                     __end_of_PortBInit:
+   769     06D3                     l730:	
+   770                           ;incstack = 0
+   771                           ; Regs used in _PortBInit: [status,2]
+   772                           
+   773                           
+   774                           ;portsinit.c: 14:     TRISB = 0x00;
+   775     06D3  1683               	bsf	3,5	;RP0=1, select bank1
+   776     06D4  1303               	bcf	3,6	;RP1=0, select bank1
+   777     06D5  0186               	clrf	6	;volatile
+   778                           
+   779                           ;portsinit.c: 15:     PORTB = 0x00;
+   780     06D6  1283               	bcf	3,5	;RP0=0, select bank0
+   781     06D7  1303               	bcf	3,6	;RP1=0, select bank0
+   782     06D8  0186               	clrf	6	;volatile
+   783     06D9                     l34:
+   784     06D9  0008               	return
+   785     06DA                     __end_of_PortBInit:
+   786                           
+   787                           	psect	text3
+   788     0720                     __ptext3:	
+   789 ;; *************** function _MatrixInit *****************
+   790 ;; Defined at:
+   791 ;;		line 20 in file "matrix.c"
+   792 ;; Parameters:    Size  Location     Type
+   793 ;;		None
+   794 ;; Auto vars:     Size  Location     Type
+   795 ;;		None
+   796 ;; Return value:  Size  Location     Type
+   797 ;;                  1    wreg      void 
+   798 ;; Registers used:
+   799 ;;		wreg, status,2, status,0, pclath, cstack
+   800 ;; Tracked objects:
+   801 ;;		On entry : 0/0
+   802 ;;		On exit  : 0/0
+   803 ;;		Unchanged: 0/0
+   804 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   805 ;;      Params:         0       0       0       0       0
+   806 ;;      Locals:         0       0       0       0       0
+   807 ;;      Temps:          3       0       0       0       0
+   808 ;;      Totals:         3       0       0       0       0
+   809 ;;Total ram usage:        3 bytes
+   810 ;; Hardware stack levels used: 1
+   811 ;; Hardware stack levels required when called: 3
+   812 ;; This function calls:
+   813 ;;		_SendToSegment
+   814 ;;		_SpiClearMatrix
+   815 ;; This function is called by:
+   816 ;;		_main
+   817 ;; This function uses a non-reentrant model
+   818 ;;
+   819                           
+   820     0720                     _MatrixInit:	
+   821                           ;psect for function _MatrixInit
+   822                           
+   823     0720                     l716:	
+   824                           ;incstack = 0
+   825                           ; Regs used in _MatrixInit: [wreg+status,2+status,0+pclath+cstack]
+   826                           
+   827                           
+   828                           ;matrix.c: 21:     _delay((unsigned long)((100)*(16000000/4000.0)));
+   829     0720  3003               	movlw	3
+   830     0721  00F9               	movwf	??_MatrixInit+2
+   831     0722  3008               	movlw	8
+   832     0723  00F8               	movwf	??_MatrixInit+1
+   833     0724  3077               	movlw	119
+   834     0725  00F7               	movwf	??_MatrixInit
+   835     0726                     u147:
+   836     0726  0BF7               	decfsz	??_MatrixInit,f
+   837     0727  2F26               	goto	u147
+   838     0728  0BF8               	decfsz	??_MatrixInit+1,f
+   839     0729  2F26               	goto	u147
+   840     072A  0BF9               	decfsz	??_MatrixInit+2,f
+   841     072B  2F26               	goto	u147
+   842     072C                     l718:
+   843                           
+   844                           ;matrix.c: 22:     RA5=1;
+   845     072C  1283               	bcf	3,5	;RP0=0, select bank0
+   846     072D  1303               	bcf	3,6	;RP1=0, select bank0
+   847     072E  1685               	bsf	5,5	;volatile
+   848     072F                     l720:
+   849                           
+   850                           ;matrix.c: 23:     SendToSegment(0x09, 0x00);
+   851     072F  3009               	movlw	9
+   852     0730  00F1               	movwf	SendToSegment@segment
+   853     0731  3000               	movlw	0
+   854     0732  00F2               	movwf	SendToSegment@segment+1
+   855     0733  01F3               	clrf	SendToSegment@data
+   856     0734  120A  118A  26F7  120A  118A  	fcall	_SendToSegment
+   857     0739                     l722:
+   858                           
+   859                           ;matrix.c: 24:     SendToSegment(0x0b, 0x07);
+   860     0739  300B               	movlw	11
+   861     073A  00F1               	movwf	SendToSegment@segment
+   862     073B  3000               	movlw	0
+   863     073C  00F2               	movwf	SendToSegment@segment+1
+   864     073D  3007               	movlw	7
+   865     073E  00F3               	movwf	SendToSegment@data
+   866     073F  120A  118A  26F7  120A  118A  	fcall	_SendToSegment
+   867     0744                     l724:
+   868                           
+   869                           ;matrix.c: 25:     SendToSegment(0x0A, 0x02);
+   870     0744  300A               	movlw	10
+   871     0745  00F1               	movwf	SendToSegment@segment
+   872     0746  3000               	movlw	0
+   873     0747  00F2               	movwf	SendToSegment@segment+1
+   874     0748  3002               	movlw	2
+   875     0749  00F3               	movwf	SendToSegment@data
+   876     074A  120A  118A  26F7  120A  118A  	fcall	_SendToSegment
+   877     074F                     l726:
+   878                           
+   879                           ;matrix.c: 26:     SendToSegment(0x0c, 0x01);
+   880     074F  300C               	movlw	12
+   881     0750  00F1               	movwf	SendToSegment@segment
+   882     0751  3000               	movlw	0
+   883     0752  00F2               	movwf	SendToSegment@segment+1
+   884     0753  01F3               	clrf	SendToSegment@data
+   885     0754  0AF3               	incf	SendToSegment@data,f
+   886     0755  120A  118A  26F7  120A  118A  	fcall	_SendToSegment
+   887     075A                     l728:
+   888                           
+   889                           ;matrix.c: 27:     SpiClearMatrix();
+   890     075A  120A  118A  270A  120A  118A  	fcall	_SpiClearMatrix
+   891     075F                     l73:
+   892     075F  0008               	return
+   893     0760                     __end_of_MatrixInit:
    894                           
-   895                           	psect	text3
-   896     06CB                     __ptext3:	
-   897 ;; *************** function _MatrixInit *****************
+   895                           	psect	text4
+   896     070A                     __ptext4:	
+   897 ;; *************** function _SpiClearMatrix *****************
    898 ;; Defined at:
-   899 ;;		line 20 in file "matrix.c"
+   899 ;;		line 10 in file "matrix.c"
    900 ;; Parameters:    Size  Location     Type
    901 ;;		None
    902 ;; Auto vars:     Size  Location     Type
-   903 ;;		None
+   903 ;;  i               1    6[COMMON] unsigned char 
    904 ;; Return value:  Size  Location     Type
    905 ;;                  1    wreg      void 
    906 ;; Registers used:
@@ -925,321 +925,213 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    911 ;;		Unchanged: 0/0
    912 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
    913 ;;      Params:         0       0       0       0       0
-   914 ;;      Locals:         0       0       0       0       0
-   915 ;;      Temps:          3       0       0       0       0
+   914 ;;      Locals:         1       0       0       0       0
+   915 ;;      Temps:          2       0       0       0       0
    916 ;;      Totals:         3       0       0       0       0
    917 ;;Total ram usage:        3 bytes
    918 ;; Hardware stack levels used: 1
-   919 ;; Hardware stack levels required when called: 3
+   919 ;; Hardware stack levels required when called: 2
    920 ;; This function calls:
    921 ;;		_SendToSegment
-   922 ;;		_SpiClearMatrix
-   923 ;; This function is called by:
-   924 ;;		_main
+   922 ;; This function is called by:
+   923 ;;		_main
+   924 ;;		_MatrixInit
    925 ;; This function uses a non-reentrant model
    926 ;;
    927                           
-   928     06CB                     _MatrixInit:	
-   929                           ;psect for function _MatrixInit
+   928     070A                     _SpiClearMatrix:	
+   929                           ;psect for function _SpiClearMatrix
    930                           
-   931     06CB                     l739:	
+   931     070A                     l702:	
    932                           ;incstack = 0
-   933                           ; Regs used in _MatrixInit: [wreg+status,2+status,0+pclath+cstack]
+   933                           ; Regs used in _SpiClearMatrix: [wreg+status,2+status,0+pclath+cstack]
    934                           
    935                           
-   936                           ;matrix.c: 21:     _delay((unsigned long)((100)*(16000000/4000.0)));
-   937     06CB  3003               	movlw	3
-   938     06CC  00F9               	movwf	??_MatrixInit+2
-   939     06CD  3008               	movlw	8
-   940     06CE  00F8               	movwf	??_MatrixInit+1
-   941     06CF  3077               	movlw	119
-   942     06D0  00F7               	movwf	??_MatrixInit
-   943     06D1                     u177:
-   944     06D1  0BF7               	decfsz	??_MatrixInit,f
-   945     06D2  2ED1               	goto	u177
-   946     06D3  0BF8               	decfsz	??_MatrixInit+1,f
-   947     06D4  2ED1               	goto	u177
-   948     06D5  0BF9               	decfsz	??_MatrixInit+2,f
-   949     06D6  2ED1               	goto	u177
-   950     06D7                     l741:
-   951                           
-   952                           ;matrix.c: 22:     RA5=1;
-   953     06D7  1283               	bcf	3,5	;RP0=0, select bank0
-   954     06D8  1303               	bcf	3,6	;RP1=0, select bank0
-   955     06D9  1685               	bsf	5,5	;volatile
-   956     06DA                     l743:
-   957                           
-   958                           ;matrix.c: 23:     SendToSegment(0x09, 0x00);
-   959     06DA  3009               	movlw	9
-   960     06DB  00F1               	movwf	SendToSegment@segment
-   961     06DC  3000               	movlw	0
-   962     06DD  00F2               	movwf	SendToSegment@segment+1
-   963     06DE  01F3               	clrf	SendToSegment@data
-   964     06DF  120A  118A  26A2  120A  118A  	fcall	_SendToSegment
-   965     06E4                     l745:
-   966                           
-   967                           ;matrix.c: 24:     SendToSegment(0x0b, 0x07);
-   968     06E4  300B               	movlw	11
-   969     06E5  00F1               	movwf	SendToSegment@segment
-   970     06E6  3000               	movlw	0
-   971     06E7  00F2               	movwf	SendToSegment@segment+1
-   972     06E8  3007               	movlw	7
-   973     06E9  00F3               	movwf	SendToSegment@data
-   974     06EA  120A  118A  26A2  120A  118A  	fcall	_SendToSegment
-   975     06EF                     l747:
-   976                           
-   977                           ;matrix.c: 25:     SendToSegment(0x0A, 0x02);
-   978     06EF  300A               	movlw	10
-   979     06F0  00F1               	movwf	SendToSegment@segment
-   980     06F1  3000               	movlw	0
-   981     06F2  00F2               	movwf	SendToSegment@segment+1
-   982     06F3  3002               	movlw	2
-   983     06F4  00F3               	movwf	SendToSegment@data
-   984     06F5  120A  118A  26A2  120A  118A  	fcall	_SendToSegment
-   985     06FA                     l749:
-   986                           
-   987                           ;matrix.c: 26:     SendToSegment(0x0c, 0x01);
-   988     06FA  300C               	movlw	12
-   989     06FB  00F1               	movwf	SendToSegment@segment
-   990     06FC  3000               	movlw	0
-   991     06FD  00F2               	movwf	SendToSegment@segment+1
-   992     06FE  01F3               	clrf	SendToSegment@data
-   993     06FF  0AF3               	incf	SendToSegment@data,f
-   994     0700  120A  118A  26A2  120A  118A  	fcall	_SendToSegment
-   995     0705                     l751:
-   996                           
-   997                           ;matrix.c: 27:     SpiClearMatrix();
-   998     0705  120A  118A  26B5  120A  118A  	fcall	_SpiClearMatrix
-   999     070A                     l74:
-  1000     070A  0008               	return
-  1001     070B                     __end_of_MatrixInit:
-  1002                           
-  1003                           	psect	text4
-  1004     06B5                     __ptext4:	
-  1005 ;; *************** function _SpiClearMatrix *****************
-  1006 ;; Defined at:
-  1007 ;;		line 10 in file "matrix.c"
-  1008 ;; Parameters:    Size  Location     Type
-  1009 ;;		None
-  1010 ;; Auto vars:     Size  Location     Type
-  1011 ;;  i               1    6[COMMON] unsigned char 
-  1012 ;; Return value:  Size  Location     Type
-  1013 ;;                  1    wreg      void 
-  1014 ;; Registers used:
-  1015 ;;		wreg, status,2, status,0, pclath, cstack
-  1016 ;; Tracked objects:
-  1017 ;;		On entry : 0/0
-  1018 ;;		On exit  : 0/0
-  1019 ;;		Unchanged: 0/0
-  1020 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1021 ;;      Params:         0       0       0       0       0
-  1022 ;;      Locals:         1       0       0       0       0
-  1023 ;;      Temps:          2       0       0       0       0
-  1024 ;;      Totals:         3       0       0       0       0
-  1025 ;;Total ram usage:        3 bytes
-  1026 ;; Hardware stack levels used: 1
-  1027 ;; Hardware stack levels required when called: 2
-  1028 ;; This function calls:
-  1029 ;;		_SendToSegment
-  1030 ;; This function is called by:
-  1031 ;;		_main
-  1032 ;;		_MatrixInit
-  1033 ;; This function uses a non-reentrant model
-  1034 ;;
-  1035                           
-  1036     06B5                     _SpiClearMatrix:	
-  1037                           ;psect for function _SpiClearMatrix
-  1038                           
-  1039     06B5                     l725:	
-  1040                           ;incstack = 0
-  1041                           ; Regs used in _SpiClearMatrix: [wreg+status,2+status,0+pclath+cstack]
-  1042                           
-  1043                           
-  1044                           ;matrix.c: 12:   char i = 8;
-  1045     06B5  3008               	movlw	8
-  1046     06B6  00F6               	movwf	SpiClearMatrix@i
-  1047     06B7                     l727:
-  1048                           
-  1049                           ;matrix.c: 14:   {;matrix.c: 15:     SendToSegment(i, 0x00);
-  1050     06B7  0876               	movf	SpiClearMatrix@i,w
-  1051     06B8  00F4               	movwf	??_SpiClearMatrix
-  1052     06B9  01F5               	clrf	??_SpiClearMatrix+1
-  1053     06BA  0874               	movf	??_SpiClearMatrix,w
-  1054     06BB  00F1               	movwf	SendToSegment@segment
-  1055     06BC  0875               	movf	??_SpiClearMatrix+1,w
-  1056     06BD  00F2               	movwf	SendToSegment@segment+1
-  1057     06BE  01F3               	clrf	SendToSegment@data
-  1058     06BF  120A  118A  26A2  120A  118A  	fcall	_SendToSegment
-  1059     06C4                     l729:
-  1060                           
-  1061                           ;matrix.c: 16:   } while (--i);
-  1062     06C4  3001               	movlw	1
-  1063     06C5  02F6               	subwf	SpiClearMatrix@i,f
-  1064     06C6  1D03               	btfss	3,2
-  1065     06C7  2EC9               	goto	u81
-  1066     06C8  2ECA               	goto	u80
-  1067     06C9                     u81:
-  1068     06C9  2EB7               	goto	l727
-  1069     06CA                     u80:
-  1070     06CA                     l71:
-  1071     06CA  0008               	return
-  1072     06CB                     __end_of_SpiClearMatrix:
-  1073                           
-  1074                           	psect	text5
-  1075     06A2                     __ptext5:	
-  1076 ;; *************** function _SendToSegment *****************
-  1077 ;; Defined at:
-  1078 ;;		line 34 in file "matrix.c"
-  1079 ;; Parameters:    Size  Location     Type
-  1080 ;;  segment         2    1[COMMON] int 
-  1081 ;;  data            1    3[COMMON] unsigned char 
-  1082 ;; Auto vars:     Size  Location     Type
-  1083 ;;		None
-  1084 ;; Return value:  Size  Location     Type
-  1085 ;;                  1    wreg      void 
-  1086 ;; Registers used:
-  1087 ;;		wreg, status,2, status,0, pclath, cstack
-  1088 ;; Tracked objects:
-  1089 ;;		On entry : 0/0
-  1090 ;;		On exit  : 0/0
-  1091 ;;		Unchanged: 0/0
-  1092 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1093 ;;      Params:         3       0       0       0       0
-  1094 ;;      Locals:         0       0       0       0       0
-  1095 ;;      Temps:          0       0       0       0       0
-  1096 ;;      Totals:         3       0       0       0       0
-  1097 ;;Total ram usage:        3 bytes
-  1098 ;; Hardware stack levels used: 1
-  1099 ;; Hardware stack levels required when called: 1
-  1100 ;; This function calls:
-  1101 ;;		_SpiSendByte
-  1102 ;; This function is called by:
-  1103 ;;		_main
-  1104 ;;		_SpiClearMatrix
-  1105 ;;		_MatrixInit
-  1106 ;; This function uses a non-reentrant model
-  1107 ;;
-  1108                           
-  1109     06A2                     _SendToSegment:	
-  1110                           ;psect for function _SendToSegment
-  1111                           
-  1112     06A2                     l719:	
-  1113                           ;incstack = 0
-  1114                           ; Regs used in _SendToSegment: [wreg+status,2+status,0+pclath+cstack]
-  1115                           
-  1116                           
-  1117                           ;matrix.c: 35:     RA5 = 0;
-  1118     06A2  1283               	bcf	3,5	;RP0=0, select bank0
-  1119     06A3  1303               	bcf	3,6	;RP1=0, select bank0
-  1120     06A4  1285               	bcf	5,5	;volatile
-  1121     06A5                     l721:
-  1122                           
-  1123                           ;matrix.c: 36:     SpiSendByte(segment);
-  1124     06A5  0871               	movf	SendToSegment@segment,w
-  1125     06A6  120A  118A  2685  120A  118A  	fcall	_SpiSendByte
-  1126                           
-  1127                           ;matrix.c: 37:     SpiSendByte(data);
-  1128     06AB  0873               	movf	SendToSegment@data,w
-  1129     06AC  120A  118A  2685  120A  118A  	fcall	_SpiSendByte
-  1130     06B1                     l723:
-  1131                           
-  1132                           ;matrix.c: 38:     RA5 = 1;
-  1133     06B1  1283               	bcf	3,5	;RP0=0, select bank0
-  1134     06B2  1303               	bcf	3,6	;RP1=0, select bank0
-  1135     06B3  1685               	bsf	5,5	;volatile
-  1136     06B4                     l77:
-  1137     06B4  0008               	return
-  1138     06B5                     __end_of_SendToSegment:
-  1139                           
-  1140                           	psect	text6
-  1141     0685                     __ptext6:	
-  1142 ;; *************** function _SpiSendByte *****************
-  1143 ;; Defined at:
-  1144 ;;		line 18 in file "spi.c"
-  1145 ;; Parameters:    Size  Location     Type
-  1146 ;;  data            1    wreg     unsigned char 
-  1147 ;; Auto vars:     Size  Location     Type
-  1148 ;;  data            1    0[COMMON] unsigned char 
-  1149 ;; Return value:  Size  Location     Type
-  1150 ;;                  1    wreg      void 
-  1151 ;; Registers used:
-  1152 ;;		wreg
-  1153 ;; Tracked objects:
-  1154 ;;		On entry : 0/0
-  1155 ;;		On exit  : 0/0
-  1156 ;;		Unchanged: 0/0
-  1157 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1158 ;;      Params:         0       0       0       0       0
-  1159 ;;      Locals:         1       0       0       0       0
-  1160 ;;      Temps:          0       0       0       0       0
-  1161 ;;      Totals:         1       0       0       0       0
-  1162 ;;Total ram usage:        1 bytes
-  1163 ;; Hardware stack levels used: 1
-  1164 ;; This function calls:
-  1165 ;;		Nothing
-  1166 ;; This function is called by:
-  1167 ;;		_SendToSegment
-  1168 ;; This function uses a non-reentrant model
-  1169 ;;
-  1170                           
-  1171     0685                     _SpiSendByte:	
-  1172                           ;psect for function _SpiSendByte
-  1173                           
-  1174                           
-  1175                           ;incstack = 0
-  1176                           ; Regs used in _SpiSendByte: [wreg]
-  1177                           ;SpiSendByte@data stored from wreg
-  1178     0685  00F0               	movwf	SpiSendByte@data
-  1179     0686                     l717:
-  1180                           
-  1181                           ;spi.c: 19:     SSPBUF = data;
-  1182     0686  0870               	movf	SpiSendByte@data,w
-  1183     0687  1283               	bcf	3,5	;RP0=0, select bank0
-  1184     0688  1303               	bcf	3,6	;RP1=0, select bank0
-  1185     0689  0093               	movwf	19	;volatile
-  1186     068A                     l55:	
-  1187                           ;spi.c: 20:     while (!SSPIF);
-  1188                           
-  1189     068A  1D8C               	btfss	12,3	;volatile
-  1190     068B  2E8D               	goto	u71
-  1191     068C  2E8E               	goto	u70
-  1192     068D                     u71:
-  1193     068D  2E8A               	goto	l55
-  1194     068E                     u70:
-  1195     068E                     l57:
-  1196                           
-  1197                           ;spi.c: 21:     SSPIF = 0;
-  1198     068E  118C               	bcf	12,3	;volatile
-  1199     068F                     l58:
-  1200     068F  0008               	return
-  1201     0690                     __end_of_SpiSendByte:
-  1202     0002                     ___latbits      equ	2
-  1203     007E                     btemp           set	126	;btemp
-  1204     007E                     wtemp0          set	126
-  1205                           
-  1206                           	psect	config
-  1207                           
-  1208                           ;Config register CONFIG @ 0x2007
-  1209                           ;	Oscillator Selection bits
-  1210                           ;	FOSC = HS, HS oscillator
-  1211                           ;	Watchdog Timer Enable bit
-  1212                           ;	WDTE = OFF, WDT disabled
-  1213                           ;	Power-up Timer Enable bit
-  1214                           ;	PWRTE = OFF, PWRT disabled
-  1215                           ;	FLASH Program Memory Code Protection bits
-  1216                           ;	CP = OFF, Code protection off
-  1217                           ;	Brown-out Reset Enable bit
-  1218                           ;	BOREN = OFF, BOR disabled
-  1219                           ;	Low Voltage In-Circuit Serial Programming Enable bit
-  1220                           ;	LVP = OFF, RB3 is digital I/O, HV on MCLR must be used for programming
-  1221                           ;	Data EE Memory Code Protection
-  1222                           ;	CPD = OFF, Code Protection off
-  1223                           ;	FLASH Program Memory Write Enable
-  1224                           ;	WRT = OFF, Unprotected program memory may not be written to by EECON control
-  1225                           ;	In-Circuit Debugger Mode bit
-  1226                           ;	DEBUG = 0x1, unprogrammed default
-  1227     2007                     	org	8199
-  1228     2007  3D3A               	dw	15674
+   936                           ;matrix.c: 12:   char i = 8;
+   937     070A  3008               	movlw	8
+   938     070B  00F6               	movwf	SpiClearMatrix@i
+   939     070C                     l704:
+   940                           
+   941                           ;matrix.c: 14:   {;matrix.c: 15:     SendToSegment(i, 0x00);
+   942     070C  0876               	movf	SpiClearMatrix@i,w
+   943     070D  00F4               	movwf	??_SpiClearMatrix
+   944     070E  01F5               	clrf	??_SpiClearMatrix+1
+   945     070F  0874               	movf	??_SpiClearMatrix,w
+   946     0710  00F1               	movwf	SendToSegment@segment
+   947     0711  0875               	movf	??_SpiClearMatrix+1,w
+   948     0712  00F2               	movwf	SendToSegment@segment+1
+   949     0713  01F3               	clrf	SendToSegment@data
+   950     0714  120A  118A  26F7  120A  118A  	fcall	_SendToSegment
+   951     0719                     l706:
+   952                           
+   953                           ;matrix.c: 16:   } while (--i);
+   954     0719  3001               	movlw	1
+   955     071A  02F6               	subwf	SpiClearMatrix@i,f
+   956     071B  1D03               	btfss	3,2
+   957     071C  2F1E               	goto	u81
+   958     071D  2F1F               	goto	u80
+   959     071E                     u81:
+   960     071E  2F0C               	goto	l704
+   961     071F                     u80:
+   962     071F                     l70:
+   963     071F  0008               	return
+   964     0720                     __end_of_SpiClearMatrix:
+   965                           
+   966                           	psect	text5
+   967     06F7                     __ptext5:	
+   968 ;; *************** function _SendToSegment *****************
+   969 ;; Defined at:
+   970 ;;		line 34 in file "matrix.c"
+   971 ;; Parameters:    Size  Location     Type
+   972 ;;  segment         2    1[COMMON] int 
+   973 ;;  data            1    3[COMMON] unsigned char 
+   974 ;; Auto vars:     Size  Location     Type
+   975 ;;		None
+   976 ;; Return value:  Size  Location     Type
+   977 ;;                  1    wreg      void 
+   978 ;; Registers used:
+   979 ;;		wreg, status,2, status,0, pclath, cstack
+   980 ;; Tracked objects:
+   981 ;;		On entry : 0/0
+   982 ;;		On exit  : 0/0
+   983 ;;		Unchanged: 0/0
+   984 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   985 ;;      Params:         3       0       0       0       0
+   986 ;;      Locals:         0       0       0       0       0
+   987 ;;      Temps:          0       0       0       0       0
+   988 ;;      Totals:         3       0       0       0       0
+   989 ;;Total ram usage:        3 bytes
+   990 ;; Hardware stack levels used: 1
+   991 ;; Hardware stack levels required when called: 1
+   992 ;; This function calls:
+   993 ;;		_SpiSendByte
+   994 ;; This function is called by:
+   995 ;;		_main
+   996 ;;		_SpiClearMatrix
+   997 ;;		_MatrixInit
+   998 ;; This function uses a non-reentrant model
+   999 ;;
+  1000                           
+  1001     06F7                     _SendToSegment:	
+  1002                           ;psect for function _SendToSegment
+  1003                           
+  1004     06F7                     l696:	
+  1005                           ;incstack = 0
+  1006                           ; Regs used in _SendToSegment: [wreg+status,2+status,0+pclath+cstack]
+  1007                           
+  1008                           
+  1009                           ;matrix.c: 35:     RA5 = 0;
+  1010     06F7  1283               	bcf	3,5	;RP0=0, select bank0
+  1011     06F8  1303               	bcf	3,6	;RP1=0, select bank0
+  1012     06F9  1285               	bcf	5,5	;volatile
+  1013     06FA                     l698:
+  1014                           
+  1015                           ;matrix.c: 36:     SpiSendByte(segment);
+  1016     06FA  0871               	movf	SendToSegment@segment,w
+  1017     06FB  120A  118A  26DA  120A  118A  	fcall	_SpiSendByte
+  1018                           
+  1019                           ;matrix.c: 37:     SpiSendByte(data);
+  1020     0700  0873               	movf	SendToSegment@data,w
+  1021     0701  120A  118A  26DA  120A  118A  	fcall	_SpiSendByte
+  1022     0706                     l700:
+  1023                           
+  1024                           ;matrix.c: 38:     RA5 = 1;
+  1025     0706  1283               	bcf	3,5	;RP0=0, select bank0
+  1026     0707  1303               	bcf	3,6	;RP1=0, select bank0
+  1027     0708  1685               	bsf	5,5	;volatile
+  1028     0709                     l76:
+  1029     0709  0008               	return
+  1030     070A                     __end_of_SendToSegment:
+  1031                           
+  1032                           	psect	text6
+  1033     06DA                     __ptext6:	
+  1034 ;; *************** function _SpiSendByte *****************
+  1035 ;; Defined at:
+  1036 ;;		line 18 in file "spi.c"
+  1037 ;; Parameters:    Size  Location     Type
+  1038 ;;  data            1    wreg     unsigned char 
+  1039 ;; Auto vars:     Size  Location     Type
+  1040 ;;  data            1    0[COMMON] unsigned char 
+  1041 ;; Return value:  Size  Location     Type
+  1042 ;;                  1    wreg      void 
+  1043 ;; Registers used:
+  1044 ;;		wreg
+  1045 ;; Tracked objects:
+  1046 ;;		On entry : 0/0
+  1047 ;;		On exit  : 0/0
+  1048 ;;		Unchanged: 0/0
+  1049 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1050 ;;      Params:         0       0       0       0       0
+  1051 ;;      Locals:         1       0       0       0       0
+  1052 ;;      Temps:          0       0       0       0       0
+  1053 ;;      Totals:         1       0       0       0       0
+  1054 ;;Total ram usage:        1 bytes
+  1055 ;; Hardware stack levels used: 1
+  1056 ;; This function calls:
+  1057 ;;		Nothing
+  1058 ;; This function is called by:
+  1059 ;;		_SendToSegment
+  1060 ;; This function uses a non-reentrant model
+  1061 ;;
+  1062                           
+  1063     06DA                     _SpiSendByte:	
+  1064                           ;psect for function _SpiSendByte
+  1065                           
+  1066                           
+  1067                           ;incstack = 0
+  1068                           ; Regs used in _SpiSendByte: [wreg]
+  1069                           ;SpiSendByte@data stored from wreg
+  1070     06DA  00F0               	movwf	SpiSendByte@data
+  1071     06DB                     l694:
+  1072                           
+  1073                           ;spi.c: 19:     SSPBUF = data;
+  1074     06DB  0870               	movf	SpiSendByte@data,w
+  1075     06DC  1283               	bcf	3,5	;RP0=0, select bank0
+  1076     06DD  1303               	bcf	3,6	;RP1=0, select bank0
+  1077     06DE  0093               	movwf	19	;volatile
+  1078     06DF                     l54:	
+  1079                           ;spi.c: 20:     while (!SSPIF);
+  1080                           
+  1081     06DF  1D8C               	btfss	12,3	;volatile
+  1082     06E0  2EE2               	goto	u71
+  1083     06E1  2EE3               	goto	u70
+  1084     06E2                     u71:
+  1085     06E2  2EDF               	goto	l54
+  1086     06E3                     u70:
+  1087     06E3                     l56:
+  1088                           
+  1089                           ;spi.c: 21:     SSPIF = 0;
+  1090     06E3  118C               	bcf	12,3	;volatile
+  1091     06E4                     l57:
+  1092     06E4  0008               	return
+  1093     06E5                     __end_of_SpiSendByte:
+  1094     0002                     ___latbits      equ	2
+  1095     007E                     btemp           set	126	;btemp
+  1096     007E                     wtemp0          set	126
+  1097                           
+  1098                           	psect	config
+  1099                           
+  1100                           ;Config register CONFIG @ 0x2007
+  1101                           ;	Oscillator Selection bits
+  1102                           ;	FOSC = HS, HS oscillator
+  1103                           ;	Watchdog Timer Enable bit
+  1104                           ;	WDTE = OFF, WDT disabled
+  1105                           ;	Power-up Timer Enable bit
+  1106                           ;	PWRTE = OFF, PWRT disabled
+  1107                           ;	FLASH Program Memory Code Protection bits
+  1108                           ;	CP = OFF, Code protection off
+  1109                           ;	Brown-out Reset Enable bit
+  1110                           ;	BOREN = OFF, BOR disabled
+  1111                           ;	Low Voltage In-Circuit Serial Programming Enable bit
+  1112                           ;	LVP = OFF, RB3 is digital I/O, HV on MCLR must be used for programming
+  1113                           ;	Data EE Memory Code Protection
+  1114                           ;	CPD = OFF, Code Protection off
+  1115                           ;	FLASH Program Memory Write Enable
+  1116                           ;	WRT = OFF, Unprotected program memory may not be written to by EECON control
+  1117                           ;	In-Circuit Debugger Mode bit
+  1118                           ;	DEBUG = 0x1, unprogrammed default
+  1119     2007                     	org	8199
+  1120     2007  3D3A               	dw	15674
 
 Data Sizes:
     Strings     0
@@ -1252,7 +1144,7 @@ Data Sizes:
 Auto Spaces:
     Space          Size  Autos    Used
     COMMON           14     13      13
-    BANK0            80      8       8
+    BANK0            80      6       6
     BANK1            80      0       0
     BANK3            96      0       0
     BANK2            96      0       0
@@ -1289,9 +1181,9 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                11    11      0     726
+ (0) _main                                                 9     9      0     634
                                              10 COMMON     3     3      0
-                                              0 BANK0      8     8      0
+                                              0 BANK0      6     6      0
                          _MatrixInit
                           _PortBInit
                       _SendToSegment
@@ -1302,16 +1194,16 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (1) _PortBInit                                            0     0      0       0
  ---------------------------------------------------------------------------------
- (1) _MatrixInit                                           3     3      0     227
+ (1) _MatrixInit                                           3     3      0     215
                                               7 COMMON     3     3      0
                       _SendToSegment
                      _SpiClearMatrix
  ---------------------------------------------------------------------------------
- (1) _SpiClearMatrix                                       3     3      0     136
+ (1) _SpiClearMatrix                                       3     3      0     130
                                               4 COMMON     3     3      0
                       _SendToSegment
  ---------------------------------------------------------------------------------
- (2) _SendToSegment                                        3     0      3      91
+ (2) _SendToSegment                                        3     0      3      85
                                               1 COMMON     3     0      3
                         _SpiSendByte
  ---------------------------------------------------------------------------------
@@ -1342,59 +1234,55 @@ BITBANK1            80      0       0      0.0%
 BITBANK3            96      0       0      0.0%
 BITBANK2            96      0       0      0.0%
 COMMON              14     13      13     92.9%
-BANK0               80      8       8     10.0%
+BANK0               80      6       6      7.5%
 BANK1               80      0       0      0.0%
 BANK3               96      0       0      0.0%
 BANK2               96      0       0      0.0%
 STACK                0      0       0      0.0%
-DATA                 0      0      21      0.0%
+DATA                 0      0      19      0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.50 build 20240725155939 
-Symbol Table                                                                                   Thu Dec  5 15:07:59 2024
+Symbol Table                                                                                   Thu Dec  5 16:22:55 2024
 
-         _SpiClearMatrix 06B5                       l17 071A                       l35 0684  
-                     l52 06A1                       l55 068A                       l71 06CA  
-                     l57 068E                       l58 068F                       l74 070A  
-                     l77 06B4                       u70 068E                       u71 068D  
-                     u80 06CA                       u81 06C9                       u90 0742  
-                     u91 0741                       u95 073E          SpiSendByte@data 0070  
-                    l721 06A5                      l723 06B1                      l731 0690  
-                    l811 07F3                      l803 07C4                      l717 0686  
-                    l725 06B5                      l741 06D7                      l733 0693  
-                    l805 07D1                      l719 06A2                      l727 06B7  
-                    l751 0705                      l743 06DA                      l735 069B  
-                    l807 07D9                      l729 06C4                      l745 06E4  
-                    l753 067E                      l737 069D                      l809 07E6  
-                    l747 06EF                      l739 06CB                      l763 0720  
-                    l755 070B                      l749 06FA                      l781 0777  
-                    l765 072D                      l757 0715                      l791 078F  
-                    l783 0784                      l775 0755                      l767 0735  
-                    l793 079C                      l785 0789                      l777 0762  
-                    l769 0742                      l795 07A4                      l779 076A  
-                    l797 07B1                      _RA5 002D                      u100 0777  
-                    u101 0776                      u110 07B1                      u111 07B0  
-                    u120 07E6                      u121 07E5                      u105 0773  
-                    u115 07AD                      u125 07E2                      u137 0748  
-                    u147 077D                      u157 07B7                      u167 07EC  
-                    u177 06D1                     _main 070B                     btemp 007E  
-                   start 0000   __end_of_SpiClearMatrix 06CB          __end_of_SpiInit 06A2  
-                  ?_main 0070                    _PORTA 0005                    _PORTB 0006  
-                  _TRISA 0085                    _TRISB 0086                    _TRISC 0087  
-                  _SSPIF 0063          SpiClearMatrix@i 0076        SendToSegment@data 0073  
-                  main@x 0020                    status 0003                    wtemp0 007E  
-        ?_SpiClearMatrix 0070          __initialization 07FC             __end_of_main 07FC  
-             _MatrixInit 06CB                   ??_main 007A                   _SSPCON 0014  
-                 _SSPBUF 0013                ??_SpiInit 0070            ??_SpiSendByte 0070  
-__end_of__initialization 07FC           __pcstackCOMMON 0070              ?_MatrixInit 0070  
-    __end_of_SpiSendByte 0690        __end_of_PortBInit 0685               __pmaintext 070B  
-                _SSPSTAT 0094         ??_SpiClearMatrix 0074                  _SpiInit 0690  
-          _SendToSegment 06A2              _SpiSendByte 0685                  __ptext1 0690  
-                __ptext2 067E                  __ptext3 06CB                  __ptext4 06B5  
-                __ptext5 06A2                  __ptext6 0685     end_of_initialization 07FC  
-         ?_SendToSegment 0071             ??_MatrixInit 0077      start_initialization 07FC  
-     __end_of_MatrixInit 070B          ??_SendToSegment 0074                _PortBInit 067E  
-              ___latbits 0002            __pcstackBANK0 0020                 ?_SpiInit 0070  
-             ?_PortBInit 0070             ?_SpiSendByte 0070              ??_PortBInit 0070  
-   SendToSegment@segment 0071                 main@x_56 0022                 main@x_57 0024  
-               main@x_58 0026    __end_of_SendToSegment 06B5  
+         _SpiClearMatrix 070A                       l34 06D9                       l51 06F6  
+                     l54 06DF                       l70 071F                       l56 06E3  
+                     l57 06E4                       l73 075F                       l76 0709  
+                     u70 06E3                       u71 06E2                       u80 071F  
+                     u81 071E                       u90 0784                       u91 0783  
+                     u95 0780          SpiSendByte@data 0070                      l700 0706  
+                    l702 070A                      l710 06E8                      l704 070C  
+                    l720 072F                      l712 06F0                      l706 0719  
+                    l722 0739                      l730 06D3                      l714 06F2  
+                    l724 0744                      l716 0720                      l708 06E5  
+                    l732 0760                      l726 074F                      l718 072C  
+                    l750 078A                      l742 0773                      l734 076A  
+                    l728 075A                      l752 0795                      l744 0777  
+                    l736 076F                      l754 07AB                      l762 07DE  
+                    l764 07E6                      l756 07B3                      l748 0785  
+                    l694 06DB                      l766 07F3                      l758 07C9  
+                    l696 06F7                      l698 06FA                      _RA5 002D  
+                    u110 07C9                      u111 07C8                      u120 07F3  
+                    u104 07A1                      u121 07F2                      u105 079F  
+                    u115 07C5                      u125 07EF                      u137 07CF  
+                    u147 0726                     _main 0760                     btemp 007E  
+            main@y_coord 0020                     start 0000   __end_of_SpiClearMatrix 0720  
+        __end_of_SpiInit 06F7                    ?_main 0070                    _PORTA 0005  
+                  _PORTB 0006                    _TRISA 0085                    _TRISB 0086  
+                  _TRISC 0087                    _SSPIF 0063          SpiClearMatrix@i 0076  
+      SendToSegment@data 0073                    main@k 0024                    status 0003  
+                  wtemp0 007E          ?_SpiClearMatrix 0070          __initialization 07FC  
+           __end_of_main 07FC               _MatrixInit 0720                   ??_main 007A  
+                 _SSPCON 0014                   _SSPBUF 0013                ??_SpiInit 0070  
+          ??_SpiSendByte 0070                   main@sh 0022  __end_of__initialization 07FC  
+         __pcstackCOMMON 0070              ?_MatrixInit 0070      __end_of_SpiSendByte 06E5  
+      __end_of_PortBInit 06DA               __pmaintext 0760                  _SSPSTAT 0094  
+       ??_SpiClearMatrix 0074                  _SpiInit 06E5            _SendToSegment 06F7  
+            _SpiSendByte 06DA                  __ptext1 06E5                  __ptext2 06D3  
+                __ptext3 0720                  __ptext4 070A                  __ptext5 06F7  
+                __ptext6 06DA     end_of_initialization 07FC           ?_SendToSegment 0071  
+           ??_MatrixInit 0077      start_initialization 07FC       __end_of_MatrixInit 0760  
+        ??_SendToSegment 0074                _PortBInit 06D3                ___latbits 0002  
+          __pcstackBANK0 0020                 ?_SpiInit 0070               ?_PortBInit 0070  
+           ?_SpiSendByte 0070              ??_PortBInit 0070     SendToSegment@segment 0071  
+  __end_of_SendToSegment 070A  

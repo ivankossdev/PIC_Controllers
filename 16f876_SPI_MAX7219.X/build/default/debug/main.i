@@ -1685,14 +1685,17 @@ void main(void) {
     MatrixInit();
     PortBInit();
 
-
     while(1){
-        for(int x = 1; x <=8; x++){
-            SendToSegment();
+        for(int k = 0; k <= 6; k++){
+            for(int sh = 0; sh <= 8; sh++){
+                SpiClearMatrix();
+                for(int y_coord = 1 + k; y_coord <=2 + k; y_coord++){
+                   SendToSegment(y_coord, (char)(0x03 << sh));
+                }
+                _delay((unsigned long)((100)*(16000000/4000.0)));
+            }
         }
-        _delay((unsigned long)((500)*(16000000/4000.0)));
         SpiClearMatrix();
-        _delay((unsigned long)((500)*(16000000/4000.0)));
     }
 
     return;
