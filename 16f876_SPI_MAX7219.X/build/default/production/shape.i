@@ -1683,13 +1683,16 @@ void SpiClearMatrix (void);
 void SendToSegment(int segment, char dt );
 # 5 "./shape.h" 2
 
+
+
 typedef struct {
     int x;
     int y;
 } TCoord;
 
 void SetPosition(TCoord * position, int x, int y);
-void ShowShape(TCoord * coord);
+void ShowShape(TCoord * coord, int countElemntArray, char * shapeArray);
+int WidthLimit(int lenghtMatrix, int lengthShape);
 # 2 "shape.c" 2
 
 void SetPosition(TCoord * position, int x, int y){
@@ -1697,8 +1700,14 @@ void SetPosition(TCoord * position, int x, int y){
     position->y = y;
 }
 
-void ShowShape(TCoord * coord){
-    for(int pos = 1 + coord->x; pos <= 2 + coord->x; pos++){
-       SendToSegment(pos, (char)(0x03 << coord->y));
+void ShowShape(TCoord * coord, int countElemntArray, char * shapeArray){
+    int _pos = 0;
+    for(int pos = 1 + coord->x; pos <= countElemntArray + coord->x; pos++){
+       _pos = pos - 1 - coord->x;
+       SendToSegment(pos, (char)(shapeArray[_pos] << coord->y));
     }
+}
+
+int WidthLimit(int lenghtMatrix, int lengthShape){
+    return lenghtMatrix - lengthShape;
 }

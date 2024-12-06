@@ -1685,31 +1685,32 @@ void SendToSegment(int segment, char dt );
 
 
 
+
+
+
 typedef struct {
     int x;
     int y;
 } TCoord;
 
 void SetPosition(TCoord * position, int x, int y);
-void ShowShape(TCoord * coord);
+void ShowShape(TCoord * coord, int countElemntArray, char * shapeArray);
+int WidthLimit(int lenghtMatrix, int lengthShape);
+void Movie(TCoord * _shapePosition, int _widthLimit, char * _figure);
 # 6 "main.c" 2
-# 18 "main.c"
+# 20 "main.c"
 void main(void) {
     SpiInit();
     MatrixInit();
     PortBInit();
-    TCoord pos;
+
+    TCoord shapePosition;
+    int widthLimit = WidthLimit(8, 3);
+    char figure[3] = { 0x07, 0x05, 0x07 };
 
     while(1){
-        for(int k = 0; k <= 6; k++){
-            for(int sh = 0; sh <= 8; sh++){
-                SpiClearMatrix();
-                SetPosition(&pos, sh, k);
-                ShowShape(&pos);
-                _delay((unsigned long)((100)*(16000000/4000.0)));
-            }
-        }
-        SpiClearMatrix();
+        Movie(&shapePosition, widthLimit, (char *)figure);
+# 40 "main.c"
     }
 
     return;

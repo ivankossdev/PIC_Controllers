@@ -1,11 +1,18 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"6 ./shape.h
-[; ;./shape.h: 6: typedef struct {
+"9 ./shape.h
+[; ;./shape.h: 9: typedef struct {
 [s S86 `i 1 `i 1 ]
 [n S86 . x y ]
 "10 ./matrix.h
 [; ;./matrix.h: 10: void SendToSegment(int segment, char dt );
 [v _SendToSegment `(v ~T0 @X0 0 ef2`i`uc ]
+"9
+[; ;./matrix.h: 9: void SpiClearMatrix (void);
+[v _SpiClearMatrix `(v ~T0 @X0 0 ef ]
+[v F164 `(v ~T0 @X0 1 tf1`ul ]
+"20 /opt/microchip/xc8/v2.50/pic/include/builtins.h
+[v __delay `JF164 ~T0 @X0 0 e ]
+[p i __delay ]
 "54 /opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h
 [; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -204,32 +211,117 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 87 ]
 }
 "8
-[; ;shape.c: 8: void ShowShape(TCoord * coord){
-[v _ShowShape `(v ~T0 @X0 1 ef1`*S86 ]
+[; ;shape.c: 8: void ShowShape(TCoord * coord, int countElemntArray, char * shapeArray){
+[v _ShowShape `(v ~T0 @X0 1 ef3`*S86`i`*uc ]
 {
 [e :U _ShowShape ]
 [v _coord `*S86 ~T0 @X0 1 r1 ]
+[v _countElemntArray `i ~T0 @X0 1 r2 ]
+[v _shapeArray `*uc ~T0 @X0 1 r3 ]
 [f ]
 "9
-[; ;shape.c: 9:     for(int pos = 1 + coord->x; pos <= 2 + coord->x; pos++){
+[; ;shape.c: 9:     int _pos = 0;
+[v __pos `i ~T0 @X0 1 a ]
+[e = __pos -> 0 `i ]
+"10
+[; ;shape.c: 10:     for(int pos = 1 + coord->x; pos <= countElemntArray + coord->x; pos++){
 {
 [v _pos `i ~T0 @X0 1 a ]
 [e = _pos + -> 1 `i . *U _coord 0 ]
 [e $U 92  ]
 [e :U 89 ]
 {
-"10
-[; ;shape.c: 10:        SendToSegment(pos, (char)(0x03 << coord->y));
-[e ( _SendToSegment (2 , _pos -> << -> 3 `i . *U _coord 1 `uc ]
 "11
-[; ;shape.c: 11:     }
+[; ;shape.c: 11:        _pos = pos - 1 - coord->x;
+[e = __pos - - _pos -> 1 `i . *U _coord 0 ]
+"12
+[; ;shape.c: 12:        SendToSegment(pos, (char)(shapeArray[_pos] << coord->y));
+[e ( _SendToSegment (2 , _pos -> << -> *U + _shapeArray * -> __pos `x -> -> # *U _shapeArray `i `x `i . *U _coord 1 `uc ]
+"13
+[; ;shape.c: 13:     }
 }
 [e ++ _pos -> 1 `i ]
 [e :U 92 ]
-[e $ <= _pos + -> 2 `i . *U _coord 0 89  ]
+[e $ <= _pos + _countElemntArray . *U _coord 0 89  ]
 [e :U 90 ]
 }
-"12
-[; ;shape.c: 12: }
+"14
+[; ;shape.c: 14: }
 [e :UE 88 ]
+}
+"16
+[; ;shape.c: 16: int WidthLimit(int lenghtMatrix, int lengthShape){
+[v _WidthLimit `(i ~T0 @X0 1 ef2`i`i ]
+{
+[e :U _WidthLimit ]
+[v _lenghtMatrix `i ~T0 @X0 1 r1 ]
+[v _lengthShape `i ~T0 @X0 1 r2 ]
+[f ]
+"17
+[; ;shape.c: 17:     return lenghtMatrix - lengthShape;
+[e ) - _lenghtMatrix _lengthShape ]
+[e $UE 93  ]
+"18
+[; ;shape.c: 18: }
+[e :UE 93 ]
+}
+"20
+[; ;shape.c: 20: void Movie(TCoord * _shapePosition, int _widthLimit, char * _figure){
+[v _Movie `(v ~T0 @X0 1 ef3`*S86`i`*uc ]
+{
+[e :U _Movie ]
+[v __shapePosition `*S86 ~T0 @X0 1 r1 ]
+[v __widthLimit `i ~T0 @X0 1 r2 ]
+[v __figure `*uc ~T0 @X0 1 r3 ]
+[f ]
+"21
+[; ;shape.c: 21:     for(int xCoord = 0; xCoord <= _widthLimit; xCoord++){
+{
+[v _xCoord `i ~T0 @X0 1 a ]
+[e = _xCoord -> 0 `i ]
+[e $U 98  ]
+[e :U 95 ]
+{
+"22
+[; ;shape.c: 22:         for(int yCoord = 0; yCoord <= _widthLimit + 3; yCoord++){
+{
+[v _yCoord `i ~T0 @X0 1 a ]
+[e = _yCoord -> 0 `i ]
+[e $U 102  ]
+[e :U 99 ]
+{
+"23
+[; ;shape.c: 23:             SpiClearMatrix();
+[e ( _SpiClearMatrix ..  ]
+"24
+[; ;shape.c: 24:             SetPosition(_shapePosition, xCoord, yCoord);
+[e ( _SetPosition (3 , , __shapePosition _xCoord _yCoord ]
+"25
+[; ;shape.c: 25:             ShowShape(_shapePosition, 3, _figure);
+[e ( _ShowShape (3 , , __shapePosition -> 3 `i __figure ]
+"26
+[; ;shape.c: 26:             _delay((unsigned long)((250)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"27
+[; ;shape.c: 27:         }
+}
+[e ++ _yCoord -> 1 `i ]
+[e :U 102 ]
+[e $ <= _yCoord + __widthLimit -> 3 `i 99  ]
+[e :U 100 ]
+}
+"28
+[; ;shape.c: 28:     }
+}
+[e ++ _xCoord -> 1 `i ]
+[e :U 98 ]
+[e $ <= _xCoord __widthLimit 95  ]
+[e :U 96 ]
+}
+"29
+[; ;shape.c: 29:     SpiClearMatrix();
+[e ( _SpiClearMatrix ..  ]
+"30
+[; ;shape.c: 30: }
+[e :UE 94 ]
 }

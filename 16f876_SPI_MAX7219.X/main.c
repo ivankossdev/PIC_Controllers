@@ -15,22 +15,19 @@
  * pin 16 RC5      -> DIN               *
  *******************END******************/
 
+
+
 void main(void) {
     SpiInit();
     MatrixInit();
     PortBInit();
+    
     TCoord shapePosition; 
-     
+    int widthLimit = WidthLimit(WIDTH_MATR, WIDTH_SHAPE);
+    char figure[3] = { 0x07, 0x05, 0x07 };
+    
     while(1){
-        for(int xCoord = 0; xCoord <= 6; xCoord++){
-            for(int yCoord = 0; yCoord <= 8; yCoord++){
-                SpiClearMatrix();
-                SetPosition(&shapePosition, xCoord, yCoord);
-                ShowShape(&shapePosition);
-                __delay_ms(100);
-            }         
-        }
-        SpiClearMatrix();
+        Movie(&shapePosition, widthLimit, (char *)figure);
     }
     
     return;
