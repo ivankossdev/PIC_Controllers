@@ -3,4 +3,5 @@ main.c  \
 settings.h  \
 portsinit.h  \
 spi.h  \
-matrix.h 
+matrix.h  \
+shape.h 

@@ -11,7 +11,7 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"17 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+"18 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
 [v _main main `(v  1 e 1 0 ]
 "10 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
 [v _SpiClearMatrix SpiClearMatrix `(v  1 e 1 0 ]
@@ -21,6 +21,10 @@
 [v _SendToSegment SendToSegment `(v  1 e 1 0 ]
 "13 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/portsinit.c
 [v _PortBInit PortBInit `(v  1 e 1 0 ]
+"3 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+[v _SetPosition SetPosition `(v  1 e 1 0 ]
+"8
+[v _ShowShape ShowShape `(v  1 e 1 0 ]
 "9 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
 [v _SpiInit SpiInit `(v  1 e 1 0 ]
 "18
@@ -45,21 +49,41 @@
 [v _RA5 RA5 `VEb  1 e 0 @45 ]
 "2345
 [v _SSPIF SSPIF `VEb  1 e 0 @99 ]
-"17 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+"18 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
 [v _main main `(v  1 e 1 0 ]
 {
 "26
-[v main@y_coord y_coord `i  1 a 2 0 ]
-"24
-[v main@sh sh `i  1 a 2 2 ]
-"23
-[v main@k k `i  1 a 2 4 ]
-"36
+[v main@sh sh `i  1 a 2 5 ]
+"25
+[v main@k k `i  1 a 2 3 ]
+[s S34 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
+"22
+[v main@pos pos `S34  1 a 4 7 ]
+"37
 } 0
 "9 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
 [v _SpiInit SpiInit `(v  1 e 1 0 ]
 {
 "16
+} 0
+"8 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+[v _ShowShape ShowShape `(v  1 e 1 0 ]
+{
+"9
+[v ShowShape@pos pos `i  1 a 2 11 ]
+[s S34 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
+"8
+[v ShowShape@coord coord `*.39S34  1 p 2 4 ]
+"12
+} 0
+"3
+[v _SetPosition SetPosition `(v  1 e 1 0 ]
+{
+[s S34 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
+[v SetPosition@position position `*.39S34  1 p 2 0 ]
+[v SetPosition@x x `i  1 p 2 2 ]
+[v SetPosition@y y `i  1 p 2 4 ]
+"6
 } 0
 "13 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/portsinit.c
 [v _PortBInit PortBInit `(v  1 e 1 0 ]

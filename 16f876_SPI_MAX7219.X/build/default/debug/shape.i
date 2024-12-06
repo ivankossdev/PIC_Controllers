@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "shape.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,13 @@
 # 1 "<built-in>" 2
 # 1 "/opt/microchip/xc8/v2.50/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
+# 1 "shape.c" 2
+# 1 "./shape.h" 1
+
+
+# 1 "./spi.h" 1
+
+
 # 1 "/opt/microchip/xc8/v2.50/pic/include/xc.h" 1 3
 # 18 "/opt/microchip/xc8/v2.50/pic/include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1636,7 +1642,8 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "/opt/microchip/xc8/v2.50/pic/include/xc.h" 2 3
-# 2 "main.c" 2
+# 3 "./spi.h" 2
+
 # 1 "./settings.h" 1
 
 
@@ -1657,16 +1664,12 @@ void PortCInit(void);
 #pragma config LVP = OFF
 #pragma config CPD = OFF
 #pragma config WRT = OFF
-# 3 "main.c" 2
-# 1 "./spi.h" 1
-
-
-
+# 4 "./spi.h" 2
 
 
 void SpiInit(void);
 void SpiSendByte(char data);
-# 4 "main.c" 2
+# 4 "./shape.h" 2
 # 1 "./matrix.h" 1
 
 
@@ -1678,12 +1681,7 @@ void SpiSendByte(char data);
 void MatrixInit(void);
 void SpiClearMatrix (void);
 void SendToSegment(int segment, char dt );
-# 5 "main.c" 2
-# 1 "./shape.h" 1
-
-
-
-
+# 5 "./shape.h" 2
 
 typedef struct {
     int x;
@@ -1692,25 +1690,15 @@ typedef struct {
 
 void SetPosition(TCoord * position, int x, int y);
 void ShowShape(TCoord * coord);
-# 6 "main.c" 2
-# 18 "main.c"
-void main(void) {
-    SpiInit();
-    MatrixInit();
-    PortBInit();
-    TCoord pos;
+# 2 "shape.c" 2
 
-    while(1){
-        for(int k = 0; k <= 6; k++){
-            for(int sh = 0; sh <= 8; sh++){
-                SpiClearMatrix();
-                SetPosition(&pos, k, sh);
-                ShowShape(&pos);
-                _delay((unsigned long)((100)*(16000000/4000.0)));
-            }
-        }
-        SpiClearMatrix();
+void SetPosition(TCoord * position, int x, int y){
+    position->x = x;
+    position->y = y;
+}
+
+void ShowShape(TCoord * coord){
+    for(int pos = 1 + coord->x; pos <= 2 + coord->x; pos++){
+       SendToSegment(pos, (char)(0x03 << coord->y));
     }
-
-    return;
 }

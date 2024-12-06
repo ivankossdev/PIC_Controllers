@@ -1,17 +1,11 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"6 ./shape.h
+[; ;./shape.h: 6: typedef struct {
+[s S86 `i 1 `i 1 ]
+[n S86 . x y ]
 "10 ./matrix.h
 [; ;./matrix.h: 10: void SendToSegment(int segment, char dt );
 [v _SendToSegment `(v ~T0 @X0 0 ef2`i`uc ]
-[v F164 `(v ~T0 @X0 1 tf1`ul ]
-"20 /opt/microchip/xc8/v2.50/pic/include/builtins.h
-[v __delay `JF164 ~T0 @X0 0 e ]
-[p i __delay ]
-"2225 /opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h
-[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h: 2225: extern volatile __bit RA5 __attribute__((address(0x2D)));
-[v _RA5 `Vb ~T0 @X0 0 e@45 ]
-"7 ./spi.h
-[; ;./spi.h: 7: void SpiSendByte(char data);
-[v _SpiSendByte `(v ~T0 @X0 0 ef1`uc ]
 "54 /opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h
 [; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -190,88 +184,52 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x CPD  =  OFF         ]
 "12
 [p x WRT  =  OFF  ]
-"10 matrix.c
-[; ;matrix.c: 10: void SpiClearMatrix (void)
-[v _SpiClearMatrix `(v ~T0 @X0 1 ef ]
-"11
-[; ;matrix.c: 11: {
+"3 shape.c
+[; ;shape.c: 3: void SetPosition(TCoord * position, int x, int y){
+[v _SetPosition `(v ~T0 @X0 1 ef3`*S86`i`i ]
 {
-[e :U _SpiClearMatrix ]
+[e :U _SetPosition ]
+[v _position `*S86 ~T0 @X0 1 r1 ]
+[v _x `i ~T0 @X0 1 r2 ]
+[v _y `i ~T0 @X0 1 r3 ]
 [f ]
-"12
-[; ;matrix.c: 12:   char i = 8;
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 8 `i `uc ]
-"13
-[; ;matrix.c: 13:   do
+"4
+[; ;shape.c: 4:     position->x = x;
+[e = . *U _position 0 _x ]
+"5
+[; ;shape.c: 5:     position->y = y;
+[e = . *U _position 1 _y ]
+"6
+[; ;shape.c: 6: }
+[e :UE 87 ]
+}
+"8
+[; ;shape.c: 8: void ShowShape(TCoord * coord){
+[v _ShowShape `(v ~T0 @X0 1 ef1`*S86 ]
+{
+[e :U _ShowShape ]
+[v _coord `*S86 ~T0 @X0 1 r1 ]
+[f ]
+"9
+[; ;shape.c: 9:     for(int pos = 1 + coord->x; pos <= 2 + coord->x; pos++){
+{
+[v _pos `i ~T0 @X0 1 a ]
+[e = _pos + -> 1 `i . *U _coord 0 ]
+[e $U 92  ]
 [e :U 89 ]
-"14
-[; ;matrix.c: 14:   {
 {
-"15
-[; ;matrix.c: 15:     SendToSegment(i, 0x00);
-[e ( _SendToSegment (2 , -> _i `i -> -> 0 `i `uc ]
-"16
-[; ;matrix.c: 16:   } while (--i);
+"10
+[; ;shape.c: 10:        SendToSegment(pos, (char)(0x03 << coord->y));
+[e ( _SendToSegment (2 , _pos -> << -> 3 `i . *U _coord 1 `uc ]
+"11
+[; ;shape.c: 11:     }
 }
-[e $ != -> =- _i -> -> 1 `i `uc `i -> 0 `i 89  ]
-[e :U 88 ]
-"17
-[; ;matrix.c: 17: }
-[e :UE 86 ]
+[e ++ _pos -> 1 `i ]
+[e :U 92 ]
+[e $ <= _pos + -> 2 `i . *U _coord 0 89  ]
+[e :U 90 ]
 }
-"20
-[; ;matrix.c: 20: void MatrixInit(void) {
-[v _MatrixInit `(v ~T0 @X0 1 ef ]
-{
-[e :U _MatrixInit ]
-[f ]
-"21
-[; ;matrix.c: 21:     _delay((unsigned long)((100)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"22
-[; ;matrix.c: 22:     RA5=1;
-[e = _RA5 -> -> 1 `i `b ]
-"23
-[; ;matrix.c: 23:     SendToSegment(0x09, 0x00);
-[e ( _SendToSegment (2 , -> 9 `i -> -> 0 `i `uc ]
-"24
-[; ;matrix.c: 24:     SendToSegment(0x0b, 0x07);
-[e ( _SendToSegment (2 , -> 11 `i -> -> 7 `i `uc ]
-"25
-[; ;matrix.c: 25:     SendToSegment(0x0A, 0x02);
-[e ( _SendToSegment (2 , -> 10 `i -> -> 2 `i `uc ]
-"26
-[; ;matrix.c: 26:     SendToSegment(0x0c, 0x01);
-[e ( _SendToSegment (2 , -> 12 `i -> -> 1 `i `uc ]
-"27
-[; ;matrix.c: 27:     SpiClearMatrix();
-[e ( _SpiClearMatrix ..  ]
-"28
-[; ;matrix.c: 28: }
-[e :UE 90 ]
-}
-"34
-[; ;matrix.c: 34: void SendToSegment(int segment, char data) {
-[v _SendToSegment `(v ~T0 @X0 1 ef2`i`uc ]
-{
-[e :U _SendToSegment ]
-[v _segment `i ~T0 @X0 1 r1 ]
-[v _data `uc ~T0 @X0 1 r2 ]
-[f ]
-"35
-[; ;matrix.c: 35:     RA5 = 0;
-[e = _RA5 -> -> 0 `i `b ]
-"36
-[; ;matrix.c: 36:     SpiSendByte((char)segment);
-[e ( _SpiSendByte (1 -> _segment `uc ]
-"37
-[; ;matrix.c: 37:     SpiSendByte(data);
-[e ( _SpiSendByte (1 _data ]
-"38
-[; ;matrix.c: 38:     RA5 = 1;
-[e = _RA5 -> -> 1 `i `b ]
-"39
-[; ;matrix.c: 39: }
-[e :UE 91 ]
+"12
+[; ;shape.c: 12: }
+[e :UE 88 ]
 }

@@ -1679,19 +1679,33 @@ void MatrixInit(void);
 void SpiClearMatrix (void);
 void SendToSegment(int segment, char dt );
 # 5 "main.c" 2
-# 17 "main.c"
+# 1 "./shape.h" 1
+
+
+
+
+
+typedef struct {
+    int x;
+    int y;
+} TCoord;
+
+void SetPosition(TCoord * position, int x, int y);
+void ShowShape(TCoord * coord);
+# 6 "main.c" 2
+# 18 "main.c"
 void main(void) {
     SpiInit();
     MatrixInit();
     PortBInit();
+    TCoord pos;
 
     while(1){
         for(int k = 0; k <= 6; k++){
             for(int sh = 0; sh <= 8; sh++){
                 SpiClearMatrix();
-                for(int y_coord = 1 + k; y_coord <=2 + k; y_coord++){
-                   SendToSegment(y_coord, (char)(0x03 << sh));
-                }
+                SetPosition(&pos, sh, k);
+                ShowShape(&pos);
                 _delay((unsigned long)((100)*(16000000/4000.0)));
             }
         }

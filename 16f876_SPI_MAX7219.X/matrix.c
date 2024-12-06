@@ -33,7 +33,7 @@ void MatrixInit(void) {
  */
 void SendToSegment(int segment, char data) {
     cs = 0;
-    SpiSendByte(segment);
+    SpiSendByte((char)segment);
     SpiSendByte(data);
     cs = 1;
 }

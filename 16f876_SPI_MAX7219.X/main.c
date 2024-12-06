@@ -2,6 +2,7 @@
 #include "settings.h"
 #include "spi.h"
 #include "matrix.h"
+#include "shape.h"
 
 /****************PIC16F876***************
  * Connection PICkit4                   *
@@ -18,14 +19,14 @@ void main(void) {
     SpiInit();
     MatrixInit();
     PortBInit();
+    TCoord shapePosition; 
      
     while(1){
-        for(int k = 0; k <= 6; k++){
-            for(int sh = 0; sh <= 8; sh++){
+        for(int xCoord = 0; xCoord <= 6; xCoord++){
+            for(int yCoord = 0; yCoord <= 8; yCoord++){
                 SpiClearMatrix();
-                for(int y_coord = 1 + k; y_coord <=2 + k; y_coord++){
-                   SendToSegment(y_coord, (char)(0x03 << sh));
-                }
+                SetPosition(&shapePosition, xCoord, yCoord);
+                ShowShape(&shapePosition);
                 __delay_ms(100);
             }         
         }

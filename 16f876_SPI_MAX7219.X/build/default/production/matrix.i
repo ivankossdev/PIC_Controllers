@@ -1710,7 +1710,7 @@ void MatrixInit(void) {
 
 void SendToSegment(int segment, char data) {
     RA5 = 0;
-    SpiSendByte(segment);
+    SpiSendByte((char)segment);
     SpiSendByte(data);
     RA5 = 1;
 }

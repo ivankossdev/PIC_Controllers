@@ -263,7 +263,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;matrix.c: 35:     RA5 = 0;
 [e = _RA5 -> -> 0 `i `b ]
 "36
-[; ;matrix.c: 36:     SpiSendByte(segment);
+[; ;matrix.c: 36:     SpiSendByte((char)segment);
 [e ( _SpiSendByte (1 -> _segment `uc ]
 "37
 [; ;matrix.c: 37:     SpiSendByte(data);
