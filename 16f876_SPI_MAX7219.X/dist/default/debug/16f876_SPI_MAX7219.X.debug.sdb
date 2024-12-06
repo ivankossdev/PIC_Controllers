@@ -11,7 +11,7 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"20 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+"18 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
 [v _main main `(v  1 e 1 0 ]
 "10 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
 [v _SpiClearMatrix SpiClearMatrix `(v  1 e 1 0 ]
@@ -25,10 +25,14 @@
 [v _SetPosition SetPosition `(v  1 e 1 0 ]
 "8
 [v _ShowShape ShowShape `(v  1 e 1 0 ]
-"16
-[v _WidthLimit WidthLimit `(i  1 e 2 0 ]
-"20
-[v _Movie Movie `(v  1 e 1 0 ]
+"32
+[v _MovieDown MovieDown `(v  1 e 1 0 ]
+"36
+[v _MovieUp MovieUp `(v  1 e 1 0 ]
+"40
+[v _MovieLeft MovieLeft `(v  1 e 1 0 ]
+"44
+[v _MovieRigth MovieRigth `(v  1 e 1 0 ]
 "9 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
 [v _SpiInit SpiInit `(v  1 e 1 0 ]
 "18
@@ -53,51 +57,24 @@
 [v _RA5 RA5 `VEb  1 e 0 @45 ]
 "2345
 [v _SSPIF SSPIF `VEb  1 e 0 @99 ]
-"20 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+"18 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
 [v _main main `(v  1 e 1 0 ]
 {
 [s S34 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
+"23
+[v main@shapePosition shapePosition `S34  1 a 4 11 ]
 "25
-[v main@shapePosition shapePosition `S34  1 a 4 22 ]
-"27
-[v main@figure figure `[3]uc  1 a 3 17 ]
-"26
-[v main@widthLimit widthLimit `i  1 a 2 20 ]
+[v main@figure figure `[3]uc  1 a 3 8 ]
+"23
 [v main@F903 F903 `[3]uc  1 s 3 F903 ]
-"43
-} 0
-"16 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-[v _WidthLimit WidthLimit `(i  1 e 2 0 ]
-{
-[v WidthLimit@lenghtMatrix lenghtMatrix `i  1 p 2 0 ]
-[v WidthLimit@lengthShape lengthShape `i  1 p 2 2 ]
-"18
+"53
 } 0
 "9 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
 [v _SpiInit SpiInit `(v  1 e 1 0 ]
 {
 "16
 } 0
-"13 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/portsinit.c
-[v _PortBInit PortBInit `(v  1 e 1 0 ]
-{
-"16
-} 0
-"20 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-[v _Movie Movie `(v  1 e 1 0 ]
-{
-"22
-[v Movie@yCoord yCoord `i  1 a 2 15 ]
-"21
-[v Movie@xCoord xCoord `i  1 a 2 13 ]
-[s S34 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
-"20
-[v Movie@_shapePosition _shapePosition `*.39S34  1 p 2 5 ]
-[v Movie@_widthLimit _widthLimit `i  1 p 2 7 ]
-[v Movie@_figure _figure `*.4uc  1 p 1 9 ]
-"30
-} 0
-"8
+"8 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
 [v _ShowShape ShowShape `(v  1 e 1 0 ]
 {
 "10
@@ -119,6 +96,39 @@
 [v SetPosition@x x `i  1 p 2 2 ]
 [v SetPosition@y y `i  1 p 2 4 ]
 "6
+} 0
+"13 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/portsinit.c
+[v _PortBInit PortBInit `(v  1 e 1 0 ]
+{
+"16
+} 0
+"36 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+[v _MovieUp MovieUp `(v  1 e 1 0 ]
+{
+[s S34 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
+[v MovieUp@_shapePosition _shapePosition `*.39S34  1 p 2 0 ]
+"38
+} 0
+"44
+[v _MovieRigth MovieRigth `(v  1 e 1 0 ]
+{
+[s S34 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
+[v MovieRigth@_shapePosition _shapePosition `*.39S34  1 p 2 0 ]
+"46
+} 0
+"40
+[v _MovieLeft MovieLeft `(v  1 e 1 0 ]
+{
+[s S34 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
+[v MovieLeft@_shapePosition _shapePosition `*.39S34  1 p 2 0 ]
+"42
+} 0
+"32
+[v _MovieDown MovieDown `(v  1 e 1 0 ]
+{
+[s S34 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
+[v MovieDown@_shapePosition _shapePosition `*.39S34  1 p 2 0 ]
+"34
 } 0
 "20 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
 [v _MatrixInit MatrixInit `(v  1 e 1 0 ]

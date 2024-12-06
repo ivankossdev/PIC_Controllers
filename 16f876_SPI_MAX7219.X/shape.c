@@ -13,18 +13,18 @@ void ShowShape(TCoord * coord, int countElemntArray, char * shapeArray){
     }
 }
 
-int WidthLimit(int lenghtMatrix, int lengthShape){
-    return lenghtMatrix - lengthShape;
+void MovieDown(TCoord * _shapePosition){
+    _shapePosition->y++;
 }
 
-void Movie(TCoord * _shapePosition, int _widthLimit, char * _figure){
-    for(int xCoord = 0; xCoord <= _widthLimit; xCoord++){
-        for(int yCoord = 0; yCoord <= _widthLimit + WIDTH_SHAPE; yCoord++){
-            SpiClearMatrix();
-            SetPosition(_shapePosition, xCoord, yCoord);
-            ShowShape(_shapePosition, 3, _figure);
-            __delay_ms(250);
-        }         
-    }
-    SpiClearMatrix();
+void MovieUp(TCoord * _shapePosition){
+    _shapePosition->y--;
+}
+
+void MovieLeft(TCoord * _shapePosition){
+    _shapePosition->x--;
+}
+
+void MovieRigth(TCoord * _shapePosition){
+    _shapePosition->x++;
 }

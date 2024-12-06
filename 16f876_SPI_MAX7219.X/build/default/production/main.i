@@ -1687,6 +1687,7 @@ void SendToSegment(int segment, char dt );
 
 
 
+
 typedef struct {
     int x;
     int y;
@@ -1695,20 +1696,13 @@ typedef struct {
 void SetPosition(TCoord * position, int x, int y);
 void ShowShape(TCoord * coord, int countElemntArray, char * shapeArray);
 int WidthLimit(int lenghtMatrix, int lengthShape);
+void MovieAllMatr(TCoord * _shapePosition, int _widthLimit, char * _figure);
+void MovieDown(TCoord * _shapePosition);
+void MovieUp(TCoord * _shapePosition);
+void MovieLeft(TCoord * _shapePosition);
+void MovieRigth(TCoord * _shapePosition);
 # 6 "main.c" 2
-# 19 "main.c"
-void Movie(TCoord * _shapePosition, int _widthLimit, char * _figure){
-    for(int xCoord = 0; xCoord <= _widthLimit; xCoord++){
-        for(int yCoord = 0; yCoord <= _widthLimit + 3; yCoord++){
-            SpiClearMatrix();
-            SetPosition(_shapePosition, xCoord, yCoord);
-            ShowShape(_shapePosition, 3, _figure);
-            _delay((unsigned long)((250)*(16000000/4000.0)));
-        }
-    }
-    SpiClearMatrix();
-}
-
+# 18 "main.c"
 void main(void) {
     SpiInit();
     MatrixInit();
@@ -1719,8 +1713,29 @@ void main(void) {
     char figure[3] = { 0x07, 0x05, 0x07 };
 
     while(1){
-        Movie(&shapePosition, widthLimit, (char *)figure);
-# 51 "main.c"
+
+        shapePosition.x = 2;
+        shapePosition.y = 2;
+
+        MovieDown(&shapePosition);
+        SpiClearMatrix();
+        ShowShape(&shapePosition, 3, figure);
+        _delay((unsigned long)((500)*(16000000/4000.0)));
+
+        MovieRigth(&shapePosition);
+        SpiClearMatrix();
+        ShowShape(&shapePosition, 3, figure);
+        _delay((unsigned long)((500)*(16000000/4000.0)));
+
+        MovieUp(&shapePosition);
+        SpiClearMatrix();
+        ShowShape(&shapePosition, 3, figure);
+        _delay((unsigned long)((500)*(16000000/4000.0)));
+
+        MovieLeft(&shapePosition);
+        SpiClearMatrix();
+        ShowShape(&shapePosition, 3, figure);
+        _delay((unsigned long)((500)*(16000000/4000.0)));
     }
 
     return;

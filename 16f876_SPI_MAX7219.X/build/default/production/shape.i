@@ -1685,6 +1685,7 @@ void SendToSegment(int segment, char dt );
 
 
 
+
 typedef struct {
     int x;
     int y;
@@ -1693,6 +1694,11 @@ typedef struct {
 void SetPosition(TCoord * position, int x, int y);
 void ShowShape(TCoord * coord, int countElemntArray, char * shapeArray);
 int WidthLimit(int lenghtMatrix, int lengthShape);
+void MovieAllMatr(TCoord * _shapePosition, int _widthLimit, char * _figure);
+void MovieDown(TCoord * _shapePosition);
+void MovieUp(TCoord * _shapePosition);
+void MovieLeft(TCoord * _shapePosition);
+void MovieRigth(TCoord * _shapePosition);
 # 2 "shape.c" 2
 
 void SetPosition(TCoord * position, int x, int y){
@@ -1710,4 +1716,32 @@ void ShowShape(TCoord * coord, int countElemntArray, char * shapeArray){
 
 int WidthLimit(int lenghtMatrix, int lengthShape){
     return lenghtMatrix - lengthShape;
+}
+
+void MovieAllMatr(TCoord * _shapePosition, int _widthLimit, char * _figure){
+    for(int xCoord = 0; xCoord <= _widthLimit; xCoord++){
+        for(int yCoord = 0; yCoord <= _widthLimit + 3; yCoord++){
+            SpiClearMatrix();
+            SetPosition(_shapePosition, xCoord, yCoord);
+            ShowShape(_shapePosition, 3, _figure);
+            _delay((unsigned long)((250)*(16000000/4000.0)));
+        }
+    }
+    SpiClearMatrix();
+}
+
+void MovieDown(TCoord * _shapePosition){
+    _shapePosition->y++;
+}
+
+void MovieUp(TCoord * _shapePosition){
+    _shapePosition->y--;
+}
+
+void MovieLeft(TCoord * _shapePosition){
+    _shapePosition->x--;
+}
+
+void MovieRigth(TCoord * _shapePosition){
+    _shapePosition->x++;
 }

@@ -13,6 +13,9 @@ typedef struct {
 
 void SetPosition(TCoord * position, int x, int y);
 void ShowShape(TCoord * coord, int countElemntArray, char * shapeArray);
-int WidthLimit(int lenghtMatrix, int lengthShape);
-void Movie(TCoord * _shapePosition, int _widthLimit, char * _figure);
+void MovieDown(TCoord * _shapePosition);
+void MovieUp(TCoord * _shapePosition);
+void MovieLeft(TCoord * _shapePosition);
+void MovieRigth(TCoord * _shapePosition);
+
 #endif	/* SHAPE_H */

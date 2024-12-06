@@ -1695,22 +1695,46 @@ typedef struct {
 
 void SetPosition(TCoord * position, int x, int y);
 void ShowShape(TCoord * coord, int countElemntArray, char * shapeArray);
-int WidthLimit(int lenghtMatrix, int lengthShape);
-void Movie(TCoord * _shapePosition, int _widthLimit, char * _figure);
+
+
+void MovieDown(TCoord * _shapePosition);
+void MovieUp(TCoord * _shapePosition);
+void MovieLeft(TCoord * _shapePosition);
+void MovieRigth(TCoord * _shapePosition);
 # 6 "main.c" 2
-# 20 "main.c"
+# 18 "main.c"
 void main(void) {
     SpiInit();
     MatrixInit();
     PortBInit();
 
     TCoord shapePosition;
-    int widthLimit = WidthLimit(8, 3);
+
     char figure[3] = { 0x07, 0x05, 0x07 };
 
     while(1){
-        Movie(&shapePosition, widthLimit, (char *)figure);
-# 40 "main.c"
+
+        SetPosition(&shapePosition, 2, 2);
+
+        MovieDown(&shapePosition);
+        SpiClearMatrix();
+        ShowShape(&shapePosition, 3, figure);
+        _delay((unsigned long)((500)*(16000000/4000.0)));
+
+        MovieRigth(&shapePosition);
+        SpiClearMatrix();
+        ShowShape(&shapePosition, 3, figure);
+        _delay((unsigned long)((500)*(16000000/4000.0)));
+
+        MovieUp(&shapePosition);
+        SpiClearMatrix();
+        ShowShape(&shapePosition, 3, figure);
+        _delay((unsigned long)((500)*(16000000/4000.0)));
+
+        MovieLeft(&shapePosition);
+        SpiClearMatrix();
+        ShowShape(&shapePosition, 3, figure);
+        _delay((unsigned long)((500)*(16000000/4000.0)));
     }
 
     return;
