@@ -22,29 +22,29 @@ void main(void) {
     
     TCoord shapePosition; 
     char figure[3] = { 0x07, 0x05, 0x07 };
+    const unsigned long delay = 250;
     
     while(1){
-        SetPosition(&shapePosition, 2, 2);
         
-        MovieDown(&shapePosition);
-        SpiClearMatrix();
-        ShowShape(&shapePosition, 3, figure);
-        __delay_ms(500);
-        
-        MovieRigth(&shapePosition);
-        SpiClearMatrix();
-        ShowShape(&shapePosition, 3, figure);
-        __delay_ms(500);
-        
-        MovieUp(&shapePosition);
-        SpiClearMatrix();
-        ShowShape(&shapePosition, 3, figure);
-        __delay_ms(500);
-        
-        MovieLeft(&shapePosition);
-        SpiClearMatrix();
-        ShowShape(&shapePosition, 3, figure);
-        __delay_ms(500);
+        for(int i = 0; i < 5; i++){
+            SetPosition(&shapePosition, i, i);
+            
+            MovieShape(notMoive, &shapePosition, figure);
+            __delay_ms(delay);    
+
+            MovieShape(down, &shapePosition, figure);
+            __delay_ms(delay);
+
+            MovieShape(right, &shapePosition, figure);
+            __delay_ms(delay);
+
+            MovieShape(up, &shapePosition, figure);
+            __delay_ms(delay);
+
+            MovieShape(left, &shapePosition, figure);
+            __delay_ms(delay);
+        }
+
     }
     
     return;

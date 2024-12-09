@@ -1691,14 +1691,21 @@ typedef struct {
     int y;
 } TCoord;
 
+enum MovieDirection{
+    down,
+    up,
+    left,
+    right,
+    notMoive
+};
+
 void SetPosition(TCoord * position, int x, int y);
 void ShowShape(TCoord * coord, int countElemntArray, char * shapeArray);
-
-
 void MovieDown(TCoord * _shapePosition);
 void MovieUp(TCoord * _shapePosition);
 void MovieLeft(TCoord * _shapePosition);
 void MovieRigth(TCoord * _shapePosition);
+void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray);
 # 2 "shape.c" 2
 
 void SetPosition(TCoord * position, int x, int y){
@@ -1713,7 +1720,7 @@ void ShowShape(TCoord * coord, int countElemntArray, char * shapeArray){
        SendToSegment(pos, (char)(shapeArray[_pos] << coord->y));
     }
 }
-# 32 "shape.c"
+
 void MovieDown(TCoord * _shapePosition){
     _shapePosition->y++;
 }
@@ -1728,4 +1735,27 @@ void MovieLeft(TCoord * _shapePosition){
 
 void MovieRigth(TCoord * _shapePosition){
     _shapePosition->x++;
+}
+
+void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray){
+
+    switch (dir){
+        case down:
+            MovieDown(_shapePosition);
+            break;
+        case up:
+            MovieUp(_shapePosition);
+            break;
+        case left:
+            MovieLeft(_shapePosition);
+            break;
+        case right:
+            MovieRigth(_shapePosition);
+            break;
+        case notMoive:
+            break;
+    }
+
+    SpiClearMatrix();
+    ShowShape(_shapePosition, 3, shapeArray);
 }

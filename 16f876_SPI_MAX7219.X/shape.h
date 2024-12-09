@@ -11,11 +11,20 @@ typedef struct {
     int y;
 } TCoord;
 
+enum MovieDirection{
+    down,
+    up,
+    left,
+    right,
+    notMoive
+};
+
 void SetPosition(TCoord * position, int x, int y);
 void ShowShape(TCoord * coord, int countElemntArray, char * shapeArray);
 void MovieDown(TCoord * _shapePosition);
 void MovieUp(TCoord * _shapePosition);
 void MovieLeft(TCoord * _shapePosition);
-void MovieRigth(TCoord * _shapePosition);
+void MovieRigth(TCoord * _shapePosition);                                      
+void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray);
 
 #endif	/* SHAPE_H */

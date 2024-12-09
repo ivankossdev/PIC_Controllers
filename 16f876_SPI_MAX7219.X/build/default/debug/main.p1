@@ -13,31 +13,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./shape.h: 9: typedef struct {
 [s S86 `i 1 `i 1 ]
 [n S86 . x y ]
-"14
-[; ;./shape.h: 14: void SetPosition(TCoord * position, int x, int y);
+"22
+[; ;./shape.h: 22: void SetPosition(TCoord * position, int x, int y);
 [v _SetPosition `(v ~T0 @X0 0 ef3`*S86`i`i ]
-"18
-[; ;./shape.h: 18: void MovieDown(TCoord * _shapePosition);
-[v _MovieDown `(v ~T0 @X0 0 ef1`*S86 ]
-"9 ./matrix.h
-[; ;./matrix.h: 9: void SpiClearMatrix (void);
-[v _SpiClearMatrix `(v ~T0 @X0 0 ef ]
-"15 ./shape.h
-[; ;./shape.h: 15: void ShowShape(TCoord * coord, int countElemntArray, char * shapeArray);
-[v _ShowShape `(v ~T0 @X0 0 ef3`*S86`i`*uc ]
+"32 main.c
+[; ;main.c: 32:             MovieShape(notMoive, &shapePosition, figure);
+[c E885 0 1 2 3 4 .. ]
+[n E885 MovieDirection down up left right notMoive  ]
+"28 ./shape.h
+[; ;./shape.h: 28: void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray);
+[v _MovieShape `(v ~T0 @X0 0 ef3`E885`*S86`*uc ]
 [v F164 `(v ~T0 @X0 1 tf1`ul ]
 "20 /opt/microchip/xc8/v2.50/pic/include/builtins.h
 [v __delay `JF164 ~T0 @X0 0 e ]
 [p i __delay ]
-"21 ./shape.h
-[; ;./shape.h: 21: void MovieRigth(TCoord * _shapePosition);
-[v _MovieRigth `(v ~T0 @X0 0 ef1`*S86 ]
-"19
-[; ;./shape.h: 19: void MovieUp(TCoord * _shapePosition);
-[v _MovieUp `(v ~T0 @X0 0 ef1`*S86 ]
-"20
-[; ;./shape.h: 20: void MovieLeft(TCoord * _shapePosition);
-[v _MovieLeft `(v ~T0 @X0 0 ef1`*S86 ]
 "54 /opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h
 [; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -235,83 +224,87 @@ Version 4.0 HI-TECH Software Intermediate Code
 "23
 [; ;main.c: 23:     TCoord shapePosition;
 [v _shapePosition `S86 ~T0 @X0 1 a ]
-[v F903 `uc ~T0 @X0 -> 3 `i s ]
-[i F903
+[v F913 `uc ~T0 @X0 -> 3 `i s ]
+[i F913
 :U ..
-"25
-[; ;main.c: 25:     char figure[3] = { 0x07, 0x05, 0x07 };
+"24
+[; ;main.c: 24:     char figure[3] = { 0x07, 0x05, 0x07 };
 -> -> 7 `i `uc
 -> -> 5 `i `uc
 -> -> 7 `i `uc
 ..
 ]
 [v _figure `uc ~T0 @X0 -> 3 `i a ]
-[e = _figure F903 ]
+[e = _figure F913 ]
+"25
+[; ;main.c: 25:     const unsigned long delay = 250;
+[v F915 `Cul ~T0 @X0 1 s delay ]
+[i F915
+-> -> -> 250 `i `l `ul
+]
 "27
 [; ;main.c: 27:     while(1){
 [e :U 89 ]
 {
 "29
-[; ;main.c: 29:         SetPosition(&shapePosition, 2, 2);
-[e ( _SetPosition (3 , , &U _shapePosition -> 2 `i -> 2 `i ]
-"31
-[; ;main.c: 31:         MovieDown(&shapePosition);
-[e ( _MovieDown (1 &U _shapePosition ]
+[; ;main.c: 29:         for(int i = 0; i < 5; i++){
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 5 `i 91  ]
+[e $U 92  ]
+[e :U 91 ]
+{
+"30
+[; ;main.c: 30:             SetPosition(&shapePosition, i, i);
+[e ( _SetPosition (3 , , &U _shapePosition _i _i ]
 "32
-[; ;main.c: 32:         SpiClearMatrix();
-[e ( _SpiClearMatrix ..  ]
+[; ;main.c: 32:             MovieShape(notMoive, &shapePosition, figure);
+[e ( _MovieShape (3 , , . `E885 4 &U _shapePosition &U _figure ]
 "33
-[; ;main.c: 33:         ShowShape(&shapePosition, 3, figure);
-[e ( _ShowShape (3 , , &U _shapePosition -> 3 `i &U _figure ]
-"34
-[; ;main.c: 34:         _delay((unsigned long)((500)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+[; ;main.c: 33:             _delay((unsigned long)((delay)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> F915 `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"35
+[; ;main.c: 35:             MovieShape(down, &shapePosition, figure);
+[e ( _MovieShape (3 , , . `E885 0 &U _shapePosition &U _figure ]
 "36
-[; ;main.c: 36:         MovieRigth(&shapePosition);
-[e ( _MovieRigth (1 &U _shapePosition ]
-"37
-[; ;main.c: 37:         SpiClearMatrix();
-[e ( _SpiClearMatrix ..  ]
+[; ;main.c: 36:             _delay((unsigned long)((delay)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> F915 `d / -> -> 16000000 `l `d .4000.0 `ul ]
 "38
-[; ;main.c: 38:         ShowShape(&shapePosition, 3, figure);
-[e ( _ShowShape (3 , , &U _shapePosition -> 3 `i &U _figure ]
+[; ;main.c: 38:             MovieShape(right, &shapePosition, figure);
+[e ( _MovieShape (3 , , . `E885 3 &U _shapePosition &U _figure ]
 "39
-[; ;main.c: 39:         _delay((unsigned long)((500)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+[; ;main.c: 39:             _delay((unsigned long)((delay)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> F915 `d / -> -> 16000000 `l `d .4000.0 `ul ]
 "41
-[; ;main.c: 41:         MovieUp(&shapePosition);
-[e ( _MovieUp (1 &U _shapePosition ]
+[; ;main.c: 41:             MovieShape(up, &shapePosition, figure);
+[e ( _MovieShape (3 , , . `E885 1 &U _shapePosition &U _figure ]
 "42
-[; ;main.c: 42:         SpiClearMatrix();
-[e ( _SpiClearMatrix ..  ]
-"43
-[; ;main.c: 43:         ShowShape(&shapePosition, 3, figure);
-[e ( _ShowShape (3 , , &U _shapePosition -> 3 `i &U _figure ]
+[; ;main.c: 42:             _delay((unsigned long)((delay)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> F915 `d / -> -> 16000000 `l `d .4000.0 `ul ]
 "44
-[; ;main.c: 44:         _delay((unsigned long)((500)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+[; ;main.c: 44:             MovieShape(left, &shapePosition, figure);
+[e ( _MovieShape (3 , , . `E885 2 &U _shapePosition &U _figure ]
+"45
+[; ;main.c: 45:             _delay((unsigned long)((delay)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> F915 `d / -> -> 16000000 `l `d .4000.0 `ul ]
 "46
-[; ;main.c: 46:         MovieLeft(&shapePosition);
-[e ( _MovieLeft (1 &U _shapePosition ]
-"47
-[; ;main.c: 47:         SpiClearMatrix();
-[e ( _SpiClearMatrix ..  ]
+[; ;main.c: 46:         }
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 5 `i 91  ]
+[e :U 92 ]
+}
 "48
-[; ;main.c: 48:         ShowShape(&shapePosition, 3, figure);
-[e ( _ShowShape (3 , , &U _shapePosition -> 3 `i &U _figure ]
-"49
-[; ;main.c: 49:         _delay((unsigned long)((500)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"50
-[; ;main.c: 50:     }
+[; ;main.c: 48:     }
 }
 [e :U 88 ]
 [e $U 89  ]
 [e :U 90 ]
-"52
-[; ;main.c: 52:     return;
+"50
+[; ;main.c: 50:     return;
 [e $UE 87  ]
-"53
-[; ;main.c: 53: }
+"51
+[; ;main.c: 51: }
 [e :UE 87 ]
 }

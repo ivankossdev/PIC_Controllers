@@ -1693,14 +1693,21 @@ typedef struct {
     int y;
 } TCoord;
 
+enum MovieDirection{
+    down,
+    up,
+    left,
+    right,
+    notMoive
+};
+
 void SetPosition(TCoord * position, int x, int y);
 void ShowShape(TCoord * coord, int countElemntArray, char * shapeArray);
-int WidthLimit(int lenghtMatrix, int lengthShape);
-void MovieAllMatr(TCoord * _shapePosition, int _widthLimit, char * _figure);
 void MovieDown(TCoord * _shapePosition);
 void MovieUp(TCoord * _shapePosition);
 void MovieLeft(TCoord * _shapePosition);
 void MovieRigth(TCoord * _shapePosition);
+void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray);
 # 6 "main.c" 2
 # 18 "main.c"
 void main(void) {
@@ -1709,33 +1716,30 @@ void main(void) {
     PortBInit();
 
     TCoord shapePosition;
-    int widthLimit = WidthLimit(8, 3);
     char figure[3] = { 0x07, 0x05, 0x07 };
+    const unsigned long delay = 250;
 
     while(1){
 
-        shapePosition.x = 2;
-        shapePosition.y = 2;
+        for(int i = 0; i < 5; i++){
+            SetPosition(&shapePosition, i, i);
 
-        MovieDown(&shapePosition);
-        SpiClearMatrix();
-        ShowShape(&shapePosition, 3, figure);
-        _delay((unsigned long)((500)*(16000000/4000.0)));
+            MovieShape(notMoive, &shapePosition, figure);
+            _delay((unsigned long)((delay)*(16000000/4000.0)));
 
-        MovieRigth(&shapePosition);
-        SpiClearMatrix();
-        ShowShape(&shapePosition, 3, figure);
-        _delay((unsigned long)((500)*(16000000/4000.0)));
+            MovieShape(down, &shapePosition, figure);
+            _delay((unsigned long)((delay)*(16000000/4000.0)));
 
-        MovieUp(&shapePosition);
-        SpiClearMatrix();
-        ShowShape(&shapePosition, 3, figure);
-        _delay((unsigned long)((500)*(16000000/4000.0)));
+            MovieShape(right, &shapePosition, figure);
+            _delay((unsigned long)((delay)*(16000000/4000.0)));
 
-        MovieLeft(&shapePosition);
-        SpiClearMatrix();
-        ShowShape(&shapePosition, 3, figure);
-        _delay((unsigned long)((500)*(16000000/4000.0)));
+            MovieShape(up, &shapePosition, figure);
+            _delay((unsigned long)((delay)*(16000000/4000.0)));
+
+            MovieShape(left, &shapePosition, figure);
+            _delay((unsigned long)((delay)*(16000000/4000.0)));
+        }
+
     }
 
     return;

@@ -28,3 +28,26 @@ void MovieLeft(TCoord * _shapePosition){
 void MovieRigth(TCoord * _shapePosition){
     _shapePosition->x++;
 }
+
+void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray){
+    
+    switch (dir){
+        case down: 
+            MovieDown(_shapePosition);
+            break;
+        case up: 
+            MovieUp(_shapePosition);
+            break;
+        case left: 
+            MovieLeft(_shapePosition);
+            break;
+        case right:
+            MovieRigth(_shapePosition);
+            break;
+        case notMoive:
+            break;
+    }   
+    
+    SpiClearMatrix();
+    ShowShape(_shapePosition, 3, shapeArray);
+}
