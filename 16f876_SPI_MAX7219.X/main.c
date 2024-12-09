@@ -1,4 +1,5 @@
 #include <xc.h>
+#include <stdbool.h>
 #include "settings.h"
 #include "spi.h"
 #include "matrix.h"
@@ -22,29 +23,34 @@ void main(void) {
     
     TCoord shapePosition; 
     char figure[3] = { 0x07, 0x05, 0x07 };
-    const unsigned long delay = 250;
+    int countElemntArray = 3;
+    const unsigned long delay = 100;
     
     while(1){
+        int step = 0;
+        SetPosition(&shapePosition, 0, 0);
+        MovieShape(notMoive, &shapePosition, figure, countElemntArray); 
         
-        for(int i = 0; i < 5; i++){
-            SetPosition(&shapePosition, i, i);
-            
-            MovieShape(notMoive, &shapePosition, figure);
-            __delay_ms(delay);    
-
-            MovieShape(down, &shapePosition, figure);
-            __delay_ms(delay);
-
-            MovieShape(right, &shapePosition, figure);
-            __delay_ms(delay);
-
-            MovieShape(up, &shapePosition, figure);
-            __delay_ms(delay);
-
-            MovieShape(left, &shapePosition, figure);
-            __delay_ms(delay);
-        }
-
+        do{
+            for(int i = 0; i < 5; i++){
+                switch (step){
+                    case 0: 
+                        MovieShape(right, &shapePosition, figure, countElemntArray); 
+                        break;
+                    case 1: 
+                        MovieShape(down, &shapePosition, figure, countElemntArray); 
+                        break;
+                    case 2: 
+                        MovieShape(left, &shapePosition, figure, countElemntArray); 
+                        break;
+                    case 3: 
+                        MovieShape(up, &shapePosition, figure, countElemntArray); 
+                        break;
+                }
+                __delay_ms(delay); 
+            }
+            step++;  
+        } while(step < 4);
     }
     
     return;

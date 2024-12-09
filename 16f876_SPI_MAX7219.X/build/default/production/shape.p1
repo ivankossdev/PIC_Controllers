@@ -7,7 +7,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./matrix.h: 10: void SendToSegment(int segment, char dt );
 [v _SendToSegment `(v ~T0 @X0 0 ef2`i`uc ]
 "32 shape.c
-[; ;shape.c: 32: void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray){
+[; ;shape.c: 32: void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray, int countElemntArray){
 [c E885 0 1 2 3 4 .. ]
 [n E885 MovieDirection down up left right notMoive  ]
 "9 ./matrix.h
@@ -306,13 +306,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 96 ]
 }
 "32
-[; ;shape.c: 32: void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray){
-[v _MovieShape `(v ~T0 @X0 1 ef3`E885`*S86`*uc ]
+[; ;shape.c: 32: void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray, int countElemntArray){
+[v _MovieShape `(v ~T0 @X0 1 ef4`E885`*S86`*uc`i ]
 {
 [e :U _MovieShape ]
 [v _dir `E885 ~T0 @X0 1 r1 ]
 [v __shapePosition `*S86 ~T0 @X0 1 r2 ]
 [v _shapeArray `*uc ~T0 @X0 1 r3 ]
+[v _countElemntArray `i ~T0 @X0 1 r4 ]
 [f ]
 "34
 [; ;shape.c: 34:     switch (dir){
@@ -376,8 +377,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;shape.c: 51:     SpiClearMatrix();
 [e ( _SpiClearMatrix ..  ]
 "52
-[; ;shape.c: 52:     ShowShape(_shapePosition, 3, shapeArray);
-[e ( _ShowShape (3 , , __shapePosition -> 3 `i _shapeArray ]
+[; ;shape.c: 52:     ShowShape(_shapePosition, countElemntArray, shapeArray);
+[e ( _ShowShape (3 , , __shapePosition _countElemntArray _shapeArray ]
 "53
 [; ;shape.c: 53: }
 [e :UE 97 ]

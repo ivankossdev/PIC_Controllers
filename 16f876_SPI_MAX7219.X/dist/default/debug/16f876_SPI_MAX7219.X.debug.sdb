@@ -27,7 +27,7 @@ notMoive 4
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"18 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+"19 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
 [v _main main `(v  1 e 1 0 ]
 "10 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
 [v _SpiClearMatrix SpiClearMatrix `(v  1 e 1 0 ]
@@ -75,19 +75,23 @@ notMoive 4
 [v _RA5 RA5 `VEb  1 e 0 @45 ]
 "2345
 [v _SSPIF SSPIF `VEb  1 e 0 @99 ]
-"18 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+"19 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"29
-[v main@i i `i  1 a 2 17 ]
+"35
+[v main@i i `i  1 a 2 21 ]
+"30
+[v main@step step `i  1 a 2 19 ]
 [s S34 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
-"23
-[v main@shapePosition shapePosition `S34  1 a 4 19 ]
 "24
-[v main@figure figure `[3]uc  1 a 3 14 ]
-"23
-[v main@F913 F913 `[3]uc  1 s 3 F913 ]
-"51
+[v main@shapePosition shapePosition `S34  1 a 4 25 ]
+"25
+[v main@figure figure `[3]uc  1 a 3 16 ]
+"26
+[v main@countElemntArray countElemntArray `i  1 a 2 23 ]
+"24
+[v main@F914 F914 `[3]uc  1 s 3 F914 ]
+"57
 } 0
 "9 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
 [v _SpiInit SpiInit `(v  1 e 1 0 ]
@@ -116,7 +120,8 @@ notMoive 4
 [s S34 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
 [v MovieShape@_shapePosition _shapePosition `*.39S34  1 p 2 5 ]
 [v MovieShape@shapeArray shapeArray `*.4uc  1 p 1 7 ]
-[v MovieShape@dir dir `E885  1 p 1 10 ]
+[v MovieShape@countElemntArray countElemntArray `i  1 p 2 8 ]
+[v MovieShape@dir dir `E885  1 p 1 12 ]
 "53
 } 0
 "8

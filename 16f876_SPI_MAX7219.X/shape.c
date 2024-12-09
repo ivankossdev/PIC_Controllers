@@ -29,7 +29,7 @@ void MovieRigth(TCoord * _shapePosition){
     _shapePosition->x++;
 }
 
-void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray){
+void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray, int countElemntArray){
     
     switch (dir){
         case down: 
@@ -49,5 +49,5 @@ void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeAr
     }   
     
     SpiClearMatrix();
-    ShowShape(_shapePosition, 3, shapeArray);
+    ShowShape(_shapePosition, countElemntArray, shapeArray);
 }

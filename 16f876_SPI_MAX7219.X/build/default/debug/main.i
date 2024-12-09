@@ -1637,6 +1637,8 @@ extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "/opt/microchip/xc8/v2.50/pic/include/xc.h" 2 3
 # 2 "main.c" 2
+# 1 "/opt/microchip/xc8/v2.50/pic/include/c99/stdbool.h" 1 3
+# 3 "main.c" 2
 # 1 "./settings.h" 1
 
 
@@ -1657,7 +1659,7 @@ void PortCInit(void);
 #pragma config LVP = OFF
 #pragma config CPD = OFF
 #pragma config WRT = OFF
-# 3 "main.c" 2
+# 4 "main.c" 2
 # 1 "./spi.h" 1
 
 
@@ -1666,7 +1668,7 @@ void PortCInit(void);
 
 void SpiInit(void);
 void SpiSendByte(char data);
-# 4 "main.c" 2
+# 5 "main.c" 2
 # 1 "./matrix.h" 1
 
 
@@ -1678,7 +1680,7 @@ void SpiSendByte(char data);
 void MatrixInit(void);
 void SpiClearMatrix (void);
 void SendToSegment(int segment, char dt );
-# 5 "main.c" 2
+# 6 "main.c" 2
 # 1 "./shape.h" 1
 
 
@@ -1707,9 +1709,9 @@ void MovieDown(TCoord * _shapePosition);
 void MovieUp(TCoord * _shapePosition);
 void MovieLeft(TCoord * _shapePosition);
 void MovieRigth(TCoord * _shapePosition);
-void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray);
-# 6 "main.c" 2
-# 18 "main.c"
+void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray, int countElemntArray);
+# 7 "main.c" 2
+# 19 "main.c"
 void main(void) {
     SpiInit();
     MatrixInit();
@@ -1717,29 +1719,34 @@ void main(void) {
 
     TCoord shapePosition;
     char figure[3] = { 0x07, 0x05, 0x07 };
-    const unsigned long delay = 250;
+    int countElemntArray = 3;
+    const unsigned long delay = 100;
 
     while(1){
+        int step = 0;
+        SetPosition(&shapePosition, 0, 0);
+        MovieShape(notMoive, &shapePosition, figure, countElemntArray);
 
-        for(int i = 0; i < 5; i++){
-            SetPosition(&shapePosition, i, i);
-
-            MovieShape(notMoive, &shapePosition, figure);
-            _delay((unsigned long)((delay)*(16000000/4000.0)));
-
-            MovieShape(down, &shapePosition, figure);
-            _delay((unsigned long)((delay)*(16000000/4000.0)));
-
-            MovieShape(right, &shapePosition, figure);
-            _delay((unsigned long)((delay)*(16000000/4000.0)));
-
-            MovieShape(up, &shapePosition, figure);
-            _delay((unsigned long)((delay)*(16000000/4000.0)));
-
-            MovieShape(left, &shapePosition, figure);
-            _delay((unsigned long)((delay)*(16000000/4000.0)));
-        }
-
+        do{
+            for(int i = 0; i < 5; i++){
+                switch (step){
+                    case 0:
+                        MovieShape(right, &shapePosition, figure, countElemntArray);
+                        break;
+                    case 1:
+                        MovieShape(down, &shapePosition, figure, countElemntArray);
+                        break;
+                    case 2:
+                        MovieShape(left, &shapePosition, figure, countElemntArray);
+                        break;
+                    case 3:
+                        MovieShape(up, &shapePosition, figure, countElemntArray);
+                        break;
+                }
+                _delay((unsigned long)((delay)*(16000000/4000.0)));
+            }
+            step++;
+        } while(step < 4);
     }
 
     return;

@@ -1705,7 +1705,7 @@ void MovieDown(TCoord * _shapePosition);
 void MovieUp(TCoord * _shapePosition);
 void MovieLeft(TCoord * _shapePosition);
 void MovieRigth(TCoord * _shapePosition);
-void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray);
+void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray, int countElemntArray);
 # 2 "shape.c" 2
 
 void SetPosition(TCoord * position, int x, int y){
@@ -1737,7 +1737,7 @@ void MovieRigth(TCoord * _shapePosition){
     _shapePosition->x++;
 }
 
-void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray){
+void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray, int countElemntArray){
 
     switch (dir){
         case down:
@@ -1757,5 +1757,5 @@ void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeAr
     }
 
     SpiClearMatrix();
-    ShowShape(_shapePosition, 3, shapeArray);
+    ShowShape(_shapePosition, countElemntArray, shapeArray);
 }

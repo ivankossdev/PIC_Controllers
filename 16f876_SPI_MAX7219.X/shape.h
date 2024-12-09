@@ -25,6 +25,6 @@ void MovieDown(TCoord * _shapePosition);
 void MovieUp(TCoord * _shapePosition);
 void MovieLeft(TCoord * _shapePosition);
 void MovieRigth(TCoord * _shapePosition);                                      
-void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray);
+void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray, int countElemntArray);
 
 #endif	/* SHAPE_H */

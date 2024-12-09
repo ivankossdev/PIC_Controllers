@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.50 build 20240725155939 
-                                                                                               Mon Dec  9 10:16:04 2024
+                                                                                               Mon Dec  9 13:37:00 2024
 
 Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1 
      1                           	processor	16F876
@@ -406,12 +406,12 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    392     018D                     EECON2          equ	397	;# 
    393                           
    394                           	psect	idataBANK0
-   395     0545                     __pidataBANK0:
+   395     053D                     __pidataBANK0:
    396                           
-   397                           ;initializer for main@F913
-   398     0545  3407               	retlw	7
-   399     0546  3405               	retlw	5
-   400     0547  3407               	retlw	7
+   397                           ;initializer for main@F914
+   398     053D  3407               	retlw	7
+   399     053E  3405               	retlw	5
+   400     053F  3407               	retlw	7
    401                           
    402                           	psect	strings
    403     0003                     __pstrings:
@@ -430,7 +430,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    416     0008  3400               	retlw	0
    417     0009                     __end_of__stringtab:
    418     0009                     main@delay:
-   419     0009  34FA               	retlw	250
+   419     0009  3464               	retlw	100
    420     000A  3400               	retlw	0
    421     000B  3400               	retlw	0
    422     000C  3400               	retlw	0
@@ -453,23 +453,23 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    439     07EA                     __initialization:
    440                           
    441                           ; Initialize objects allocated to BANK0
-   442     07EA  120A  118A  2545  120A  118A  	fcall	__pidataBANK0	;fetch initializer
-   443     07EF  00B7               	movwf	__pdataBANK0& (0+127)
-   444     07F0  120A  118A  2546  120A  118A  	fcall	__pidataBANK0+1	;fetch initializer
-   445     07F5  00B8               	movwf	(__pdataBANK0+1)& (0+127)
-   446     07F6  120A  118A  2547  120A  118A  	fcall	__pidataBANK0+2	;fetch initializer
-   447     07FB  00B9               	movwf	(__pdataBANK0+2)& (0+127)
+   442     07EA  120A  118A  253D  120A  118A  	fcall	__pidataBANK0	;fetch initializer
+   443     07EF  00BD               	movwf	__pdataBANK0& (0+127)
+   444     07F0  120A  118A  253E  120A  118A  	fcall	__pidataBANK0+1	;fetch initializer
+   445     07F5  00BE               	movwf	(__pdataBANK0+1)& (0+127)
+   446     07F6  120A  118A  253F  120A  118A  	fcall	__pidataBANK0+2	;fetch initializer
+   447     07FB  00BF               	movwf	(__pdataBANK0+2)& (0+127)
    448     07FC                     end_of_initialization:	
    449                           ;End of C runtime variable initialization code
    450                           
    451     07FC                     __end_of__initialization:
    452     07FC  0183               	clrf	3
-   453     07FD  120A  118A  2F17   	ljmp	_main	;jump to C main() function
+   453     07FD  120A  118A  2F0F   	ljmp	_main	;jump to C main() function
    454                           
    455                           	psect	dataBANK0
-   456     0037                     __pdataBANK0:
-   457     0037                     main@F913:
-   458     0037                     	ds	3
+   456     003D                     __pdataBANK0:
+   457     003D                     main@F914:
+   458     003D                     	ds	3
    459                           
    460                           	psect	cstackCOMMON
    461     0071                     __pcstackCOMMON:
@@ -621,1458 +621,1512 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    607                           
    608                           ; 1 bytes @ 0x7
    609     0027                     	ds	1
-   610     0028                     ??_MovieShape:
+   610     0028                     MovieShape@countElemntArray:
    611                           
-   612                           ; 1 bytes @ 0x8
+   612                           ; 2 bytes @ 0x8
    613     0028                     	ds	2
-   614     002A                     MovieShape@dir:
+   614     002A                     ??_MovieShape:
    615                           
    616                           ; 1 bytes @ 0xA
-   617     002A                     	ds	1
-   618     002B                     ??_main:
+   617     002A                     	ds	2
+   618     002C                     MovieShape@dir:
    619                           
-   620                           ; 1 bytes @ 0xB
-   621     002B                     	ds	3
-   622     002E                     main@figure:
+   620                           ; 1 bytes @ 0xC
+   621     002C                     	ds	1
+   622     002D                     ??_main:
    623                           
-   624                           ; 3 bytes @ 0xE
-   625     002E                     	ds	3
-   626     0031                     main@i:
+   624                           ; 1 bytes @ 0xD
+   625     002D                     	ds	3
+   626     0030                     main@figure:
    627                           
-   628                           ; 2 bytes @ 0x11
-   629     0031                     	ds	2
-   630     0033                     main@shapePosition:
+   628                           ; 3 bytes @ 0x10
+   629     0030                     	ds	3
+   630     0033                     main@step:
    631                           
-   632                           ; 4 bytes @ 0x13
-   633     0033                     	ds	4
-   634                           
-   635                           	psect	maintext
-   636     0717                     __pmaintext:	
-   637 ;;
-   638 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
-   639 ;;
-   640 ;; *************** function _main *****************
-   641 ;; Defined at:
-   642 ;;		line 18 in file "main.c"
-   643 ;; Parameters:    Size  Location     Type
-   644 ;;		None
-   645 ;; Auto vars:     Size  Location     Type
-   646 ;;  i               2   17[BANK0 ] int 
-   647 ;;  shapePositio    4   19[BANK0 ] struct .
-   648 ;;  figure          3   14[BANK0 ] unsigned char [3]
-   649 ;; Return value:  Size  Location     Type
-   650 ;;                  1    wreg      void 
-   651 ;; Registers used:
-   652 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
-   653 ;; Tracked objects:
-   654 ;;		On entry : B00/0
-   655 ;;		On exit  : 0/0
-   656 ;;		Unchanged: 0/0
-   657 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   658 ;;      Params:         0       0       0       0       0
-   659 ;;      Locals:         0       9       0       0       0
-   660 ;;      Temps:          0       3       0       0       0
-   661 ;;      Totals:         0      12       0       0       0
-   662 ;;Total ram usage:       12 bytes
-   663 ;; Hardware stack levels required when called: 4
-   664 ;; This function calls:
-   665 ;;		_MatrixInit
-   666 ;;		_MovieShape
-   667 ;;		_PortBInit
-   668 ;;		_SetPosition
-   669 ;;		_SpiInit
-   670 ;; This function is called by:
-   671 ;;		Startup code after reset
-   672 ;; This function uses a non-reentrant model
-   673 ;;
-   674                           
-   675     0717                     _main:	
-   676                           ;psect for function _main
-   677                           
-   678     0717                     l880:	
-   679                           ;incstack = 0
-   680                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
-   681                           
-   682                           
-   683                           ;main.c: 19:     SpiInit();
-   684     0717  120A  118A  2576  120A  118A  	fcall	_SpiInit
-   685                           
-   686                           ;main.c: 20:     MatrixInit();
-   687     071C  120A  118A  25FA  120A  118A  	fcall	_MatrixInit
-   688     0721                     l882:
-   689                           
-   690                           ;main.c: 21:     PortBInit();
-   691     0721  120A  118A  2548  120A  118A  	fcall	_PortBInit
-   692                           
-   693                           ;main.c: 23:     TCoord shapePosition;;main.c: 24:     char figure[3] = { 0x07, 0x05, 0x
-      +                          07 };
-   694     0726  1283               	bcf	3,5	;RP0=0, select bank0
-   695     0727  1303               	bcf	3,6	;RP1=0, select bank0
-   696     0728  0837               	movf	main@F913,w
-   697     0729  00AE               	movwf	main@figure
-   698     072A  0838               	movf	main@F913+1,w
-   699     072B  00AF               	movwf	main@figure+1
-   700     072C  0839               	movf	main@F913+2,w
-   701     072D  00B0               	movwf	main@figure+2
-   702     072E                     l884:
+   632                           ; 2 bytes @ 0x13
+   633     0033                     	ds	2
+   634     0035                     main@i:
+   635                           
+   636                           ; 2 bytes @ 0x15
+   637     0035                     	ds	2
+   638     0037                     main@countElemntArray:
+   639                           
+   640                           ; 2 bytes @ 0x17
+   641     0037                     	ds	2
+   642     0039                     main@shapePosition:
+   643                           
+   644                           ; 4 bytes @ 0x19
+   645     0039                     	ds	4
+   646                           
+   647                           	psect	maintext
+   648     070F                     __pmaintext:	
+   649 ;;
+   650 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+   651 ;;
+   652 ;; *************** function _main *****************
+   653 ;; Defined at:
+   654 ;;		line 19 in file "main.c"
+   655 ;; Parameters:    Size  Location     Type
+   656 ;;		None
+   657 ;; Auto vars:     Size  Location     Type
+   658 ;;  i               2   21[BANK0 ] int 
+   659 ;;  step            2   19[BANK0 ] int 
+   660 ;;  shapePositio    4   25[BANK0 ] struct .
+   661 ;;  figure          3   16[BANK0 ] unsigned char [3]
+   662 ;;  countElemntA    2   23[BANK0 ] int 
+   663 ;; Return value:  Size  Location     Type
+   664 ;;                  1    wreg      void 
+   665 ;; Registers used:
+   666 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   667 ;; Tracked objects:
+   668 ;;		On entry : B00/0
+   669 ;;		On exit  : 0/0
+   670 ;;		Unchanged: 0/0
+   671 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   672 ;;      Params:         0       0       0       0       0
+   673 ;;      Locals:         0      13       0       0       0
+   674 ;;      Temps:          0       3       0       0       0
+   675 ;;      Totals:         0      16       0       0       0
+   676 ;;Total ram usage:       16 bytes
+   677 ;; Hardware stack levels required when called: 4
+   678 ;; This function calls:
+   679 ;;		_MatrixInit
+   680 ;;		_MovieShape
+   681 ;;		_PortBInit
+   682 ;;		_SetPosition
+   683 ;;		_SpiInit
+   684 ;; This function is called by:
+   685 ;;		Startup code after reset
+   686 ;; This function uses a non-reentrant model
+   687 ;;
+   688                           
+   689     070F                     _main:	
+   690                           ;psect for function _main
+   691                           
+   692     070F                     l910:	
+   693                           ;incstack = 0
+   694                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   695                           
+   696                           
+   697                           ;main.c: 20:     SpiInit();
+   698     070F  120A  118A  256E  120A  118A  	fcall	_SpiInit
+   699                           
+   700                           ;main.c: 21:     MatrixInit();
+   701     0714  120A  118A  25F2  120A  118A  	fcall	_MatrixInit
+   702     0719                     l912:
    703                           
-   704                           ;main.c: 29:         for(int i = 0; i < 5; i++){
-   705     072E  1283               	bcf	3,5	;RP0=0, select bank0
-   706     072F  1303               	bcf	3,6	;RP1=0, select bank0
-   707     0730  01B1               	clrf	main@i
-   708     0731  01B2               	clrf	main@i+1
-   709     0732                     l890:
-   710                           
-   711                           ;main.c: 30:             SetPosition(&shapePosition, i, i);
-   712     0732  3033               	movlw	low main@shapePosition
-   713     0733  00F1               	movwf	SetPosition@position
-   714     0734  3000               	movlw	high main@shapePosition
-   715     0735  00F2               	movwf	SetPosition@position+1
-   716     0736  1283               	bcf	3,5	;RP0=0, select bank0
-   717     0737  1303               	bcf	3,6	;RP1=0, select bank0
-   718     0738  0832               	movf	main@i+1,w
-   719     0739  00F4               	movwf	SetPosition@x+1
-   720     073A  0831               	movf	main@i,w
-   721     073B  00F3               	movwf	SetPosition@x
-   722     073C  0832               	movf	main@i+1,w
-   723     073D  00F6               	movwf	SetPosition@y+1
-   724     073E  0831               	movf	main@i,w
-   725     073F  00F5               	movwf	SetPosition@y
-   726     0740  120A  118A  25DD  120A  118A  	fcall	_SetPosition
-   727     0745                     l892:
-   728                           
-   729                           ;main.c: 32:             MovieShape(notMoive, &shapePosition, figure);
-   730     0745  3033               	movlw	low main@shapePosition
-   731     0746  1283               	bcf	3,5	;RP0=0, select bank0
-   732     0747  1303               	bcf	3,6	;RP1=0, select bank0
-   733     0748  00A5               	movwf	MovieShape@_shapePosition
-   734     0749  3000               	movlw	high main@shapePosition
-   735     074A  00A6               	movwf	MovieShape@_shapePosition+1
-   736     074B  302E               	movlw	(low (main@figure| 0))& (0+255)
-   737     074C  00A7               	movwf	MovieShape@shapeArray
-   738     074D  3004               	movlw	4
-   739     074E  120A  118A  263A  120A  118A  	fcall	_MovieShape
-   740     0753                     l894:
-   741                           
-   742                           ;main.c: 33:             _delay((unsigned long)((delay)*(16000000/4000.0)));
-   743     0753  3006               	movlw	6
-   744     0754  1283               	bcf	3,5	;RP0=0, select bank0
-   745     0755  1303               	bcf	3,6	;RP1=0, select bank0
-   746     0756  00AD               	movwf	??_main+2
-   747     0757  3013               	movlw	19
-   748     0758  00AC               	movwf	??_main+1
-   749     0759  30AD               	movlw	173
-   750     075A  00AB               	movwf	??_main
-   751     075B                     u117:
-   752     075B  0BAB               	decfsz	??_main,f
-   753     075C  2F5B               	goto	u117
-   754     075D  0BAC               	decfsz	??_main+1,f
-   755     075E  2F5B               	goto	u117
-   756     075F  0BAD               	decfsz	??_main+2,f
-   757     0760  2F5B               	goto	u117
-   758     0761                     l896:
-   759                           
-   760                           ;main.c: 35:             MovieShape(down, &shapePosition, figure);
-   761     0761  3033               	movlw	low main@shapePosition
-   762     0762  1283               	bcf	3,5	;RP0=0, select bank0
-   763     0763  1303               	bcf	3,6	;RP1=0, select bank0
-   764     0764  00A5               	movwf	MovieShape@_shapePosition
-   765     0765  3000               	movlw	high main@shapePosition
-   766     0766  00A6               	movwf	MovieShape@_shapePosition+1
-   767     0767  302E               	movlw	(low (main@figure| 0))& (0+255)
-   768     0768  00A7               	movwf	MovieShape@shapeArray
-   769     0769  3000               	movlw	0
-   770     076A  120A  118A  263A  120A  118A  	fcall	_MovieShape
-   771     076F                     l898:
-   772                           
-   773                           ;main.c: 36:             _delay((unsigned long)((delay)*(16000000/4000.0)));
-   774     076F  3006               	movlw	6
-   775     0770  1283               	bcf	3,5	;RP0=0, select bank0
-   776     0771  1303               	bcf	3,6	;RP1=0, select bank0
-   777     0772  00AD               	movwf	??_main+2
-   778     0773  3013               	movlw	19
-   779     0774  00AC               	movwf	??_main+1
-   780     0775  30AD               	movlw	173
-   781     0776  00AB               	movwf	??_main
-   782     0777                     u127:
-   783     0777  0BAB               	decfsz	??_main,f
-   784     0778  2F77               	goto	u127
-   785     0779  0BAC               	decfsz	??_main+1,f
-   786     077A  2F77               	goto	u127
-   787     077B  0BAD               	decfsz	??_main+2,f
-   788     077C  2F77               	goto	u127
-   789     077D                     l900:
-   790                           
-   791                           ;main.c: 38:             MovieShape(right, &shapePosition, figure);
-   792     077D  3033               	movlw	low main@shapePosition
-   793     077E  1283               	bcf	3,5	;RP0=0, select bank0
-   794     077F  1303               	bcf	3,6	;RP1=0, select bank0
-   795     0780  00A5               	movwf	MovieShape@_shapePosition
-   796     0781  3000               	movlw	high main@shapePosition
-   797     0782  00A6               	movwf	MovieShape@_shapePosition+1
-   798     0783  302E               	movlw	(low (main@figure| 0))& (0+255)
-   799     0784  00A7               	movwf	MovieShape@shapeArray
-   800     0785  3003               	movlw	3
-   801     0786  120A  118A  263A  120A  118A  	fcall	_MovieShape
-   802     078B                     l902:
-   803                           
-   804                           ;main.c: 39:             _delay((unsigned long)((delay)*(16000000/4000.0)));
-   805     078B  3006               	movlw	6
-   806     078C  1283               	bcf	3,5	;RP0=0, select bank0
-   807     078D  1303               	bcf	3,6	;RP1=0, select bank0
-   808     078E  00AD               	movwf	??_main+2
-   809     078F  3013               	movlw	19
-   810     0790  00AC               	movwf	??_main+1
-   811     0791  30AD               	movlw	173
-   812     0792  00AB               	movwf	??_main
-   813     0793                     u137:
-   814     0793  0BAB               	decfsz	??_main,f
-   815     0794  2F93               	goto	u137
-   816     0795  0BAC               	decfsz	??_main+1,f
-   817     0796  2F93               	goto	u137
-   818     0797  0BAD               	decfsz	??_main+2,f
-   819     0798  2F93               	goto	u137
-   820     0799                     l904:
-   821                           
-   822                           ;main.c: 41:             MovieShape(up, &shapePosition, figure);
-   823     0799  3033               	movlw	low main@shapePosition
-   824     079A  1283               	bcf	3,5	;RP0=0, select bank0
-   825     079B  1303               	bcf	3,6	;RP1=0, select bank0
-   826     079C  00A5               	movwf	MovieShape@_shapePosition
-   827     079D  3000               	movlw	high main@shapePosition
-   828     079E  00A6               	movwf	MovieShape@_shapePosition+1
-   829     079F  302E               	movlw	(low (main@figure| 0))& (0+255)
-   830     07A0  00A7               	movwf	MovieShape@shapeArray
-   831     07A1  3001               	movlw	1
-   832     07A2  120A  118A  263A  120A  118A  	fcall	_MovieShape
-   833     07A7                     l906:
-   834                           
-   835                           ;main.c: 42:             _delay((unsigned long)((delay)*(16000000/4000.0)));
-   836     07A7  3006               	movlw	6
-   837     07A8  1283               	bcf	3,5	;RP0=0, select bank0
-   838     07A9  1303               	bcf	3,6	;RP1=0, select bank0
-   839     07AA  00AD               	movwf	??_main+2
-   840     07AB  3013               	movlw	19
-   841     07AC  00AC               	movwf	??_main+1
-   842     07AD  30AD               	movlw	173
-   843     07AE  00AB               	movwf	??_main
-   844     07AF                     u147:
-   845     07AF  0BAB               	decfsz	??_main,f
-   846     07B0  2FAF               	goto	u147
-   847     07B1  0BAC               	decfsz	??_main+1,f
-   848     07B2  2FAF               	goto	u147
-   849     07B3  0BAD               	decfsz	??_main+2,f
-   850     07B4  2FAF               	goto	u147
-   851     07B5                     l908:
-   852                           
-   853                           ;main.c: 44:             MovieShape(left, &shapePosition, figure);
-   854     07B5  3033               	movlw	low main@shapePosition
-   855     07B6  1283               	bcf	3,5	;RP0=0, select bank0
-   856     07B7  1303               	bcf	3,6	;RP1=0, select bank0
-   857     07B8  00A5               	movwf	MovieShape@_shapePosition
-   858     07B9  3000               	movlw	high main@shapePosition
-   859     07BA  00A6               	movwf	MovieShape@_shapePosition+1
-   860     07BB  302E               	movlw	(low (main@figure| 0))& (0+255)
-   861     07BC  00A7               	movwf	MovieShape@shapeArray
-   862     07BD  3002               	movlw	2
-   863     07BE  120A  118A  263A  120A  118A  	fcall	_MovieShape
-   864     07C3                     l910:
-   865                           
-   866                           ;main.c: 45:             _delay((unsigned long)((delay)*(16000000/4000.0)));
-   867     07C3  3006               	movlw	6
-   868     07C4  1283               	bcf	3,5	;RP0=0, select bank0
-   869     07C5  1303               	bcf	3,6	;RP1=0, select bank0
-   870     07C6  00AD               	movwf	??_main+2
-   871     07C7  3013               	movlw	19
-   872     07C8  00AC               	movwf	??_main+1
-   873     07C9  30AD               	movlw	173
-   874     07CA  00AB               	movwf	??_main
-   875     07CB                     u157:
-   876     07CB  0BAB               	decfsz	??_main,f
-   877     07CC  2FCB               	goto	u157
-   878     07CD  0BAC               	decfsz	??_main+1,f
-   879     07CE  2FCB               	goto	u157
-   880     07CF  0BAD               	decfsz	??_main+2,f
-   881     07D0  2FCB               	goto	u157
-   882     07D1                     l912:
-   883                           
-   884                           ;main.c: 46:         }
-   885     07D1  3001               	movlw	1
-   886     07D2  1283               	bcf	3,5	;RP0=0, select bank0
-   887     07D3  1303               	bcf	3,6	;RP1=0, select bank0
-   888     07D4  07B1               	addwf	main@i,f
-   889     07D5  1803               	skipnc
-   890     07D6  0AB2               	incf	main@i+1,f
-   891     07D7  3000               	movlw	0
-   892     07D8  07B2               	addwf	main@i+1,f
-   893     07D9                     l914:
-   894     07D9  0832               	movf	main@i+1,w
-   895     07DA  3A80               	xorlw	128
-   896     07DB  00FF               	movwf	btemp+1
-   897     07DC  3080               	movlw	128
-   898     07DD  027F               	subwf	btemp+1,w
-   899     07DE  1D03               	skipz
-   900     07DF  2FE2               	goto	u105
-   901     07E0  3005               	movlw	5
-   902     07E1  0231               	subwf	main@i,w
-   903     07E2                     u105:
-   904     07E2  1C03               	skipc
-   905     07E3  2FE5               	goto	u101
-   906     07E4  2FE6               	goto	u100
-   907     07E5                     u101:
-   908     07E5  2F32               	goto	l890
-   909     07E6                     u100:
-   910     07E6  2F2E               	goto	l884
-   911     07E7  120A  118A  2800   	ljmp	start
-   912     07EA                     __end_of_main:
-   913                           
-   914                           	psect	text1
-   915     0576                     __ptext1:	
-   916 ;; *************** function _SpiInit *****************
-   917 ;; Defined at:
-   918 ;;		line 9 in file "spi.c"
-   919 ;; Parameters:    Size  Location     Type
-   920 ;;		None
-   921 ;; Auto vars:     Size  Location     Type
-   922 ;;		None
-   923 ;; Return value:  Size  Location     Type
-   924 ;;                  1    wreg      void 
-   925 ;; Registers used:
-   926 ;;		wreg, status,2, status,0
-   927 ;; Tracked objects:
-   928 ;;		On entry : 0/0
-   929 ;;		On exit  : 0/0
-   930 ;;		Unchanged: 0/0
-   931 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   932 ;;      Params:         0       0       0       0       0
-   933 ;;      Locals:         0       0       0       0       0
-   934 ;;      Temps:          0       0       0       0       0
-   935 ;;      Totals:         0       0       0       0       0
-   936 ;;Total ram usage:        0 bytes
-   937 ;; Hardware stack levels used: 1
-   938 ;; This function calls:
-   939 ;;		Nothing
-   940 ;; This function is called by:
-   941 ;;		_main
-   942 ;; This function uses a non-reentrant model
-   943 ;;
-   944                           
-   945     0576                     _SpiInit:	
-   946                           ;psect for function _SpiInit
-   947                           
-   948     0576                     l828:	
-   949                           ;incstack = 0
-   950                           ; Regs used in _SpiInit: [wreg+status,2+status,0]
-   951                           
-   952                           
-   953                           ;spi.c: 10:     TRISC |= 0x10;
-   954     0576  1683               	bsf	3,5	;RP0=1, select bank1
-   955     0577  1303               	bcf	3,6	;RP1=0, select bank1
-   956     0578  1607               	bsf	7,4	;volatile
-   957     0579                     l830:
-   958                           
-   959                           ;spi.c: 11:     TRISC &= ~0x28;
-   960     0579  30D7               	movlw	215
-   961     057A  0587               	andwf	7,f	;volatile
-   962                           
-   963                           ;spi.c: 12:     TRISA &= ~0x20;
-   964     057B  30DF               	movlw	223
-   965     057C  0585               	andwf	5,f	;volatile
-   966                           
-   967                           ;spi.c: 13:     PORTA &= ~0x20;
-   968     057D  30DF               	movlw	223
-   969     057E  1283               	bcf	3,5	;RP0=0, select bank0
-   970     057F  1303               	bcf	3,6	;RP1=0, select bank0
-   971     0580  0585               	andwf	5,f	;volatile
-   972     0581                     l832:
-   973                           
-   974                           ;spi.c: 14:     SSPCON = 0x30;
-   975     0581  3030               	movlw	48
-   976     0582  0094               	movwf	20	;volatile
-   977     0583                     l834:
-   978                           
-   979                           ;spi.c: 15:     SSPSTAT = 0x80;
-   980     0583  3080               	movlw	128
-   981     0584  1683               	bsf	3,5	;RP0=1, select bank1
-   982     0585  1303               	bcf	3,6	;RP1=0, select bank1
-   983     0586  0094               	movwf	20	;volatile
-   984     0587                     l50:
-   985     0587  0008               	return
-   986     0588                     __end_of_SpiInit:
-   987                           
-   988                           	psect	text2
-   989     05DD                     __ptext2:	
-   990 ;; *************** function _SetPosition *****************
-   991 ;; Defined at:
-   992 ;;		line 3 in file "shape.c"
-   993 ;; Parameters:    Size  Location     Type
-   994 ;;  position        2    0[COMMON] PTR struct .
-   995 ;;		 -> main@shapePosition(4), 
-   996 ;;  x               2    2[COMMON] int 
-   997 ;;  y               2    4[COMMON] int 
-   998 ;; Auto vars:     Size  Location     Type
-   999 ;;		None
-  1000 ;; Return value:  Size  Location     Type
-  1001 ;;                  1    wreg      void 
-  1002 ;; Registers used:
-  1003 ;;		wreg, fsr0l, fsr0h, status,2, status,0
-  1004 ;; Tracked objects:
-  1005 ;;		On entry : 0/0
-  1006 ;;		On exit  : 0/0
-  1007 ;;		Unchanged: 0/0
-  1008 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1009 ;;      Params:         6       0       0       0       0
-  1010 ;;      Locals:         0       0       0       0       0
-  1011 ;;      Temps:          2       0       0       0       0
-  1012 ;;      Totals:         8       0       0       0       0
-  1013 ;;Total ram usage:        8 bytes
-  1014 ;; Hardware stack levels used: 1
-  1015 ;; This function calls:
-  1016 ;;		Nothing
-  1017 ;; This function is called by:
-  1018 ;;		_main
-  1019 ;; This function uses a non-reentrant model
-  1020 ;;
-  1021                           
-  1022     05DD                     _SetPosition:	
-  1023                           ;psect for function _SetPosition
-  1024                           
-  1025     05DD                     l852:	
-  1026                           ;incstack = 0
-  1027                           ; Regs used in _SetPosition: [wreg-fsr0h+status,2+status,0]
-  1028                           
-  1029                           
-  1030                           ;shape.c: 4:     position->x = x;
-  1031     05DD  0871               	movf	SetPosition@position,w
-  1032     05DE  0084               	movwf	4
-  1033     05DF  1783               	bsf	3,7
-  1034     05E0  1C72               	btfss	SetPosition@position+1,0
-  1035     05E1  1383               	bcf	3,7
-  1036     05E2  0873               	movf	SetPosition@x,w
-  1037     05E3  0080               	movwf	0
-  1038     05E4  0A84               	incf	4,f
-  1039     05E5  0874               	movf	SetPosition@x+1,w
-  1040     05E6  0080               	movwf	0
-  1041     05E7                     l854:
-  1042                           
-  1043                           ;shape.c: 5:     position->y = y;
-  1044     05E7  0871               	movf	SetPosition@position,w
-  1045     05E8  3E02               	addlw	2
-  1046     05E9  00F7               	movwf	??_SetPosition
-  1047     05EA  0872               	movf	SetPosition@position+1,w
-  1048     05EB  1803               	skipnc
-  1049     05EC  3E01               	addlw	1
-  1050     05ED  3E00               	addlw	0
-  1051     05EE  00F8               	movwf	??_SetPosition+1
-  1052     05EF  0877               	movf	??_SetPosition,w
-  1053     05F0  0084               	movwf	4
-  1054     05F1  1783               	bsf	3,7
-  1055     05F2  1C78               	btfss	??_SetPosition+1,0
-  1056     05F3  1383               	bcf	3,7
-  1057     05F4  0875               	movf	SetPosition@y,w
-  1058     05F5  0080               	movwf	0
-  1059     05F6  0A84               	incf	4,f
-  1060     05F7  0876               	movf	SetPosition@y+1,w
-  1061     05F8  0080               	movwf	0
-  1062     05F9                     l82:
-  1063     05F9  0008               	return
-  1064     05FA                     __end_of_SetPosition:
-  1065                           
-  1066                           	psect	text3
-  1067     0548                     __ptext3:	
-  1068 ;; *************** function _PortBInit *****************
-  1069 ;; Defined at:
-  1070 ;;		line 13 in file "portsinit.c"
-  1071 ;; Parameters:    Size  Location     Type
-  1072 ;;		None
-  1073 ;; Auto vars:     Size  Location     Type
-  1074 ;;		None
-  1075 ;; Return value:  Size  Location     Type
-  1076 ;;                  1    wreg      void 
-  1077 ;; Registers used:
-  1078 ;;		status,2
-  1079 ;; Tracked objects:
-  1080 ;;		On entry : 0/0
-  1081 ;;		On exit  : 0/0
-  1082 ;;		Unchanged: 0/0
-  1083 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1084 ;;      Params:         0       0       0       0       0
-  1085 ;;      Locals:         0       0       0       0       0
-  1086 ;;      Temps:          0       0       0       0       0
-  1087 ;;      Totals:         0       0       0       0       0
-  1088 ;;Total ram usage:        0 bytes
-  1089 ;; Hardware stack levels used: 1
-  1090 ;; This function calls:
-  1091 ;;		Nothing
-  1092 ;; This function is called by:
-  1093 ;;		_main
-  1094 ;; This function uses a non-reentrant model
-  1095 ;;
-  1096                           
-  1097     0548                     _PortBInit:	
-  1098                           ;psect for function _PortBInit
-  1099                           
-  1100     0548                     l850:	
-  1101                           ;incstack = 0
-  1102                           ; Regs used in _PortBInit: [status,2]
-  1103                           
-  1104                           
-  1105                           ;portsinit.c: 14:     TRISB = 0x00;
-  1106     0548  1683               	bsf	3,5	;RP0=1, select bank1
-  1107     0549  1303               	bcf	3,6	;RP1=0, select bank1
-  1108     054A  0186               	clrf	6	;volatile
-  1109                           
-  1110                           ;portsinit.c: 15:     PORTB = 0x00;
-  1111     054B  1283               	bcf	3,5	;RP0=0, select bank0
-  1112     054C  1303               	bcf	3,6	;RP1=0, select bank0
-  1113     054D  0186               	clrf	6	;volatile
-  1114     054E                     l33:
-  1115     054E  0008               	return
-  1116     054F                     __end_of_PortBInit:
-  1117                           
-  1118                           	psect	text4
-  1119     063A                     __ptext4:	
-  1120 ;; *************** function _MovieShape *****************
-  1121 ;; Defined at:
-  1122 ;;		line 32 in file "shape.c"
-  1123 ;; Parameters:    Size  Location     Type
-  1124 ;;  dir             1    wreg     enum E885
-  1125 ;;  _shapePositi    2    5[BANK0 ] PTR struct .
-  1126 ;;		 -> main@shapePosition(4), 
-  1127 ;;  shapeArray      1    7[BANK0 ] PTR unsigned char 
-  1128 ;;		 -> main@figure(3), 
-  1129 ;; Auto vars:     Size  Location     Type
-  1130 ;;  dir             1   10[BANK0 ] enum E885
-  1131 ;; Return value:  Size  Location     Type
-  1132 ;;                  1    wreg      void 
-  1133 ;; Registers used:
-  1134 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
-  1135 ;; Tracked objects:
-  1136 ;;		On entry : 0/0
-  1137 ;;		On exit  : 0/0
-  1138 ;;		Unchanged: 0/0
-  1139 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1140 ;;      Params:         0       3       0       0       0
-  1141 ;;      Locals:         0       1       0       0       0
-  1142 ;;      Temps:          0       2       0       0       0
-  1143 ;;      Totals:         0       6       0       0       0
-  1144 ;;Total ram usage:        6 bytes
-  1145 ;; Hardware stack levels used: 1
-  1146 ;; Hardware stack levels required when called: 3
-  1147 ;; This function calls:
-  1148 ;;		_MovieDown
-  1149 ;;		_MovieLeft
-  1150 ;;		_MovieRigth
-  1151 ;;		_MovieUp
-  1152 ;;		_ShowShape
-  1153 ;;		_SpiClearMatrix
-  1154 ;; This function is called by:
-  1155 ;;		_main
-  1156 ;; This function uses a non-reentrant model
-  1157 ;;
-  1158                           
-  1159     063A                     _MovieShape:	
-  1160                           ;psect for function _MovieShape
-  1161                           
-  1162                           
-  1163                           ;incstack = 0
-  1164                           ; Regs used in _MovieShape: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
-  1165                           ;MovieShape@dir stored from wreg
-  1166     063A  1283               	bcf	3,5	;RP0=0, select bank0
-  1167     063B  1303               	bcf	3,6	;RP1=0, select bank0
-  1168     063C  00AA               	movwf	MovieShape@dir
-  1169     063D                     l856:
-  1170                           
-  1171                           ;shape.c: 34:     switch (dir){
-  1172     063D  2E66               	goto	l868
-  1173     063E                     l858:
-  1174                           
-  1175                           ;shape.c: 36:             MovieDown(_shapePosition);
-  1176     063E  0825               	movf	MovieShape@_shapePosition,w
-  1177     063F  00F1               	movwf	MovieDown@_shapePosition
-  1178     0640  0826               	movf	MovieShape@_shapePosition+1,w
-  1179     0641  00F2               	movwf	MovieDown@_shapePosition+1
-  1180     0642  120A  118A  259B  120A  118A  	fcall	_MovieDown
-  1181                           
-  1182                           ;shape.c: 37:             break;
-  1183     0647  2E7F               	goto	l870
-  1184     0648                     l860:
-  1185                           
-  1186                           ;shape.c: 39:             MovieUp(_shapePosition);
-  1187     0648  0825               	movf	MovieShape@_shapePosition,w
-  1188     0649  00F1               	movwf	MovieUp@_shapePosition
-  1189     064A  0826               	movf	MovieShape@_shapePosition+1,w
-  1190     064B  00F2               	movwf	MovieUp@_shapePosition+1
-  1191     064C  120A  118A  25C4  120A  118A  	fcall	_MovieUp
-  1192                           
-  1193                           ;shape.c: 40:             break;
-  1194     0651  2E7F               	goto	l870
-  1195     0652                     l862:
-  1196                           
-  1197                           ;shape.c: 42:             MovieLeft(_shapePosition);
-  1198     0652  0825               	movf	MovieShape@_shapePosition,w
-  1199     0653  00F1               	movwf	MovieLeft@_shapePosition
-  1200     0654  0826               	movf	MovieShape@_shapePosition+1,w
-  1201     0655  00F2               	movwf	MovieLeft@_shapePosition+1
-  1202     0656  120A  118A  2565  120A  118A  	fcall	_MovieLeft
-  1203                           
-  1204                           ;shape.c: 43:             break;
-  1205     065B  2E7F               	goto	l870
-  1206     065C                     l864:
-  1207                           
-  1208                           ;shape.c: 45:             MovieRigth(_shapePosition);
-  1209     065C  0825               	movf	MovieShape@_shapePosition,w
-  1210     065D  00F1               	movwf	MovieRigth@_shapePosition
-  1211     065E  0826               	movf	MovieShape@_shapePosition+1,w
-  1212     065F  00F2               	movwf	MovieRigth@_shapePosition+1
-  1213     0660  120A  118A  255A  120A  118A  	fcall	_MovieRigth
-  1214                           
-  1215                           ;shape.c: 46:             break;
-  1216     0665  2E7F               	goto	l870
-  1217     0666                     l868:
-  1218     0666  082A               	movf	MovieShape@dir,w
-  1219     0667  00A8               	movwf	??_MovieShape
-  1220     0668  01A9               	clrf	??_MovieShape+1
-  1221                           
-  1222                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+   704                           ;main.c: 22:     PortBInit();
+   705     0719  120A  118A  2540  120A  118A  	fcall	_PortBInit
+   706                           
+   707                           ;main.c: 24:     TCoord shapePosition;;main.c: 25:     char figure[3] = { 0x07, 0x05, 0x
+      +                          07 };
+   708     071E  1283               	bcf	3,5	;RP0=0, select bank0
+   709     071F  1303               	bcf	3,6	;RP1=0, select bank0
+   710     0720  083D               	movf	main@F914,w
+   711     0721  00B0               	movwf	main@figure
+   712     0722  083E               	movf	main@F914+1,w
+   713     0723  00B1               	movwf	main@figure+1
+   714     0724  083F               	movf	main@F914+2,w
+   715     0725  00B2               	movwf	main@figure+2
+   716                           
+   717                           ;main.c: 26:     int countElemntArray = 3;
+   718     0726  3003               	movlw	3
+   719     0727  00B7               	movwf	main@countElemntArray
+   720     0728  3000               	movlw	0
+   721     0729  00B8               	movwf	main@countElemntArray+1
+   722     072A                     l914:
+   723                           
+   724                           ;main.c: 30:         int step = 0;
+   725     072A  1283               	bcf	3,5	;RP0=0, select bank0
+   726     072B  1303               	bcf	3,6	;RP1=0, select bank0
+   727     072C  01B3               	clrf	main@step
+   728     072D  01B4               	clrf	main@step+1
+   729     072E                     l916:
+   730                           
+   731                           ;main.c: 31:         SetPosition(&shapePosition, 0, 0);
+   732     072E  3039               	movlw	low main@shapePosition
+   733     072F  00F1               	movwf	SetPosition@position
+   734     0730  3000               	movlw	high main@shapePosition
+   735     0731  00F2               	movwf	SetPosition@position+1
+   736     0732  3000               	movlw	0
+   737     0733  00F3               	movwf	SetPosition@x
+   738     0734  00F4               	movwf	SetPosition@x+1
+   739     0735  3000               	movlw	0
+   740     0736  00F5               	movwf	SetPosition@y
+   741     0737  00F6               	movwf	SetPosition@y+1
+   742     0738  120A  118A  25D5  120A  118A  	fcall	_SetPosition
+   743     073D                     l918:
+   744                           
+   745                           ;main.c: 32:         MovieShape(notMoive, &shapePosition, figure, countElemntArray);
+   746     073D  3039               	movlw	low main@shapePosition
+   747     073E  1283               	bcf	3,5	;RP0=0, select bank0
+   748     073F  1303               	bcf	3,6	;RP1=0, select bank0
+   749     0740  00A5               	movwf	MovieShape@_shapePosition
+   750     0741  3000               	movlw	high main@shapePosition
+   751     0742  00A6               	movwf	MovieShape@_shapePosition+1
+   752     0743  3030               	movlw	(low (main@figure| 0))& (0+255)
+   753     0744  00A7               	movwf	MovieShape@shapeArray
+   754     0745  0838               	movf	main@countElemntArray+1,w
+   755     0746  00A9               	movwf	MovieShape@countElemntArray+1
+   756     0747  0837               	movf	main@countElemntArray,w
+   757     0748  00A8               	movwf	MovieShape@countElemntArray
+   758     0749  3004               	movlw	4
+   759     074A  120A  118A  2632  120A  118A  	fcall	_MovieShape
+   760     074F                     l920:
+   761                           
+   762                           ;main.c: 35:             for(int i = 0; i < 5; i++){
+   763     074F  1283               	bcf	3,5	;RP0=0, select bank0
+   764     0750  1303               	bcf	3,6	;RP1=0, select bank0
+   765     0751  01B5               	clrf	main@i
+   766     0752  01B6               	clrf	main@i+1
+   767     0753  2F98               	goto	l934
+   768     0754                     l924:
+   769                           
+   770                           ;main.c: 38:                         MovieShape(right, &shapePosition, figure, countElem
+      +                          ntArray);
+   771     0754  3039               	movlw	low main@shapePosition
+   772     0755  00A5               	movwf	MovieShape@_shapePosition
+   773     0756  3000               	movlw	high main@shapePosition
+   774     0757  00A6               	movwf	MovieShape@_shapePosition+1
+   775     0758  3030               	movlw	(low (main@figure| 0))& (0+255)
+   776     0759  00A7               	movwf	MovieShape@shapeArray
+   777     075A  0838               	movf	main@countElemntArray+1,w
+   778     075B  00A9               	movwf	MovieShape@countElemntArray+1
+   779     075C  0837               	movf	main@countElemntArray,w
+   780     075D  00A8               	movwf	MovieShape@countElemntArray
+   781     075E  3003               	movlw	3
+   782     075F  120A  118A  2632  120A  118A  	fcall	_MovieShape
+   783                           
+   784                           ;main.c: 39:                         break;
+   785     0764  2FAD               	goto	l936
+   786     0765                     l926:
+   787                           
+   788                           ;main.c: 41:                         MovieShape(down, &shapePosition, figure, countElemn
+      +                          tArray);
+   789     0765  3039               	movlw	low main@shapePosition
+   790     0766  00A5               	movwf	MovieShape@_shapePosition
+   791     0767  3000               	movlw	high main@shapePosition
+   792     0768  00A6               	movwf	MovieShape@_shapePosition+1
+   793     0769  3030               	movlw	(low (main@figure| 0))& (0+255)
+   794     076A  00A7               	movwf	MovieShape@shapeArray
+   795     076B  0838               	movf	main@countElemntArray+1,w
+   796     076C  00A9               	movwf	MovieShape@countElemntArray+1
+   797     076D  0837               	movf	main@countElemntArray,w
+   798     076E  00A8               	movwf	MovieShape@countElemntArray
+   799     076F  3000               	movlw	0
+   800     0770  120A  118A  2632  120A  118A  	fcall	_MovieShape
+   801                           
+   802                           ;main.c: 42:                         break;
+   803     0775  2FAD               	goto	l936
+   804     0776                     l928:
+   805                           
+   806                           ;main.c: 44:                         MovieShape(left, &shapePosition, figure, countElemn
+      +                          tArray);
+   807     0776  3039               	movlw	low main@shapePosition
+   808     0777  00A5               	movwf	MovieShape@_shapePosition
+   809     0778  3000               	movlw	high main@shapePosition
+   810     0779  00A6               	movwf	MovieShape@_shapePosition+1
+   811     077A  3030               	movlw	(low (main@figure| 0))& (0+255)
+   812     077B  00A7               	movwf	MovieShape@shapeArray
+   813     077C  0838               	movf	main@countElemntArray+1,w
+   814     077D  00A9               	movwf	MovieShape@countElemntArray+1
+   815     077E  0837               	movf	main@countElemntArray,w
+   816     077F  00A8               	movwf	MovieShape@countElemntArray
+   817     0780  3002               	movlw	2
+   818     0781  120A  118A  2632  120A  118A  	fcall	_MovieShape
+   819                           
+   820                           ;main.c: 45:                         break;
+   821     0786  2FAD               	goto	l936
+   822     0787                     l930:
+   823                           
+   824                           ;main.c: 47:                         MovieShape(up, &shapePosition, figure, countElemntA
+      +                          rray);
+   825     0787  3039               	movlw	low main@shapePosition
+   826     0788  00A5               	movwf	MovieShape@_shapePosition
+   827     0789  3000               	movlw	high main@shapePosition
+   828     078A  00A6               	movwf	MovieShape@_shapePosition+1
+   829     078B  3030               	movlw	(low (main@figure| 0))& (0+255)
+   830     078C  00A7               	movwf	MovieShape@shapeArray
+   831     078D  0838               	movf	main@countElemntArray+1,w
+   832     078E  00A9               	movwf	MovieShape@countElemntArray+1
+   833     078F  0837               	movf	main@countElemntArray,w
+   834     0790  00A8               	movwf	MovieShape@countElemntArray
+   835     0791  3001               	movlw	1
+   836     0792  120A  118A  2632  120A  118A  	fcall	_MovieShape
+   837                           
+   838                           ;main.c: 48:                         break;
+   839     0797  2FAD               	goto	l936
+   840     0798                     l934:
+   841                           
+   842                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
       +                          itches
-  1223                           ; Switch size 1, requested type "simple"
-  1224                           ; Number of cases is 1, Range of values is 0 to 0
-  1225                           ; switch strategies available:
-  1226                           ; Name         Instructions Cycles
-  1227                           ; simple_byte            4     3 (average)
-  1228                           ; direct_byte           11     8 (fixed)
-  1229                           ; jumptable            260     6 (fixed)
-  1230                           ;	Chosen strategy is simple_byte
-  1231     0669  0829               	movf	??_MovieShape+1,w
-  1232     066A  3A00               	xorlw	0	; case 0
-  1233     066B  1903               	skipnz
-  1234     066C  2E6E               	goto	l946
-  1235     066D  2E7F               	goto	l870
-  1236     066E                     l946:
-  1237                           
-  1238                           ; Switch size 1, requested type "simple"
-  1239                           ; Number of cases is 5, Range of values is 0 to 4
-  1240                           ; switch strategies available:
-  1241                           ; Name         Instructions Cycles
-  1242                           ; simple_byte           16     9 (average)
-  1243                           ; direct_byte           23     8 (fixed)
-  1244                           ; jumptable            260     6 (fixed)
-  1245                           ;	Chosen strategy is simple_byte
-  1246     066E  0828               	movf	??_MovieShape,w
-  1247     066F  3A00               	xorlw	0	; case 0
-  1248     0670  1903               	skipnz
-  1249     0671  2E3E               	goto	l858
-  1250     0672  3A01               	xorlw	1	; case 1
-  1251     0673  1903               	skipnz
-  1252     0674  2E48               	goto	l860
-  1253     0675  3A03               	xorlw	3	; case 2
-  1254     0676  1903               	skipnz
-  1255     0677  2E52               	goto	l862
-  1256     0678  3A01               	xorlw	1	; case 3
-  1257     0679  1903               	skipnz
-  1258     067A  2E5C               	goto	l864
-  1259     067B  3A07               	xorlw	7	; case 4
-  1260     067C  1903               	skipnz
-  1261     067D  2E7F               	goto	l870
-  1262     067E  2E7F               	goto	l870
-  1263     067F                     l870:
-  1264                           
-  1265                           ;shape.c: 51:     SpiClearMatrix();
-  1266     067F  120A  118A  25AE  120A  118A  	fcall	_SpiClearMatrix
-  1267     0684                     l872:
-  1268                           
-  1269                           ;shape.c: 52:     ShowShape(_shapePosition, 3, shapeArray);
-  1270     0684  1283               	bcf	3,5	;RP0=0, select bank0
-  1271     0685  1303               	bcf	3,6	;RP1=0, select bank0
-  1272     0686  0825               	movf	MovieShape@_shapePosition,w
-  1273     0687  00F5               	movwf	ShowShape@coord
-  1274     0688  0826               	movf	MovieShape@_shapePosition+1,w
-  1275     0689  00F6               	movwf	ShowShape@coord+1
-  1276     068A  3003               	movlw	3
-  1277     068B  00F7               	movwf	ShowShape@countElemntArray
-  1278     068C  3000               	movlw	0
-  1279     068D  00F8               	movwf	ShowShape@countElemntArray+1
-  1280     068E  0827               	movf	MovieShape@shapeArray,w
-  1281     068F  00F9               	movwf	ShowShape@shapeArray
-  1282     0690  120A  118A  2696  120A  118A  	fcall	_ShowShape
-  1283     0695                     l110:
-  1284     0695  0008               	return
-  1285     0696                     __end_of_MovieShape:
+   843                           ; Switch size 1, requested type "simple"
+   844                           ; Number of cases is 1, Range of values is 0 to 0
+   845                           ; switch strategies available:
+   846                           ; Name         Instructions Cycles
+   847                           ; simple_byte            4     3 (average)
+   848                           ; direct_byte           11     8 (fixed)
+   849                           ; jumptable            260     6 (fixed)
+   850                           ;	Chosen strategy is simple_byte
+   851     0798  1283               	bcf	3,5	;RP0=0, select bank0
+   852     0799  1303               	bcf	3,6	;RP1=0, select bank0
+   853     079A  0834               	movf	main@step+1,w
+   854     079B  3A00               	xorlw	0	; case 0
+   855     079C  1903               	skipnz
+   856     079D  2F9F               	goto	l998
+   857     079E  2FAD               	goto	l936
+   858     079F                     l998:
+   859                           
+   860                           ; Switch size 1, requested type "simple"
+   861                           ; Number of cases is 4, Range of values is 0 to 3
+   862                           ; switch strategies available:
+   863                           ; Name         Instructions Cycles
+   864                           ; simple_byte           13     7 (average)
+   865                           ; direct_byte           20     8 (fixed)
+   866                           ; jumptable            260     6 (fixed)
+   867                           ;	Chosen strategy is simple_byte
+   868     079F  0833               	movf	main@step,w
+   869     07A0  3A00               	xorlw	0	; case 0
+   870     07A1  1903               	skipnz
+   871     07A2  2F54               	goto	l924
+   872     07A3  3A01               	xorlw	1	; case 1
+   873     07A4  1903               	skipnz
+   874     07A5  2F65               	goto	l926
+   875     07A6  3A03               	xorlw	3	; case 2
+   876     07A7  1903               	skipnz
+   877     07A8  2F76               	goto	l928
+   878     07A9  3A01               	xorlw	1	; case 3
+   879     07AA  1903               	skipnz
+   880     07AB  2F87               	goto	l930
+   881     07AC  2FAD               	goto	l936
+   882     07AD                     l936:
+   883                           
+   884                           ;main.c: 50:                 _delay((unsigned long)((delay)*(16000000/4000.0)));
+   885     07AD  3003               	movlw	3
+   886     07AE  1283               	bcf	3,5	;RP0=0, select bank0
+   887     07AF  1303               	bcf	3,6	;RP1=0, select bank0
+   888     07B0  00AF               	movwf	??_main+2
+   889     07B1  3008               	movlw	8
+   890     07B2  00AE               	movwf	??_main+1
+   891     07B3  3076               	movlw	118
+   892     07B4  00AD               	movwf	??_main
+   893     07B5                     u137:
+   894     07B5  0BAD               	decfsz	??_main,f
+   895     07B6  2FB5               	goto	u137
+   896     07B7  0BAE               	decfsz	??_main+1,f
+   897     07B8  2FB5               	goto	u137
+   898     07B9  0BAF               	decfsz	??_main+2,f
+   899     07BA  2FB5               	goto	u137
+   900     07BB  0000               	nop
+   901                           
+   902                           ;main.c: 51:             }
+   903     07BC  3001               	movlw	1
+   904     07BD  1283               	bcf	3,5	;RP0=0, select bank0
+   905     07BE  1303               	bcf	3,6	;RP1=0, select bank0
+   906     07BF  07B5               	addwf	main@i,f
+   907     07C0  1803               	skipnc
+   908     07C1  0AB6               	incf	main@i+1,f
+   909     07C2  3000               	movlw	0
+   910     07C3  07B6               	addwf	main@i+1,f
+   911     07C4                     l938:
+   912     07C4  0836               	movf	main@i+1,w
+   913     07C5  3A80               	xorlw	128
+   914     07C6  00FF               	movwf	btemp+1
+   915     07C7  3080               	movlw	128
+   916     07C8  027F               	subwf	btemp+1,w
+   917     07C9  1D03               	skipz
+   918     07CA  2FCD               	goto	u115
+   919     07CB  3005               	movlw	5
+   920     07CC  0235               	subwf	main@i,w
+   921     07CD                     u115:
+   922     07CD  1C03               	skipc
+   923     07CE  2FD0               	goto	u111
+   924     07CF  2FD1               	goto	u110
+   925     07D0                     u111:
+   926     07D0  2F98               	goto	l934
+   927     07D1                     u110:
+   928     07D1                     l940:
+   929                           
+   930                           ;main.c: 52:             step++;
+   931     07D1  3001               	movlw	1
+   932     07D2  1283               	bcf	3,5	;RP0=0, select bank0
+   933     07D3  1303               	bcf	3,6	;RP1=0, select bank0
+   934     07D4  07B3               	addwf	main@step,f
+   935     07D5  1803               	skipnc
+   936     07D6  0AB4               	incf	main@step+1,f
+   937     07D7  3000               	movlw	0
+   938     07D8  07B4               	addwf	main@step+1,f
+   939     07D9                     l942:
+   940                           
+   941                           ;main.c: 53:         } while(step < 4);
+   942     07D9  0834               	movf	main@step+1,w
+   943     07DA  3A80               	xorlw	128
+   944     07DB  00FF               	movwf	btemp+1
+   945     07DC  3080               	movlw	128
+   946     07DD  027F               	subwf	btemp+1,w
+   947     07DE  1D03               	skipz
+   948     07DF  2FE2               	goto	u125
+   949     07E0  3004               	movlw	4
+   950     07E1  0233               	subwf	main@step,w
+   951     07E2                     u125:
+   952     07E2  1C03               	skipc
+   953     07E3  2FE5               	goto	u121
+   954     07E4  2FE6               	goto	u120
+   955     07E5                     u121:
+   956     07E5  2F4F               	goto	l920
+   957     07E6                     u120:
+   958     07E6  2F2A               	goto	l914
+   959     07E7  120A  118A  2800   	ljmp	start
+   960     07EA                     __end_of_main:
+   961                           
+   962                           	psect	text1
+   963     056E                     __ptext1:	
+   964 ;; *************** function _SpiInit *****************
+   965 ;; Defined at:
+   966 ;;		line 9 in file "spi.c"
+   967 ;; Parameters:    Size  Location     Type
+   968 ;;		None
+   969 ;; Auto vars:     Size  Location     Type
+   970 ;;		None
+   971 ;; Return value:  Size  Location     Type
+   972 ;;                  1    wreg      void 
+   973 ;; Registers used:
+   974 ;;		wreg, status,2, status,0
+   975 ;; Tracked objects:
+   976 ;;		On entry : 0/0
+   977 ;;		On exit  : 0/0
+   978 ;;		Unchanged: 0/0
+   979 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   980 ;;      Params:         0       0       0       0       0
+   981 ;;      Locals:         0       0       0       0       0
+   982 ;;      Temps:          0       0       0       0       0
+   983 ;;      Totals:         0       0       0       0       0
+   984 ;;Total ram usage:        0 bytes
+   985 ;; Hardware stack levels used: 1
+   986 ;; This function calls:
+   987 ;;		Nothing
+   988 ;; This function is called by:
+   989 ;;		_main
+   990 ;; This function uses a non-reentrant model
+   991 ;;
+   992                           
+   993     056E                     _SpiInit:	
+   994                           ;psect for function _SpiInit
+   995                           
+   996     056E                     l858:	
+   997                           ;incstack = 0
+   998                           ; Regs used in _SpiInit: [wreg+status,2+status,0]
+   999                           
+  1000                           
+  1001                           ;spi.c: 10:     TRISC |= 0x10;
+  1002     056E  1683               	bsf	3,5	;RP0=1, select bank1
+  1003     056F  1303               	bcf	3,6	;RP1=0, select bank1
+  1004     0570  1607               	bsf	7,4	;volatile
+  1005     0571                     l860:
+  1006                           
+  1007                           ;spi.c: 11:     TRISC &= ~0x28;
+  1008     0571  30D7               	movlw	215
+  1009     0572  0587               	andwf	7,f	;volatile
+  1010                           
+  1011                           ;spi.c: 12:     TRISA &= ~0x20;
+  1012     0573  30DF               	movlw	223
+  1013     0574  0585               	andwf	5,f	;volatile
+  1014                           
+  1015                           ;spi.c: 13:     PORTA &= ~0x20;
+  1016     0575  30DF               	movlw	223
+  1017     0576  1283               	bcf	3,5	;RP0=0, select bank0
+  1018     0577  1303               	bcf	3,6	;RP1=0, select bank0
+  1019     0578  0585               	andwf	5,f	;volatile
+  1020     0579                     l862:
+  1021                           
+  1022                           ;spi.c: 14:     SSPCON = 0x30;
+  1023     0579  3030               	movlw	48
+  1024     057A  0094               	movwf	20	;volatile
+  1025     057B                     l864:
+  1026                           
+  1027                           ;spi.c: 15:     SSPSTAT = 0x80;
+  1028     057B  3080               	movlw	128
+  1029     057C  1683               	bsf	3,5	;RP0=1, select bank1
+  1030     057D  1303               	bcf	3,6	;RP1=0, select bank1
+  1031     057E  0094               	movwf	20	;volatile
+  1032     057F                     l58:
+  1033     057F  0008               	return
+  1034     0580                     __end_of_SpiInit:
+  1035                           
+  1036                           	psect	text2
+  1037     05D5                     __ptext2:	
+  1038 ;; *************** function _SetPosition *****************
+  1039 ;; Defined at:
+  1040 ;;		line 3 in file "shape.c"
+  1041 ;; Parameters:    Size  Location     Type
+  1042 ;;  position        2    0[COMMON] PTR struct .
+  1043 ;;		 -> main@shapePosition(4), 
+  1044 ;;  x               2    2[COMMON] int 
+  1045 ;;  y               2    4[COMMON] int 
+  1046 ;; Auto vars:     Size  Location     Type
+  1047 ;;		None
+  1048 ;; Return value:  Size  Location     Type
+  1049 ;;                  1    wreg      void 
+  1050 ;; Registers used:
+  1051 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+  1052 ;; Tracked objects:
+  1053 ;;		On entry : 0/0
+  1054 ;;		On exit  : 0/0
+  1055 ;;		Unchanged: 0/0
+  1056 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1057 ;;      Params:         6       0       0       0       0
+  1058 ;;      Locals:         0       0       0       0       0
+  1059 ;;      Temps:          2       0       0       0       0
+  1060 ;;      Totals:         8       0       0       0       0
+  1061 ;;Total ram usage:        8 bytes
+  1062 ;; Hardware stack levels used: 1
+  1063 ;; This function calls:
+  1064 ;;		Nothing
+  1065 ;; This function is called by:
+  1066 ;;		_main
+  1067 ;; This function uses a non-reentrant model
+  1068 ;;
+  1069                           
+  1070     05D5                     _SetPosition:	
+  1071                           ;psect for function _SetPosition
+  1072                           
+  1073     05D5                     l882:	
+  1074                           ;incstack = 0
+  1075                           ; Regs used in _SetPosition: [wreg-fsr0h+status,2+status,0]
+  1076                           
+  1077                           
+  1078                           ;shape.c: 4:     position->x = x;
+  1079     05D5  0871               	movf	SetPosition@position,w
+  1080     05D6  0084               	movwf	4
+  1081     05D7  1783               	bsf	3,7
+  1082     05D8  1C72               	btfss	SetPosition@position+1,0
+  1083     05D9  1383               	bcf	3,7
+  1084     05DA  0873               	movf	SetPosition@x,w
+  1085     05DB  0080               	movwf	0
+  1086     05DC  0A84               	incf	4,f
+  1087     05DD  0874               	movf	SetPosition@x+1,w
+  1088     05DE  0080               	movwf	0
+  1089     05DF                     l884:
+  1090                           
+  1091                           ;shape.c: 5:     position->y = y;
+  1092     05DF  0871               	movf	SetPosition@position,w
+  1093     05E0  3E02               	addlw	2
+  1094     05E1  00F7               	movwf	??_SetPosition
+  1095     05E2  0872               	movf	SetPosition@position+1,w
+  1096     05E3  1803               	skipnc
+  1097     05E4  3E01               	addlw	1
+  1098     05E5  3E00               	addlw	0
+  1099     05E6  00F8               	movwf	??_SetPosition+1
+  1100     05E7  0877               	movf	??_SetPosition,w
+  1101     05E8  0084               	movwf	4
+  1102     05E9  1783               	bsf	3,7
+  1103     05EA  1C78               	btfss	??_SetPosition+1,0
+  1104     05EB  1383               	bcf	3,7
+  1105     05EC  0875               	movf	SetPosition@y,w
+  1106     05ED  0080               	movwf	0
+  1107     05EE  0A84               	incf	4,f
+  1108     05EF  0876               	movf	SetPosition@y+1,w
+  1109     05F0  0080               	movwf	0
+  1110     05F1                     l90:
+  1111     05F1  0008               	return
+  1112     05F2                     __end_of_SetPosition:
+  1113                           
+  1114                           	psect	text3
+  1115     0540                     __ptext3:	
+  1116 ;; *************** function _PortBInit *****************
+  1117 ;; Defined at:
+  1118 ;;		line 13 in file "portsinit.c"
+  1119 ;; Parameters:    Size  Location     Type
+  1120 ;;		None
+  1121 ;; Auto vars:     Size  Location     Type
+  1122 ;;		None
+  1123 ;; Return value:  Size  Location     Type
+  1124 ;;                  1    wreg      void 
+  1125 ;; Registers used:
+  1126 ;;		status,2
+  1127 ;; Tracked objects:
+  1128 ;;		On entry : 0/0
+  1129 ;;		On exit  : 0/0
+  1130 ;;		Unchanged: 0/0
+  1131 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1132 ;;      Params:         0       0       0       0       0
+  1133 ;;      Locals:         0       0       0       0       0
+  1134 ;;      Temps:          0       0       0       0       0
+  1135 ;;      Totals:         0       0       0       0       0
+  1136 ;;Total ram usage:        0 bytes
+  1137 ;; Hardware stack levels used: 1
+  1138 ;; This function calls:
+  1139 ;;		Nothing
+  1140 ;; This function is called by:
+  1141 ;;		_main
+  1142 ;; This function uses a non-reentrant model
+  1143 ;;
+  1144                           
+  1145     0540                     _PortBInit:	
+  1146                           ;psect for function _PortBInit
+  1147                           
+  1148     0540                     l880:	
+  1149                           ;incstack = 0
+  1150                           ; Regs used in _PortBInit: [status,2]
+  1151                           
+  1152                           
+  1153                           ;portsinit.c: 14:     TRISB = 0x00;
+  1154     0540  1683               	bsf	3,5	;RP0=1, select bank1
+  1155     0541  1303               	bcf	3,6	;RP1=0, select bank1
+  1156     0542  0186               	clrf	6	;volatile
+  1157                           
+  1158                           ;portsinit.c: 15:     PORTB = 0x00;
+  1159     0543  1283               	bcf	3,5	;RP0=0, select bank0
+  1160     0544  1303               	bcf	3,6	;RP1=0, select bank0
+  1161     0545  0186               	clrf	6	;volatile
+  1162     0546                     l41:
+  1163     0546  0008               	return
+  1164     0547                     __end_of_PortBInit:
+  1165                           
+  1166                           	psect	text4
+  1167     0632                     __ptext4:	
+  1168 ;; *************** function _MovieShape *****************
+  1169 ;; Defined at:
+  1170 ;;		line 32 in file "shape.c"
+  1171 ;; Parameters:    Size  Location     Type
+  1172 ;;  dir             1    wreg     enum E885
+  1173 ;;  _shapePositi    2    5[BANK0 ] PTR struct .
+  1174 ;;		 -> main@shapePosition(4), 
+  1175 ;;  shapeArray      1    7[BANK0 ] PTR unsigned char 
+  1176 ;;		 -> main@figure(3), 
+  1177 ;;  countElemntA    2    8[BANK0 ] int 
+  1178 ;; Auto vars:     Size  Location     Type
+  1179 ;;  dir             1   12[BANK0 ] enum E885
+  1180 ;; Return value:  Size  Location     Type
+  1181 ;;                  1    wreg      void 
+  1182 ;; Registers used:
+  1183 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+  1184 ;; Tracked objects:
+  1185 ;;		On entry : 0/0
+  1186 ;;		On exit  : 0/0
+  1187 ;;		Unchanged: 0/0
+  1188 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1189 ;;      Params:         0       5       0       0       0
+  1190 ;;      Locals:         0       1       0       0       0
+  1191 ;;      Temps:          0       2       0       0       0
+  1192 ;;      Totals:         0       8       0       0       0
+  1193 ;;Total ram usage:        8 bytes
+  1194 ;; Hardware stack levels used: 1
+  1195 ;; Hardware stack levels required when called: 3
+  1196 ;; This function calls:
+  1197 ;;		_MovieDown
+  1198 ;;		_MovieLeft
+  1199 ;;		_MovieRigth
+  1200 ;;		_MovieUp
+  1201 ;;		_ShowShape
+  1202 ;;		_SpiClearMatrix
+  1203 ;; This function is called by:
+  1204 ;;		_main
+  1205 ;; This function uses a non-reentrant model
+  1206 ;;
+  1207                           
+  1208     0632                     _MovieShape:	
+  1209                           ;psect for function _MovieShape
+  1210                           
+  1211                           
+  1212                           ;incstack = 0
+  1213                           ; Regs used in _MovieShape: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+  1214                           ;MovieShape@dir stored from wreg
+  1215     0632  1283               	bcf	3,5	;RP0=0, select bank0
+  1216     0633  1303               	bcf	3,6	;RP1=0, select bank0
+  1217     0634  00AC               	movwf	MovieShape@dir
+  1218     0635                     l886:
+  1219                           
+  1220                           ;shape.c: 34:     switch (dir){
+  1221     0635  2E5E               	goto	l898
+  1222     0636                     l888:
+  1223                           
+  1224                           ;shape.c: 36:             MovieDown(_shapePosition);
+  1225     0636  0825               	movf	MovieShape@_shapePosition,w
+  1226     0637  00F1               	movwf	MovieDown@_shapePosition
+  1227     0638  0826               	movf	MovieShape@_shapePosition+1,w
+  1228     0639  00F2               	movwf	MovieDown@_shapePosition+1
+  1229     063A  120A  118A  2593  120A  118A  	fcall	_MovieDown
+  1230                           
+  1231                           ;shape.c: 37:             break;
+  1232     063F  2E77               	goto	l900
+  1233     0640                     l890:
+  1234                           
+  1235                           ;shape.c: 39:             MovieUp(_shapePosition);
+  1236     0640  0825               	movf	MovieShape@_shapePosition,w
+  1237     0641  00F1               	movwf	MovieUp@_shapePosition
+  1238     0642  0826               	movf	MovieShape@_shapePosition+1,w
+  1239     0643  00F2               	movwf	MovieUp@_shapePosition+1
+  1240     0644  120A  118A  25BC  120A  118A  	fcall	_MovieUp
+  1241                           
+  1242                           ;shape.c: 40:             break;
+  1243     0649  2E77               	goto	l900
+  1244     064A                     l892:
+  1245                           
+  1246                           ;shape.c: 42:             MovieLeft(_shapePosition);
+  1247     064A  0825               	movf	MovieShape@_shapePosition,w
+  1248     064B  00F1               	movwf	MovieLeft@_shapePosition
+  1249     064C  0826               	movf	MovieShape@_shapePosition+1,w
+  1250     064D  00F2               	movwf	MovieLeft@_shapePosition+1
+  1251     064E  120A  118A  255D  120A  118A  	fcall	_MovieLeft
+  1252                           
+  1253                           ;shape.c: 43:             break;
+  1254     0653  2E77               	goto	l900
+  1255     0654                     l894:
+  1256                           
+  1257                           ;shape.c: 45:             MovieRigth(_shapePosition);
+  1258     0654  0825               	movf	MovieShape@_shapePosition,w
+  1259     0655  00F1               	movwf	MovieRigth@_shapePosition
+  1260     0656  0826               	movf	MovieShape@_shapePosition+1,w
+  1261     0657  00F2               	movwf	MovieRigth@_shapePosition+1
+  1262     0658  120A  118A  2552  120A  118A  	fcall	_MovieRigth
+  1263                           
+  1264                           ;shape.c: 46:             break;
+  1265     065D  2E77               	goto	l900
+  1266     065E                     l898:
+  1267     065E  082C               	movf	MovieShape@dir,w
+  1268     065F  00AA               	movwf	??_MovieShape
+  1269     0660  01AB               	clrf	??_MovieShape+1
+  1270                           
+  1271                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+  1272                           ; Switch size 1, requested type "simple"
+  1273                           ; Number of cases is 1, Range of values is 0 to 0
+  1274                           ; switch strategies available:
+  1275                           ; Name         Instructions Cycles
+  1276                           ; simple_byte            4     3 (average)
+  1277                           ; direct_byte           11     8 (fixed)
+  1278                           ; jumptable            260     6 (fixed)
+  1279                           ;	Chosen strategy is simple_byte
+  1280     0661  082B               	movf	??_MovieShape+1,w
+  1281     0662  3A00               	xorlw	0	; case 0
+  1282     0663  1903               	skipnz
+  1283     0664  2E66               	goto	l1000
+  1284     0665  2E77               	goto	l900
+  1285     0666                     l1000:
   1286                           
-  1287                           	psect	text5
-  1288     0696                     __ptext5:	
-  1289 ;; *************** function _ShowShape *****************
-  1290 ;; Defined at:
-  1291 ;;		line 8 in file "shape.c"
-  1292 ;; Parameters:    Size  Location     Type
-  1293 ;;  coord           2    4[COMMON] PTR struct .
-  1294 ;;		 -> main@shapePosition(4), 
-  1295 ;;  countElemntA    2    6[COMMON] int 
-  1296 ;;  shapeArray      1    8[COMMON] PTR unsigned char 
-  1297 ;;		 -> main@figure(3), 
-  1298 ;; Auto vars:     Size  Location     Type
-  1299 ;;  pos             2   11[COMMON] int 
-  1300 ;;  _pos            2    9[COMMON] int 
-  1301 ;; Return value:  Size  Location     Type
-  1302 ;;                  1    wreg      void 
-  1303 ;; Registers used:
-  1304 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
-  1305 ;; Tracked objects:
-  1306 ;;		On entry : 0/0
-  1307 ;;		On exit  : 0/0
-  1308 ;;		Unchanged: 0/0
-  1309 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1310 ;;      Params:         5       0       0       0       0
-  1311 ;;      Locals:         4       0       0       0       0
-  1312 ;;      Temps:          0       5       0       0       0
-  1313 ;;      Totals:         9       5       0       0       0
-  1314 ;;Total ram usage:       14 bytes
-  1315 ;; Hardware stack levels used: 1
-  1316 ;; Hardware stack levels required when called: 2
-  1317 ;; This function calls:
-  1318 ;;		_SendToSegment
-  1319 ;; This function is called by:
-  1320 ;;		_MovieShape
-  1321 ;; This function uses a non-reentrant model
-  1322 ;;
-  1323                           
-  1324     0696                     _ShowShape:	
-  1325                           ;psect for function _ShowShape
-  1326                           
-  1327     0696                     l808:	
-  1328                           ;incstack = 0
-  1329                           ; Regs used in _ShowShape: [wreg-fsr0h+status,2+status,0+pclath+cstack]
-  1330                           
-  1331     0696                     l810:
-  1332                           
-  1333                           ;shape.c: 10:     for(int pos = 1 + coord->x; pos <= countElemntArray + coord->x; pos++)
+  1287                           ; Switch size 1, requested type "simple"
+  1288                           ; Number of cases is 5, Range of values is 0 to 4
+  1289                           ; switch strategies available:
+  1290                           ; Name         Instructions Cycles
+  1291                           ; simple_byte           16     9 (average)
+  1292                           ; direct_byte           23     8 (fixed)
+  1293                           ; jumptable            260     6 (fixed)
+  1294                           ;	Chosen strategy is simple_byte
+  1295     0666  082A               	movf	??_MovieShape,w
+  1296     0667  3A00               	xorlw	0	; case 0
+  1297     0668  1903               	skipnz
+  1298     0669  2E36               	goto	l888
+  1299     066A  3A01               	xorlw	1	; case 1
+  1300     066B  1903               	skipnz
+  1301     066C  2E40               	goto	l890
+  1302     066D  3A03               	xorlw	3	; case 2
+  1303     066E  1903               	skipnz
+  1304     066F  2E4A               	goto	l892
+  1305     0670  3A01               	xorlw	1	; case 3
+  1306     0671  1903               	skipnz
+  1307     0672  2E54               	goto	l894
+  1308     0673  3A07               	xorlw	7	; case 4
+  1309     0674  1903               	skipnz
+  1310     0675  2E77               	goto	l900
+  1311     0676  2E77               	goto	l900
+  1312     0677                     l900:
+  1313                           
+  1314                           ;shape.c: 51:     SpiClearMatrix();
+  1315     0677  120A  118A  25A6  120A  118A  	fcall	_SpiClearMatrix
+  1316     067C                     l902:
+  1317                           
+  1318                           ;shape.c: 52:     ShowShape(_shapePosition, countElemntArray, shapeArray);
+  1319     067C  1283               	bcf	3,5	;RP0=0, select bank0
+  1320     067D  1303               	bcf	3,6	;RP1=0, select bank0
+  1321     067E  0825               	movf	MovieShape@_shapePosition,w
+  1322     067F  00F5               	movwf	ShowShape@coord
+  1323     0680  0826               	movf	MovieShape@_shapePosition+1,w
+  1324     0681  00F6               	movwf	ShowShape@coord+1
+  1325     0682  0829               	movf	MovieShape@countElemntArray+1,w
+  1326     0683  00F8               	movwf	ShowShape@countElemntArray+1
+  1327     0684  0828               	movf	MovieShape@countElemntArray,w
+  1328     0685  00F7               	movwf	ShowShape@countElemntArray
+  1329     0686  0827               	movf	MovieShape@shapeArray,w
+  1330     0687  00F9               	movwf	ShowShape@shapeArray
+  1331     0688  120A  118A  268E  120A  118A  	fcall	_ShowShape
+  1332     068D                     l118:
+  1333     068D  0008               	return
+  1334     068E                     __end_of_MovieShape:
+  1335                           
+  1336                           	psect	text5
+  1337     068E                     __ptext5:	
+  1338 ;; *************** function _ShowShape *****************
+  1339 ;; Defined at:
+  1340 ;;		line 8 in file "shape.c"
+  1341 ;; Parameters:    Size  Location     Type
+  1342 ;;  coord           2    4[COMMON] PTR struct .
+  1343 ;;		 -> main@shapePosition(4), 
+  1344 ;;  countElemntA    2    6[COMMON] int 
+  1345 ;;  shapeArray      1    8[COMMON] PTR unsigned char 
+  1346 ;;		 -> main@figure(3), 
+  1347 ;; Auto vars:     Size  Location     Type
+  1348 ;;  pos             2   11[COMMON] int 
+  1349 ;;  _pos            2    9[COMMON] int 
+  1350 ;; Return value:  Size  Location     Type
+  1351 ;;                  1    wreg      void 
+  1352 ;; Registers used:
+  1353 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1354 ;; Tracked objects:
+  1355 ;;		On entry : 0/0
+  1356 ;;		On exit  : 0/0
+  1357 ;;		Unchanged: 0/0
+  1358 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1359 ;;      Params:         5       0       0       0       0
+  1360 ;;      Locals:         4       0       0       0       0
+  1361 ;;      Temps:          0       5       0       0       0
+  1362 ;;      Totals:         9       5       0       0       0
+  1363 ;;Total ram usage:       14 bytes
+  1364 ;; Hardware stack levels used: 1
+  1365 ;; Hardware stack levels required when called: 2
+  1366 ;; This function calls:
+  1367 ;;		_SendToSegment
+  1368 ;; This function is called by:
+  1369 ;;		_MovieShape
+  1370 ;; This function uses a non-reentrant model
+  1371 ;;
+  1372                           
+  1373     068E                     _ShowShape:	
+  1374                           ;psect for function _ShowShape
+  1375                           
+  1376     068E                     l838:	
+  1377                           ;incstack = 0
+  1378                           ; Regs used in _ShowShape: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1379                           
+  1380     068E                     l840:
+  1381                           
+  1382                           ;shape.c: 10:     for(int pos = 1 + coord->x; pos <= countElemntArray + coord->x; pos++)
       +                          {
-  1334     0696  0875               	movf	ShowShape@coord,w
-  1335     0697  0084               	movwf	4
-  1336     0698  1783               	bsf	3,7
-  1337     0699  1C76               	btfss	ShowShape@coord+1,0
-  1338     069A  1383               	bcf	3,7
-  1339     069B  0800               	movf	0,w
-  1340     069C  1283               	bcf	3,5	;RP0=0, select bank0
-  1341     069D  1303               	bcf	3,6	;RP1=0, select bank0
-  1342     069E  00A0               	movwf	??_ShowShape
-  1343     069F  0A84               	incf	4,f
-  1344     06A0  0800               	movf	0,w
-  1345     06A1  00A1               	movwf	??_ShowShape+1
-  1346     06A2  0820               	movf	??_ShowShape,w
-  1347     06A3  3E01               	addlw	1
-  1348     06A4  00FC               	movwf	ShowShape@pos
-  1349     06A5  0821               	movf	??_ShowShape+1,w
-  1350     06A6  1803               	skipnc
-  1351     06A7  3E01               	addlw	1
-  1352     06A8  3E00               	addlw	0
-  1353     06A9  00FD               	movwf	ShowShape@pos+1
-  1354     06AA  2EF4               	goto	l818
-  1355     06AB                     l812:
-  1356                           
-  1357                           ;shape.c: 11:        _pos = pos - 1 - coord->x;
-  1358     06AB  0875               	movf	ShowShape@coord,w
-  1359     06AC  0084               	movwf	4
-  1360     06AD  1783               	bsf	3,7
-  1361     06AE  1C76               	btfss	ShowShape@coord+1,0
-  1362     06AF  1383               	bcf	3,7
-  1363     06B0  0800               	movf	0,w
-  1364     06B1  1283               	bcf	3,5	;RP0=0, select bank0
-  1365     06B2  1303               	bcf	3,6	;RP1=0, select bank0
-  1366     06B3  00A0               	movwf	??_ShowShape
-  1367     06B4  0A84               	incf	4,f
-  1368     06B5  0800               	movf	0,w
-  1369     06B6  00A1               	movwf	??_ShowShape+1
-  1370     06B7  0820               	movf	??_ShowShape,w
-  1371     06B8  027C               	subwf	ShowShape@pos,w
-  1372     06B9  00A2               	movwf	??_ShowShape+2
-  1373     06BA  0821               	movf	??_ShowShape+1,w
-  1374     06BB  1C03               	skipc
-  1375     06BC  0A21               	incf	??_ShowShape+1,w
-  1376     06BD  027D               	subwf	ShowShape@pos+1,w
-  1377     06BE  00A3               	movwf	??_ShowShape+3
-  1378     06BF  0822               	movf	??_ShowShape+2,w
-  1379     06C0  3EFF               	addlw	255
-  1380     06C1  00FA               	movwf	ShowShape@_pos
-  1381     06C2  0823               	movf	??_ShowShape+3,w
-  1382     06C3  1803               	skipnc
-  1383     06C4  3E01               	addlw	1
-  1384     06C5  3EFF               	addlw	255
-  1385     06C6  00FB               	movwf	ShowShape@_pos+1
-  1386     06C7                     l814:
-  1387                           
-  1388                           ;shape.c: 12:        SendToSegment(pos, (char)(shapeArray[_pos] << coord->y));
-  1389     06C7  087D               	movf	ShowShape@pos+1,w
-  1390     06C8  00F3               	movwf	SendToSegment@segment+1
-  1391     06C9  087C               	movf	ShowShape@pos,w
-  1392     06CA  00F2               	movwf	SendToSegment@segment
-  1393     06CB  087A               	movf	ShowShape@_pos,w
-  1394     06CC  0779               	addwf	ShowShape@shapeArray,w
-  1395     06CD  00A0               	movwf	??_ShowShape
-  1396     06CE  0820               	movf	??_ShowShape,w
-  1397     06CF  0084               	movwf	4
-  1398     06D0  1383               	bcf	3,7	;select IRP bank0
-  1399     06D1  0800               	movf	0,w
-  1400     06D2  00A1               	movwf	??_ShowShape+1
-  1401     06D3  0875               	movf	ShowShape@coord,w
-  1402     06D4  3E02               	addlw	2
-  1403     06D5  00A2               	movwf	??_ShowShape+2
-  1404     06D6  0876               	movf	ShowShape@coord+1,w
-  1405     06D7  1803               	skipnc
-  1406     06D8  3E01               	addlw	1
-  1407     06D9  3E00               	addlw	0
-  1408     06DA  00A3               	movwf	??_ShowShape+3
-  1409     06DB  0822               	movf	??_ShowShape+2,w
-  1410     06DC  0084               	movwf	4
-  1411     06DD  1783               	bsf	3,7
-  1412     06DE  1C23               	btfss	??_ShowShape+3,0
-  1413     06DF  1383               	bcf	3,7
-  1414     06E0  0A00               	incf	0,w
-  1415     06E1  2EE4               	goto	u84
-  1416     06E2                     u85:
-  1417     06E2  1003               	clrc
-  1418     06E3  0DA1               	rlf	??_ShowShape+1,f
-  1419     06E4                     u84:
-  1420     06E4  3EFF               	addlw	-1
-  1421     06E5  1D03               	skipz
-  1422     06E6  2EE2               	goto	u85
-  1423     06E7  0821               	movf	??_ShowShape+1,w
-  1424     06E8  00F4               	movwf	SendToSegment@data
-  1425     06E9  120A  118A  2588  120A  118A  	fcall	_SendToSegment
-  1426     06EE                     l816:
-  1427                           
-  1428                           ;shape.c: 13:     }
-  1429     06EE  3001               	movlw	1
-  1430     06EF  07FC               	addwf	ShowShape@pos,f
-  1431     06F0  1803               	skipnc
-  1432     06F1  0AFD               	incf	ShowShape@pos+1,f
-  1433     06F2  3000               	movlw	0
-  1434     06F3  07FD               	addwf	ShowShape@pos+1,f
-  1435     06F4                     l818:
-  1436     06F4  0875               	movf	ShowShape@coord,w
-  1437     06F5  0084               	movwf	4
-  1438     06F6  1783               	bsf	3,7
-  1439     06F7  1C76               	btfss	ShowShape@coord+1,0
-  1440     06F8  1383               	bcf	3,7
-  1441     06F9  0800               	movf	0,w
-  1442     06FA  1283               	bcf	3,5	;RP0=0, select bank0
-  1443     06FB  1303               	bcf	3,6	;RP1=0, select bank0
-  1444     06FC  00A0               	movwf	??_ShowShape
-  1445     06FD  0A84               	incf	4,f
-  1446     06FE  0800               	movf	0,w
-  1447     06FF  00A1               	movwf	??_ShowShape+1
-  1448     0700  0877               	movf	ShowShape@countElemntArray,w
-  1449     0701  0720               	addwf	??_ShowShape,w
-  1450     0702  00A2               	movwf	??_ShowShape+2
-  1451     0703  0878               	movf	ShowShape@countElemntArray+1,w
-  1452     0704  1803               	skipnc
-  1453     0705  0A78               	incf	ShowShape@countElemntArray+1,w
-  1454     0706  0721               	addwf	??_ShowShape+1,w
-  1455     0707  00A3               	movwf	??_ShowShape+3
-  1456     0708  0823               	movf	??_ShowShape+3,w
-  1457     0709  3A80               	xorlw	128
-  1458     070A  00A4               	movwf	??_ShowShape+4
-  1459     070B  087D               	movf	ShowShape@pos+1,w
-  1460     070C  3A80               	xorlw	128
-  1461     070D  0224               	subwf	??_ShowShape+4,w
-  1462     070E  1D03               	skipz
-  1463     070F  2F12               	goto	u95
-  1464     0710  087C               	movf	ShowShape@pos,w
-  1465     0711  0222               	subwf	??_ShowShape+2,w
-  1466     0712                     u95:
-  1467     0712  1803               	skipnc
-  1468     0713  2F15               	goto	u91
-  1469     0714  2F16               	goto	u90
-  1470     0715                     u91:
-  1471     0715  2EAB               	goto	l812
-  1472     0716                     u90:
-  1473     0716                     l88:
-  1474     0716  0008               	return
-  1475     0717                     __end_of_ShowShape:
+  1383     068E  0875               	movf	ShowShape@coord,w
+  1384     068F  0084               	movwf	4
+  1385     0690  1783               	bsf	3,7
+  1386     0691  1C76               	btfss	ShowShape@coord+1,0
+  1387     0692  1383               	bcf	3,7
+  1388     0693  0800               	movf	0,w
+  1389     0694  1283               	bcf	3,5	;RP0=0, select bank0
+  1390     0695  1303               	bcf	3,6	;RP1=0, select bank0
+  1391     0696  00A0               	movwf	??_ShowShape
+  1392     0697  0A84               	incf	4,f
+  1393     0698  0800               	movf	0,w
+  1394     0699  00A1               	movwf	??_ShowShape+1
+  1395     069A  0820               	movf	??_ShowShape,w
+  1396     069B  3E01               	addlw	1
+  1397     069C  00FC               	movwf	ShowShape@pos
+  1398     069D  0821               	movf	??_ShowShape+1,w
+  1399     069E  1803               	skipnc
+  1400     069F  3E01               	addlw	1
+  1401     06A0  3E00               	addlw	0
+  1402     06A1  00FD               	movwf	ShowShape@pos+1
+  1403     06A2  2EEC               	goto	l848
+  1404     06A3                     l842:
+  1405                           
+  1406                           ;shape.c: 11:        _pos = pos - 1 - coord->x;
+  1407     06A3  0875               	movf	ShowShape@coord,w
+  1408     06A4  0084               	movwf	4
+  1409     06A5  1783               	bsf	3,7
+  1410     06A6  1C76               	btfss	ShowShape@coord+1,0
+  1411     06A7  1383               	bcf	3,7
+  1412     06A8  0800               	movf	0,w
+  1413     06A9  1283               	bcf	3,5	;RP0=0, select bank0
+  1414     06AA  1303               	bcf	3,6	;RP1=0, select bank0
+  1415     06AB  00A0               	movwf	??_ShowShape
+  1416     06AC  0A84               	incf	4,f
+  1417     06AD  0800               	movf	0,w
+  1418     06AE  00A1               	movwf	??_ShowShape+1
+  1419     06AF  0820               	movf	??_ShowShape,w
+  1420     06B0  027C               	subwf	ShowShape@pos,w
+  1421     06B1  00A2               	movwf	??_ShowShape+2
+  1422     06B2  0821               	movf	??_ShowShape+1,w
+  1423     06B3  1C03               	skipc
+  1424     06B4  0A21               	incf	??_ShowShape+1,w
+  1425     06B5  027D               	subwf	ShowShape@pos+1,w
+  1426     06B6  00A3               	movwf	??_ShowShape+3
+  1427     06B7  0822               	movf	??_ShowShape+2,w
+  1428     06B8  3EFF               	addlw	255
+  1429     06B9  00FA               	movwf	ShowShape@_pos
+  1430     06BA  0823               	movf	??_ShowShape+3,w
+  1431     06BB  1803               	skipnc
+  1432     06BC  3E01               	addlw	1
+  1433     06BD  3EFF               	addlw	255
+  1434     06BE  00FB               	movwf	ShowShape@_pos+1
+  1435     06BF                     l844:
+  1436                           
+  1437                           ;shape.c: 12:        SendToSegment(pos, (char)(shapeArray[_pos] << coord->y));
+  1438     06BF  087D               	movf	ShowShape@pos+1,w
+  1439     06C0  00F3               	movwf	SendToSegment@segment+1
+  1440     06C1  087C               	movf	ShowShape@pos,w
+  1441     06C2  00F2               	movwf	SendToSegment@segment
+  1442     06C3  087A               	movf	ShowShape@_pos,w
+  1443     06C4  0779               	addwf	ShowShape@shapeArray,w
+  1444     06C5  00A0               	movwf	??_ShowShape
+  1445     06C6  0820               	movf	??_ShowShape,w
+  1446     06C7  0084               	movwf	4
+  1447     06C8  1383               	bcf	3,7	;select IRP bank0
+  1448     06C9  0800               	movf	0,w
+  1449     06CA  00A1               	movwf	??_ShowShape+1
+  1450     06CB  0875               	movf	ShowShape@coord,w
+  1451     06CC  3E02               	addlw	2
+  1452     06CD  00A2               	movwf	??_ShowShape+2
+  1453     06CE  0876               	movf	ShowShape@coord+1,w
+  1454     06CF  1803               	skipnc
+  1455     06D0  3E01               	addlw	1
+  1456     06D1  3E00               	addlw	0
+  1457     06D2  00A3               	movwf	??_ShowShape+3
+  1458     06D3  0822               	movf	??_ShowShape+2,w
+  1459     06D4  0084               	movwf	4
+  1460     06D5  1783               	bsf	3,7
+  1461     06D6  1C23               	btfss	??_ShowShape+3,0
+  1462     06D7  1383               	bcf	3,7
+  1463     06D8  0A00               	incf	0,w
+  1464     06D9  2EDC               	goto	u94
+  1465     06DA                     u95:
+  1466     06DA  1003               	clrc
+  1467     06DB  0DA1               	rlf	??_ShowShape+1,f
+  1468     06DC                     u94:
+  1469     06DC  3EFF               	addlw	-1
+  1470     06DD  1D03               	skipz
+  1471     06DE  2EDA               	goto	u95
+  1472     06DF  0821               	movf	??_ShowShape+1,w
+  1473     06E0  00F4               	movwf	SendToSegment@data
+  1474     06E1  120A  118A  2580  120A  118A  	fcall	_SendToSegment
+  1475     06E6                     l846:
   1476                           
-  1477                           	psect	text6
-  1478     05C4                     __ptext6:	
-  1479 ;; *************** function _MovieUp *****************
-  1480 ;; Defined at:
-  1481 ;;		line 20 in file "shape.c"
-  1482 ;; Parameters:    Size  Location     Type
-  1483 ;;  _shapePositi    2    0[COMMON] PTR struct .
-  1484 ;;		 -> main@shapePosition(4), 
-  1485 ;; Auto vars:     Size  Location     Type
-  1486 ;;		None
-  1487 ;; Return value:  Size  Location     Type
-  1488 ;;                  1    wreg      void 
-  1489 ;; Registers used:
-  1490 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1
-  1491 ;; Tracked objects:
-  1492 ;;		On entry : 0/0
-  1493 ;;		On exit  : 0/0
-  1494 ;;		Unchanged: 0/0
-  1495 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1496 ;;      Params:         2       0       0       0       0
-  1497 ;;      Locals:         0       0       0       0       0
-  1498 ;;      Temps:          2       0       0       0       0
-  1499 ;;      Totals:         4       0       0       0       0
-  1500 ;;Total ram usage:        4 bytes
-  1501 ;; Hardware stack levels used: 1
-  1502 ;; This function calls:
-  1503 ;;		Nothing
-  1504 ;; This function is called by:
-  1505 ;;		_MovieShape
-  1506 ;; This function uses a non-reentrant model
-  1507 ;;
-  1508                           
-  1509     05C4                     _MovieUp:	
-  1510                           ;psect for function _MovieUp
-  1511                           
-  1512     05C4                     l822:	
-  1513                           ;incstack = 0
-  1514                           ; Regs used in _MovieUp: [wreg-fsr0h+status,2+status,0+btemp+1]
-  1515                           
-  1516                           
-  1517                           ;shape.c: 21:     _shapePosition->y--;
-  1518     05C4  0871               	movf	MovieUp@_shapePosition,w
-  1519     05C5  3E02               	addlw	2
-  1520     05C6  00F3               	movwf	??_MovieUp
-  1521     05C7  0872               	movf	MovieUp@_shapePosition+1,w
-  1522     05C8  1803               	skipnc
-  1523     05C9  3E01               	addlw	1
-  1524     05CA  3E00               	addlw	0
-  1525     05CB  00F4               	movwf	??_MovieUp+1
-  1526     05CC  0873               	movf	??_MovieUp,w
-  1527     05CD  0084               	movwf	4
-  1528     05CE  1783               	bsf	3,7
-  1529     05CF  1C74               	btfss	??_MovieUp+1,0
-  1530     05D0  1383               	bcf	3,7
-  1531     05D1  30FF               	movlw	255
-  1532     05D2  0780               	addwf	0,f
-  1533     05D3  0F84               	incfsz	4,f
-  1534     05D4  0800               	movf	0,w
-  1535     05D5  1803               	skipnc
-  1536     05D6  0A00               	incf	0,w
-  1537     05D7  00FF               	movwf	btemp+1
-  1538     05D8  30FF               	movlw	255
-  1539     05D9  077F               	addwf	btemp+1,w
-  1540     05DA  0080               	movwf	0
-  1541     05DB  0384               	decf	4,f
-  1542     05DC                     l94:
-  1543     05DC  0008               	return
-  1544     05DD                     __end_of_MovieUp:
-  1545                           
-  1546                           	psect	text7
-  1547     055A                     __ptext7:	
-  1548 ;; *************** function _MovieRigth *****************
-  1549 ;; Defined at:
-  1550 ;;		line 28 in file "shape.c"
-  1551 ;; Parameters:    Size  Location     Type
-  1552 ;;  _shapePositi    2    0[COMMON] PTR struct .
-  1553 ;;		 -> main@shapePosition(4), 
-  1554 ;; Auto vars:     Size  Location     Type
-  1555 ;;		None
-  1556 ;; Return value:  Size  Location     Type
-  1557 ;;                  1    wreg      void 
-  1558 ;; Registers used:
-  1559 ;;		wreg, fsr0l, fsr0h, status,2, status,0
-  1560 ;; Tracked objects:
-  1561 ;;		On entry : 0/0
-  1562 ;;		On exit  : 0/0
-  1563 ;;		Unchanged: 0/0
-  1564 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1565 ;;      Params:         2       0       0       0       0
-  1566 ;;      Locals:         0       0       0       0       0
-  1567 ;;      Temps:          0       0       0       0       0
-  1568 ;;      Totals:         2       0       0       0       0
-  1569 ;;Total ram usage:        2 bytes
-  1570 ;; Hardware stack levels used: 1
-  1571 ;; This function calls:
-  1572 ;;		Nothing
-  1573 ;; This function is called by:
-  1574 ;;		_MovieShape
-  1575 ;; This function uses a non-reentrant model
-  1576 ;;
-  1577                           
-  1578     055A                     _MovieRigth:	
-  1579                           ;psect for function _MovieRigth
-  1580                           
-  1581     055A                     l826:	
-  1582                           ;incstack = 0
-  1583                           ; Regs used in _MovieRigth: [wreg-fsr0h+status,2+status,0]
-  1584                           
-  1585                           
-  1586                           ;shape.c: 29:     _shapePosition->x++;
-  1587     055A  0871               	movf	MovieRigth@_shapePosition,w
-  1588     055B  0084               	movwf	4
-  1589     055C  1783               	bsf	3,7
-  1590     055D  1C72               	btfss	MovieRigth@_shapePosition+1,0
-  1591     055E  1383               	bcf	3,7
-  1592     055F  3001               	movlw	1
-  1593     0560  0780               	addwf	0,f
-  1594     0561  0A84               	incf	4,f
-  1595     0562  1803               	skipnc
-  1596     0563  0A80               	incf	0,f
-  1597     0564                     l100:
-  1598     0564  0008               	return
-  1599     0565                     __end_of_MovieRigth:
-  1600                           
-  1601                           	psect	text8
-  1602     0565                     __ptext8:	
-  1603 ;; *************** function _MovieLeft *****************
-  1604 ;; Defined at:
-  1605 ;;		line 24 in file "shape.c"
-  1606 ;; Parameters:    Size  Location     Type
-  1607 ;;  _shapePositi    2    0[COMMON] PTR struct .
-  1608 ;;		 -> main@shapePosition(4), 
-  1609 ;; Auto vars:     Size  Location     Type
-  1610 ;;		None
-  1611 ;; Return value:  Size  Location     Type
-  1612 ;;                  1    wreg      void 
-  1613 ;; Registers used:
-  1614 ;;		wreg, fsr0l, fsr0h, btemp+1
-  1615 ;; Tracked objects:
-  1616 ;;		On entry : 0/0
-  1617 ;;		On exit  : 0/0
-  1618 ;;		Unchanged: 0/0
-  1619 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1620 ;;      Params:         2       0       0       0       0
-  1621 ;;      Locals:         0       0       0       0       0
-  1622 ;;      Temps:          0       0       0       0       0
-  1623 ;;      Totals:         2       0       0       0       0
-  1624 ;;Total ram usage:        2 bytes
-  1625 ;; Hardware stack levels used: 1
-  1626 ;; This function calls:
-  1627 ;;		Nothing
-  1628 ;; This function is called by:
-  1629 ;;		_MovieShape
-  1630 ;; This function uses a non-reentrant model
-  1631 ;;
-  1632                           
-  1633     0565                     _MovieLeft:	
-  1634                           ;psect for function _MovieLeft
-  1635                           
-  1636     0565                     l824:	
-  1637                           ;incstack = 0
-  1638                           ; Regs used in _MovieLeft: [wreg-fsr0h+btemp+1]
-  1639                           
-  1640                           
-  1641                           ;shape.c: 25:     _shapePosition->x--;
-  1642     0565  0871               	movf	MovieLeft@_shapePosition,w
-  1643     0566  0084               	movwf	4
-  1644     0567  1783               	bsf	3,7
-  1645     0568  1C72               	btfss	MovieLeft@_shapePosition+1,0
-  1646     0569  1383               	bcf	3,7
-  1647     056A  30FF               	movlw	255
-  1648     056B  0780               	addwf	0,f
-  1649     056C  0F84               	incfsz	4,f
-  1650     056D  0800               	movf	0,w
-  1651     056E  1803               	skipnc
-  1652     056F  0A00               	incf	0,w
-  1653     0570  00FF               	movwf	btemp+1
-  1654     0571  30FF               	movlw	255
-  1655     0572  077F               	addwf	btemp+1,w
-  1656     0573  0080               	movwf	0
-  1657     0574  0384               	decf	4,f
-  1658     0575                     l97:
-  1659     0575  0008               	return
-  1660     0576                     __end_of_MovieLeft:
-  1661                           
-  1662                           	psect	text9
-  1663     059B                     __ptext9:	
-  1664 ;; *************** function _MovieDown *****************
-  1665 ;; Defined at:
-  1666 ;;		line 16 in file "shape.c"
-  1667 ;; Parameters:    Size  Location     Type
-  1668 ;;  _shapePositi    2    0[COMMON] PTR struct .
-  1669 ;;		 -> main@shapePosition(4), 
-  1670 ;; Auto vars:     Size  Location     Type
-  1671 ;;		None
-  1672 ;; Return value:  Size  Location     Type
-  1673 ;;                  1    wreg      void 
-  1674 ;; Registers used:
-  1675 ;;		wreg, fsr0l, fsr0h, status,2, status,0
-  1676 ;; Tracked objects:
-  1677 ;;		On entry : 0/0
-  1678 ;;		On exit  : 0/0
-  1679 ;;		Unchanged: 0/0
-  1680 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1681 ;;      Params:         2       0       0       0       0
-  1682 ;;      Locals:         0       0       0       0       0
-  1683 ;;      Temps:          2       0       0       0       0
-  1684 ;;      Totals:         4       0       0       0       0
-  1685 ;;Total ram usage:        4 bytes
-  1686 ;; Hardware stack levels used: 1
-  1687 ;; This function calls:
-  1688 ;;		Nothing
-  1689 ;; This function is called by:
-  1690 ;;		_MovieShape
-  1691 ;; This function uses a non-reentrant model
-  1692 ;;
-  1693                           
-  1694     059B                     _MovieDown:	
-  1695                           ;psect for function _MovieDown
-  1696                           
-  1697     059B                     l820:	
-  1698                           ;incstack = 0
-  1699                           ; Regs used in _MovieDown: [wreg-fsr0h+status,2+status,0]
-  1700                           
-  1701                           
-  1702                           ;shape.c: 17:     _shapePosition->y++;
-  1703     059B  0871               	movf	MovieDown@_shapePosition,w
-  1704     059C  3E02               	addlw	2
-  1705     059D  00F3               	movwf	??_MovieDown
-  1706     059E  0872               	movf	MovieDown@_shapePosition+1,w
-  1707     059F  1803               	skipnc
-  1708     05A0  3E01               	addlw	1
-  1709     05A1  3E00               	addlw	0
-  1710     05A2  00F4               	movwf	??_MovieDown+1
-  1711     05A3  0873               	movf	??_MovieDown,w
-  1712     05A4  0084               	movwf	4
-  1713     05A5  1783               	bsf	3,7
-  1714     05A6  1C74               	btfss	??_MovieDown+1,0
-  1715     05A7  1383               	bcf	3,7
-  1716     05A8  3001               	movlw	1
-  1717     05A9  0780               	addwf	0,f
-  1718     05AA  0A84               	incf	4,f
-  1719     05AB  1803               	skipnc
-  1720     05AC  0A80               	incf	0,f
-  1721     05AD                     l91:
-  1722     05AD  0008               	return
-  1723     05AE                     __end_of_MovieDown:
-  1724                           
-  1725                           	psect	text10
-  1726     05FA                     __ptext10:	
-  1727 ;; *************** function _MatrixInit *****************
-  1728 ;; Defined at:
-  1729 ;;		line 20 in file "matrix.c"
-  1730 ;; Parameters:    Size  Location     Type
-  1731 ;;		None
-  1732 ;; Auto vars:     Size  Location     Type
-  1733 ;;		None
-  1734 ;; Return value:  Size  Location     Type
-  1735 ;;                  1    wreg      void 
-  1736 ;; Registers used:
-  1737 ;;		wreg, status,2, status,0, pclath, cstack
-  1738 ;; Tracked objects:
-  1739 ;;		On entry : 0/0
-  1740 ;;		On exit  : 0/0
-  1741 ;;		Unchanged: 0/0
-  1742 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1743 ;;      Params:         0       0       0       0       0
-  1744 ;;      Locals:         0       0       0       0       0
-  1745 ;;      Temps:          3       0       0       0       0
-  1746 ;;      Totals:         3       0       0       0       0
-  1747 ;;Total ram usage:        3 bytes
-  1748 ;; Hardware stack levels used: 1
-  1749 ;; Hardware stack levels required when called: 3
-  1750 ;; This function calls:
-  1751 ;;		_SendToSegment
-  1752 ;;		_SpiClearMatrix
-  1753 ;; This function is called by:
-  1754 ;;		_main
-  1755 ;; This function uses a non-reentrant model
-  1756 ;;
-  1757                           
-  1758     05FA                     _MatrixInit:	
-  1759                           ;psect for function _MatrixInit
-  1760                           
-  1761     05FA                     l836:	
-  1762                           ;incstack = 0
-  1763                           ; Regs used in _MatrixInit: [wreg+status,2+status,0+pclath+cstack]
-  1764                           
-  1765                           
-  1766                           ;matrix.c: 21:     _delay((unsigned long)((100)*(16000000/4000.0)));
-  1767     05FA  3003               	movlw	3
-  1768     05FB  00FA               	movwf	??_MatrixInit+2
-  1769     05FC  3008               	movlw	8
-  1770     05FD  00F9               	movwf	??_MatrixInit+1
-  1771     05FE  3077               	movlw	119
-  1772     05FF  00F8               	movwf	??_MatrixInit
-  1773     0600                     u167:
-  1774     0600  0BF8               	decfsz	??_MatrixInit,f
-  1775     0601  2E00               	goto	u167
-  1776     0602  0BF9               	decfsz	??_MatrixInit+1,f
-  1777     0603  2E00               	goto	u167
-  1778     0604  0BFA               	decfsz	??_MatrixInit+2,f
-  1779     0605  2E00               	goto	u167
-  1780     0606                     l838:
-  1781                           
-  1782                           ;matrix.c: 22:     RA5=1;
-  1783     0606  1283               	bcf	3,5	;RP0=0, select bank0
-  1784     0607  1303               	bcf	3,6	;RP1=0, select bank0
-  1785     0608  1685               	bsf	5,5	;volatile
-  1786     0609                     l840:
-  1787                           
-  1788                           ;matrix.c: 23:     SendToSegment(0x09, 0x00);
-  1789     0609  3009               	movlw	9
-  1790     060A  00F2               	movwf	SendToSegment@segment
-  1791     060B  3000               	movlw	0
-  1792     060C  00F3               	movwf	SendToSegment@segment+1
-  1793     060D  01F4               	clrf	SendToSegment@data
-  1794     060E  120A  118A  2588  120A  118A  	fcall	_SendToSegment
-  1795     0613                     l842:
-  1796                           
-  1797                           ;matrix.c: 24:     SendToSegment(0x0b, 0x07);
-  1798     0613  300B               	movlw	11
-  1799     0614  00F2               	movwf	SendToSegment@segment
-  1800     0615  3000               	movlw	0
-  1801     0616  00F3               	movwf	SendToSegment@segment+1
-  1802     0617  3007               	movlw	7
-  1803     0618  00F4               	movwf	SendToSegment@data
-  1804     0619  120A  118A  2588  120A  118A  	fcall	_SendToSegment
-  1805     061E                     l844:
+  1477                           ;shape.c: 13:     }
+  1478     06E6  3001               	movlw	1
+  1479     06E7  07FC               	addwf	ShowShape@pos,f
+  1480     06E8  1803               	skipnc
+  1481     06E9  0AFD               	incf	ShowShape@pos+1,f
+  1482     06EA  3000               	movlw	0
+  1483     06EB  07FD               	addwf	ShowShape@pos+1,f
+  1484     06EC                     l848:
+  1485     06EC  0875               	movf	ShowShape@coord,w
+  1486     06ED  0084               	movwf	4
+  1487     06EE  1783               	bsf	3,7
+  1488     06EF  1C76               	btfss	ShowShape@coord+1,0
+  1489     06F0  1383               	bcf	3,7
+  1490     06F1  0800               	movf	0,w
+  1491     06F2  1283               	bcf	3,5	;RP0=0, select bank0
+  1492     06F3  1303               	bcf	3,6	;RP1=0, select bank0
+  1493     06F4  00A0               	movwf	??_ShowShape
+  1494     06F5  0A84               	incf	4,f
+  1495     06F6  0800               	movf	0,w
+  1496     06F7  00A1               	movwf	??_ShowShape+1
+  1497     06F8  0877               	movf	ShowShape@countElemntArray,w
+  1498     06F9  0720               	addwf	??_ShowShape,w
+  1499     06FA  00A2               	movwf	??_ShowShape+2
+  1500     06FB  0878               	movf	ShowShape@countElemntArray+1,w
+  1501     06FC  1803               	skipnc
+  1502     06FD  0A78               	incf	ShowShape@countElemntArray+1,w
+  1503     06FE  0721               	addwf	??_ShowShape+1,w
+  1504     06FF  00A3               	movwf	??_ShowShape+3
+  1505     0700  0823               	movf	??_ShowShape+3,w
+  1506     0701  3A80               	xorlw	128
+  1507     0702  00A4               	movwf	??_ShowShape+4
+  1508     0703  087D               	movf	ShowShape@pos+1,w
+  1509     0704  3A80               	xorlw	128
+  1510     0705  0224               	subwf	??_ShowShape+4,w
+  1511     0706  1D03               	skipz
+  1512     0707  2F0A               	goto	u105
+  1513     0708  087C               	movf	ShowShape@pos,w
+  1514     0709  0222               	subwf	??_ShowShape+2,w
+  1515     070A                     u105:
+  1516     070A  1803               	skipnc
+  1517     070B  2F0D               	goto	u101
+  1518     070C  2F0E               	goto	u100
+  1519     070D                     u101:
+  1520     070D  2EA3               	goto	l842
+  1521     070E                     u100:
+  1522     070E                     l96:
+  1523     070E  0008               	return
+  1524     070F                     __end_of_ShowShape:
+  1525                           
+  1526                           	psect	text6
+  1527     05BC                     __ptext6:	
+  1528 ;; *************** function _MovieUp *****************
+  1529 ;; Defined at:
+  1530 ;;		line 20 in file "shape.c"
+  1531 ;; Parameters:    Size  Location     Type
+  1532 ;;  _shapePositi    2    0[COMMON] PTR struct .
+  1533 ;;		 -> main@shapePosition(4), 
+  1534 ;; Auto vars:     Size  Location     Type
+  1535 ;;		None
+  1536 ;; Return value:  Size  Location     Type
+  1537 ;;                  1    wreg      void 
+  1538 ;; Registers used:
+  1539 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1
+  1540 ;; Tracked objects:
+  1541 ;;		On entry : 0/0
+  1542 ;;		On exit  : 0/0
+  1543 ;;		Unchanged: 0/0
+  1544 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1545 ;;      Params:         2       0       0       0       0
+  1546 ;;      Locals:         0       0       0       0       0
+  1547 ;;      Temps:          2       0       0       0       0
+  1548 ;;      Totals:         4       0       0       0       0
+  1549 ;;Total ram usage:        4 bytes
+  1550 ;; Hardware stack levels used: 1
+  1551 ;; This function calls:
+  1552 ;;		Nothing
+  1553 ;; This function is called by:
+  1554 ;;		_MovieShape
+  1555 ;; This function uses a non-reentrant model
+  1556 ;;
+  1557                           
+  1558     05BC                     _MovieUp:	
+  1559                           ;psect for function _MovieUp
+  1560                           
+  1561     05BC                     l852:	
+  1562                           ;incstack = 0
+  1563                           ; Regs used in _MovieUp: [wreg-fsr0h+status,2+status,0+btemp+1]
+  1564                           
+  1565                           
+  1566                           ;shape.c: 21:     _shapePosition->y--;
+  1567     05BC  0871               	movf	MovieUp@_shapePosition,w
+  1568     05BD  3E02               	addlw	2
+  1569     05BE  00F3               	movwf	??_MovieUp
+  1570     05BF  0872               	movf	MovieUp@_shapePosition+1,w
+  1571     05C0  1803               	skipnc
+  1572     05C1  3E01               	addlw	1
+  1573     05C2  3E00               	addlw	0
+  1574     05C3  00F4               	movwf	??_MovieUp+1
+  1575     05C4  0873               	movf	??_MovieUp,w
+  1576     05C5  0084               	movwf	4
+  1577     05C6  1783               	bsf	3,7
+  1578     05C7  1C74               	btfss	??_MovieUp+1,0
+  1579     05C8  1383               	bcf	3,7
+  1580     05C9  30FF               	movlw	255
+  1581     05CA  0780               	addwf	0,f
+  1582     05CB  0F84               	incfsz	4,f
+  1583     05CC  0800               	movf	0,w
+  1584     05CD  1803               	skipnc
+  1585     05CE  0A00               	incf	0,w
+  1586     05CF  00FF               	movwf	btemp+1
+  1587     05D0  30FF               	movlw	255
+  1588     05D1  077F               	addwf	btemp+1,w
+  1589     05D2  0080               	movwf	0
+  1590     05D3  0384               	decf	4,f
+  1591     05D4                     l102:
+  1592     05D4  0008               	return
+  1593     05D5                     __end_of_MovieUp:
+  1594                           
+  1595                           	psect	text7
+  1596     0552                     __ptext7:	
+  1597 ;; *************** function _MovieRigth *****************
+  1598 ;; Defined at:
+  1599 ;;		line 28 in file "shape.c"
+  1600 ;; Parameters:    Size  Location     Type
+  1601 ;;  _shapePositi    2    0[COMMON] PTR struct .
+  1602 ;;		 -> main@shapePosition(4), 
+  1603 ;; Auto vars:     Size  Location     Type
+  1604 ;;		None
+  1605 ;; Return value:  Size  Location     Type
+  1606 ;;                  1    wreg      void 
+  1607 ;; Registers used:
+  1608 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+  1609 ;; Tracked objects:
+  1610 ;;		On entry : 0/0
+  1611 ;;		On exit  : 0/0
+  1612 ;;		Unchanged: 0/0
+  1613 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1614 ;;      Params:         2       0       0       0       0
+  1615 ;;      Locals:         0       0       0       0       0
+  1616 ;;      Temps:          0       0       0       0       0
+  1617 ;;      Totals:         2       0       0       0       0
+  1618 ;;Total ram usage:        2 bytes
+  1619 ;; Hardware stack levels used: 1
+  1620 ;; This function calls:
+  1621 ;;		Nothing
+  1622 ;; This function is called by:
+  1623 ;;		_MovieShape
+  1624 ;; This function uses a non-reentrant model
+  1625 ;;
+  1626                           
+  1627     0552                     _MovieRigth:	
+  1628                           ;psect for function _MovieRigth
+  1629                           
+  1630     0552                     l856:	
+  1631                           ;incstack = 0
+  1632                           ; Regs used in _MovieRigth: [wreg-fsr0h+status,2+status,0]
+  1633                           
+  1634                           
+  1635                           ;shape.c: 29:     _shapePosition->x++;
+  1636     0552  0871               	movf	MovieRigth@_shapePosition,w
+  1637     0553  0084               	movwf	4
+  1638     0554  1783               	bsf	3,7
+  1639     0555  1C72               	btfss	MovieRigth@_shapePosition+1,0
+  1640     0556  1383               	bcf	3,7
+  1641     0557  3001               	movlw	1
+  1642     0558  0780               	addwf	0,f
+  1643     0559  0A84               	incf	4,f
+  1644     055A  1803               	skipnc
+  1645     055B  0A80               	incf	0,f
+  1646     055C                     l108:
+  1647     055C  0008               	return
+  1648     055D                     __end_of_MovieRigth:
+  1649                           
+  1650                           	psect	text8
+  1651     055D                     __ptext8:	
+  1652 ;; *************** function _MovieLeft *****************
+  1653 ;; Defined at:
+  1654 ;;		line 24 in file "shape.c"
+  1655 ;; Parameters:    Size  Location     Type
+  1656 ;;  _shapePositi    2    0[COMMON] PTR struct .
+  1657 ;;		 -> main@shapePosition(4), 
+  1658 ;; Auto vars:     Size  Location     Type
+  1659 ;;		None
+  1660 ;; Return value:  Size  Location     Type
+  1661 ;;                  1    wreg      void 
+  1662 ;; Registers used:
+  1663 ;;		wreg, fsr0l, fsr0h, btemp+1
+  1664 ;; Tracked objects:
+  1665 ;;		On entry : 0/0
+  1666 ;;		On exit  : 0/0
+  1667 ;;		Unchanged: 0/0
+  1668 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1669 ;;      Params:         2       0       0       0       0
+  1670 ;;      Locals:         0       0       0       0       0
+  1671 ;;      Temps:          0       0       0       0       0
+  1672 ;;      Totals:         2       0       0       0       0
+  1673 ;;Total ram usage:        2 bytes
+  1674 ;; Hardware stack levels used: 1
+  1675 ;; This function calls:
+  1676 ;;		Nothing
+  1677 ;; This function is called by:
+  1678 ;;		_MovieShape
+  1679 ;; This function uses a non-reentrant model
+  1680 ;;
+  1681                           
+  1682     055D                     _MovieLeft:	
+  1683                           ;psect for function _MovieLeft
+  1684                           
+  1685     055D                     l854:	
+  1686                           ;incstack = 0
+  1687                           ; Regs used in _MovieLeft: [wreg-fsr0h+btemp+1]
+  1688                           
+  1689                           
+  1690                           ;shape.c: 25:     _shapePosition->x--;
+  1691     055D  0871               	movf	MovieLeft@_shapePosition,w
+  1692     055E  0084               	movwf	4
+  1693     055F  1783               	bsf	3,7
+  1694     0560  1C72               	btfss	MovieLeft@_shapePosition+1,0
+  1695     0561  1383               	bcf	3,7
+  1696     0562  30FF               	movlw	255
+  1697     0563  0780               	addwf	0,f
+  1698     0564  0F84               	incfsz	4,f
+  1699     0565  0800               	movf	0,w
+  1700     0566  1803               	skipnc
+  1701     0567  0A00               	incf	0,w
+  1702     0568  00FF               	movwf	btemp+1
+  1703     0569  30FF               	movlw	255
+  1704     056A  077F               	addwf	btemp+1,w
+  1705     056B  0080               	movwf	0
+  1706     056C  0384               	decf	4,f
+  1707     056D                     l105:
+  1708     056D  0008               	return
+  1709     056E                     __end_of_MovieLeft:
+  1710                           
+  1711                           	psect	text9
+  1712     0593                     __ptext9:	
+  1713 ;; *************** function _MovieDown *****************
+  1714 ;; Defined at:
+  1715 ;;		line 16 in file "shape.c"
+  1716 ;; Parameters:    Size  Location     Type
+  1717 ;;  _shapePositi    2    0[COMMON] PTR struct .
+  1718 ;;		 -> main@shapePosition(4), 
+  1719 ;; Auto vars:     Size  Location     Type
+  1720 ;;		None
+  1721 ;; Return value:  Size  Location     Type
+  1722 ;;                  1    wreg      void 
+  1723 ;; Registers used:
+  1724 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+  1725 ;; Tracked objects:
+  1726 ;;		On entry : 0/0
+  1727 ;;		On exit  : 0/0
+  1728 ;;		Unchanged: 0/0
+  1729 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1730 ;;      Params:         2       0       0       0       0
+  1731 ;;      Locals:         0       0       0       0       0
+  1732 ;;      Temps:          2       0       0       0       0
+  1733 ;;      Totals:         4       0       0       0       0
+  1734 ;;Total ram usage:        4 bytes
+  1735 ;; Hardware stack levels used: 1
+  1736 ;; This function calls:
+  1737 ;;		Nothing
+  1738 ;; This function is called by:
+  1739 ;;		_MovieShape
+  1740 ;; This function uses a non-reentrant model
+  1741 ;;
+  1742                           
+  1743     0593                     _MovieDown:	
+  1744                           ;psect for function _MovieDown
+  1745                           
+  1746     0593                     l850:	
+  1747                           ;incstack = 0
+  1748                           ; Regs used in _MovieDown: [wreg-fsr0h+status,2+status,0]
+  1749                           
+  1750                           
+  1751                           ;shape.c: 17:     _shapePosition->y++;
+  1752     0593  0871               	movf	MovieDown@_shapePosition,w
+  1753     0594  3E02               	addlw	2
+  1754     0595  00F3               	movwf	??_MovieDown
+  1755     0596  0872               	movf	MovieDown@_shapePosition+1,w
+  1756     0597  1803               	skipnc
+  1757     0598  3E01               	addlw	1
+  1758     0599  3E00               	addlw	0
+  1759     059A  00F4               	movwf	??_MovieDown+1
+  1760     059B  0873               	movf	??_MovieDown,w
+  1761     059C  0084               	movwf	4
+  1762     059D  1783               	bsf	3,7
+  1763     059E  1C74               	btfss	??_MovieDown+1,0
+  1764     059F  1383               	bcf	3,7
+  1765     05A0  3001               	movlw	1
+  1766     05A1  0780               	addwf	0,f
+  1767     05A2  0A84               	incf	4,f
+  1768     05A3  1803               	skipnc
+  1769     05A4  0A80               	incf	0,f
+  1770     05A5                     l99:
+  1771     05A5  0008               	return
+  1772     05A6                     __end_of_MovieDown:
+  1773                           
+  1774                           	psect	text10
+  1775     05F2                     __ptext10:	
+  1776 ;; *************** function _MatrixInit *****************
+  1777 ;; Defined at:
+  1778 ;;		line 20 in file "matrix.c"
+  1779 ;; Parameters:    Size  Location     Type
+  1780 ;;		None
+  1781 ;; Auto vars:     Size  Location     Type
+  1782 ;;		None
+  1783 ;; Return value:  Size  Location     Type
+  1784 ;;                  1    wreg      void 
+  1785 ;; Registers used:
+  1786 ;;		wreg, status,2, status,0, pclath, cstack
+  1787 ;; Tracked objects:
+  1788 ;;		On entry : 0/0
+  1789 ;;		On exit  : 0/0
+  1790 ;;		Unchanged: 0/0
+  1791 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1792 ;;      Params:         0       0       0       0       0
+  1793 ;;      Locals:         0       0       0       0       0
+  1794 ;;      Temps:          3       0       0       0       0
+  1795 ;;      Totals:         3       0       0       0       0
+  1796 ;;Total ram usage:        3 bytes
+  1797 ;; Hardware stack levels used: 1
+  1798 ;; Hardware stack levels required when called: 3
+  1799 ;; This function calls:
+  1800 ;;		_SendToSegment
+  1801 ;;		_SpiClearMatrix
+  1802 ;; This function is called by:
+  1803 ;;		_main
+  1804 ;; This function uses a non-reentrant model
+  1805 ;;
   1806                           
-  1807                           ;matrix.c: 25:     SendToSegment(0x0A, 0x02);
-  1808     061E  300A               	movlw	10
-  1809     061F  00F2               	movwf	SendToSegment@segment
-  1810     0620  3000               	movlw	0
-  1811     0621  00F3               	movwf	SendToSegment@segment+1
-  1812     0622  3002               	movlw	2
-  1813     0623  00F4               	movwf	SendToSegment@data
-  1814     0624  120A  118A  2588  120A  118A  	fcall	_SendToSegment
-  1815     0629                     l846:
-  1816                           
-  1817                           ;matrix.c: 26:     SendToSegment(0x0c, 0x01);
-  1818     0629  300C               	movlw	12
-  1819     062A  00F2               	movwf	SendToSegment@segment
-  1820     062B  3000               	movlw	0
-  1821     062C  00F3               	movwf	SendToSegment@segment+1
-  1822     062D  01F4               	clrf	SendToSegment@data
-  1823     062E  0AF4               	incf	SendToSegment@data,f
-  1824     062F  120A  118A  2588  120A  118A  	fcall	_SendToSegment
-  1825     0634                     l848:
-  1826                           
-  1827                           ;matrix.c: 27:     SpiClearMatrix();
-  1828     0634  120A  118A  25AE  120A  118A  	fcall	_SpiClearMatrix
-  1829     0639                     l72:
-  1830     0639  0008               	return
-  1831     063A                     __end_of_MatrixInit:
-  1832                           
-  1833                           	psect	text11
-  1834     05AE                     __ptext11:	
-  1835 ;; *************** function _SpiClearMatrix *****************
-  1836 ;; Defined at:
-  1837 ;;		line 10 in file "matrix.c"
-  1838 ;; Parameters:    Size  Location     Type
-  1839 ;;		None
-  1840 ;; Auto vars:     Size  Location     Type
-  1841 ;;  i               1    6[COMMON] unsigned char 
-  1842 ;; Return value:  Size  Location     Type
-  1843 ;;                  1    wreg      void 
-  1844 ;; Registers used:
-  1845 ;;		wreg, status,2, status,0, pclath, cstack
-  1846 ;; Tracked objects:
-  1847 ;;		On entry : 0/0
-  1848 ;;		On exit  : 0/0
-  1849 ;;		Unchanged: 0/0
-  1850 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1851 ;;      Params:         0       0       0       0       0
-  1852 ;;      Locals:         1       0       0       0       0
-  1853 ;;      Temps:          2       0       0       0       0
-  1854 ;;      Totals:         3       0       0       0       0
-  1855 ;;Total ram usage:        3 bytes
-  1856 ;; Hardware stack levels used: 1
-  1857 ;; Hardware stack levels required when called: 2
-  1858 ;; This function calls:
-  1859 ;;		_SendToSegment
-  1860 ;; This function is called by:
-  1861 ;;		_MatrixInit
-  1862 ;;		_MovieShape
-  1863 ;; This function uses a non-reentrant model
-  1864 ;;
+  1807     05F2                     _MatrixInit:	
+  1808                           ;psect for function _MatrixInit
+  1809                           
+  1810     05F2                     l866:	
+  1811                           ;incstack = 0
+  1812                           ; Regs used in _MatrixInit: [wreg+status,2+status,0+pclath+cstack]
+  1813                           
+  1814                           
+  1815                           ;matrix.c: 21:     _delay((unsigned long)((100)*(16000000/4000.0)));
+  1816     05F2  3003               	movlw	3
+  1817     05F3  00FA               	movwf	??_MatrixInit+2
+  1818     05F4  3008               	movlw	8
+  1819     05F5  00F9               	movwf	??_MatrixInit+1
+  1820     05F6  3077               	movlw	119
+  1821     05F7  00F8               	movwf	??_MatrixInit
+  1822     05F8                     u147:
+  1823     05F8  0BF8               	decfsz	??_MatrixInit,f
+  1824     05F9  2DF8               	goto	u147
+  1825     05FA  0BF9               	decfsz	??_MatrixInit+1,f
+  1826     05FB  2DF8               	goto	u147
+  1827     05FC  0BFA               	decfsz	??_MatrixInit+2,f
+  1828     05FD  2DF8               	goto	u147
+  1829     05FE                     l868:
+  1830                           
+  1831                           ;matrix.c: 22:     RA5=1;
+  1832     05FE  1283               	bcf	3,5	;RP0=0, select bank0
+  1833     05FF  1303               	bcf	3,6	;RP1=0, select bank0
+  1834     0600  1685               	bsf	5,5	;volatile
+  1835     0601                     l870:
+  1836                           
+  1837                           ;matrix.c: 23:     SendToSegment(0x09, 0x00);
+  1838     0601  3009               	movlw	9
+  1839     0602  00F2               	movwf	SendToSegment@segment
+  1840     0603  3000               	movlw	0
+  1841     0604  00F3               	movwf	SendToSegment@segment+1
+  1842     0605  01F4               	clrf	SendToSegment@data
+  1843     0606  120A  118A  2580  120A  118A  	fcall	_SendToSegment
+  1844     060B                     l872:
+  1845                           
+  1846                           ;matrix.c: 24:     SendToSegment(0x0b, 0x07);
+  1847     060B  300B               	movlw	11
+  1848     060C  00F2               	movwf	SendToSegment@segment
+  1849     060D  3000               	movlw	0
+  1850     060E  00F3               	movwf	SendToSegment@segment+1
+  1851     060F  3007               	movlw	7
+  1852     0610  00F4               	movwf	SendToSegment@data
+  1853     0611  120A  118A  2580  120A  118A  	fcall	_SendToSegment
+  1854     0616                     l874:
+  1855                           
+  1856                           ;matrix.c: 25:     SendToSegment(0x0A, 0x02);
+  1857     0616  300A               	movlw	10
+  1858     0617  00F2               	movwf	SendToSegment@segment
+  1859     0618  3000               	movlw	0
+  1860     0619  00F3               	movwf	SendToSegment@segment+1
+  1861     061A  3002               	movlw	2
+  1862     061B  00F4               	movwf	SendToSegment@data
+  1863     061C  120A  118A  2580  120A  118A  	fcall	_SendToSegment
+  1864     0621                     l876:
   1865                           
-  1866     05AE                     _SpiClearMatrix:	
-  1867                           ;psect for function _SpiClearMatrix
-  1868                           
-  1869     05AE                     l802:	
-  1870                           ;incstack = 0
-  1871                           ; Regs used in _SpiClearMatrix: [wreg+status,2+status,0+pclath+cstack]
-  1872                           
-  1873                           
-  1874                           ;matrix.c: 12:   char i = 8;
-  1875     05AE  3008               	movlw	8
-  1876     05AF  00F7               	movwf	SpiClearMatrix@i
-  1877     05B0                     l804:
-  1878                           
-  1879                           ;matrix.c: 14:   {;matrix.c: 15:     SendToSegment(i, 0x00);
-  1880     05B0  0877               	movf	SpiClearMatrix@i,w
-  1881     05B1  00F5               	movwf	??_SpiClearMatrix
-  1882     05B2  01F6               	clrf	??_SpiClearMatrix+1
-  1883     05B3  0875               	movf	??_SpiClearMatrix,w
-  1884     05B4  00F2               	movwf	SendToSegment@segment
-  1885     05B5  0876               	movf	??_SpiClearMatrix+1,w
-  1886     05B6  00F3               	movwf	SendToSegment@segment+1
-  1887     05B7  01F4               	clrf	SendToSegment@data
-  1888     05B8  120A  118A  2588  120A  118A  	fcall	_SendToSegment
-  1889     05BD                     l806:
-  1890                           
-  1891                           ;matrix.c: 16:   } while (--i);
-  1892     05BD  3001               	movlw	1
-  1893     05BE  02F7               	subwf	SpiClearMatrix@i,f
-  1894     05BF  1D03               	btfss	3,2
-  1895     05C0  2DC2               	goto	u71
-  1896     05C1  2DC3               	goto	u70
-  1897     05C2                     u71:
-  1898     05C2  2DB0               	goto	l804
-  1899     05C3                     u70:
-  1900     05C3                     l69:
-  1901     05C3  0008               	return
-  1902     05C4                     __end_of_SpiClearMatrix:
-  1903                           
-  1904                           	psect	text12
-  1905     0588                     __ptext12:	
-  1906 ;; *************** function _SendToSegment *****************
-  1907 ;; Defined at:
-  1908 ;;		line 34 in file "matrix.c"
-  1909 ;; Parameters:    Size  Location     Type
-  1910 ;;  segment         2    1[COMMON] int 
-  1911 ;;  data            1    3[COMMON] unsigned char 
-  1912 ;; Auto vars:     Size  Location     Type
-  1913 ;;		None
-  1914 ;; Return value:  Size  Location     Type
-  1915 ;;                  1    wreg      void 
-  1916 ;; Registers used:
-  1917 ;;		wreg, status,2, status,0, pclath, cstack
-  1918 ;; Tracked objects:
-  1919 ;;		On entry : 0/0
-  1920 ;;		On exit  : 0/0
-  1921 ;;		Unchanged: 0/0
-  1922 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1923 ;;      Params:         3       0       0       0       0
-  1924 ;;      Locals:         0       0       0       0       0
-  1925 ;;      Temps:          0       0       0       0       0
-  1926 ;;      Totals:         3       0       0       0       0
-  1927 ;;Total ram usage:        3 bytes
-  1928 ;; Hardware stack levels used: 1
-  1929 ;; Hardware stack levels required when called: 1
-  1930 ;; This function calls:
-  1931 ;;		_SpiSendByte
-  1932 ;; This function is called by:
-  1933 ;;		_SpiClearMatrix
-  1934 ;;		_MatrixInit
-  1935 ;;		_ShowShape
-  1936 ;; This function uses a non-reentrant model
-  1937 ;;
-  1938                           
-  1939     0588                     _SendToSegment:	
-  1940                           ;psect for function _SendToSegment
-  1941                           
-  1942     0588                     l796:	
-  1943                           ;incstack = 0
-  1944                           ; Regs used in _SendToSegment: [wreg+status,2+status,0+pclath+cstack]
-  1945                           
-  1946                           
-  1947                           ;matrix.c: 35:     RA5 = 0;
-  1948     0588  1283               	bcf	3,5	;RP0=0, select bank0
-  1949     0589  1303               	bcf	3,6	;RP1=0, select bank0
-  1950     058A  1285               	bcf	5,5	;volatile
-  1951     058B                     l798:
+  1866                           ;matrix.c: 26:     SendToSegment(0x0c, 0x01);
+  1867     0621  300C               	movlw	12
+  1868     0622  00F2               	movwf	SendToSegment@segment
+  1869     0623  3000               	movlw	0
+  1870     0624  00F3               	movwf	SendToSegment@segment+1
+  1871     0625  01F4               	clrf	SendToSegment@data
+  1872     0626  0AF4               	incf	SendToSegment@data,f
+  1873     0627  120A  118A  2580  120A  118A  	fcall	_SendToSegment
+  1874     062C                     l878:
+  1875                           
+  1876                           ;matrix.c: 27:     SpiClearMatrix();
+  1877     062C  120A  118A  25A6  120A  118A  	fcall	_SpiClearMatrix
+  1878     0631                     l80:
+  1879     0631  0008               	return
+  1880     0632                     __end_of_MatrixInit:
+  1881                           
+  1882                           	psect	text11
+  1883     05A6                     __ptext11:	
+  1884 ;; *************** function _SpiClearMatrix *****************
+  1885 ;; Defined at:
+  1886 ;;		line 10 in file "matrix.c"
+  1887 ;; Parameters:    Size  Location     Type
+  1888 ;;		None
+  1889 ;; Auto vars:     Size  Location     Type
+  1890 ;;  i               1    6[COMMON] unsigned char 
+  1891 ;; Return value:  Size  Location     Type
+  1892 ;;                  1    wreg      void 
+  1893 ;; Registers used:
+  1894 ;;		wreg, status,2, status,0, pclath, cstack
+  1895 ;; Tracked objects:
+  1896 ;;		On entry : 0/0
+  1897 ;;		On exit  : 0/0
+  1898 ;;		Unchanged: 0/0
+  1899 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1900 ;;      Params:         0       0       0       0       0
+  1901 ;;      Locals:         1       0       0       0       0
+  1902 ;;      Temps:          2       0       0       0       0
+  1903 ;;      Totals:         3       0       0       0       0
+  1904 ;;Total ram usage:        3 bytes
+  1905 ;; Hardware stack levels used: 1
+  1906 ;; Hardware stack levels required when called: 2
+  1907 ;; This function calls:
+  1908 ;;		_SendToSegment
+  1909 ;; This function is called by:
+  1910 ;;		_MatrixInit
+  1911 ;;		_MovieShape
+  1912 ;; This function uses a non-reentrant model
+  1913 ;;
+  1914                           
+  1915     05A6                     _SpiClearMatrix:	
+  1916                           ;psect for function _SpiClearMatrix
+  1917                           
+  1918     05A6                     l832:	
+  1919                           ;incstack = 0
+  1920                           ; Regs used in _SpiClearMatrix: [wreg+status,2+status,0+pclath+cstack]
+  1921                           
+  1922                           
+  1923                           ;matrix.c: 12:   char i = 8;
+  1924     05A6  3008               	movlw	8
+  1925     05A7  00F7               	movwf	SpiClearMatrix@i
+  1926     05A8                     l834:
+  1927                           
+  1928                           ;matrix.c: 14:   {;matrix.c: 15:     SendToSegment(i, 0x00);
+  1929     05A8  0877               	movf	SpiClearMatrix@i,w
+  1930     05A9  00F5               	movwf	??_SpiClearMatrix
+  1931     05AA  01F6               	clrf	??_SpiClearMatrix+1
+  1932     05AB  0875               	movf	??_SpiClearMatrix,w
+  1933     05AC  00F2               	movwf	SendToSegment@segment
+  1934     05AD  0876               	movf	??_SpiClearMatrix+1,w
+  1935     05AE  00F3               	movwf	SendToSegment@segment+1
+  1936     05AF  01F4               	clrf	SendToSegment@data
+  1937     05B0  120A  118A  2580  120A  118A  	fcall	_SendToSegment
+  1938     05B5                     l836:
+  1939                           
+  1940                           ;matrix.c: 16:   } while (--i);
+  1941     05B5  3001               	movlw	1
+  1942     05B6  02F7               	subwf	SpiClearMatrix@i,f
+  1943     05B7  1D03               	btfss	3,2
+  1944     05B8  2DBA               	goto	u81
+  1945     05B9  2DBB               	goto	u80
+  1946     05BA                     u81:
+  1947     05BA  2DA8               	goto	l834
+  1948     05BB                     u80:
+  1949     05BB                     l77:
+  1950     05BB  0008               	return
+  1951     05BC                     __end_of_SpiClearMatrix:
   1952                           
-  1953                           ;matrix.c: 36:     SpiSendByte((char)segment);
-  1954     058B  0872               	movf	SendToSegment@segment,w
-  1955     058C  120A  118A  254F  120A  118A  	fcall	_SpiSendByte
-  1956                           
-  1957                           ;matrix.c: 37:     SpiSendByte(data);
-  1958     0591  0874               	movf	SendToSegment@data,w
-  1959     0592  120A  118A  254F  120A  118A  	fcall	_SpiSendByte
-  1960     0597                     l800:
-  1961                           
-  1962                           ;matrix.c: 38:     RA5 = 1;
-  1963     0597  1283               	bcf	3,5	;RP0=0, select bank0
-  1964     0598  1303               	bcf	3,6	;RP1=0, select bank0
-  1965     0599  1685               	bsf	5,5	;volatile
-  1966     059A                     l75:
-  1967     059A  0008               	return
-  1968     059B                     __end_of_SendToSegment:
-  1969                           
-  1970                           	psect	text13
-  1971     054F                     __ptext13:	
-  1972 ;; *************** function _SpiSendByte *****************
-  1973 ;; Defined at:
-  1974 ;;		line 18 in file "spi.c"
-  1975 ;; Parameters:    Size  Location     Type
-  1976 ;;  data            1    wreg     unsigned char 
-  1977 ;; Auto vars:     Size  Location     Type
-  1978 ;;  data            1    0[COMMON] unsigned char 
-  1979 ;; Return value:  Size  Location     Type
-  1980 ;;                  1    wreg      void 
-  1981 ;; Registers used:
-  1982 ;;		wreg
-  1983 ;; Tracked objects:
-  1984 ;;		On entry : 0/0
-  1985 ;;		On exit  : 0/0
-  1986 ;;		Unchanged: 0/0
-  1987 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1988 ;;      Params:         0       0       0       0       0
-  1989 ;;      Locals:         1       0       0       0       0
-  1990 ;;      Temps:          0       0       0       0       0
-  1991 ;;      Totals:         1       0       0       0       0
-  1992 ;;Total ram usage:        1 bytes
-  1993 ;; Hardware stack levels used: 1
-  1994 ;; This function calls:
-  1995 ;;		Nothing
-  1996 ;; This function is called by:
-  1997 ;;		_SendToSegment
-  1998 ;; This function uses a non-reentrant model
-  1999 ;;
-  2000                           
-  2001     054F                     _SpiSendByte:	
-  2002                           ;psect for function _SpiSendByte
-  2003                           
-  2004                           
-  2005                           ;incstack = 0
-  2006                           ; Regs used in _SpiSendByte: [wreg]
-  2007                           ;SpiSendByte@data stored from wreg
-  2008     054F  00F1               	movwf	SpiSendByte@data
-  2009     0550                     l794:
+  1953                           	psect	text12
+  1954     0580                     __ptext12:	
+  1955 ;; *************** function _SendToSegment *****************
+  1956 ;; Defined at:
+  1957 ;;		line 34 in file "matrix.c"
+  1958 ;; Parameters:    Size  Location     Type
+  1959 ;;  segment         2    1[COMMON] int 
+  1960 ;;  data            1    3[COMMON] unsigned char 
+  1961 ;; Auto vars:     Size  Location     Type
+  1962 ;;		None
+  1963 ;; Return value:  Size  Location     Type
+  1964 ;;                  1    wreg      void 
+  1965 ;; Registers used:
+  1966 ;;		wreg, status,2, status,0, pclath, cstack
+  1967 ;; Tracked objects:
+  1968 ;;		On entry : 0/0
+  1969 ;;		On exit  : 0/0
+  1970 ;;		Unchanged: 0/0
+  1971 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1972 ;;      Params:         3       0       0       0       0
+  1973 ;;      Locals:         0       0       0       0       0
+  1974 ;;      Temps:          0       0       0       0       0
+  1975 ;;      Totals:         3       0       0       0       0
+  1976 ;;Total ram usage:        3 bytes
+  1977 ;; Hardware stack levels used: 1
+  1978 ;; Hardware stack levels required when called: 1
+  1979 ;; This function calls:
+  1980 ;;		_SpiSendByte
+  1981 ;; This function is called by:
+  1982 ;;		_SpiClearMatrix
+  1983 ;;		_MatrixInit
+  1984 ;;		_ShowShape
+  1985 ;; This function uses a non-reentrant model
+  1986 ;;
+  1987                           
+  1988     0580                     _SendToSegment:	
+  1989                           ;psect for function _SendToSegment
+  1990                           
+  1991     0580                     l826:	
+  1992                           ;incstack = 0
+  1993                           ; Regs used in _SendToSegment: [wreg+status,2+status,0+pclath+cstack]
+  1994                           
+  1995                           
+  1996                           ;matrix.c: 35:     RA5 = 0;
+  1997     0580  1283               	bcf	3,5	;RP0=0, select bank0
+  1998     0581  1303               	bcf	3,6	;RP1=0, select bank0
+  1999     0582  1285               	bcf	5,5	;volatile
+  2000     0583                     l828:
+  2001                           
+  2002                           ;matrix.c: 36:     SpiSendByte((char)segment);
+  2003     0583  0872               	movf	SendToSegment@segment,w
+  2004     0584  120A  118A  2547  120A  118A  	fcall	_SpiSendByte
+  2005                           
+  2006                           ;matrix.c: 37:     SpiSendByte(data);
+  2007     0589  0874               	movf	SendToSegment@data,w
+  2008     058A  120A  118A  2547  120A  118A  	fcall	_SpiSendByte
+  2009     058F                     l830:
   2010                           
-  2011                           ;spi.c: 19:     SSPBUF = data;
-  2012     0550  0871               	movf	SpiSendByte@data,w
-  2013     0551  1283               	bcf	3,5	;RP0=0, select bank0
-  2014     0552  1303               	bcf	3,6	;RP1=0, select bank0
-  2015     0553  0093               	movwf	19	;volatile
-  2016     0554                     l53:	
-  2017                           ;spi.c: 20:     while (!SSPIF);
+  2011                           ;matrix.c: 38:     RA5 = 1;
+  2012     058F  1283               	bcf	3,5	;RP0=0, select bank0
+  2013     0590  1303               	bcf	3,6	;RP1=0, select bank0
+  2014     0591  1685               	bsf	5,5	;volatile
+  2015     0592                     l83:
+  2016     0592  0008               	return
+  2017     0593                     __end_of_SendToSegment:
   2018                           
-  2019     0554  1D8C               	btfss	12,3	;volatile
-  2020     0555  2D57               	goto	u61
-  2021     0556  2D58               	goto	u60
-  2022     0557                     u61:
-  2023     0557  2D54               	goto	l53
-  2024     0558                     u60:
-  2025     0558                     l55:
-  2026                           
-  2027                           ;spi.c: 21:     SSPIF = 0;
-  2028     0558  118C               	bcf	12,3	;volatile
-  2029     0559                     l56:
-  2030     0559  0008               	return
-  2031     055A                     __end_of_SpiSendByte:
-  2032     0002                     ___latbits      equ	2
-  2033     007E                     btemp           set	126	;btemp
-  2034     007E                     wtemp0          set	126
-  2035                           
-  2036                           	psect	config
-  2037                           
-  2038                           ;Config register CONFIG @ 0x2007
-  2039                           ;	Oscillator Selection bits
-  2040                           ;	FOSC = HS, HS oscillator
-  2041                           ;	Watchdog Timer Enable bit
-  2042                           ;	WDTE = OFF, WDT disabled
-  2043                           ;	Power-up Timer Enable bit
-  2044                           ;	PWRTE = OFF, PWRT disabled
-  2045                           ;	FLASH Program Memory Code Protection bits
-  2046                           ;	CP = OFF, Code protection off
-  2047                           ;	Brown-out Reset Enable bit
-  2048                           ;	BOREN = OFF, BOR disabled
-  2049                           ;	Low Voltage In-Circuit Serial Programming Enable bit
-  2050                           ;	LVP = OFF, RB3 is digital I/O, HV on MCLR must be used for programming
-  2051                           ;	Data EE Memory Code Protection
-  2052                           ;	CPD = OFF, Code Protection off
-  2053                           ;	FLASH Program Memory Write Enable
-  2054                           ;	WRT = OFF, Unprotected program memory may not be written to by EECON control
-  2055                           ;	In-Circuit Debugger Mode bit
-  2056                           ;	DEBUG = 0x1, unprogrammed default
-  2057     2007                     	org	8199
-  2058     2007  3D3A               	dw	15674
+  2019                           	psect	text13
+  2020     0547                     __ptext13:	
+  2021 ;; *************** function _SpiSendByte *****************
+  2022 ;; Defined at:
+  2023 ;;		line 18 in file "spi.c"
+  2024 ;; Parameters:    Size  Location     Type
+  2025 ;;  data            1    wreg     unsigned char 
+  2026 ;; Auto vars:     Size  Location     Type
+  2027 ;;  data            1    0[COMMON] unsigned char 
+  2028 ;; Return value:  Size  Location     Type
+  2029 ;;                  1    wreg      void 
+  2030 ;; Registers used:
+  2031 ;;		wreg
+  2032 ;; Tracked objects:
+  2033 ;;		On entry : 0/0
+  2034 ;;		On exit  : 0/0
+  2035 ;;		Unchanged: 0/0
+  2036 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2037 ;;      Params:         0       0       0       0       0
+  2038 ;;      Locals:         1       0       0       0       0
+  2039 ;;      Temps:          0       0       0       0       0
+  2040 ;;      Totals:         1       0       0       0       0
+  2041 ;;Total ram usage:        1 bytes
+  2042 ;; Hardware stack levels used: 1
+  2043 ;; This function calls:
+  2044 ;;		Nothing
+  2045 ;; This function is called by:
+  2046 ;;		_SendToSegment
+  2047 ;; This function uses a non-reentrant model
+  2048 ;;
+  2049                           
+  2050     0547                     _SpiSendByte:	
+  2051                           ;psect for function _SpiSendByte
+  2052                           
+  2053                           
+  2054                           ;incstack = 0
+  2055                           ; Regs used in _SpiSendByte: [wreg]
+  2056                           ;SpiSendByte@data stored from wreg
+  2057     0547  00F1               	movwf	SpiSendByte@data
+  2058     0548                     l824:
+  2059                           
+  2060                           ;spi.c: 19:     SSPBUF = data;
+  2061     0548  0871               	movf	SpiSendByte@data,w
+  2062     0549  1283               	bcf	3,5	;RP0=0, select bank0
+  2063     054A  1303               	bcf	3,6	;RP1=0, select bank0
+  2064     054B  0093               	movwf	19	;volatile
+  2065     054C                     l61:	
+  2066                           ;spi.c: 20:     while (!SSPIF);
+  2067                           
+  2068     054C  1D8C               	btfss	12,3	;volatile
+  2069     054D  2D4F               	goto	u71
+  2070     054E  2D50               	goto	u70
+  2071     054F                     u71:
+  2072     054F  2D4C               	goto	l61
+  2073     0550                     u70:
+  2074     0550                     l63:
+  2075                           
+  2076                           ;spi.c: 21:     SSPIF = 0;
+  2077     0550  118C               	bcf	12,3	;volatile
+  2078     0551                     l64:
+  2079     0551  0008               	return
+  2080     0552                     __end_of_SpiSendByte:
+  2081     0002                     ___latbits      equ	2
+  2082     007E                     btemp           set	126	;btemp
+  2083     007E                     wtemp0          set	126
+  2084                           
+  2085                           	psect	config
+  2086                           
+  2087                           ;Config register CONFIG @ 0x2007
+  2088                           ;	Oscillator Selection bits
+  2089                           ;	FOSC = HS, HS oscillator
+  2090                           ;	Watchdog Timer Enable bit
+  2091                           ;	WDTE = OFF, WDT disabled
+  2092                           ;	Power-up Timer Enable bit
+  2093                           ;	PWRTE = OFF, PWRT disabled
+  2094                           ;	FLASH Program Memory Code Protection bits
+  2095                           ;	CP = OFF, Code protection off
+  2096                           ;	Brown-out Reset Enable bit
+  2097                           ;	BOREN = OFF, BOR disabled
+  2098                           ;	Low Voltage In-Circuit Serial Programming Enable bit
+  2099                           ;	LVP = OFF, RB3 is digital I/O, HV on MCLR must be used for programming
+  2100                           ;	Data EE Memory Code Protection
+  2101                           ;	CPD = OFF, Code Protection off
+  2102                           ;	FLASH Program Memory Write Enable
+  2103                           ;	WRT = OFF, Unprotected program memory may not be written to by EECON control
+  2104                           ;	In-Circuit Debugger Mode bit
+  2105                           ;	DEBUG = 0x1, unprogrammed default
+  2106     2007                     	org	8199
+  2107     2007  3D3A               	dw	15674
 
 Data Sizes:
     Strings     0
@@ -2085,7 +2139,7 @@ Data Sizes:
 Auto Spaces:
     Space          Size  Autos    Used
     COMMON           13     13      13
-    BANK0            80     23      26
+    BANK0            80     29      32
     BANK1            80      0       0
     BANK3            85      0       0
     BANK2            96      0       0
@@ -2150,8 +2204,8 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                12    12      0    1361
-                                             11 BANK0     12    12      0
+ (0) _main                                                16    16      0    1501
+                                             13 BANK0     16    16      0
                          _MatrixInit
                          _MovieShape
                           _PortBInit
@@ -2165,8 +2219,8 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (1) _PortBInit                                            0     0      0       0
  ---------------------------------------------------------------------------------
- (1) _MovieShape                                           6     3      3     705
-                                              5 BANK0      6     3      3
+ (1) _MovieShape                                           8     3      5     732
+                                              5 BANK0      8     3      5
                           _MovieDown
                           _MovieLeft
                          _MovieRigth
@@ -2238,87 +2292,88 @@ BANK2               96      0       0      0.0%
 BITBANK2            96      0       0      0.0%
 BANK1               80      0       0      0.0%
 BITBANK1            80      0       0      0.0%
-BANK0               80     23      26     32.5%
+BANK0               80     29      32     40.0%
 BITBANK0            80      0       0      0.0%
 COMMON              13     13      13    100.0%
 BITCOMMON           13      0       0      0.0%
-DATA                 0      0      39      0.0%
+DATA                 0      0      45      0.0%
 STACK                0      0       0      0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.50 build 20240725155939 
-Symbol Table                                                                                   Mon Dec  9 10:16:04 2024
+Symbol Table                                                                                   Mon Dec  9 13:37:00 2024
 
-           _SpiClearMatrix 05AE                          pc 0002                         l33 054E  
-                       l50 0587                         l53 0554                         l55 0558  
-                       l56 0559                         l72 0639                         l82 05F9  
-                       l75 059A                         l91 05AD                         l69 05C3  
-                       l94 05DC                         l88 0716                         l97 0575  
-                       u60 0558                         u61 0557                         u70 05C3  
-                       u71 05C2                         u90 0716                         u91 0715  
-                       u84 06E4                         u85 06E2                         u95 0712  
-                       fsr 0004            SpiSendByte@data 0071                        l100 0564  
-                      l110 0695                        l800 0597                        l802 05AE  
-                      l810 0696                        l804 05B0                        l820 059B  
-                      l812 06AB                        l900 077D                        l806 05BD  
-                      l822 05C4                        l814 06C7                        l830 0579  
-                      l910 07C3                        l902 078B                        l840 0609  
-                      l824 0565                        l816 06EE                        l808 0696  
-                      l832 0581                        l912 07D1                        l904 0799  
-                      l842 0613                        l826 055A                        l818 06F4  
-                      l850 0548                        l834 0583                        l914 07D9  
-                      l906 07A7                        l844 061E                        l836 05FA  
-                      l860 0648                        l852 05DD                        l828 0576  
-                      l908 07B5                        l846 0629                        l838 0606  
-                      l862 0652                        l870 067F                        l854 05E7  
-                      l848 0634                        l872 0684                        l864 065C  
-                      l856 063D                        l880 0717                        l794 0550  
-                      l946 066E                        l858 063E                        l890 0732  
-                      l882 0721                        l796 0588                        l868 0666  
-                      l892 0745                        l884 072E                        l798 058B  
-                      l894 0753                        l896 0761                        l898 076F  
-                      _RA5 002D                        u100 07E6                        u101 07E5  
-                      u105 07E2                        u117 075B                        u127 0777  
-                      u137 0793                        u147 07AF                        u157 07CB  
-                      u167 0600                        fsr0 0004                        indf 0000  
-                     _main 0717                       btemp 007E                       start 0000  
-   __end_of_SpiClearMatrix 05C4            __end_of_MovieUp 05DD            __end_of_SpiInit 0588  
-                    ?_main 0071                      _PORTA 0005                      _PORTB 0006  
-                    _TRISA 0085                      _TRISB 0086                      _TRISC 0087  
-                    _SSPIF 0063            SpiClearMatrix@i 0077          SendToSegment@data 0074  
-                    main@i 0031                      pclath 000A                      status 0003  
-                    wtemp0 007E            ?_SpiClearMatrix 0071            __initialization 07EA  
-             __end_of_main 07EA                 _MatrixInit 05FA                     ??_main 002B  
-            ??_SetPosition 0077                     _SSPCON 0014                     _SSPBUF 0013  
-               _MovieShape 063A                 _MovieRigth 055A       MovieShape@shapeArray 0027  
-                ??_MovieUp 0073                  ??_SpiInit 0071              ??_SpiSendByte 0071  
-           ShowShape@coord 0075    __end_of__initialization 07FC        __end_of_SetPosition 05FA  
-           __pcstackCOMMON 0071               __pidataBANK0 0545                ?_MatrixInit 0071  
-      __end_of_SpiSendByte 055A          __end_of_MovieLeft 0576          __end_of_MovieDown 05AE  
- MovieShape@_shapePosition 0025          __end_of_PortBInit 054F          __end_of_ShowShape 0717  
-              ?_MovieShape 0025          main@shapePosition 0033                ?_MovieRigth 0071  
-               __pmaintext 0717              MovieShape@dir 002A  ShowShape@countElemntArray 0077  
-              _SetPosition 05DD                    _SSPSTAT 0094                 __stringtab 0003  
-         ??_SpiClearMatrix 0075                    _MovieUp 05C4                    _SpiInit 0576  
-            _SendToSegment 0588                _SpiSendByte 054F                    __ptext1 0576  
-                  __ptext2 05DD                    __ptext3 0548                    __ptext4 063A  
-                  __ptext5 0696                    __ptext6 05C4                    __ptext7 055A  
-                  __ptext8 0565                    __ptext9 059B       end_of_initialization 07FC  
-           ?_SendToSegment 0072          __end_ofmain@delay 000D        SetPosition@position 0071  
-  MovieLeft@_shapePosition 0071                 main@figure 002E               ??_MatrixInit 0078  
-      start_initialization 07EA         __end_of_MatrixInit 063A            ??_SendToSegment 0075  
-             ??_MovieShape 0028               ??_MovieRigth 0073                  _MovieLeft 0565  
-                _MovieDown 059B                  _PortBInit 0548                  _ShowShape 0696  
-              __pdataBANK0 0037              ShowShape@_pos 007A               SetPosition@x 0073  
-             SetPosition@y 0075                  ___latbits 0002              __pcstackBANK0 0020  
-       __end_of_MovieShape 0696         __end_of_MovieRigth 0565               ?_SetPosition 0071  
-      ShowShape@shapeArray 0079                 ?_MovieLeft 0071                 ?_MovieDown 0071  
-                 ?_MovieUp 0071                   ?_SpiInit 0071                 ?_PortBInit 0071  
-             ?_SpiSendByte 0071                 ?_ShowShape 0075                  __pstrings 0003  
-  MovieDown@_shapePosition 0071      MovieUp@_shapePosition 0071                __stringbase 0008  
-                main@delay 0009                ??_MovieLeft 0073                ??_MovieDown 0073  
-              ??_PortBInit 0071                ??_ShowShape 0020               ShowShape@pos 007C  
-       __end_of__stringtab 0009                   __ptext10 05FA                   __ptext11 05AE  
-                 __ptext12 0588                   __ptext13 054F                   main@F913 0037  
-     SendToSegment@segment 0072                  stringcode 0003      __end_of_SendToSegment 059B  
- MovieRigth@_shapePosition 0071                   stringdir 0003                   stringtab 0003  
+            _SpiClearMatrix 05A6                           pc 0002                          l41 0546  
+                        l61 054C                          l63 0550                          l64 0551  
+                        l80 0631                          l90 05F1                          l58 057F  
+                        l83 0592                          l77 05BB                          l96 070E  
+                        l99 05A5                          u70 0550                          u71 054F  
+                        u80 05BB                          u81 05BA                          u94 06DC  
+                        u95 06DA                          fsr 0004             SpiSendByte@data 0071  
+                       l102 05D4                         l105 056D                         l108 055C  
+                       l118 068D                         l900 0677                         l830 058F  
+                       l902 067C                         l910 070F                         l824 0548  
+                       l832 05A6                         l840 068E                         l920 074F  
+                       l912 0719                         l826 0580                         l834 05A8  
+                       l850 0593                         l842 06A3                         l930 0787  
+                       l914 072A                         l828 0583                         l836 05B5  
+                       l852 05BC                         l844 06BF                         l860 0571  
+                       l940 07D1                         l924 0754                         l916 072E  
+                       l870 0601                         l854 055D                         l846 06E6  
+                       l838 068E                         l862 0579                         l942 07D9  
+                       l926 0765                         l934 0798                         l918 073D  
+                       l872 060B                         l856 0552                         l848 06EC  
+                       l880 0540                         l864 057B                         l928 0776  
+                       l936 07AD                         l874 0616                         l866 05F2  
+                       l890 0640                         l882 05D5                         l858 056E  
+                       l938 07C4                         l876 0621                         l868 05FE  
+                       l892 064A                         l884 05DF                         l878 062C  
+                       l894 0654                         l886 0635                         l888 0636  
+                       l898 065E                         l998 079F                         _RA5 002D  
+                       u100 070E                         u101 070D                         u110 07D1  
+                       u111 07D0                         u120 07E6                         u105 070A  
+                       u121 07E5                         u115 07CD                         u125 07E2  
+                       u137 07B5                         u147 05F8                         fsr0 0004  
+                       indf 0000                        l1000 0666                        _main 070F  
+                      btemp 007E                        start 0000      __end_of_SpiClearMatrix 05BC  
+           __end_of_MovieUp 05D5             __end_of_SpiInit 0580                       ?_main 0071  
+                     _PORTA 0005                       _PORTB 0006                       _TRISA 0085  
+                     _TRISB 0086                       _TRISC 0087                       _SSPIF 0063  
+           SpiClearMatrix@i 0077           SendToSegment@data 0074                       main@i 0035  
+                     pclath 000A                       status 0003                       wtemp0 007E  
+           ?_SpiClearMatrix 0071             __initialization 07EA                __end_of_main 07EA  
+                _MatrixInit 05F2                      ??_main 002D               ??_SetPosition 0077  
+                    _SSPCON 0014                      _SSPBUF 0013                  _MovieShape 0632  
+                _MovieRigth 0552        MovieShape@shapeArray 0027                   ??_MovieUp 0073  
+                 ??_SpiInit 0071               ??_SpiSendByte 0071              ShowShape@coord 0075  
+   __end_of__initialization 07FC         __end_of_SetPosition 05F2              __pcstackCOMMON 0071  
+              __pidataBANK0 053D                 ?_MatrixInit 0071         __end_of_SpiSendByte 0552  
+         __end_of_MovieLeft 056E           __end_of_MovieDown 05A6    MovieShape@_shapePosition 0025  
+         __end_of_PortBInit 0547           __end_of_ShowShape 070F                 ?_MovieShape 0025  
+         main@shapePosition 0039                 ?_MovieRigth 0071                  __pmaintext 070F  
+             MovieShape@dir 002C   ShowShape@countElemntArray 0077                 _SetPosition 05D5  
+                   _SSPSTAT 0094                  __stringtab 0003            ??_SpiClearMatrix 0075  
+                   _MovieUp 05BC                     _SpiInit 056E               _SendToSegment 0580  
+               _SpiSendByte 0547                     __ptext1 056E                     __ptext2 05D5  
+                   __ptext3 0540                     __ptext4 0632                     __ptext5 068E  
+                   __ptext6 05BC                     __ptext7 0552                     __ptext8 055D  
+                   __ptext9 0593        end_of_initialization 07FC              ?_SendToSegment 0072  
+         __end_ofmain@delay 000D         SetPosition@position 0071     MovieLeft@_shapePosition 0071  
+                main@figure 0030                ??_MatrixInit 0078         start_initialization 07EA  
+        __end_of_MatrixInit 0632             ??_SendToSegment 0075                ??_MovieShape 002A  
+              ??_MovieRigth 0073                   _MovieLeft 055D                   _MovieDown 0593  
+                 _PortBInit 0540                   _ShowShape 068E                 __pdataBANK0 003D  
+             ShowShape@_pos 007A                SetPosition@x 0073                SetPosition@y 0075  
+                 ___latbits 0002               __pcstackBANK0 0020          __end_of_MovieShape 068E  
+        __end_of_MovieRigth 055D                ?_SetPosition 0071        main@countElemntArray 0037  
+       ShowShape@shapeArray 0079                  ?_MovieLeft 0071                  ?_MovieDown 0071  
+                  ?_MovieUp 0071                    ?_SpiInit 0071                  ?_PortBInit 0071  
+              ?_SpiSendByte 0071                  ?_ShowShape 0075                   __pstrings 0003  
+   MovieDown@_shapePosition 0071       MovieUp@_shapePosition 0071                 __stringbase 0008  
+                 main@delay 0009                 ??_MovieLeft 0073                 ??_MovieDown 0073  
+               ??_PortBInit 0071                 ??_ShowShape 0020                ShowShape@pos 007C  
+        __end_of__stringtab 0009                    __ptext10 05F2                    __ptext11 05A6  
+                  __ptext12 0580                    __ptext13 0547                    main@F914 003D  
+      SendToSegment@segment 0072                    main@step 0033                   stringcode 0003  
+     __end_of_SendToSegment 0593    MovieRigth@_shapePosition 0071  MovieShape@countElemntArray 0028  
+                  stringdir 0003                    stringtab 0003  
