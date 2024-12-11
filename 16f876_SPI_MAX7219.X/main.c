@@ -16,42 +16,54 @@
  * pin 16 RC5      -> DIN               *
  *******************END******************/
 
+void ChangeOfCoordinates(TCoord * _shapePosition, char * _figure, int _countElemntArray){
+    const unsigned long delay = 100;
+    int step = 0;
+        do{
+            for(int i = 0; i < 5; i++){
+                switch (step){
+                    case 0: 
+                        MovieShape(right, _shapePosition, _figure, _countElemntArray); 
+                        break;
+                    case 1: 
+                        MovieShape(down, _shapePosition, _figure, _countElemntArray); 
+                        break;
+                    case 2: 
+                        MovieShape(left, _shapePosition, _figure, _countElemntArray); 
+                        break;
+                    case 3: 
+                        MovieShape(up, _shapePosition, _figure, _countElemntArray); 
+                        break;
+                }
+                __delay_ms(delay); 
+            } 
+            step++;  
+        } while(step < 4);
+    
+}
+
+void invert(char * array, int countElemnt)
+{
+    for(int i = 0, j = countElemnt - 1; i < j; i++, j--)
+    {
+        char t = array[i];
+        array[i] = array[j];
+        array[j] = t;
+    }  
+}
+
 void main(void) {
     SpiInit();
     MatrixInit();
     PortBInit();
     
     TCoord shapePosition; 
-    char figure[3] = { 0x07, 0x05, 0x07 };
+    char square_1[3] = { 0x07, 0x05, 0x05 };
     int countElemntArray = 3;
-    const unsigned long delay = 100;
-    
     while(1){
-        int step = 0;
-        SetPosition(&shapePosition, 0, 0);
-        MovieShape(notMoive, &shapePosition, figure, countElemntArray); 
-        
-        do{
-            for(int i = 0; i < 5; i++){
-                switch (step){
-                    case 0: 
-                        MovieShape(right, &shapePosition, figure, countElemntArray); 
-                        break;
-                    case 1: 
-                        MovieShape(down, &shapePosition, figure, countElemntArray); 
-                        break;
-                    case 2: 
-                        MovieShape(left, &shapePosition, figure, countElemntArray); 
-                        break;
-                    case 3: 
-                        MovieShape(up, &shapePosition, figure, countElemntArray); 
-                        break;
-                }
-                __delay_ms(delay); 
-            }
-            step++;  
-        } while(step < 4);
-    }
-    
+        SetPosition(&shapePosition, 0, 0); 
+        ChangeOfCoordinates(&shapePosition, square_1, countElemntArray);
+        invert(square_1, countElemntArray);
+    }    
     return;
 }

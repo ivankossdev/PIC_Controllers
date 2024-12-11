@@ -1,4 +1,4 @@
-__end_of_SpiInit 580 0 CODE 0
+__end_of_SpiInit 530 0 CODE 0
 _RA5 2D 0 ABS 0
 __S0 800 0 ABS 0
 __S1 7E 0 ABS 0
@@ -6,12 +6,12 @@ __S3 0 0 ABS 0
 __Hintentry 0 0 CODE 0
 SetPosition@position 70 0 COMMON 1
 __Lintentry 0 0 CODE 0
-_SpiSendByte 547 0 CODE 0
-__end_of_MovieUp 5D5 0 CODE 0
+_SpiSendByte 502 0 CODE 0
+__end_of_MovieUp 585 0 CODE 0
 MovieShape@_shapePosition 24 0 BANK0 1
 MovieLeft@_shapePosition 70 0 COMMON 1
-__end_of_SpiSendByte 552 0 CODE 0
-_main 70F 0 CODE 0
+__end_of_SpiSendByte 50D 0 CODE 0
+_main 625 0 CODE 0
 ___sp 0 0 STACK 2
 btemp 7E 0 ABS 0
 start 0 0 CODE 0
@@ -28,18 +28,18 @@ __Hconfig 2008 0 CONFIG 4
 __Lconfig 0 0 CONFIG 4
 MovieRigth@_shapePosition 70 0 COMMON 1
 __end_of__stringtab 9 0 STRING 0
-main@i 34 0 BANK0 1
 __Hram 0 0 ABS 0
 __Lram 0 0 ABS 0
 ___int_stack_hi 0 0 STACK 2
-main@step 32 0 BANK0 1
+ChangeOfCoordinates@_figure 2E 0 BANK0 1
 __Hfunctab 0 0 ENTRY 0
 __Lfunctab 0 0 ENTRY 0
+ChangeOfCoordinates@step 34 0 BANK0 1
 __Hcommon 0 0 ABS 0
 __Lcommon 0 0 ABS 0
 __Heeprom_data 0 0 EEDATA 3
 __Leeprom_data 0 0 EEDATA 3
-_SpiClearMatrix 5A6 0 CODE 0
+_SpiClearMatrix 556 0 CODE 0
 ___int_sp 0 0 STACK 2
 SpiSendByte@data 70 0 COMMON 1
 _SSPBUF 13 0 ABS 0
@@ -54,10 +54,10 @@ __Hsfr2 0 0 ABS 0
 __Lsfr2 0 0 ABS 0
 __Hsfr3 0 0 ABS 0
 __Lsfr3 0 0 ABS 0
-__end_of_MovieRigth 55D 0 CODE 0
-_ShowShape 68E 0 CODE 0
+__end_of_MovieRigth 502 0 CODE 0
+_ShowShape 6CD 0 CODE 0
 ___heap_hi 0 0 ABS 0
-_SendToSegment 580 0 CODE 0
+_SendToSegment 543 0 CODE 0
 ___stackhi 0 0 ABS 0
 MovieShape@shapeArray 26 0 BANK0 1
 SendToSegment@segment 71 0 COMMON 1
@@ -72,29 +72,32 @@ __LcstackBANK0 0 0 ABS 0
 __pcstackBANK0 20 0 BANK0 1
 __Hinit 0 0 CODE 0
 __Linit 0 0 CODE 0
-__end_of_main 7EA 0 CODE 0
+ChangeOfCoordinates@_countElemntArray 2F 0 BANK0 1
+__end_of_main 671 0 CODE 0
 __Hsivt 0 0 CODE 0
+_invert 5E2 0 CODE 0
 __Htext 0 0 ABS 0
 __Lsivt 0 0 CODE 0
 __Ltext 0 0 ABS 0
-_MovieLeft 55D 0 CODE 0
+_MovieLeft 50D 0 CODE 0
 ___heap_lo 0 0 ABS 0
 __HdataBANK0 0 0 ABS 0
 __LdataBANK0 0 0 ABS 0
-__pdataBANK0 3C 0 BANK0 1
+__pdataBANK0 41 0 BANK0 1
 end_of_initialization 7FC 0 CODE 0
-_PortBInit 540 0 CODE 0
+_PortBInit 4F0 0 CODE 0
 ___stacklo 0 0 ABS 0
-__end_of_PortBInit 547 0 CODE 0
-__end_of_SendToSegment 593 0 CODE 0
+__end_of_PortBInit 4F7 0 CODE 0
+__end_of_SendToSegment 556 0 CODE 0
 __stringtab 3 0 STRING 0
 SpiClearMatrix@i 76 0 COMMON 1
-__end_of_MatrixInit 632 0 CODE 0
-_MovieDown 593 0 CODE 0
+__end_of_MatrixInit 5E2 0 CODE 0
+_MovieDown 530 0 CODE 0
 __Hstrings 0 0 ABS 0
 __Lstrings 0 0 ABS 0
 __pstrings 3 0 STRING 0
-__end_of_MovieLeft 56E 0 CODE 0
+__end_of_MovieLeft 51E 0 CODE 0
+ChangeOfCoordinates@_shapePosition 2C 0 BANK0 1
 __Hbank0 0 0 ABS 0
 __Lbank0 0 0 ABS 0
 __Hbank1 0 0 ABS 0
@@ -107,62 +110,72 @@ ___latbits 2 0 ABS 0
 __Hpowerup 0 0 CODE 0
 _SSPSTAT 94 0 ABS 0
 __Lpowerup 0 0 CODE 0
-_MovieShape 632 0 CODE 0
-__ptext1 56E 0 CODE 0
-__ptext2 5D5 0 CODE 0
-_SetPosition 5D5 0 CODE 0
-__ptext3 540 0 CODE 0
+_MovieShape 671 0 CODE 0
+__ptext1 5E2 0 CODE 0
+__ptext2 51E 0 CODE 0
+_SetPosition 585 0 CODE 0
+__ptext3 585 0 CODE 0
 ___stack_hi 0 0 STACK 2
-__ptext4 632 0 CODE 0
-__ptext5 68E 0 CODE 0
-__ptext6 5BC 0 CODE 0
+__ptext4 4F0 0 CODE 0
+__ptext5 5A2 0 CODE 0
+__ptext6 74E 0 CODE 0
 ShowShape@countElemntArray 76 0 COMMON 1
-__ptext7 552 0 CODE 0
-__ptext8 55D 0 CODE 0
-__ptext9 593 0 CODE 0
+__ptext7 671 0 CODE 0
+__ptext8 556 0 CODE 0
+__ptext9 6CD 0 CODE 0
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
 __end_of__initialization 7FC 0 CODE 0
-__end_of_MovieDown 5A6 0 CODE 0
+invert@i 77 0 COMMON 1
+__end_of_MovieDown 543 0 CODE 0
+invert@j 79 0 COMMON 1
 MovieShape@dir 2B 0 BANK0 1
 __H__absolute__ 0 0 ABS 0
 __L__absolute__ 0 0 ABS 0
-_MovieUp 5BC 0 CODE 0
+invert@t 76 0 COMMON 1
+_MovieUp 56C 0 CODE 0
 __Hstack 0 0 STACK 2
 __Lstack 0 0 STACK 2
 __Hspace_0 800 0 ABS 0
 __Lspace_0 0 0 ABS 0
-_MovieRigth 552 0 CODE 0
-main@figure 2F 0 BANK0 1
+_MovieRigth 4F7 0 CODE 0
 __Hspace_1 7E 0 ABS 0
 __Lspace_1 0 0 ABS 0
-_SpiInit 56E 0 CODE 0
+_SpiInit 51E 0 CODE 0
 __Hspace_2 0 0 ABS 0
 __Lspace_2 0 0 ABS 0
-main@F914 3C 0 BANK0 1
 __Hcinit 800 0 CODE 0
 __Lcinit 7EA 0 CODE 0
 __Hspace_3 0 0 ABS 0
 __Lspace_3 0 0 ABS 0
 __Hspace_4 400F 0 ABS 0
 __Lspace_4 0 0 ABS 0
+main@F927 41 0 BANK0 1
 ___stack_lo 0 0 STACK 2
+invert@array 70 0 COMMON 1
 __HidataBANK0 0 0 ABS 0
 __LidataBANK0 0 0 ABS 0
-__pidataBANK0 53D 0 CODE 0
+__pidataBANK0 4ED 0 CODE 0
 MovieUp@_shapePosition 70 0 COMMON 1
-__ptext10 5F2 0 CODE 0
-__ptext11 5A6 0 CODE 0
-main@countElemntArray 36 0 BANK0 1
-__ptext12 580 0 CODE 0
-__ptext13 547 0 CODE 0
-_MatrixInit 5F2 0 CODE 0
+ChangeOfCoordinates@i 36 0 BANK0 1
+__ptext10 543 0 CODE 0
+__ptext11 502 0 CODE 0
+main@countElemntArray 3B 0 BANK0 1
+__ptext12 56C 0 CODE 0
+__ptext13 4F7 0 CODE 0
+_MatrixInit 5A2 0 CODE 0
+__ptext14 50D 0 CODE 0
+__ptext15 530 0 CODE 0
+_ChangeOfCoordinates 74E 0 CODE 0
 __Hend_init 3 0 CODE 0
 __Lend_init 0 0 CODE 0
+__end_ofChangeOfCoordinates@delay D 0 STRING 0
 SetPosition@x 72 0 COMMON 1
 __Hreset_vec 0 0 CODE 0
 __Lreset_vec 0 0 CODE 0
-main@shapePosition 38 0 BANK0 1
+main@shapePosition 3D 0 BANK0 1
+main@square_1 38 0 BANK0 1
+__end_of_invert 625 0 CODE 0
 intlevel0 0 0 ENTRY 0
 intlevel1 0 0 ENTRY 0
 intlevel2 0 0 ENTRY 0
@@ -171,194 +184,218 @@ intlevel3 0 0 ENTRY 0
 intlevel4 0 0 ENTRY 0
 intlevel5 0 0 ENTRY 0
 ShowShape@pos 22 0 BANK0 1
-__end_of_MovieShape 68E 0 CODE 0
+__end_of_MovieShape 6CD 0 CODE 0
 SetPosition@y 74 0 COMMON 1
 __HcstackCOMMON 0 0 ABS 0
 __LcstackCOMMON 0 0 ABS 0
 __pcstackCOMMON 70 0 COMMON 1
 start_initialization 7EA 0 CODE 0
 ___int_stack_lo 0 0 STACK 2
-__end_of_SetPosition 5F2 0 CODE 0
+__end_of_SetPosition 5A2 0 CODE 0
 __Hmaintext 0 0 ABS 0
 __Lmaintext 0 0 ABS 0
-__pmaintext 70F 0 CODE 0
-__end_ofmain@delay D 0 STRING 0
+__end_of_ChangeOfCoordinates 7EA 0 CODE 0
+__pmaintext 625 0 CODE 0
 __initialization 7EA 0 CODE 0
 __stringbase 8 0 STRING 0
 MovieShape@countElemntArray 27 0 BANK0 1
+invert@countElemnt 71 0 COMMON 1
 ShowShape@_pos 20 0 BANK0 1
-__end_of_ShowShape 70F 0 CODE 0
-__end_of_SpiClearMatrix 5BC 0 CODE 0
+__end_of_ShowShape 74E 0 CODE 0
+__end_of_SpiClearMatrix 56C 0 CODE 0
 %segments
 reset_vec 0 5 CODE 0 0
 cinit FD4 FFF CODE FD4 0
 cstackCOMMON 70 7D COMMON 70 1
-cstackBANK0 20 3E BANK0 20 1
-maintext E1E FD3 CODE E1E 0
-text5 D1C E1D CODE D1C 0
-text4 C64 D1B CODE C64 0
-text10 BE4 C63 CODE BE4 0
-text2 BAA BE3 CODE BAA 0
-text6 B78 BA9 CODE B78 0
-text11 B4C B77 CODE B4C 0
-text9 B26 B4B CODE B26 0
-text12 B00 B25 CODE B00 0
-text1 ADC AFF CODE ADC 0
-text8 ABA ADB CODE ABA 0
-text7 AA4 AB9 CODE AA4 0
-text13 A8E AA3 CODE A8E 0
+cstackBANK0 20 43 BANK0 20 1
+text6 E9C FD3 CODE E9C 0
+text9 D9A E9B CODE D9A 0
+text7 CE2 D99 CODE CE2 0
+maintext C4A CE1 CODE C4A 0
+text1 BC4 C49 CODE BC4 0
+text5 B44 BC3 CODE B44 0
+text3 B0A B43 CODE B0A 0
+text12 AD8 B09 CODE AD8 0
+text8 AAC AD7 CODE AAC 0
+text10 A86 AAB CODE A86 0
+text15 A60 A85 CODE A60 0
+text2 A3C A5F CODE A3C 0
+text14 A1A A3B CODE A1A 0
+text11 A04 A19 CODE A04 0
+text13 9EE A03 CODE 9EE 0
 strings 6 19 STRING 6 0
-text3 A80 A8D CODE A80 0
-idataBANK0 A7A A7F CODE A7A 0
+text4 9E0 9ED CODE 9E0 0
+idataBANK0 9DA 9DF CODE 9DA 0
 %locals
 dist/default/production/16f876_SPI_MAX7219.X.production.o
-/tmp/xcXaMaBCb/driver_tmp_1.s
-832 7EA 0 CODE 0
-835 7EA 0 CODE 0
-849 7EA 0 CODE 0
-850 7EF 0 CODE 0
-851 7F0 0 CODE 0
-852 7F5 0 CODE 0
-853 7F6 0 CODE 0
-854 7FB 0 CODE 0
-860 7FC 0 CODE 0
+/tmp/xcXPhGDji/driver_tmp_1.s
+834 7EA 0 CODE 0
+837 7EA 0 CODE 0
+851 7EA 0 CODE 0
+852 7EF 0 CODE 0
+853 7F0 0 CODE 0
+854 7F5 0 CODE 0
+855 7F6 0 CODE 0
+856 7FB 0 CODE 0
 862 7FC 0 CODE 0
-863 7FD 0 CODE 0
+864 7FC 0 CODE 0
+865 7FD 0 CODE 0
 main.c
-19 70F 0 CODE 0
-20 70F 0 CODE 0
-21 714 0 CODE 0
-22 719 0 CODE 0
-25 71E 0 CODE 0
-26 726 0 CODE 0
-30 72A 0 CODE 0
-31 72E 0 CODE 0
-32 73D 0 CODE 0
-35 74F 0 CODE 0
-38 754 0 CODE 0
-39 764 0 CODE 0
-41 765 0 CODE 0
-42 775 0 CODE 0
-44 776 0 CODE 0
-45 786 0 CODE 0
-47 787 0 CODE 0
-48 797 0 CODE 0
-49 798 0 CODE 0
-49 79C 0 CODE 0
-49 7A1 0 CODE 0
-49 7A4 0 CODE 0
-49 7A7 0 CODE 0
-49 7AA 0 CODE 0
-50 7AD 0 CODE 0
-51 7BC 0 CODE 0
-51 7C0 0 CODE 0
-51 7C9 0 CODE 0
-51 7CD 0 CODE 0
-52 7D1 0 CODE 0
-52 7D5 0 CODE 0
-53 7D9 0 CODE 0
-53 7DE 0 CODE 0
-53 7E2 0 CODE 0
+55 625 0 CODE 0
+56 625 0 CODE 0
+57 62A 0 CODE 0
+58 62F 0 CODE 0
+61 634 0 CODE 0
+62 63C 0 CODE 0
+64 640 0 CODE 0
+65 64F 0 CODE 0
+66 660 0 CODE 0
+45 5E2 0 CODE 0
+47 5E2 0 CODE 0
+47 5E8 0 CODE 0
+49 5ED 0 CODE 0
+50 5F5 0 CODE 0
+51 603 0 CODE 0
+52 60A 0 CODE 0
+52 60C 0 CODE 0
+52 612 0 CODE 0
+52 61C 0 CODE 0
+52 620 0 CODE 0
+53 624 0 CODE 0
 spi.c
-9 56E 0 CODE 0
-10 56E 0 CODE 0
-11 571 0 CODE 0
-12 573 0 CODE 0
-13 575 0 CODE 0
-14 579 0 CODE 0
-15 57B 0 CODE 0
-16 57F 0 CODE 0
+9 51E 0 CODE 0
+10 51E 0 CODE 0
+11 521 0 CODE 0
+12 523 0 CODE 0
+13 525 0 CODE 0
+14 529 0 CODE 0
+15 52B 0 CODE 0
+16 52F 0 CODE 0
 shape.c
-3 5D5 0 CODE 0
-4 5D5 0 CODE 0
-5 5DF 0 CODE 0
-5 5E3 0 CODE 0
-6 5F1 0 CODE 0
+3 585 0 CODE 0
+4 585 0 CODE 0
+5 58F 0 CODE 0
+5 593 0 CODE 0
+6 5A1 0 CODE 0
 portsinit.c
-13 540 0 CODE 0
-14 540 0 CODE 0
-15 543 0 CODE 0
-16 546 0 CODE 0
-shape.c
-32 632 0 CODE 0
-34 635 0 CODE 0
-36 636 0 CODE 0
-37 63F 0 CODE 0
-39 640 0 CODE 0
-40 649 0 CODE 0
-42 64A 0 CODE 0
-43 653 0 CODE 0
-45 654 0 CODE 0
-46 65D 0 CODE 0
-49 65E 0 CODE 0
-49 663 0 CODE 0
-49 668 0 CODE 0
-49 66B 0 CODE 0
-49 66E 0 CODE 0
-49 671 0 CODE 0
-49 674 0 CODE 0
-51 677 0 CODE 0
-52 67C 0 CODE 0
-53 68D 0 CODE 0
-8 68E 0 CODE 0
-9 68E 0 CODE 0
-10 68E 0 CODE 0
-10 69E 0 CODE 0
-11 6A3 0 CODE 0
-11 6B3 0 CODE 0
-11 6BB 0 CODE 0
-12 6BF 0 CODE 0
-12 6CF 0 CODE 0
-12 6DA 0 CODE 0
-12 6DD 0 CODE 0
-13 6E6 0 CODE 0
-13 6EA 0 CODE 0
-13 6FC 0 CODE 0
-13 706 0 CODE 0
-13 70A 0 CODE 0
-14 70E 0 CODE 0
-20 5BC 0 CODE 0
-21 5BC 0 CODE 0
-21 5C0 0 CODE 0
-21 5CD 0 CODE 0
-22 5D4 0 CODE 0
-28 552 0 CODE 0
-29 552 0 CODE 0
-29 55A 0 CODE 0
-30 55C 0 CODE 0
-24 55D 0 CODE 0
-25 55D 0 CODE 0
-25 566 0 CODE 0
-26 56D 0 CODE 0
-16 593 0 CODE 0
-17 593 0 CODE 0
-17 597 0 CODE 0
-17 5A3 0 CODE 0
-18 5A5 0 CODE 0
+13 4F0 0 CODE 0
+14 4F0 0 CODE 0
+15 4F3 0 CODE 0
+16 4F6 0 CODE 0
 matrix.c
-20 5F2 0 CODE 0
-21 5F2 0 CODE 0
-22 5FE 0 CODE 0
-23 601 0 CODE 0
-24 60B 0 CODE 0
-25 616 0 CODE 0
-26 621 0 CODE 0
-27 62C 0 CODE 0
-28 631 0 CODE 0
-10 5A6 0 CODE 0
-12 5A6 0 CODE 0
-15 5A8 0 CODE 0
-16 5B5 0 CODE 0
-17 5BB 0 CODE 0
-34 580 0 CODE 0
-35 580 0 CODE 0
-36 583 0 CODE 0
-37 589 0 CODE 0
-38 58F 0 CODE 0
-39 592 0 CODE 0
+20 5A2 0 CODE 0
+21 5A2 0 CODE 0
+22 5AE 0 CODE 0
+23 5B1 0 CODE 0
+24 5BB 0 CODE 0
+25 5C6 0 CODE 0
+26 5D1 0 CODE 0
+27 5DC 0 CODE 0
+28 5E1 0 CODE 0
+main.c
+19 74E 0 CODE 0
+21 74E 0 CODE 0
+22 752 0 CODE 0
+23 752 0 CODE 0
+26 757 0 CODE 0
+27 767 0 CODE 0
+29 768 0 CODE 0
+30 778 0 CODE 0
+32 779 0 CODE 0
+33 789 0 CODE 0
+35 78A 0 CODE 0
+36 79A 0 CODE 0
+37 79B 0 CODE 0
+37 79F 0 CODE 0
+37 7A4 0 CODE 0
+37 7A7 0 CODE 0
+37 7AA 0 CODE 0
+37 7AD 0 CODE 0
+38 7B0 0 CODE 0
+39 7BF 0 CODE 0
+39 7C3 0 CODE 0
+39 7CC 0 CODE 0
+39 7D0 0 CODE 0
+40 7D4 0 CODE 0
+40 7D8 0 CODE 0
+41 7DC 0 CODE 0
+41 7E1 0 CODE 0
+41 7E5 0 CODE 0
+43 7E9 0 CODE 0
+shape.c
+32 671 0 CODE 0
+34 674 0 CODE 0
+36 675 0 CODE 0
+37 67E 0 CODE 0
+39 67F 0 CODE 0
+40 688 0 CODE 0
+42 689 0 CODE 0
+43 692 0 CODE 0
+45 693 0 CODE 0
+46 69C 0 CODE 0
+49 69D 0 CODE 0
+49 6A2 0 CODE 0
+49 6A7 0 CODE 0
+49 6AA 0 CODE 0
+49 6AD 0 CODE 0
+49 6B0 0 CODE 0
+49 6B3 0 CODE 0
+51 6B6 0 CODE 0
+52 6BB 0 CODE 0
+53 6CC 0 CODE 0
+matrix.c
+10 556 0 CODE 0
+12 556 0 CODE 0
+15 558 0 CODE 0
+16 565 0 CODE 0
+17 56B 0 CODE 0
+shape.c
+8 6CD 0 CODE 0
+9 6CD 0 CODE 0
+10 6CD 0 CODE 0
+10 6DD 0 CODE 0
+11 6E2 0 CODE 0
+11 6F2 0 CODE 0
+11 6FA 0 CODE 0
+12 6FE 0 CODE 0
+12 70E 0 CODE 0
+12 719 0 CODE 0
+12 71C 0 CODE 0
+13 725 0 CODE 0
+13 729 0 CODE 0
+13 73B 0 CODE 0
+13 745 0 CODE 0
+13 749 0 CODE 0
+14 74D 0 CODE 0
+matrix.c
+34 543 0 CODE 0
+35 543 0 CODE 0
+36 546 0 CODE 0
+37 54C 0 CODE 0
+38 552 0 CODE 0
+39 555 0 CODE 0
 spi.c
-18 547 0 CODE 0
-19 548 0 CODE 0
-20 54C 0 CODE 0
-21 550 0 CODE 0
-22 551 0 CODE 0
+18 502 0 CODE 0
+19 503 0 CODE 0
+20 507 0 CODE 0
+21 50B 0 CODE 0
+22 50C 0 CODE 0
+shape.c
+20 56C 0 CODE 0
+21 56C 0 CODE 0
+21 570 0 CODE 0
+21 57D 0 CODE 0
+22 584 0 CODE 0
+28 4F7 0 CODE 0
+29 4F7 0 CODE 0
+29 4FF 0 CODE 0
+30 501 0 CODE 0
+24 50D 0 CODE 0
+25 50D 0 CODE 0
+25 516 0 CODE 0
+26 51D 0 CODE 0
+16 530 0 CODE 0
+17 530 0 CODE 0
+17 534 0 CODE 0
+17 540 0 CODE 0
+18 542 0 CODE 0

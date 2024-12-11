@@ -1712,42 +1712,54 @@ void MovieRigth(TCoord * _shapePosition);
 void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray, int countElemntArray);
 # 7 "main.c" 2
 # 19 "main.c"
-void main(void) {
-    SpiInit();
-    MatrixInit();
-    PortBInit();
-
-    TCoord shapePosition;
-    char figure[3] = { 0x07, 0x05, 0x07 };
-    int countElemntArray = 3;
+void ChangeOfCoordinates(TCoord * _shapePosition, char * _figure, int _countElemntArray){
     const unsigned long delay = 100;
-
-    while(1){
-        int step = 0;
-        SetPosition(&shapePosition, 0, 0);
-        MovieShape(notMoive, &shapePosition, figure, countElemntArray);
-
+    int step = 0;
         do{
             for(int i = 0; i < 5; i++){
                 switch (step){
                     case 0:
-                        MovieShape(right, &shapePosition, figure, countElemntArray);
+                        MovieShape(right, _shapePosition, _figure, _countElemntArray);
                         break;
                     case 1:
-                        MovieShape(down, &shapePosition, figure, countElemntArray);
+                        MovieShape(down, _shapePosition, _figure, _countElemntArray);
                         break;
                     case 2:
-                        MovieShape(left, &shapePosition, figure, countElemntArray);
+                        MovieShape(left, _shapePosition, _figure, _countElemntArray);
                         break;
                     case 3:
-                        MovieShape(up, &shapePosition, figure, countElemntArray);
+                        MovieShape(up, _shapePosition, _figure, _countElemntArray);
                         break;
                 }
                 _delay((unsigned long)((delay)*(16000000/4000.0)));
             }
             step++;
         } while(step < 4);
-    }
 
+}
+
+void invert(char * array, int countElemnt)
+{
+    for(int i = 0, j = countElemnt - 1; i < j; i++, j--)
+    {
+        char t = array[i];
+        array[i] = array[j];
+        array[j] = t;
+    }
+}
+
+void main(void) {
+    SpiInit();
+    MatrixInit();
+    PortBInit();
+
+    TCoord shapePosition;
+    char square_1[3] = { 0x07, 0x05, 0x05 };
+    int countElemntArray = 3;
+    while(1){
+        SetPosition(&shapePosition, 0, 0);
+        ChangeOfCoordinates(&shapePosition, square_1, countElemntArray);
+        invert(square_1, countElemntArray);
+    }
     return;
 }

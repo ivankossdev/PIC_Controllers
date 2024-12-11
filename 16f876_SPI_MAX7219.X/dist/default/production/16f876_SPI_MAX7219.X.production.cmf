@@ -11,30 +11,32 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/xcXaMaBCb/driver_tmp_12.o
-end_init CODE 0 0 0 3 2 1
-config CONFIG 4 2007 2007 1 2 1
 $dist/default/production/16f876_SPI_MAX7219.X.production.o
 cinit CODE 0 7EA 7EA 16 2 1
-text1 CODE 0 56E 56E 12 2 1
-text2 CODE 0 5D5 5D5 1D 2 1
-text3 CODE 0 540 540 7 2 1
-text4 CODE 0 632 632 5C 2 1
-text5 CODE 0 68E 68E 81 2 1
-text6 CODE 0 5BC 5BC 19 2 1
-text7 CODE 0 552 552 B 2 1
-text8 CODE 0 55D 55D 11 2 1
-text9 CODE 0 593 593 13 2 1
-text10 CODE 0 5F2 5F2 40 2 1
-text11 CODE 0 5A6 5A6 16 2 1
-text12 CODE 0 580 580 13 2 1
-text13 CODE 0 547 547 B 2 1
-maintext CODE 0 70F 70F DB 2 1
+text1 CODE 0 5E2 5E2 43 2 1
+text2 CODE 0 51E 51E 12 2 1
+text3 CODE 0 585 585 1D 2 1
+text4 CODE 0 4F0 4F0 7 2 1
+text5 CODE 0 5A2 5A2 40 2 1
+text6 CODE 0 74E 74E 9C 2 1
+text7 CODE 0 671 671 5C 2 1
+text8 CODE 0 556 556 16 2 1
+text9 CODE 0 6CD 6CD 81 2 1
+text10 CODE 0 543 543 13 2 1
+text11 CODE 0 502 502 B 2 1
+text12 CODE 0 56C 56C 19 2 1
+text13 CODE 0 4F7 4F7 B 2 1
+text14 CODE 0 50D 50D 11 2 1
+text15 CODE 0 530 530 13 2 1
+maintext CODE 0 625 625 4C 2 1
 cstackCOMMON COMMON 1 70 70 E 1 1
-cstackBANK0 BANK0 1 20 20 1C 1 1
-idataBANK0 CODE 0 53D 53D 3 2 1
+cstackBANK0 BANK0 1 20 20 21 1 1
+idataBANK0 CODE 0 4ED 4ED 3 2 1
 strings STRING 0 3 3 A 2 1
-dataBANK0 BANK0 1 3C 3C 3 1 1
+dataBANK0 BANK0 1 41 41 3 1 1
+config CONFIG 4 2007 2007 1 2 1
+$/tmp/xcXPhGDji/driver_tmp_12.o
+end_init CODE 0 0 0 3 2 1
 config CONFIG 4 2007 2007 1 2 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -42,29 +44,29 @@ config CONFIG 4 2007 2007 1 2 1
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 3F-6F 1
+RAM 44-6F 1
 RAM A0-EF 1
 RAM 110-16F 1
 RAM 190-1EF 1
-BANK0 3F-6F 1
+BANK0 44-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
-CONST D-53C 2
+CONST D-4EC 2
 CONST 800-1FFF 2
-ENTRY D-53C 2
+ENTRY D-4EC 2
 ENTRY 800-1FFF 2
 IDLOC 2000-2003 2
-CODE D-53C 2
+CODE D-4EC 2
 CODE 800-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-10F 1
 SFR3 180-18F 1
 EEDATA 2100-21FF 2
-STRCODE D-53C 2
+STRCODE D-4EC 2
 STRCODE 800-1FFF 2
-STRING D-53C 2
+STRING D-4EC 2
 STRING 800-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -80,148 +82,164 @@ STRING 800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production/16f876_SPI_MAX7219.X.production.o
-7EA cinit CODE >832:/tmp/xcXaMaBCb/driver_tmp_1.s
-7EA cinit CODE >835:/tmp/xcXaMaBCb/driver_tmp_1.s
-7EA cinit CODE >849:/tmp/xcXaMaBCb/driver_tmp_1.s
-7EF cinit CODE >850:/tmp/xcXaMaBCb/driver_tmp_1.s
-7F0 cinit CODE >851:/tmp/xcXaMaBCb/driver_tmp_1.s
-7F5 cinit CODE >852:/tmp/xcXaMaBCb/driver_tmp_1.s
-7F6 cinit CODE >853:/tmp/xcXaMaBCb/driver_tmp_1.s
-7FB cinit CODE >854:/tmp/xcXaMaBCb/driver_tmp_1.s
-7FC cinit CODE >860:/tmp/xcXaMaBCb/driver_tmp_1.s
-7FC cinit CODE >862:/tmp/xcXaMaBCb/driver_tmp_1.s
-7FD cinit CODE >863:/tmp/xcXaMaBCb/driver_tmp_1.s
-547 text13 CODE >18:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
-548 text13 CODE >19:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
-54C text13 CODE >20:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
-550 text13 CODE >21:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
-551 text13 CODE >22:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
-580 text12 CODE >34:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
-580 text12 CODE >35:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
-583 text12 CODE >36:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
-589 text12 CODE >37:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
-58F text12 CODE >38:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
-592 text12 CODE >39:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
-5A6 text11 CODE >10:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
-5A6 text11 CODE >12:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
-5A8 text11 CODE >15:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
-5B5 text11 CODE >16:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
-5BB text11 CODE >17:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
-5F2 text10 CODE >20:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
-5F2 text10 CODE >21:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
-5FE text10 CODE >22:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
-601 text10 CODE >23:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
-60B text10 CODE >24:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
-616 text10 CODE >25:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
-621 text10 CODE >26:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
-62C text10 CODE >27:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
-631 text10 CODE >28:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
-593 text9 CODE >16:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-593 text9 CODE >17:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-597 text9 CODE >17:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-5A3 text9 CODE >17:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-5A5 text9 CODE >18:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-55D text8 CODE >24:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-55D text8 CODE >25:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-566 text8 CODE >25:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-56D text8 CODE >26:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-552 text7 CODE >28:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-552 text7 CODE >29:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-55A text7 CODE >29:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-55C text7 CODE >30:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-5BC text6 CODE >20:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-5BC text6 CODE >21:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-5C0 text6 CODE >21:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-5CD text6 CODE >21:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-5D4 text6 CODE >22:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-68E text5 CODE >8:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-68E text5 CODE >9:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-68E text5 CODE >10:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-69E text5 CODE >10:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-6A3 text5 CODE >11:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-6B3 text5 CODE >11:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-6BB text5 CODE >11:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-6BF text5 CODE >12:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-6CF text5 CODE >12:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-6DA text5 CODE >12:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-6DD text5 CODE >12:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-6E6 text5 CODE >13:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-6EA text5 CODE >13:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-6FC text5 CODE >13:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-706 text5 CODE >13:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-70A text5 CODE >13:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-70E text5 CODE >14:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-632 text4 CODE >32:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-635 text4 CODE >34:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-636 text4 CODE >36:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-63F text4 CODE >37:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-640 text4 CODE >39:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-649 text4 CODE >40:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-64A text4 CODE >42:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-653 text4 CODE >43:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-654 text4 CODE >45:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-65D text4 CODE >46:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-65E text4 CODE >49:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-663 text4 CODE >49:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-668 text4 CODE >49:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-66B text4 CODE >49:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-66E text4 CODE >49:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-671 text4 CODE >49:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-674 text4 CODE >49:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-677 text4 CODE >51:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-67C text4 CODE >52:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-68D text4 CODE >53:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-540 text3 CODE >13:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/portsinit.c
-540 text3 CODE >14:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/portsinit.c
-543 text3 CODE >15:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/portsinit.c
-546 text3 CODE >16:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/portsinit.c
-5D5 text2 CODE >3:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-5D5 text2 CODE >4:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-5DF text2 CODE >5:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-5E3 text2 CODE >5:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-5F1 text2 CODE >6:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-56E text1 CODE >9:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
-56E text1 CODE >10:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
-571 text1 CODE >11:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
-573 text1 CODE >12:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
-575 text1 CODE >13:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
-579 text1 CODE >14:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
-57B text1 CODE >15:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
-57F text1 CODE >16:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
-70F maintext CODE >19:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-70F maintext CODE >20:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-714 maintext CODE >21:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-719 maintext CODE >22:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-71E maintext CODE >25:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-726 maintext CODE >26:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-72A maintext CODE >30:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-72E maintext CODE >31:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-73D maintext CODE >32:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-74F maintext CODE >35:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-754 maintext CODE >38:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-764 maintext CODE >39:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-765 maintext CODE >41:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-775 maintext CODE >42:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-776 maintext CODE >44:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-786 maintext CODE >45:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-787 maintext CODE >47:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-797 maintext CODE >48:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-798 maintext CODE >49:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-79C maintext CODE >49:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-7A1 maintext CODE >49:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-7A4 maintext CODE >49:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-7A7 maintext CODE >49:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-7AA maintext CODE >49:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-7AD maintext CODE >50:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-7BC maintext CODE >51:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-7C0 maintext CODE >51:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-7C9 maintext CODE >51:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-7CD maintext CODE >51:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-7D1 maintext CODE >52:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-7D5 maintext CODE >52:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-7D9 maintext CODE >53:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-7DE maintext CODE >53:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-7E2 maintext CODE >53:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+7EA cinit CODE >834:/tmp/xcXPhGDji/driver_tmp_1.s
+7EA cinit CODE >837:/tmp/xcXPhGDji/driver_tmp_1.s
+7EA cinit CODE >851:/tmp/xcXPhGDji/driver_tmp_1.s
+7EF cinit CODE >852:/tmp/xcXPhGDji/driver_tmp_1.s
+7F0 cinit CODE >853:/tmp/xcXPhGDji/driver_tmp_1.s
+7F5 cinit CODE >854:/tmp/xcXPhGDji/driver_tmp_1.s
+7F6 cinit CODE >855:/tmp/xcXPhGDji/driver_tmp_1.s
+7FB cinit CODE >856:/tmp/xcXPhGDji/driver_tmp_1.s
+7FC cinit CODE >862:/tmp/xcXPhGDji/driver_tmp_1.s
+7FC cinit CODE >864:/tmp/xcXPhGDji/driver_tmp_1.s
+7FD cinit CODE >865:/tmp/xcXPhGDji/driver_tmp_1.s
+530 text15 CODE >16:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+530 text15 CODE >17:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+534 text15 CODE >17:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+540 text15 CODE >17:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+542 text15 CODE >18:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+50D text14 CODE >24:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+50D text14 CODE >25:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+516 text14 CODE >25:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+51D text14 CODE >26:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+4F7 text13 CODE >28:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+4F7 text13 CODE >29:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+4FF text13 CODE >29:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+501 text13 CODE >30:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+56C text12 CODE >20:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+56C text12 CODE >21:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+570 text12 CODE >21:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+57D text12 CODE >21:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+584 text12 CODE >22:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+502 text11 CODE >18:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
+503 text11 CODE >19:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
+507 text11 CODE >20:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
+50B text11 CODE >21:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
+50C text11 CODE >22:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
+543 text10 CODE >34:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
+543 text10 CODE >35:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
+546 text10 CODE >36:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
+54C text10 CODE >37:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
+552 text10 CODE >38:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
+555 text10 CODE >39:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
+6CD text9 CODE >8:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+6CD text9 CODE >9:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+6CD text9 CODE >10:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+6DD text9 CODE >10:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+6E2 text9 CODE >11:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+6F2 text9 CODE >11:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+6FA text9 CODE >11:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+6FE text9 CODE >12:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+70E text9 CODE >12:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+719 text9 CODE >12:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+71C text9 CODE >12:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+725 text9 CODE >13:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+729 text9 CODE >13:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+73B text9 CODE >13:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+745 text9 CODE >13:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+749 text9 CODE >13:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+74D text9 CODE >14:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+556 text8 CODE >10:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
+556 text8 CODE >12:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
+558 text8 CODE >15:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
+565 text8 CODE >16:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
+56B text8 CODE >17:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
+671 text7 CODE >32:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+674 text7 CODE >34:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+675 text7 CODE >36:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+67E text7 CODE >37:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+67F text7 CODE >39:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+688 text7 CODE >40:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+689 text7 CODE >42:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+692 text7 CODE >43:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+693 text7 CODE >45:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+69C text7 CODE >46:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+69D text7 CODE >49:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+6A2 text7 CODE >49:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+6A7 text7 CODE >49:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+6AA text7 CODE >49:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+6AD text7 CODE >49:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+6B0 text7 CODE >49:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+6B3 text7 CODE >49:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+6B6 text7 CODE >51:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+6BB text7 CODE >52:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+6CC text7 CODE >53:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+74E text6 CODE >19:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+74E text6 CODE >21:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+752 text6 CODE >22:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+752 text6 CODE >23:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+757 text6 CODE >26:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+767 text6 CODE >27:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+768 text6 CODE >29:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+778 text6 CODE >30:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+779 text6 CODE >32:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+789 text6 CODE >33:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+78A text6 CODE >35:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+79A text6 CODE >36:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+79B text6 CODE >37:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+79F text6 CODE >37:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+7A4 text6 CODE >37:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+7A7 text6 CODE >37:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+7AA text6 CODE >37:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+7AD text6 CODE >37:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+7B0 text6 CODE >38:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+7BF text6 CODE >39:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+7C3 text6 CODE >39:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+7CC text6 CODE >39:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+7D0 text6 CODE >39:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+7D4 text6 CODE >40:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+7D8 text6 CODE >40:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+7DC text6 CODE >41:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+7E1 text6 CODE >41:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+7E5 text6 CODE >41:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+7E9 text6 CODE >43:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+5A2 text5 CODE >20:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
+5A2 text5 CODE >21:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
+5AE text5 CODE >22:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
+5B1 text5 CODE >23:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
+5BB text5 CODE >24:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
+5C6 text5 CODE >25:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
+5D1 text5 CODE >26:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
+5DC text5 CODE >27:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
+5E1 text5 CODE >28:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
+4F0 text4 CODE >13:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/portsinit.c
+4F0 text4 CODE >14:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/portsinit.c
+4F3 text4 CODE >15:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/portsinit.c
+4F6 text4 CODE >16:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/portsinit.c
+585 text3 CODE >3:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+585 text3 CODE >4:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+58F text3 CODE >5:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+593 text3 CODE >5:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+5A1 text3 CODE >6:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+51E text2 CODE >9:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
+51E text2 CODE >10:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
+521 text2 CODE >11:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
+523 text2 CODE >12:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
+525 text2 CODE >13:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
+529 text2 CODE >14:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
+52B text2 CODE >15:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
+52F text2 CODE >16:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
+5E2 text1 CODE >45:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+5E2 text1 CODE >47:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+5E8 text1 CODE >47:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+5ED text1 CODE >49:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+5F5 text1 CODE >50:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+603 text1 CODE >51:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+60A text1 CODE >52:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+60C text1 CODE >52:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+612 text1 CODE >52:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+61C text1 CODE >52:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+620 text1 CODE >52:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+624 text1 CODE >53:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+625 maintext CODE >55:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+625 maintext CODE >56:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+62A maintext CODE >57:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+62F maintext CODE >58:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+634 maintext CODE >61:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+63C maintext CODE >62:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+640 maintext CODE >64:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+64F maintext CODE >65:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+660 maintext CODE >66:/home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -234,6 +252,7 @@ $dist/default/production/16f876_SPI_MAX7219.X.production.o
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
+__end_of_ChangeOfCoordinates FD4 0 CODE 0 text6 dist/default/production/16f876_SPI_MAX7219.X.production.o
 ___latbits 2 0 ABS 0 - dist/default/production/16f876_SPI_MAX7219.X.production.o
 __LdataBANK0 0 0 ABS 0 dataBANK0 -
 ShowShape@countElemntArray 76 0 COMMON 1 cstackCOMMON dist/default/production/16f876_SPI_MAX7219.X.production.o
@@ -243,45 +262,51 @@ __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 400F 0 ABS 0 - -
 __HidataBANK0 0 0 ABS 0 idataBANK0 -
-main@countElemntArray 36 0 BANK0 1 cstackBANK0 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__end_ofChangeOfCoordinates@delay 1A 0 STRING 0 strings dist/default/production/16f876_SPI_MAX7219.X.production.o
+main@countElemntArray 3B 0 BANK0 1 cstackBANK0 dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __L__absolute__ 0 0 ABS 0 __absolute__ -
-main@i 34 0 BANK0 1 cstackBANK0 dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack /tmp/xcXaMaBCb/driver_tmp_12.o
-_main E1E 0 CODE 0 maintext dist/default/production/16f876_SPI_MAX7219.X.production.o
+___sp 0 0 STACK 2 stack /tmp/xcXPhGDji/driver_tmp_12.o
+_main C4A 0 CODE 0 maintext dist/default/production/16f876_SPI_MAX7219.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production/16f876_SPI_MAX7219.X.production.o
-___stack_hi 0 0 STACK 2 stack /tmp/xcXaMaBCb/driver_tmp_12.o
-___stack_lo 0 0 STACK 2 stack /tmp/xcXaMaBCb/driver_tmp_12.o
-start 0 0 CODE 0 init /tmp/xcXaMaBCb/driver_tmp_12.o
-_MatrixInit BE4 0 CODE 0 text10 dist/default/production/16f876_SPI_MAX7219.X.production.o
+___stack_hi 0 0 STACK 2 stack /tmp/xcXPhGDji/driver_tmp_12.o
+___stack_lo 0 0 STACK 2 stack /tmp/xcXPhGDji/driver_tmp_12.o
+start 0 0 CODE 0 init /tmp/xcXPhGDji/driver_tmp_12.o
+_MatrixInit B44 0 CODE 0 text5 dist/default/production/16f876_SPI_MAX7219.X.production.o
+ChangeOfCoordinates@_shapePosition 2C 0 BANK0 1 cstackBANK0 dist/default/production/16f876_SPI_MAX7219.X.production.o
 __LidataBANK0 0 0 ABS 0 idataBANK0 -
 MovieShape@dir 2B 0 BANK0 1 cstackBANK0 dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab /tmp/xcXaMaBCb/driver_tmp_12.o
-intlevel1 0 0 ENTRY 0 functab /tmp/xcXaMaBCb/driver_tmp_12.o
-intlevel2 0 0 ENTRY 0 functab /tmp/xcXaMaBCb/driver_tmp_12.o
-intlevel3 0 0 ENTRY 0 functab /tmp/xcXaMaBCb/driver_tmp_12.o
-intlevel4 0 0 ENTRY 0 functab /tmp/xcXaMaBCb/driver_tmp_12.o
-intlevel5 0 0 ENTRY 0 functab /tmp/xcXaMaBCb/driver_tmp_12.o
+intlevel0 0 0 ENTRY 0 functab /tmp/xcXPhGDji/driver_tmp_12.o
+intlevel1 0 0 ENTRY 0 functab /tmp/xcXPhGDji/driver_tmp_12.o
+intlevel2 0 0 ENTRY 0 functab /tmp/xcXPhGDji/driver_tmp_12.o
+intlevel3 0 0 ENTRY 0 functab /tmp/xcXPhGDji/driver_tmp_12.o
+intlevel4 0 0 ENTRY 0 functab /tmp/xcXPhGDji/driver_tmp_12.o
+intlevel5 0 0 ENTRY 0 functab /tmp/xcXPhGDji/driver_tmp_12.o
 ShowShape@coord 74 0 COMMON 1 cstackCOMMON dist/default/production/16f876_SPI_MAX7219.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
-_SpiInit ADC 0 CODE 0 text1 dist/default/production/16f876_SPI_MAX7219.X.production.o
+ChangeOfCoordinates@_figure 2E 0 BANK0 1 cstackBANK0 dist/default/production/16f876_SPI_MAX7219.X.production.o
+_SpiInit A3C 0 CODE 0 text2 dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext -
 SpiClearMatrix@i 76 0 COMMON 1 cstackCOMMON dist/default/production/16f876_SPI_MAX7219.X.production.o
-__end_of_MatrixInit C64 0 CODE 0 text10 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__end_of_MatrixInit BC4 0 CODE 0 text5 dist/default/production/16f876_SPI_MAX7219.X.production.o
+ChangeOfCoordinates@step 34 0 BANK0 1 cstackBANK0 dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - /tmp/xcXaMaBCb/driver_tmp_12.o
-___stacklo 0 0 ABS 0 - /tmp/xcXaMaBCb/driver_tmp_12.o
-_SpiSendByte A8E 0 CODE 0 text13 dist/default/production/16f876_SPI_MAX7219.X.production.o
-_SpiClearMatrix B4C 0 CODE 0 text11 dist/default/production/16f876_SPI_MAX7219.X.production.o
+invert@array 70 0 COMMON 1 cstackCOMMON dist/default/production/16f876_SPI_MAX7219.X.production.o
+___stackhi 0 0 ABS 0 - /tmp/xcXPhGDji/driver_tmp_12.o
+___stacklo 0 0 ABS 0 - /tmp/xcXPhGDji/driver_tmp_12.o
+_SpiSendByte A04 0 CODE 0 text11 dist/default/production/16f876_SPI_MAX7219.X.production.o
+_SpiClearMatrix AAC 0 CODE 0 text8 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__end_of_invert C4A 0 CODE 0 text1 dist/default/production/16f876_SPI_MAX7219.X.production.o
 start_initialization FD4 0 CODE 0 cinit dist/default/production/16f876_SPI_MAX7219.X.production.o
-_MovieUp B78 0 CODE 0 text6 dist/default/production/16f876_SPI_MAX7219.X.production.o
+_MovieUp AD8 0 CODE 0 text12 dist/default/production/16f876_SPI_MAX7219.X.production.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production/16f876_SPI_MAX7219.X.production.o
 _SSPBUF 13 0 ABS 0 - dist/default/production/16f876_SPI_MAX7219.X.production.o
 _SSPCON 14 0 ABS 0 - dist/default/production/16f876_SPI_MAX7219.X.production.o
-___int_sp 0 0 STACK 2 stack /tmp/xcXaMaBCb/driver_tmp_12.o
+invert@countElemnt 71 0 COMMON 1 cstackCOMMON dist/default/production/16f876_SPI_MAX7219.X.production.o
+___int_sp 0 0 STACK 2 stack /tmp/xcXPhGDji/driver_tmp_12.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -289,8 +314,8 @@ __Hbank3 0 0 ABS 0 bank3 -
 __Hcinit 1000 0 CODE 0 cinit -
 __Hstack 0 0 STACK 2 stack -
 __stringbase 10 0 STRING 0 strings dist/default/production/16f876_SPI_MAX7219.X.production.o
-_SetPosition BAA 0 CODE 0 text2 dist/default/production/16f876_SPI_MAX7219.X.production.o
-__end_of_SpiClearMatrix B78 0 CODE 0 text11 dist/default/production/16f876_SPI_MAX7219.X.production.o
+_SetPosition B0A 0 CODE 0 text3 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__end_of_SpiClearMatrix AD8 0 CODE 0 text8 dist/default/production/16f876_SPI_MAX7219.X.production.o
 MovieLeft@_shapePosition 70 0 COMMON 1 cstackCOMMON dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Hmaintext 0 0 ABS 0 maintext -
 __Hcommon 0 0 ABS 0 common -
@@ -300,7 +325,7 @@ __Lbank1 0 0 ABS 0 bank1 -
 __Lbank2 0 0 ABS 0 bank2 -
 __Lbank3 0 0 ABS 0 bank3 -
 __Lcinit FD4 0 CODE 0 cinit -
-main@shapePosition 38 0 BANK0 1 cstackBANK0 dist/default/production/16f876_SPI_MAX7219.X.production.o
+main@shapePosition 3D 0 BANK0 1 cstackBANK0 dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Lstack 0 0 STACK 2 stack -
 SendToSegment@data 73 0 COMMON 1 cstackCOMMON dist/default/production/16f876_SPI_MAX7219.X.production.o
 SetPosition@x 72 0 COMMON 1 cstackCOMMON dist/default/production/16f876_SPI_MAX7219.X.production.o
@@ -334,35 +359,41 @@ __S3 0 0 ABS 0 - -
 SendToSegment@segment 71 0 COMMON 1 cstackCOMMON dist/default/production/16f876_SPI_MAX7219.X.production.o
 ShowShape@_pos 20 0 BANK0 1 cstackBANK0 dist/default/production/16f876_SPI_MAX7219.X.production.o
 MovieUp@_shapePosition 70 0 COMMON 1 cstackCOMMON dist/default/production/16f876_SPI_MAX7219.X.production.o
-_SendToSegment B00 0 CODE 0 text12 dist/default/production/16f876_SPI_MAX7219.X.production.o
+main@square_1 38 0 BANK0 1 cstackBANK0 dist/default/production/16f876_SPI_MAX7219.X.production.o
+ChangeOfCoordinates@_countElemntArray 2F 0 BANK0 1 cstackBANK0 dist/default/production/16f876_SPI_MAX7219.X.production.o
+_SendToSegment A86 0 CODE 0 text10 dist/default/production/16f876_SPI_MAX7219.X.production.o
 MovieShape@countElemntArray 27 0 BANK0 1 cstackBANK0 dist/default/production/16f876_SPI_MAX7219.X.production.o
-_MovieRigth AA4 0 CODE 0 text7 dist/default/production/16f876_SPI_MAX7219.X.production.o
-_MovieShape C64 0 CODE 0 text4 dist/default/production/16f876_SPI_MAX7219.X.production.o
+_MovieRigth 9EE 0 CODE 0 text13 dist/default/production/16f876_SPI_MAX7219.X.production.o
+_MovieShape CE2 0 CODE 0 text7 dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Lintentry 0 0 CODE 0 intentry -
 __stringtab 6 0 STRING 0 strings dist/default/production/16f876_SPI_MAX7219.X.production.o
-reset_vec 0 0 CODE 0 reset_vec /tmp/xcXaMaBCb/driver_tmp_12.o
+reset_vec 0 0 CODE 0 reset_vec /tmp/xcXPhGDji/driver_tmp_12.o
+invert@i 77 0 COMMON 1 cstackCOMMON dist/default/production/16f876_SPI_MAX7219.X.production.o
+invert@j 79 0 COMMON 1 cstackCOMMON dist/default/production/16f876_SPI_MAX7219.X.production.o
+invert@t 76 0 COMMON 1 cstackCOMMON dist/default/production/16f876_SPI_MAX7219.X.production.o
+_invert BC4 0 CODE 0 text1 dist/default/production/16f876_SPI_MAX7219.X.production.o
 ShowShape@shapeArray 78 0 COMMON 1 cstackCOMMON dist/default/production/16f876_SPI_MAX7219.X.production.o
-__pdataBANK0 3C 0 BANK0 1 dataBANK0 dist/default/production/16f876_SPI_MAX7219.X.production.o
-__end_of_MovieDown B4C 0 CODE 0 text9 dist/default/production/16f876_SPI_MAX7219.X.production.o
-__end_of_MovieLeft ADC 0 CODE 0 text8 dist/default/production/16f876_SPI_MAX7219.X.production.o
-__end_ofmain@delay 1A 0 STRING 0 strings dist/default/production/16f876_SPI_MAX7219.X.production.o
-__ptext10 BE4 0 CODE 0 text10 dist/default/production/16f876_SPI_MAX7219.X.production.o
-__ptext11 B4C 0 CODE 0 text11 dist/default/production/16f876_SPI_MAX7219.X.production.o
-__ptext12 B00 0 CODE 0 text12 dist/default/production/16f876_SPI_MAX7219.X.production.o
-__ptext13 A8E 0 CODE 0 text13 dist/default/production/16f876_SPI_MAX7219.X.production.o
-__pmaintext E1E 0 CODE 0 maintext dist/default/production/16f876_SPI_MAX7219.X.production.o
+__pdataBANK0 41 0 BANK0 1 dataBANK0 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__end_of_MovieDown A86 0 CODE 0 text15 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__end_of_MovieLeft A3C 0 CODE 0 text14 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__ptext10 A86 0 CODE 0 text10 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__ptext11 A04 0 CODE 0 text11 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__ptext12 AD8 0 CODE 0 text12 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__ptext13 9EE 0 CODE 0 text13 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__ptext14 A1A 0 CODE 0 text14 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__ptext15 A60 0 CODE 0 text15 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__pmaintext C4A 0 CODE 0 maintext dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
-_MovieDown B26 0 CODE 0 text9 dist/default/production/16f876_SPI_MAX7219.X.production.o
-_MovieLeft ABA 0 CODE 0 text8 dist/default/production/16f876_SPI_MAX7219.X.production.o
+_MovieDown A60 0 CODE 0 text15 dist/default/production/16f876_SPI_MAX7219.X.production.o
+_MovieLeft A1A 0 CODE 0 text14 dist/default/production/16f876_SPI_MAX7219.X.production.o
 MovieDown@_shapePosition 70 0 COMMON 1 cstackCOMMON dist/default/production/16f876_SPI_MAX7219.X.production.o
 MovieRigth@_shapePosition 70 0 COMMON 1 cstackCOMMON dist/default/production/16f876_SPI_MAX7219.X.production.o
-main@F914 3C 0 BANK0 1 dataBANK0 dist/default/production/16f876_SPI_MAX7219.X.production.o
-main@step 32 0 BANK0 1 cstackBANK0 dist/default/production/16f876_SPI_MAX7219.X.production.o
-__end_of_MovieRigth ABA 0 CODE 0 text7 dist/default/production/16f876_SPI_MAX7219.X.production.o
-__end_of_MovieShape D1C 0 CODE 0 text4 dist/default/production/16f876_SPI_MAX7219.X.production.o
+main@F927 41 0 BANK0 1 dataBANK0 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__end_of_MovieRigth A04 0 CODE 0 text13 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__end_of_MovieShape D9A 0 CODE 0 text7 dist/default/production/16f876_SPI_MAX7219.X.production.o
 __end_of__stringtab 12 0 STRING 0 strings dist/default/production/16f876_SPI_MAX7219.X.production.o
-__end_of_SpiSendByte AA4 0 CODE 0 text13 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__end_of_SpiSendByte A1A 0 CODE 0 text11 dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
@@ -373,43 +404,44 @@ ShowShape@pos 22 0 BANK0 1 cstackBANK0 dist/default/production/16f876_SPI_MAX721
 __Lend_init 0 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 end_of_initialization FF8 0 CODE 0 cinit dist/default/production/16f876_SPI_MAX7219.X.production.o
-main@figure 2F 0 BANK0 1 cstackBANK0 dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Hintentry 0 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
 MovieShape@_shapePosition 24 0 BANK0 1 cstackBANK0 dist/default/production/16f876_SPI_MAX7219.X.production.o
+ChangeOfCoordinates@i 36 0 BANK0 1 cstackBANK0 dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Hreset_vec 0 0 CODE 0 reset_vec -
 MovieShape@shapeArray 26 0 BANK0 1 cstackBANK0 dist/default/production/16f876_SPI_MAX7219.X.production.o
-__ptext1 ADC 0 CODE 0 text1 dist/default/production/16f876_SPI_MAX7219.X.production.o
-__ptext2 BAA 0 CODE 0 text2 dist/default/production/16f876_SPI_MAX7219.X.production.o
-__ptext3 A80 0 CODE 0 text3 dist/default/production/16f876_SPI_MAX7219.X.production.o
-__ptext4 C64 0 CODE 0 text4 dist/default/production/16f876_SPI_MAX7219.X.production.o
-__ptext5 D1C 0 CODE 0 text5 dist/default/production/16f876_SPI_MAX7219.X.production.o
-__ptext6 B78 0 CODE 0 text6 dist/default/production/16f876_SPI_MAX7219.X.production.o
-__ptext7 AA4 0 CODE 0 text7 dist/default/production/16f876_SPI_MAX7219.X.production.o
-__ptext8 ABA 0 CODE 0 text8 dist/default/production/16f876_SPI_MAX7219.X.production.o
-__ptext9 B26 0 CODE 0 text9 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__ptext1 BC4 0 CODE 0 text1 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__ptext2 A3C 0 CODE 0 text2 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__ptext3 B0A 0 CODE 0 text3 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__ptext4 9E0 0 CODE 0 text4 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__ptext5 B44 0 CODE 0 text5 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__ptext6 E9C 0 CODE 0 text6 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__ptext7 CE2 0 CODE 0 text7 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__ptext8 AAC 0 CODE 0 text8 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__ptext9 D9A 0 CODE 0 text9 dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
-__end_of_SpiInit B00 0 CODE 0 text1 dist/default/production/16f876_SPI_MAX7219.X.production.o
+_ChangeOfCoordinates E9C 0 CODE 0 text6 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__end_of_SpiInit A60 0 CODE 0 text2 dist/default/production/16f876_SPI_MAX7219.X.production.o
 __H__absolute__ 0 0 ABS 0 __absolute__ -
-__end_of_SendToSegment B26 0 CODE 0 text12 dist/default/production/16f876_SPI_MAX7219.X.production.o
-__end_of_SetPosition BE4 0 CODE 0 text2 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__end_of_SendToSegment AAC 0 CODE 0 text10 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__end_of_SetPosition B44 0 CODE 0 text3 dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec -
-___heap_hi 0 0 ABS 0 - /tmp/xcXaMaBCb/driver_tmp_12.o
-___heap_lo 0 0 ABS 0 - /tmp/xcXaMaBCb/driver_tmp_12.o
+___heap_hi 0 0 ABS 0 - /tmp/xcXPhGDji/driver_tmp_12.o
+___heap_lo 0 0 ABS 0 - /tmp/xcXPhGDji/driver_tmp_12.o
 __end_of__initialization FF8 0 CODE 0 cinit dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
-__end_of_PortBInit A8E 0 CODE 0 text3 dist/default/production/16f876_SPI_MAX7219.X.production.o
-__pidataBANK0 A7A 0 CODE 0 idataBANK0 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__end_of_PortBInit 9EE 0 CODE 0 text4 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__pidataBANK0 9DA 0 CODE 0 idataBANK0 dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext -
 SetPosition@position 70 0 COMMON 1 cstackCOMMON dist/default/production/16f876_SPI_MAX7219.X.production.o
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production/16f876_SPI_MAX7219.X.production.o
 SpiSendByte@data 70 0 COMMON 1 cstackCOMMON dist/default/production/16f876_SPI_MAX7219.X.production.o
-__end_of_ShowShape E1E 0 CODE 0 text5 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__end_of_ShowShape E9C 0 CODE 0 text9 dist/default/production/16f876_SPI_MAX7219.X.production.o
 _SSPSTAT 94 0 ABS 0 - dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Hend_init 6 0 CODE 0 end_init -
-_PortBInit A80 0 CODE 0 text3 dist/default/production/16f876_SPI_MAX7219.X.production.o
-__end_of_main FD4 0 CODE 0 maintext dist/default/production/16f876_SPI_MAX7219.X.production.o
+_PortBInit 9E0 0 CODE 0 text4 dist/default/production/16f876_SPI_MAX7219.X.production.o
+__end_of_main CE2 0 CODE 0 maintext dist/default/production/16f876_SPI_MAX7219.X.production.o
 _PORTA 5 0 ABS 0 - dist/default/production/16f876_SPI_MAX7219.X.production.o
 _PORTB 6 0 ABS 0 - dist/default/production/16f876_SPI_MAX7219.X.production.o
 _SSPIF 63 0 ABS 0 - dist/default/production/16f876_SPI_MAX7219.X.production.o
@@ -418,13 +450,13 @@ _TRISB 86 0 ABS 0 - dist/default/production/16f876_SPI_MAX7219.X.production.o
 _TRISC 87 0 ABS 0 - dist/default/production/16f876_SPI_MAX7219.X.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
-_ShowShape D1C 0 CODE 0 text5 dist/default/production/16f876_SPI_MAX7219.X.production.o
+_ShowShape D9A 0 CODE 0 text9 dist/default/production/16f876_SPI_MAX7219.X.production.o
 __HdataBANK0 0 0 ABS 0 dataBANK0 -
 __initialization FD4 0 CODE 0 cinit dist/default/production/16f876_SPI_MAX7219.X.production.o
 __pstrings 6 0 STRING 0 strings dist/default/production/16f876_SPI_MAX7219.X.production.o
-__end_of_MovieUp BAA 0 CODE 0 text6 dist/default/production/16f876_SPI_MAX7219.X.production.o
-___int_stack_hi 0 0 STACK 2 stack /tmp/xcXaMaBCb/driver_tmp_12.o
-___int_stack_lo 0 0 STACK 2 stack /tmp/xcXaMaBCb/driver_tmp_12.o
+__end_of_MovieUp B0A 0 CODE 0 text12 dist/default/production/16f876_SPI_MAX7219.X.production.o
+___int_stack_hi 0 0 STACK 2 stack /tmp/xcXPhGDji/driver_tmp_12.o
+___int_stack_lo 0 0 STACK 2 stack /tmp/xcXPhGDji/driver_tmp_12.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -451,24 +483,26 @@ ___int_stack_lo 0 0 STACK 2 stack /tmp/xcXaMaBCb/driver_tmp_12.o
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cinit 0 7EA FD4 16 2
-text1 0 56E ADC 12 2
-text2 0 5D5 BAA 1D 2
-text3 0 540 A80 7 2
-text4 0 632 C64 5C 2
-text5 0 68E D1C 81 2
-text6 0 5BC B78 19 2
-text7 0 552 AA4 B 2
-text8 0 55D ABA 11 2
-text9 0 593 B26 13 2
-text10 0 5F2 BE4 40 2
-text11 0 5A6 B4C 16 2
-text12 0 580 B00 13 2
-text13 0 547 A8E B 2
-maintext 0 70F E1E DB 2
+text1 0 5E2 BC4 43 2
+text2 0 51E A3C 12 2
+text3 0 585 B0A 1D 2
+text4 0 4F0 9E0 7 2
+text5 0 5A2 B44 40 2
+text6 0 74E E9C 9C 2
+text7 0 671 CE2 5C 2
+text8 0 556 AAC 16 2
+text9 0 6CD D9A 81 2
+text10 0 543 A86 13 2
+text11 0 502 A04 B 2
+text12 0 56C AD8 19 2
+text13 0 4F7 9EE B 2
+text14 0 50D A1A 11 2
+text15 0 530 A60 13 2
+maintext 0 625 C4A 4C 2
 cstackCOMMON 1 70 70 E 1
-cstackBANK0 1 20 20 1F 1
+cstackBANK0 1 20 20 24 1
 reset_vec 0 0 0 3 2
-idataBANK0 0 53D A7A 3 2
+idataBANK0 0 4ED 9DA 3 2
 strings 0 3 6 A 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section

@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 16F876 ]
 [d frameptr 0 ]
-"32 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+"26 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
 [e E885 MovieDirection `uc
 down 0
 up 1
@@ -28,6 +28,10 @@ notMoive 4
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "19 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+[v _ChangeOfCoordinates ChangeOfCoordinates `(v  1 e 1 0 ]
+"45
+[v _invert invert `(v  1 e 1 0 ]
+"55
 [v _main main `(v  1 e 1 0 ]
 "10 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
 [v _SpiClearMatrix SpiClearMatrix `(v  1 e 1 0 ]
@@ -75,23 +79,32 @@ notMoive 4
 [v _RA5 RA5 `VEb  1 e 0 @45 ]
 "2345
 [v _SSPIF SSPIF `VEb  1 e 0 @99 ]
-"19 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+"55 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"35
-[v main@i i `i  1 a 2 20 ]
-"30
-[v main@step step `i  1 a 2 18 ]
-[s S34 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
-"24
-[v main@shapePosition shapePosition `S34  1 a 4 24 ]
-"25
-[v main@figure figure `[3]uc  1 a 3 15 ]
-"26
-[v main@countElemntArray countElemntArray `i  1 a 2 22 ]
-"24
-[v main@F914 F914 `[3]uc  1 s 3 F914 ]
-"57
+[s S22 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
+"60
+[v main@shapePosition shapePosition `S22  1 a 4 29 ]
+"61
+[v main@square_1 square_1 `[3]uc  1 a 3 24 ]
+"62
+[v main@countElemntArray countElemntArray `i  1 a 2 27 ]
+"60
+[v main@F927 F927 `[3]uc  1 s 3 F927 ]
+"69
+} 0
+"45
+[v _invert invert `(v  1 e 1 0 ]
+{
+"49
+[v invert@t t `uc  1 a 1 6 ]
+"47
+[v invert@j j `i  1 a 2 9 ]
+[v invert@i i `i  1 a 2 7 ]
+"45
+[v invert@array array `*.4uc  1 p 1 0 ]
+[v invert@countElemnt countElemnt `i  1 p 2 1 ]
+"53
 } 0
 "9 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
 [v _SpiInit SpiInit `(v  1 e 1 0 ]
@@ -101,8 +114,8 @@ notMoive 4
 "3 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
 [v _SetPosition SetPosition `(v  1 e 1 0 ]
 {
-[s S34 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
-[v SetPosition@position position `*.39S34  1 p 2 0 ]
+[s S22 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
+[v SetPosition@position position `*.39S22  1 p 2 0 ]
 [v SetPosition@x x `i  1 p 2 2 ]
 [v SetPosition@y y `i  1 p 2 4 ]
 "6
@@ -112,73 +125,59 @@ notMoive 4
 {
 "16
 } 0
-"32 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
-[v _MovieShape MovieShape `(v  1 e 1 0 ]
-{
-[v MovieShape@dir dir `E885  1 p 1 wreg ]
-[v MovieShape@dir dir `E885  1 p 1 wreg ]
-[s S34 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
-[v MovieShape@_shapePosition _shapePosition `*.39S34  1 p 2 4 ]
-[v MovieShape@shapeArray shapeArray `*.4uc  1 p 1 6 ]
-[v MovieShape@countElemntArray countElemntArray `i  1 p 2 7 ]
-[v MovieShape@dir dir `E885  1 p 1 11 ]
-"53
-} 0
-"8
-[v _ShowShape ShowShape `(v  1 e 1 0 ]
-{
-"10
-[v ShowShape@pos pos `i  1 a 2 2 ]
-"9
-[v ShowShape@_pos _pos `i  1 a 2 0 ]
-[s S34 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
-"8
-[v ShowShape@coord coord `*.39S34  1 p 2 4 ]
-[v ShowShape@countElemntArray countElemntArray `i  1 p 2 6 ]
-[v ShowShape@shapeArray shapeArray `*.4uc  1 p 1 8 ]
-"14
-} 0
-"20
-[v _MovieUp MovieUp `(v  1 e 1 0 ]
-{
-[s S34 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
-[v MovieUp@_shapePosition _shapePosition `*.39S34  1 p 2 0 ]
-"22
-} 0
-"28
-[v _MovieRigth MovieRigth `(v  1 e 1 0 ]
-{
-[s S34 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
-[v MovieRigth@_shapePosition _shapePosition `*.39S34  1 p 2 0 ]
-"30
-} 0
-"24
-[v _MovieLeft MovieLeft `(v  1 e 1 0 ]
-{
-[s S34 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
-[v MovieLeft@_shapePosition _shapePosition `*.39S34  1 p 2 0 ]
-"26
-} 0
-"16
-[v _MovieDown MovieDown `(v  1 e 1 0 ]
-{
-[s S34 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
-[v MovieDown@_shapePosition _shapePosition `*.39S34  1 p 2 0 ]
-"18
-} 0
 "20 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
 [v _MatrixInit MatrixInit `(v  1 e 1 0 ]
 {
 "28
 } 0
-"10
+"19 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+[v _ChangeOfCoordinates ChangeOfCoordinates `(v  1 e 1 0 ]
+{
+"23
+[v ChangeOfCoordinates@i i `i  1 a 2 22 ]
+"21
+[v ChangeOfCoordinates@step step `i  1 a 2 20 ]
+[s S22 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
+"19
+[v ChangeOfCoordinates@_shapePosition _shapePosition `*.39S22  1 p 2 12 ]
+[v ChangeOfCoordinates@_figure _figure `*.4uc  1 p 1 14 ]
+[v ChangeOfCoordinates@_countElemntArray _countElemntArray `i  1 p 2 15 ]
+"43
+} 0
+"32 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+[v _MovieShape MovieShape `(v  1 e 1 0 ]
+{
+[v MovieShape@dir dir `E885  1 p 1 wreg ]
+[v MovieShape@dir dir `E885  1 p 1 wreg ]
+[s S22 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
+[v MovieShape@_shapePosition _shapePosition `*.39S22  1 p 2 4 ]
+[v MovieShape@shapeArray shapeArray `*.4uc  1 p 1 6 ]
+[v MovieShape@countElemntArray countElemntArray `i  1 p 2 7 ]
+[v MovieShape@dir dir `E885  1 p 1 11 ]
+"53
+} 0
+"10 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
 [v _SpiClearMatrix SpiClearMatrix `(v  1 e 1 0 ]
 {
 "12
 [v SpiClearMatrix@i i `uc  1 a 1 6 ]
 "17
 } 0
-"34
+"8 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+[v _ShowShape ShowShape `(v  1 e 1 0 ]
+{
+"10
+[v ShowShape@pos pos `i  1 a 2 2 ]
+"9
+[v ShowShape@_pos _pos `i  1 a 2 0 ]
+[s S22 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
+"8
+[v ShowShape@coord coord `*.39S22  1 p 2 4 ]
+[v ShowShape@countElemntArray countElemntArray `i  1 p 2 6 ]
+[v ShowShape@shapeArray shapeArray `*.4uc  1 p 1 8 ]
+"14
+} 0
+"34 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
 [v _SendToSegment SendToSegment `(v  1 e 1 0 ]
 {
 [v SendToSegment@segment segment `i  1 p 2 1 ]
@@ -192,4 +191,32 @@ notMoive 4
 [v SpiSendByte@data data `uc  1 p 1 wreg ]
 [v SpiSendByte@data data `uc  1 p 1 0 ]
 "22
+} 0
+"20 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
+[v _MovieUp MovieUp `(v  1 e 1 0 ]
+{
+[s S22 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
+[v MovieUp@_shapePosition _shapePosition `*.39S22  1 p 2 0 ]
+"22
+} 0
+"28
+[v _MovieRigth MovieRigth `(v  1 e 1 0 ]
+{
+[s S22 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
+[v MovieRigth@_shapePosition _shapePosition `*.39S22  1 p 2 0 ]
+"30
+} 0
+"24
+[v _MovieLeft MovieLeft `(v  1 e 1 0 ]
+{
+[s S22 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
+[v MovieLeft@_shapePosition _shapePosition `*.39S22  1 p 2 0 ]
+"26
+} 0
+"16
+[v _MovieDown MovieDown `(v  1 e 1 0 ]
+{
+[s S22 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
+[v MovieDown@_shapePosition _shapePosition `*.39S22  1 p 2 0 ]
+"18
 } 0
