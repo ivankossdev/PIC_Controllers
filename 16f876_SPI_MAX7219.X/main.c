@@ -52,13 +52,23 @@ void invert(char * array, int countElemnt)
     }  
 }
 
+/*
+ * 0b0000_0110 -> 0x06
+ * 0b0000_0101 -> 0x05
+ * 0b0000_0110 -> 0x06
+ * 
+ * 0b0000_0111 -> 0x07
+ * 0b0000_0101 -> 0x05
+ * 0b0000_0010 -> 0x02
+ */
+
 void main(void) {
     SpiInit();
     MatrixInit();
     PortBInit();
     
     TCoord shapePosition; 
-    char square_1[3] = { 0x07, 0x05, 0x05 };
+    char square_1[3] = { 0x07, 0x05, 0x02 };
     int countElemntArray = 3;
     while(1){
         SetPosition(&shapePosition, 0, 0); 

@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.50 build 20240725155939 
-                                                                                               Wed Dec 11 09:35:08 2024
+                                                                                               Fri Dec 13 15:17:46 2024
 
 Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1 
      1                           	processor	16F876
@@ -413,7 +413,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    399                           ;initializer for main@F927
    400     04ED  3407               	retlw	7
    401     04EE  3405               	retlw	5
-   402     04EF  3405               	retlw	5
+   402     04EF  3402               	retlw	2
    403                           
    404                           	psect	strings
    405     0003                     __pstrings:
@@ -706,7 +706,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    692 ;;
    693 ;; *************** function _main *****************
    694 ;; Defined at:
-   695 ;;		line 55 in file "main.c"
+   695 ;;		line 65 in file "main.c"
    696 ;; Parameters:    Size  Location     Type
    697 ;;		None
    698 ;; Auto vars:     Size  Location     Type
@@ -748,18 +748,18 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    734                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
    735                           
    736                           
-   737                           ;main.c: 56:     SpiInit();
+   737                           ;main.c: 66:     SpiInit();
    738     0625  120A  118A  251E  120A  118A  	fcall	_SpiInit
    739                           
-   740                           ;main.c: 57:     MatrixInit();
+   740                           ;main.c: 67:     MatrixInit();
    741     062A  120A  118A  25A2  120A  118A  	fcall	_MatrixInit
    742     062F                     l977:
    743                           
-   744                           ;main.c: 58:     PortBInit();
+   744                           ;main.c: 68:     PortBInit();
    745     062F  120A  118A  24F0  120A  118A  	fcall	_PortBInit
    746                           
-   747                           ;main.c: 60:     TCoord shapePosition;;main.c: 61:     char square_1[3] = { 0x07, 0x05, 
-      +                          0x05 };
+   747                           ;main.c: 70:     TCoord shapePosition;;main.c: 71:     char square_1[3] = { 0x07, 0x05, 
+      +                          0x02 };
    748     0634  1283               	bcf	3,5	;RP0=0, select bank0
    749     0635  1303               	bcf	3,6	;RP1=0, select bank0
    750     0636  0841               	movf	main@F927,w
@@ -769,14 +769,14 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    754     063A  0843               	movf	main@F927+2,w
    755     063B  00BA               	movwf	main@square_1+2
    756                           
-   757                           ;main.c: 62:     int countElemntArray = 3;
+   757                           ;main.c: 72:     int countElemntArray = 3;
    758     063C  3003               	movlw	3
    759     063D  00BB               	movwf	main@countElemntArray
    760     063E  3000               	movlw	0
    761     063F  00BC               	movwf	main@countElemntArray+1
    762     0640                     l979:
    763                           
-   764                           ;main.c: 64:         SetPosition(&shapePosition, 0, 0);
+   764                           ;main.c: 74:         SetPosition(&shapePosition, 0, 0);
    765     0640  303D               	movlw	low main@shapePosition
    766     0641  00F0               	movwf	SetPosition@position
    767     0642  3000               	movlw	high main@shapePosition
@@ -790,7 +790,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    775     064A  120A  118A  2585  120A  118A  	fcall	_SetPosition
    776     064F                     l981:
    777                           
-   778                           ;main.c: 65:         ChangeOfCoordinates(&shapePosition, square_1, countElemntArray);
+   778                           ;main.c: 75:         ChangeOfCoordinates(&shapePosition, square_1, countElemntArray);
    779     064F  303D               	movlw	low main@shapePosition
    780     0650  1283               	bcf	3,5	;RP0=0, select bank0
    781     0651  1303               	bcf	3,6	;RP1=0, select bank0
@@ -806,7 +806,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    791     065B  120A  118A  274E  120A  118A  	fcall	_ChangeOfCoordinates
    792     0660                     l983:
    793                           
-   794                           ;main.c: 66:         invert(square_1, countElemntArray);
+   794                           ;main.c: 76:         invert(square_1, countElemntArray);
    795     0660  3038               	movlw	(low (main@square_1| 0))& (0+255)
    796     0661  00F0               	movwf	invert@array
    797     0662  1283               	bcf	3,5	;RP0=0, select bank0
@@ -2553,7 +2553,7 @@ STACK                0      0       0      0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.50 build 20240725155939 
-Symbol Table                                                                                   Wed Dec 11 09:35:08 2024
+Symbol Table                                                                                   Fri Dec 13 15:17:46 2024
 
                       _SpiClearMatrix 0556                                     pc 0002  
                                   l17 0752                                    l33 0624  

@@ -31,7 +31,7 @@ notMoive 4
 [v _ChangeOfCoordinates ChangeOfCoordinates `(v  1 e 1 0 ]
 "45
 [v _invert invert `(v  1 e 1 0 ]
-"55
+"65
 [v _main main `(v  1 e 1 0 ]
 "10 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
 [v _SpiClearMatrix SpiClearMatrix `(v  1 e 1 0 ]
@@ -79,19 +79,19 @@ notMoive 4
 [v _RA5 RA5 `VEb  1 e 0 @45 ]
 "2345
 [v _SSPIF SSPIF `VEb  1 e 0 @99 ]
-"55 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+"65 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
 [v _main main `(v  1 e 1 0 ]
 {
 [s S22 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
-"60
+"70
 [v main@shapePosition shapePosition `S22  1 a 4 29 ]
-"61
+"71
 [v main@square_1 square_1 `[3]uc  1 a 3 24 ]
-"62
+"72
 [v main@countElemntArray countElemntArray `i  1 a 2 27 ]
-"60
+"70
 [v main@F927 F927 `[3]uc  1 s 3 F927 ]
-"69
+"79
 } 0
 "45
 [v _invert invert `(v  1 e 1 0 ]

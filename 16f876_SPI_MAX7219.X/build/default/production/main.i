@@ -1747,14 +1747,14 @@ void invert(char * array, int countElemnt)
         array[j] = t;
     }
 }
-
+# 65 "main.c"
 void main(void) {
     SpiInit();
     MatrixInit();
     PortBInit();
 
     TCoord shapePosition;
-    char square_1[3] = { 0x07, 0x05, 0x05 };
+    char square_1[3] = { 0x07, 0x05, 0x02 };
     int countElemntArray = 3;
     while(1){
         SetPosition(&shapePosition, 0, 0);
