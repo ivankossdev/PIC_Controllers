@@ -19,8 +19,22 @@ left 2
 right 3
 notMoive 4
 ]
+"14 /opt/microchip/xc8/v2.50/pic/sources/c99/common/expand_heap.c
+[v ___expand_heap __expand_heap `(*.39v  1 e 1 0 ]
+"10 /opt/microchip/xc8/v2.50/pic/sources/c99/common/lite_calloc.c
+[v _calloc calloc `(*.39v  1 e 1 0 ]
+"19 /opt/microchip/xc8/v2.50/pic/sources/c99/common/lite_free.c
+[v ___simple_search_fl __simple_search_fl `(*.39v  1 e 1 0 ]
+"67
+[v _free free `(v  1 e 1 0 ]
+"16 /opt/microchip/xc8/v2.50/pic/sources/c99/common/lite_malloc.c
+[v _malloc malloc `(*.39v  1 e 1 0 ]
+"3 /opt/microchip/xc8/v2.50/pic/sources/c99/common/memset.c
+[v _memset memset `(*.39v  1 e 1 0 ]
 "10 /opt/microchip/xc8/v2.50/pic/sources/c99/common/sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
+"15 /opt/microchip/xc8/v2.50/pic/sources/c99/common/Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
 "4 /opt/microchip/xc8/v2.50/pic/sources/c99/common/Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
 "6 /opt/microchip/xc8/v2.50/pic/sources/c99/pic/__eeprom.c
@@ -29,9 +43,9 @@ notMoive 4
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "19 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
 [v _ChangeOfCoordinates ChangeOfCoordinates `(v  1 e 1 0 ]
-"45
-[v _invert invert `(v  1 e 1 0 ]
 "55
+[v _Rotate Rotate `(v  1 e 1 0 ]
+"73
 [v _main main `(v  1 e 1 0 ]
 "10 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
 [v _SpiClearMatrix SpiClearMatrix `(v  1 e 1 0 ]
@@ -79,32 +93,30 @@ notMoive 4
 [v _RA5 RA5 `VEb  1 e 0 @45 ]
 "2345
 [v _SSPIF SSPIF `VEb  1 e 0 @99 ]
-"55 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+"3 /opt/microchip/xc8/v2.50/pic/sources/c99/common/errno.c
+[v _errno errno `i  1 e 2 0 ]
+"7 /opt/microchip/xc8/v2.50/pic/sources/c99/common/expand_heap.c
+[v ___heap_hi __heap_hi `[0]uc  1 e 0 0 ]
+[v ___heap_lo __heap_lo `[0]uc  1 e 0 0 ]
+"12
+[v _brkp brkp `*.39uc  1 s 2 brkp ]
+"17 /opt/microchip/xc8/v2.50/pic/sources/c99/common/lite_free.c
+[u S644 . 2 `*.39S646 1 next 2 0 `[1]uc 1 space 1 0 ]
+[s S646 chunk 4 `ui 1 size 2 0 `S644 1 . 2 2 ]
+[v ___freelist __freelist `*.39S646  1 e 2 0 ]
+"73 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
 [v _main main `(v  1 e 1 0 ]
 {
 [s S22 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
-"60
-[v main@shapePosition shapePosition `S22  1 a 4 30 ]
-"61
-[v main@square_1 square_1 `[3]uc  1 a 3 25 ]
-"62
-[v main@countElemntArray countElemntArray `i  1 a 2 28 ]
-"60
-[v main@F927 F927 `[3]uc  1 s 3 F927 ]
-"69
-} 0
-"45
-[v _invert invert `(v  1 e 1 0 ]
-{
-"49
-[v invert@t t `uc  1 a 1 6 ]
-"47
-[v invert@j j `i  1 a 2 9 ]
-[v invert@i i `i  1 a 2 7 ]
-"45
-[v invert@array array `*.4uc  1 p 1 0 ]
-[v invert@countElemnt countElemnt `i  1 p 2 1 ]
-"53
+"78
+[v main@shapePosition shapePosition `S22  1 a 4 55 ]
+"79
+[v main@square_1 square_1 `[3]uc  1 a 3 50 ]
+"80
+[v main@countElemntArray countElemntArray `i  1 a 2 53 ]
+"78
+[v main@F929 F929 `[3]uc  1 s 3 F929 ]
+"90
 } 0
 "9 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
 [v _SpiInit SpiInit `(v  1 e 1 0 ]
@@ -119,6 +131,127 @@ notMoive 4
 [v SetPosition@x x `i  1 p 2 2 ]
 [v SetPosition@y y `i  1 p 2 4 ]
 "6
+} 0
+"55 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+[v _Rotate Rotate `(v  1 e 1 0 ]
+{
+"61
+[v Rotate@i i `i  1 a 2 42 ]
+[v Rotate@x x `i  1 a 2 40 ]
+"66
+[v Rotate@y y `i  1 a 2 44 ]
+"60
+[v Rotate@_i _i `i  1 a 2 48 ]
+"57
+[v Rotate@res res `*.39uc  1 a 2 46 ]
+"55
+[v Rotate@array_ array_ `*.4uc  1 p 1 30 ]
+[v Rotate@length length `i  1 p 2 31 ]
+"71
+} 0
+"67 /opt/microchip/xc8/v2.50/pic/sources/c99/common/lite_free.c
+[v _free free `(v  1 e 1 0 ]
+{
+"68
+[u S644 . 2 `*.39S646 1 next 2 0 `[1]uc 1 space 1 0 ]
+[s S646 chunk 4 `ui 1 size 2 0 `S644 1 . 2 2 ]
+[v free@c c `*.39S646  1 a 2 10 ]
+"69
+[v free@cptr cptr `*.39uc  1 a 2 8 ]
+"67
+[v free@ptr ptr `*.39v  1 p 2 0 ]
+"94
+} 0
+"10 /opt/microchip/xc8/v2.50/pic/sources/c99/common/lite_calloc.c
+[v _calloc calloc `(*.39v  1 e 1 0 ]
+{
+"11
+[v calloc@new_ptr new_ptr `*.39v  1 a 2 28 ]
+"10
+[v calloc@nmemb nmemb `ui  1 p 2 24 ]
+[v calloc@size size `ui  1 p 2 26 ]
+"18
+} 0
+"3 /opt/microchip/xc8/v2.50/pic/sources/c99/common/memset.c
+[v _memset memset `(*.39v  1 e 1 0 ]
+{
+"5
+[v memset@p p `*.39uc  1 a 2 0 ]
+"3
+[v memset@dest dest `*.39v  1 p 2 6 ]
+[v memset@c c `i  1 p 2 8 ]
+[v memset@n n `ui  1 p 2 10 ]
+"10
+} 0
+"16 /opt/microchip/xc8/v2.50/pic/sources/c99/common/lite_malloc.c
+[v _malloc malloc `(*.39v  1 e 1 0 ]
+{
+"54
+[v malloc@sz sz `*.39ui  1 a 2 16 ]
+"42
+[v malloc@new new `*.39uc  1 a 2 22 ]
+"41
+[v malloc@m m `ui  1 a 2 14 ]
+"20
+[v malloc@p p `*.39v  1 a 2 20 ]
+"21
+[v malloc@size size `ui  1 a 2 18 ]
+"16
+[v malloc@n n `ui  1 p 2 8 ]
+"18
+[v malloc@cur cur `*.39uc  1 s 2 cur ]
+[v malloc@end end `*.39uc  1 s 2 end ]
+"19
+[v malloc@lock lock `VE[2]i  1 s 4 lock ]
+"63
+} 0
+"19 /opt/microchip/xc8/v2.50/pic/sources/c99/common/lite_free.c
+[v ___simple_search_fl __simple_search_fl `(*.39v  1 e 1 0 ]
+{
+"50
+[u S644 . 2 `*.39S646 1 next 2 0 `[1]uc 1 space 1 0 ]
+[s S646 chunk 4 `ui 1 size 2 0 `S644 1 . 2 2 ]
+[v ___simple_search_fl@split split `*.39S646  1 a 2 4 ]
+"53
+[v ___simple_search_fl@remaining_size remaining_size `ui  1 a 2 0 ]
+"45
+[u S644 . 2 `*.39S646 1 next 2 0 `[1]uc 1 space 1 0 ]
+[s S646 chunk 4 `ui 1 size 2 0 `S644 1 . 2 2 ]
+[v ___simple_search_fl@next next `*.39S646  1 a 2 8 ]
+"20
+[u S644 . 2 `*.39S646 1 next 2 0 `[1]uc 1 space 1 0 ]
+[s S646 chunk 4 `ui 1 size 2 0 `S644 1 . 2 2 ]
+[v ___simple_search_fl@best best `*.39S646  1 a 2 12 ]
+"23
+[v ___simple_search_fl@c c `*.39S646  1 a 2 10 ]
+"22
+[v ___simple_search_fl@last last `*.39S646  1 a 2 6 ]
+"21
+[v ___simple_search_fl@best_last best_last `*.39S646  1 a 2 2 ]
+"19
+[v ___simple_search_fl@n n `ui  1 p 2 0 ]
+"65
+} 0
+"14 /opt/microchip/xc8/v2.50/pic/sources/c99/common/expand_heap.c
+[v ___expand_heap __expand_heap `(*.39v  1 e 1 0 ]
+{
+"17
+[v ___expand_heap@new_brkp new_brkp `*.39uc  1 a 2 3 ]
+"16
+[v ___expand_heap@n n `ui  1 a 2 1 ]
+"14
+[v ___expand_heap@pn pn `*.4ui  1 p 1 0 ]
+"32
+} 0
+"15 /opt/microchip/xc8/v2.50/pic/sources/c99/common/Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
 } 0
 "13 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/portsinit.c
 [v _PortBInit PortBInit `(v  1 e 1 0 ]

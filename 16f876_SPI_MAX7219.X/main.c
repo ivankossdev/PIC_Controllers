@@ -42,25 +42,33 @@ void ChangeOfCoordinates(TCoord * _shapePosition, char * _figure, int _countElem
     
 }
 
-void invert(char * array, int countElemnt)
-{
-    for(int i = 0, j = countElemnt - 1; i < j; i++, j--)
-    {
-        char t = array[i];
-        array[i] = array[j];
-        array[j] = t;
-    }  
-}
+//void Reverse(char * array, int countElemnt)
+//{
+//    for(int i = 0, j = countElemnt - 1; i < j; i++, j--)
+//    {
+//        char t = array[i];
+//        array[i] = array[j];
+//        array[j] = t;
+//    }  
+//}
 
-/*
- * 0b0000_0110 -> 0x06
- * 0b0000_0101 -> 0x05
- * 0b0000_0110 -> 0x06
- * 
- * 0b0000_0111 -> 0x07
- * 0b0000_0101 -> 0x05
- * 0b0000_0010 -> 0x02
- */
+void Rotate(char * array_, int length){
+
+    char * res = calloc((size_t)length, sizeof(unsigned char));
+
+    if (res){
+        for(int _i = length - 1; _i >= 0; _i--){
+            for(int i = length - 1, x = 0; i >= 0; i--, x++){
+                res[_i] |= ((array_[x] >> _i ) & 1) << i;
+            }
+        }
+        
+        for(int y = 0; y < length; y++){
+            array_[y] = res[y];
+        }
+    }
+    free(res);
+}
 
 void main(void) {
     SpiInit();
@@ -70,10 +78,18 @@ void main(void) {
     TCoord shapePosition; 
     char square_1[3] = { 0x07, 0x05, 0x02 };
     int countElemntArray = 3;
+    const unsigned long delay = 1000;
+    
     while(1){
         SetPosition(&shapePosition, 0, 0); 
         ChangeOfCoordinates(&shapePosition, square_1, countElemntArray);
-        invert(square_1, countElemntArray);
+        Rotate(square_1, countElemntArray);
+//        Reverse(square_1, countElemntArray);
     }    
     return;
 }
+
+//        SetPosition(&shapePosition, 2, 2);
+//        ShowShape(&shapePosition, countElemntArray, square_1);
+//        Rotate(square_1, countElemntArray);
+//        __delay_ms(delay);    
