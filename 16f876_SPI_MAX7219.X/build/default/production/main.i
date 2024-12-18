@@ -1710,50 +1710,40 @@ void MovieUp(TCoord * _shapePosition);
 void MovieLeft(TCoord * _shapePosition);
 void MovieRigth(TCoord * _shapePosition);
 void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray, int countElemntArray);
+void Rotate(char * array_, int length);
+void Reverse(char * array, int countElemnt);
 # 7 "main.c" 2
 # 19 "main.c"
 void ChangeOfCoordinates(TCoord * _shapePosition, char * _figure, int _countElemntArray){
-    const unsigned long delay = 100;
+    const unsigned long delay = 150;
     int step = 0;
         do{
             for(int i = 0; i < 5; i++){
                 switch (step){
                     case 0:
                         MovieShape(right, _shapePosition, _figure, _countElemntArray);
+
                         break;
                     case 1:
                         MovieShape(down, _shapePosition, _figure, _countElemntArray);
+
                         break;
                     case 2:
                         MovieShape(left, _shapePosition, _figure, _countElemntArray);
+
                         break;
                     case 3:
                         MovieShape(up, _shapePosition, _figure, _countElemntArray);
+
                         break;
                 }
                 _delay((unsigned long)((delay)*(16000000/4000.0)));
+
             }
+            Rotate(_figure, _countElemntArray);
             step++;
         } while(step < 4);
 
-}
-# 55 "main.c"
-void Rotate(char * array_, int length){
-
-    char * res = calloc((size_t)length, sizeof(unsigned char));
-
-    if (res){
-        for(int _i = length - 1; _i >= 0; _i--){
-            for(int i = length - 1, x = 0; i >= 0; i--, x++){
-                res[_i] |= ((array_[x] >> _i ) & 1) << i;
-            }
-        }
-
-        for(int y = 0; y < length; y++){
-            array_[y] = res[y];
-        }
-    }
-    free(res);
 }
 
 void main(void) {
@@ -1768,7 +1758,6 @@ void main(void) {
 
     while(1){
         SetPosition(&shapePosition, 0, 0);
-        Rotate(square_1, countElemntArray);
         ChangeOfCoordinates(&shapePosition, square_1, countElemntArray);
 
     }

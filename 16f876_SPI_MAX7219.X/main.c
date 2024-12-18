@@ -17,7 +17,7 @@
  *******************END******************/
 
 void ChangeOfCoordinates(TCoord * _shapePosition, char * _figure, int _countElemntArray){
-    const unsigned long delay = 100;
+    const unsigned long delay = 150;
     int step = 0;
         do{
             for(int i = 0; i < 5; i++){
@@ -36,7 +36,9 @@ void ChangeOfCoordinates(TCoord * _shapePosition, char * _figure, int _countElem
                         break;
                 }
                 __delay_ms(delay); 
+                
             } 
+            Rotate(_figure, _countElemntArray);
             step++;  
         } while(step < 4);
     
@@ -54,7 +56,6 @@ void main(void) {
      
     while(1){
         SetPosition(&shapePosition, 0, 0); 
-        Rotate(square_1, countElemntArray);
         ChangeOfCoordinates(&shapePosition, square_1, countElemntArray);
 //        Reverse(square_1, countElemntArray);
     }    

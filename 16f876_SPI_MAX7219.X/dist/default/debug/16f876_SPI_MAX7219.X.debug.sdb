@@ -43,7 +43,7 @@ notMoive 4
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "19 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
 [v _ChangeOfCoordinates ChangeOfCoordinates `(v  1 e 1 0 ]
-"45
+"49
 [v _main main `(v  1 e 1 0 ]
 "10 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
 [v _SpiClearMatrix SpiClearMatrix `(v  1 e 1 0 ]
@@ -104,19 +104,19 @@ notMoive 4
 [u S655 . 2 `*.39S657 1 next 2 0 `[1]uc 1 space 1 0 ]
 [s S657 chunk 4 `ui 1 size 2 0 `S655 1 . 2 2 ]
 [v ___freelist __freelist `*.39S657  1 e 2 0 ]
-"45 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+"49 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
 [v _main main `(v  1 e 1 0 ]
 {
 [s S22 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
-"50
-[v main@shapePosition shapePosition `S22  1 a 4 55 ]
-"51
-[v main@square_1 square_1 `[3]uc  1 a 3 50 ]
-"52
-[v main@countElemntArray countElemntArray `i  1 a 2 53 ]
-"50
+"54
+[v main@shapePosition shapePosition `S22  1 a 4 67 ]
+"55
+[v main@square_1 square_1 `[3]uc  1 a 3 62 ]
+"56
+[v main@countElemntArray countElemntArray `i  1 a 2 65 ]
+"54
 [v main@F927 F927 `[3]uc  1 s 3 F927 ]
-"62
+"65
 } 0
 "9 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/spi.c
 [v _SpiInit SpiInit `(v  1 e 1 0 ]
@@ -132,7 +132,31 @@ notMoive 4
 [v SetPosition@y y `i  1 p 2 4 ]
 "6
 } 0
-"55
+"13 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/portsinit.c
+[v _PortBInit PortBInit `(v  1 e 1 0 ]
+{
+"16
+} 0
+"20 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
+[v _MatrixInit MatrixInit `(v  1 e 1 0 ]
+{
+"28
+} 0
+"19 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
+[v _ChangeOfCoordinates ChangeOfCoordinates `(v  1 e 1 0 ]
+{
+"23
+[v ChangeOfCoordinates@i i `i  1 a 2 60 ]
+"21
+[v ChangeOfCoordinates@step step `i  1 a 2 58 ]
+[s S22 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
+"19
+[v ChangeOfCoordinates@_shapePosition _shapePosition `*.39S22  1 p 2 50 ]
+[v ChangeOfCoordinates@_figure _figure `*.4uc  1 p 1 52 ]
+[v ChangeOfCoordinates@_countElemntArray _countElemntArray `i  1 p 2 53 ]
+"47
+} 0
+"55 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
 [v _Rotate Rotate `(v  1 e 1 0 ]
 {
 "61
@@ -252,30 +276,6 @@ notMoive 4
 [v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
 "53
-} 0
-"13 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/portsinit.c
-[v _PortBInit PortBInit `(v  1 e 1 0 ]
-{
-"16
-} 0
-"20 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/matrix.c
-[v _MatrixInit MatrixInit `(v  1 e 1 0 ]
-{
-"28
-} 0
-"19 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/main.c
-[v _ChangeOfCoordinates ChangeOfCoordinates `(v  1 e 1 0 ]
-{
-"23
-[v ChangeOfCoordinates@i i `i  1 a 2 23 ]
-"21
-[v ChangeOfCoordinates@step step `i  1 a 2 21 ]
-[s S22 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
-"19
-[v ChangeOfCoordinates@_shapePosition _shapePosition `*.39S22  1 p 2 13 ]
-[v ChangeOfCoordinates@_figure _figure `*.4uc  1 p 1 15 ]
-[v ChangeOfCoordinates@_countElemntArray _countElemntArray `i  1 p 2 16 ]
-"43
 } 0
 "32 /home/ivan/MPLABXProjects/PIC_Controllers/16f876_SPI_MAX7219.X/shape.c
 [v _MovieShape MovieShape `(v  1 e 1 0 ]

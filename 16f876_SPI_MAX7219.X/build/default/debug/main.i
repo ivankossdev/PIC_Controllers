@@ -1722,15 +1722,19 @@ void ChangeOfCoordinates(TCoord * _shapePosition, char * _figure, int _countElem
                 switch (step){
                     case 0:
                         MovieShape(right, _shapePosition, _figure, _countElemntArray);
+                        Rotate(_figure, _countElemntArray);
                         break;
                     case 1:
                         MovieShape(down, _shapePosition, _figure, _countElemntArray);
+                        Rotate(_figure, _countElemntArray);
                         break;
                     case 2:
                         MovieShape(left, _shapePosition, _figure, _countElemntArray);
+                        Rotate(_figure, _countElemntArray);
                         break;
                     case 3:
                         MovieShape(up, _shapePosition, _figure, _countElemntArray);
+                        Rotate(_figure, _countElemntArray);
                         break;
                 }
                 _delay((unsigned long)((delay)*(16000000/4000.0)));
@@ -1752,7 +1756,6 @@ void main(void) {
 
     while(1){
         SetPosition(&shapePosition, 0, 0);
-        Rotate(square_1, countElemntArray);
         ChangeOfCoordinates(&shapePosition, square_1, countElemntArray);
 
     }
