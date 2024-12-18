@@ -1710,6 +1710,8 @@ void MovieUp(TCoord * _shapePosition);
 void MovieLeft(TCoord * _shapePosition);
 void MovieRigth(TCoord * _shapePosition);
 void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray, int countElemntArray);
+void Rotate(char * array_, int length);
+void Reverse(char * array, int countElemnt);
 # 7 "main.c" 2
 # 19 "main.c"
 void ChangeOfCoordinates(TCoord * _shapePosition, char * _figure, int _countElemntArray){
@@ -1737,24 +1739,6 @@ void ChangeOfCoordinates(TCoord * _shapePosition, char * _figure, int _countElem
         } while(step < 4);
 
 }
-# 55 "main.c"
-void Rotate(char * array_, int length){
-
-    char * res = calloc((size_t)length, sizeof(unsigned char));
-
-    if (res){
-        for(int _i = length - 1; _i >= 0; _i--){
-            for(int i = length - 1, x = 0; i >= 0; i--, x++){
-                res[_i] |= ((array_[x] >> _i ) & 1) << i;
-            }
-        }
-
-        for(int y = 0; y < length; y++){
-            array_[y] = res[y];
-        }
-    }
-    free(res);
-}
 
 void main(void) {
     SpiInit();
@@ -1768,8 +1752,8 @@ void main(void) {
 
     while(1){
         SetPosition(&shapePosition, 0, 0);
-        ChangeOfCoordinates(&shapePosition, square_1, countElemntArray);
         Rotate(square_1, countElemntArray);
+        ChangeOfCoordinates(&shapePosition, square_1, countElemntArray);
 
     }
     return;

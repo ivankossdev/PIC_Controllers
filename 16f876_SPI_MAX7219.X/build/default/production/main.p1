@@ -448,11 +448,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 84:         SetPosition(&shapePosition, 0, 0);
 [e ( _SetPosition (3 , , &U _shapePosition -> 0 `i -> 0 `i ]
 "85
-[; ;main.c: 85:         ChangeOfCoordinates(&shapePosition, square_1, countElemntArray);
-[e ( _ChangeOfCoordinates (3 , , &U _shapePosition &U _square_1 _countElemntArray ]
-"86
-[; ;main.c: 86:         Rotate(square_1, countElemntArray);
+[; ;main.c: 85:         Rotate(square_1, countElemntArray);
 [e ( _Rotate (2 , &U _square_1 _countElemntArray ]
+"86
+[; ;main.c: 86:         ChangeOfCoordinates(&shapePosition, square_1, countElemntArray);
+[e ( _ChangeOfCoordinates (3 , , &U _shapePosition &U _square_1 _countElemntArray ]
 "88
 [; ;main.c: 88:     }
 }

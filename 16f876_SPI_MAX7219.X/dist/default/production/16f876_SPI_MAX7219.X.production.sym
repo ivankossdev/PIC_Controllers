@@ -305,7 +305,7 @@ text11 DA E7 CODE DA 0
 idataBANK0 D4 D9 CODE D4 0
 %locals
 dist/default/production/16f876_SPI_MAX7219.X.production.o
-/tmp/xcXEkKgJF/driver_tmp_1.s
+/tmp/xcXpjFjLl/driver_tmp_1.s
 860 7DC 0 CODE 0
 863 7DC 0 CODE 0
 898 7DC 0 CODE 0
@@ -340,7 +340,7 @@ main.c
 80 24D 0 CODE 0
 84 251 0 CODE 0
 85 260 0 CODE 0
-86 271 0 CODE 0
+86 26D 0 CODE 0
 spi.c
 9 9B 0 CODE 0
 10 9B 0 CODE 0

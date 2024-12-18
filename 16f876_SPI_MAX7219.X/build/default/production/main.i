@@ -1768,8 +1768,8 @@ void main(void) {
 
     while(1){
         SetPosition(&shapePosition, 0, 0);
-        ChangeOfCoordinates(&shapePosition, square_1, countElemntArray);
         Rotate(square_1, countElemntArray);
+        ChangeOfCoordinates(&shapePosition, square_1, countElemntArray);
 
     }
     return;

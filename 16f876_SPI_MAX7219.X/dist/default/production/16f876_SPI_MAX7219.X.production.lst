@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.50 build 20240725155939 
-                                                                                               Tue Dec 17 10:44:17 2024
+                                                                                               Wed Dec 18 08:55:41 2024
 
 Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1 
      1                           	processor	16F876
@@ -990,32 +990,32 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    975     025B  120A  118A  2102  120A  118A  	fcall	_SetPosition
    976     0260                     l1530:
    977                           
-   978                           ;main.c: 85:         ChangeOfCoordinates(&shapePosition, square_1, countElemntArray);
-   979     0260  3057               	movlw	low main@shapePosition
+   978                           ;main.c: 85:         Rotate(square_1, countElemntArray);
+   979     0260  3052               	movlw	(low (main@square_1| 0))& (0+255)
    980     0261  1283               	bcf	3,5	;RP0=0, select bank0
    981     0262  1303               	bcf	3,6	;RP1=0, select bank0
-   982     0263  00AC               	movwf	ChangeOfCoordinates@_shapePosition
-   983     0264  3000               	movlw	high main@shapePosition
-   984     0265  00AD               	movwf	ChangeOfCoordinates@_shapePosition+1
-   985     0266  3052               	movlw	(low (main@square_1| 0))& (0+255)
-   986     0267  00AE               	movwf	ChangeOfCoordinates@_figure
-   987     0268  0856               	movf	main@countElemntArray+1,w
-   988     0269  00B0               	movwf	ChangeOfCoordinates@_countElemntArray+1
-   989     026A  0855               	movf	main@countElemntArray,w
-   990     026B  00AF               	movwf	ChangeOfCoordinates@_countElemntArray
-   991     026C  120A  118A  235F  120A  118A  	fcall	_ChangeOfCoordinates
-   992     0271                     l1532:
-   993                           
-   994                           ;main.c: 86:         Rotate(square_1, countElemntArray);
-   995     0271  3052               	movlw	(low (main@square_1| 0))& (0+255)
-   996     0272  1283               	bcf	3,5	;RP0=0, select bank0
-   997     0273  1303               	bcf	3,6	;RP1=0, select bank0
-   998     0274  00BE               	movwf	Rotate@array_
+   982     0263  00BE               	movwf	Rotate@array_
+   983     0264  0856               	movf	main@countElemntArray+1,w
+   984     0265  00C0               	movwf	Rotate@length+1
+   985     0266  0855               	movf	main@countElemntArray,w
+   986     0267  00BF               	movwf	Rotate@length
+   987     0268  120A  118A  24AB  120A  118A  	fcall	_Rotate
+   988     026D                     l1532:
+   989                           
+   990                           ;main.c: 86:         ChangeOfCoordinates(&shapePosition, square_1, countElemntArray);
+   991     026D  3057               	movlw	low main@shapePosition
+   992     026E  1283               	bcf	3,5	;RP0=0, select bank0
+   993     026F  1303               	bcf	3,6	;RP1=0, select bank0
+   994     0270  00AC               	movwf	ChangeOfCoordinates@_shapePosition
+   995     0271  3000               	movlw	high main@shapePosition
+   996     0272  00AD               	movwf	ChangeOfCoordinates@_shapePosition+1
+   997     0273  3052               	movlw	(low (main@square_1| 0))& (0+255)
+   998     0274  00AE               	movwf	ChangeOfCoordinates@_figure
    999     0275  0856               	movf	main@countElemntArray+1,w
-  1000     0276  00C0               	movwf	Rotate@length+1
+  1000     0276  00B0               	movwf	ChangeOfCoordinates@_countElemntArray+1
   1001     0277  0855               	movf	main@countElemntArray,w
-  1002     0278  00BF               	movwf	Rotate@length
-  1003     0279  120A  118A  24AB  120A  118A  	fcall	_Rotate
+  1002     0278  00AF               	movwf	ChangeOfCoordinates@_countElemntArray
+  1003     0279  120A  118A  235F  120A  118A  	fcall	_ChangeOfCoordinates
   1004     027E  2A51               	goto	l1528
   1005     027F  120A  118A  2800   	ljmp	start
   1006     0282                     __end_of_main:
@@ -4557,7 +4557,7 @@ STACK                0      0       0      0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.50 build 20240725155939 
-Symbol Table                                                                                   Tue Dec 17 10:44:17 2024
+Symbol Table                                                                                   Wed Dec 18 08:55:41 2024
 
                       _SpiClearMatrix 00D3                                     pc 0002  
                                   l21 0363                                    l31 03FA  
@@ -4683,7 +4683,7 @@ Symbol Table                                                                    
                                 l1516 019D                                  l1508 0172  
                                 l1292 0144                                  l1188 0680  
                                 l1348 04A1                                  l1356 0124  
-                                l1460 04C6                                  l1532 0271  
+                                l1460 04C6                                  l1532 026D  
                                 l1524 0236                                  l1286 0074  
                                 l1278 033E                                  l1366 0290  
                                 l1374 02AE                                  l1446 03D8  

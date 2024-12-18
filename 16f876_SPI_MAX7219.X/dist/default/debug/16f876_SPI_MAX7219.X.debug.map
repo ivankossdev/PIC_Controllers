@@ -5,9 +5,9 @@ Linker command line:
 -W-3 --edf=/opt/microchip/xc8/v2.50/pic/dat/20240725155939_en.msgs -cn \
   -h+dist/default/debug/16f876_SPI_MAX7219.X.debug.sym \
   --cmf=dist/default/debug/16f876_SPI_MAX7219.X.debug.cmf -z -Q16F876 \
-  -o/tmp/xcXjBfPDK/driver_tmp_3.o --defsym=__MPLAB_BUILD=1 \
+  -o/tmp/xcXPlkDaD/driver_tmp_3.o --defsym=__MPLAB_BUILD=1 \
   --fixupoverflow=error -Mdist/default/debug/16f876_SPI_MAX7219.X.debug.map \
-  --md=/tmp/xcXjBfPDK/driver_tmp_0.dat -E1 -ver=XC8 Compiler --acfsm=1493 \
+  --md=/tmp/xcXPlkDaD/driver_tmp_0.dat -E1 -ver=XC8 Compiler --acfsm=1493 \
   -AHEAP=0110h-016Fh -pheap=HEAP -ACODE=00h-07FFhx3,01800h-01EFFh \
   -ASTRCODE=00h-01EFFh -ASTRING=00h-0FFhx31 -ACONST=00h-0FFhx31 \
   -AENTRY=00h-0FFhx31 -ACOMMON=071h-07Fh -ABANK0=020h-06Fh \
@@ -19,7 +19,7 @@ Linker command line:
   -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry,sivt,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k /tmp/xcXjBfPDK/driver_tmp_12.o \
+  -pfunctab=ENTRY -k /tmp/xcXPlkDaD/driver_tmp_12.o \
   dist/default/debug/16f876_SPI_MAX7219.X.debug.o 
 
 Object code version is 3.11
@@ -29,7 +29,7 @@ Machine type is 16F876
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcXjBfPDK/driver_tmp_12.o
+/tmp/xcXPlkDaD/driver_tmp_12.o
                 heap                                110      110       60      110       7
                 end_init                              0        0        3        0       0
                 config                             2007     2007        1        0       4
@@ -462,7 +462,7 @@ intlevel2                             functab      0000
 intlevel3                             functab      0000
 intlevel4                             functab      0000
 intlevel5                             functab      0000
-main@F929                             dataBANK0    0069
+main@F927                             dataBANK0    0069
 main@countElemntArray                 cstackBANK0  0055
 main@shapePosition                    cstackBANK0  0057
 main@square_1                         cstackBANK0  0052
@@ -533,13 +533,14 @@ shared estimated size: 38
 shape.c
 		_MovieUp       		CODE           	00E7	0000	25
 		_MovieRigth    		CODE           	0072	0000	11
+		_Rotate        		CODE           	04AB	0000	189
 		_MovieLeft     		CODE           	0088	0000	17
 		_MovieDown     		CODE           	00AB	0000	19
 		_MovieShape    		CODE           	0282	0000	92
 		_SetPosition   		CODE           	0100	0000	29
 		_ShowShape     		CODE           	02DE	0000	129
 
-shape.c estimated size: 322
+shape.c estimated size: 511
 
 portsinit.c
 		_PortBInit     		CODE           	006B	0000	7
@@ -558,8 +559,7 @@ portsinit.c estimated size: 7
 
 main.c
 		_main          		CODE           	0236	0000	76
-		_Rotate        		CODE           	04AB	0000	189
 		_ChangeOfCoordinates		CODE           	035F	0000	156
 
-main.c estimated size: 421
+main.c estimated size: 232
 

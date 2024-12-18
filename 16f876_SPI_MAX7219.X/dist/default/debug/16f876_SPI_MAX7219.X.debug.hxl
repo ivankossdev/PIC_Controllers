@@ -1,16 +1,16 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- /tmp/xcXjBfPDK/driver_tmp_3.o
+ /tmp/xcXPlkDaD/driver_tmp_3.o
  -Odist/default/debug/16f876_SPI_MAX7219.X.debug.hex
  -logfile=dist/default/debug/16f876_SPI_MAX7219.X.debug.hxl
  -addressing=2
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 21h		(/tmp/xcXjBfPDK/driver_tmp_3.o)
-  D0h - FFFh		(/tmp/xcXjBfPDK/driver_tmp_3.o)
-  400Eh - 400Fh		(/tmp/xcXjBfPDK/driver_tmp_3.o)
+  0h - 21h		(/tmp/xcXPlkDaD/driver_tmp_3.o)
+  D0h - FFFh		(/tmp/xcXPlkDaD/driver_tmp_3.o)
+  400Eh - 400Fh		(/tmp/xcXPlkDaD/driver_tmp_3.o)
  Unused ranges:
   22h - CFh
   1000h - 400Dh
@@ -18,7 +18,7 @@
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (/tmp/xcXjBfPDK/driver_tmp_3.o)
+  H1 = Input file             (/tmp/xcXPlkDaD/driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
