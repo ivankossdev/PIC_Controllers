@@ -223,8 +223,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "20
 [; ;main.c: 20:     const unsigned long delay = 150;
-[v F923 `Cul ~T0 @X0 1 s delay ]
-[i F923
+[v F927 `Cul ~T0 @X0 1 s delay ]
+[i F927
 -> -> -> 150 `i `l `ul
 ]
 "22
@@ -297,7 +297,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 94 ]
 "39
 [; ;main.c: 39:                 _delay((unsigned long)((delay)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> F923 `d / -> -> 16000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> F927 `d / -> -> 16000000 `l `d .4000.0 `ul ]
 "41
 [; ;main.c: 41:             }
 }
@@ -353,8 +353,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "58
 [; ;main.c: 58:     TCoord shapePosition;
 [v _shapePosition `S86 ~T0 @X0 1 a ]
-[v F928 `uc ~T0 @X0 -> 3 `i s ]
-[i F928
+[v F932 `uc ~T0 @X0 -> 3 `i s ]
+[i F932
 :U ..
 "59
 [; ;main.c: 59:     char square_1[3] = { 0x07, 0x05, 0x02 };
@@ -364,7 +364,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _square_1 `uc ~T0 @X0 -> 3 `i a ]
-[e = _square_1 F928 ]
+[e = _square_1 F932 ]
 "60
 [; ;main.c: 60:     int countElemntArray = 3;
 [v _countElemntArray `i ~T0 @X0 1 a ]

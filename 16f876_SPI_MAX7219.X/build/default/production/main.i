@@ -1712,6 +1712,7 @@ void MovieRigth(TCoord * _shapePosition);
 void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray, int countElemntArray);
 void Rotate(char * array_, int length);
 void Reverse(char * array, int countElemnt);
+void InsertResult(char * array_, char * res, int countElemntArray);
 # 7 "main.c" 2
 # 19 "main.c"
 void ChangeOfCoordinates(TCoord * _shapePosition, char * _figure, int _countElemntArray, _Bool * _reverse){
@@ -1739,7 +1740,7 @@ void ChangeOfCoordinates(TCoord * _shapePosition, char * _figure, int _countElem
             }
             if(step == 0 && *_reverse) {
                 Reverse(_figure, _countElemntArray);
-                _reverse = 0;
+                *_reverse = 0;
             }
             Rotate(_figure, _countElemntArray);
             step++;

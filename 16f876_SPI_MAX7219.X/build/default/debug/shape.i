@@ -1708,6 +1708,7 @@ void MovieRigth(TCoord * _shapePosition);
 void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray, int countElemntArray);
 void Rotate(char * array_, int length);
 void Reverse(char * array, int countElemnt);
+void InsertResult(char * array_, char * res, int countElemntArray);
 # 2 "shape.c" 2
 
 void SetPosition(TCoord * position, int x, int y){
@@ -1762,30 +1763,33 @@ void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeAr
     ShowShape(_shapePosition, countElemntArray, shapeArray);
 }
 
-void Rotate(char * array_, int length){
+void Rotate(char * array_, int countElemntArray){
 
-    char * res = calloc((size_t)length, sizeof(char));
+    char * res = calloc((size_t)countElemntArray, sizeof(char));
 
     if (res){
-        for(int _i = length - 1; _i >= 0; _i--){
-            for(int i = length - 1, x = 0; i >= 0; i--, x++){
+        for(int _i = countElemntArray - 1; _i >= 0; _i--){
+            for(int i = countElemntArray - 1, x = 0; i >= 0; i--, x++){
                 res[_i] |= ((array_[x] >> _i ) & 1) << i;
             }
         }
-
-        for(int y = 0; y < length; y++){
-            array_[y] = res[y];
-        }
+        InsertResult(array_, res, countElemntArray);
     }
     free(res);
 }
 
-void Reverse(char * array, int countElemnt)
+void Reverse(char * array_, int countElemntArray)
 {
-    for(int i = 0, j = countElemnt - 1; i < j; i++, j--)
+    for(int i = 0, j = countElemntArray - 1; i < j; i++, j--)
     {
-        char t = array[i];
-        array[i] = array[j];
-        array[j] = t;
+        char t = array_[i];
+        array_[i] = array_[j];
+        array_[j] = t;
+    }
+}
+
+void InsertResult(char * array_, char * res, int countElemntArray){
+    for(int y = 0; y < countElemntArray; y++){
+        array_[y] = res[y];
     }
 }
