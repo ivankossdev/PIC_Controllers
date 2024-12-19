@@ -1,25 +1,4 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"9 ./shape.h
-[; ;./shape.h: 9: typedef struct {
-[s S86 `i 1 `i 1 ]
-[n S86 . x y ]
-"27 main.c
-[; ;main.c: 27:                         MovieShape(right, _shapePosition, _figure, _countElemntArray);
-[c E885 0 1 2 3 4 .. ]
-[n E885 MovieDirection down up left right notMoive  ]
-"28 ./shape.h
-[; ;./shape.h: 28: void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray, int countElemntArray);
-[v _MovieShape `(v ~T0 @X0 0 ef4`E885`*S86`*uc`i ]
-[v F164 `(v ~T0 @X0 1 tf1`ul ]
-"20 /opt/microchip/xc8/v2.50/pic/include/builtins.h
-[v __delay `JF164 ~T0 @X0 0 e ]
-[p i __delay ]
-"30 ./shape.h
-[; ;./shape.h: 30: void Reverse(char * array, int countElemnt);
-[v _Reverse `(v ~T0 @X0 0 ef2`*uc`i ]
-"29
-[; ;./shape.h: 29: void Rotate(char * array_, int length);
-[v _Rotate `(v ~T0 @X0 0 ef2`*uc`i ]
 [p mainexit ]
 "6 ./spi.h
 [; ;./spi.h: 6: void SpiInit(void);
@@ -30,9 +9,45 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4 ./portsinit.h
 [; ;./portsinit.h: 4: void PortBInit(void);
 [v _PortBInit `(v ~T0 @X0 0 ef ]
-"22 ./shape.h
+"9 ./shape.h
+[; ;./shape.h: 9: typedef struct {
+[s S86 `i 1 `i 1 ]
+[n S86 . x y ]
+"22
 [; ;./shape.h: 22: void SetPosition(TCoord * position, int x, int y);
 [v _SetPosition `(v ~T0 @X0 0 ef3`*S86`i`i ]
+"19 main.c
+[; ;main.c: 19: void ChangeOfCoordinates(TCoord * _shapePosition, char * _figure, int _countElemntArray);
+[v _ChangeOfCoordinates `(v ~T0 @X0 0 ef3`*S86`*uc`i ]
+"59 /opt/microchip/xc8/v2.50/pic/include/c99/stdlib.h
+[; ;/opt/microchip/xc8/v2.50/pic/include/c99/stdlib.h: 59: void *calloc (size_t, size_t);
+[v _calloc `(*v ~T0 @X0 0 ef2`ui`ui ]
+"31 ./shape.h
+[; ;./shape.h: 31: void CopyArray(char * array_, char * res, int countElemntArray);
+[v _CopyArray `(v ~T0 @X0 0 ef3`*uc`*uc`i ]
+"49 main.c
+[; ;main.c: 49:                         MovieShape(right, _shapePosition, rotateArray, _countElemntArray);
+[c E885 0 1 2 3 4 .. ]
+[n E885 MovieDirection down up left right notMoive  ]
+"28 ./shape.h
+[; ;./shape.h: 28: void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray, int countElemntArray);
+[v _MovieShape `(v ~T0 @X0 0 ef4`E885`*S86`*uc`i ]
+[v F164 `(v ~T0 @X0 1 tf1`ul ]
+"20 /opt/microchip/xc8/v2.50/pic/include/builtins.h
+[v __delay `JF164 ~T0 @X0 0 e ]
+[p i __delay ]
+"18 main.c
+[; ;main.c: 18: void RotateDirection(int step, char * array_, int _countElemntArray );
+[v _RotateDirection `(v ~T0 @X0 0 ef3`i`*uc`i ]
+"61 /opt/microchip/xc8/v2.50/pic/include/c99/stdlib.h
+[; ;/opt/microchip/xc8/v2.50/pic/include/c99/stdlib.h: 61: void free (void *);
+[v _free `(v ~T0 @X0 0 ef1`*v ]
+"30 ./shape.h
+[; ;./shape.h: 30: void Reverse(char * array, int countElemnt);
+[v _Reverse `(v ~T0 @X0 0 ef2`*uc`i ]
+"29
+[; ;./shape.h: 29: void Rotate(char * array_, int length);
+[v _Rotate `(v ~T0 @X0 0 ef2`*uc`i ]
 "54 /opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h
 [; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -211,153 +226,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x CPD  =  OFF         ]
 "12
 [p x WRT  =  OFF  ]
-"19 main.c
-[; ;main.c: 19: void ChangeOfCoordinates(TCoord * _shapePosition, char * _figure, int _countElemntArray, _Bool * _reverse){
-[v _ChangeOfCoordinates `(v ~T0 @X0 1 ef4`*S86`*uc`i`*a ]
-{
-[e :U _ChangeOfCoordinates ]
-[v __shapePosition `*S86 ~T0 @X0 1 r1 ]
-[v __figure `*uc ~T0 @X0 1 r2 ]
-[v __countElemntArray `i ~T0 @X0 1 r3 ]
-[v __reverse `*a ~T0 @X0 1 r4 ]
-[f ]
-"20
-[; ;main.c: 20:     const unsigned long delay = 150;
-[v F927 `Cul ~T0 @X0 1 s delay ]
-[i F927
--> -> -> 150 `i `l `ul
-]
-"22
-[; ;main.c: 22:     int step = 0;
-[v _step `i ~T0 @X0 1 a ]
-[e = _step -> 0 `i ]
-"23
-[; ;main.c: 23:         do{
-[e :U 90 ]
-{
-"24
-[; ;main.c: 24:             for(int i = 0; i < 5; i++){
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $ < _i -> 5 `i 91  ]
-[e $U 92  ]
-[e :U 91 ]
-{
-"25
-[; ;main.c: 25:                 switch (step){
-[e $U 95  ]
-{
-"26
-[; ;main.c: 26:                     case 0:
-[e :U 96 ]
-"27
-[; ;main.c: 27:                         MovieShape(right, _shapePosition, _figure, _countElemntArray);
-[e ( _MovieShape (4 , , , . `E885 3 __shapePosition __figure __countElemntArray ]
-"28
-[; ;main.c: 28:                         break;
-[e $U 94  ]
-"29
-[; ;main.c: 29:                     case 1:
-[e :U 97 ]
-"30
-[; ;main.c: 30:                         MovieShape(down, _shapePosition, _figure, _countElemntArray);
-[e ( _MovieShape (4 , , , . `E885 0 __shapePosition __figure __countElemntArray ]
-"31
-[; ;main.c: 31:                         break;
-[e $U 94  ]
-"32
-[; ;main.c: 32:                     case 2:
-[e :U 98 ]
-"33
-[; ;main.c: 33:                         MovieShape(left, _shapePosition, _figure, _countElemntArray);
-[e ( _MovieShape (4 , , , . `E885 2 __shapePosition __figure __countElemntArray ]
-"34
-[; ;main.c: 34:                         break;
-[e $U 94  ]
-"35
-[; ;main.c: 35:                     case 3:
-[e :U 99 ]
-"36
-[; ;main.c: 36:                         MovieShape(up, _shapePosition, _figure, _countElemntArray);
-[e ( _MovieShape (4 , , , . `E885 1 __shapePosition __figure __countElemntArray ]
-"37
-[; ;main.c: 37:                         break;
-[e $U 94  ]
-"38
-[; ;main.c: 38:                 }
-}
-[e $U 94  ]
-[e :U 95 ]
-[e [\ _step , $ -> 0 `i 96
- , $ -> 1 `i 97
- , $ -> 2 `i 98
- , $ -> 3 `i 99
- 94 ]
-[e :U 94 ]
-"39
-[; ;main.c: 39:                 _delay((unsigned long)((delay)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> F927 `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"41
-[; ;main.c: 41:             }
-}
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 5 `i 91  ]
-[e :U 92 ]
-}
-"42
-[; ;main.c: 42:             if(step == 0 && *_reverse) {
-[e $ ! && == _step -> 0 `i != -> *U __reverse `i -> 0 `i 100  ]
-{
-"43
-[; ;main.c: 43:                 Reverse(_figure, _countElemntArray);
-[e ( _Reverse (2 , __figure __countElemntArray ]
-"44
-[; ;main.c: 44:                 *_reverse = 0;
-[e = *U __reverse -> -> 0 `i `a ]
-"45
-[; ;main.c: 45:             }
-}
-[e :U 100 ]
-"46
-[; ;main.c: 46:             Rotate(_figure, _countElemntArray);
-[e ( _Rotate (2 , __figure __countElemntArray ]
-"47
-[; ;main.c: 47:             step++;
-[e ++ _step -> 1 `i ]
-"48
-[; ;main.c: 48:         } while(step < 4);
-}
-[e $ < _step -> 4 `i 90  ]
-[e :U 89 ]
-"50
-[; ;main.c: 50: }
-[e :UE 87 ]
-}
 [v $root$_main `(v ~T0 @X0 0 e ]
-"53
-[; ;main.c: 53: void main(void) {
+"22 main.c
+[; ;main.c: 22: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"54
-[; ;main.c: 54:     SpiInit();
+"23
+[; ;main.c: 23:     SpiInit();
 [e ( _SpiInit ..  ]
-"55
-[; ;main.c: 55:     MatrixInit();
+"24
+[; ;main.c: 24:     MatrixInit();
 [e ( _MatrixInit ..  ]
-"56
-[; ;main.c: 56:     PortBInit();
+"25
+[; ;main.c: 25:     PortBInit();
 [e ( _PortBInit ..  ]
-"58
-[; ;main.c: 58:     TCoord shapePosition;
+"27
+[; ;main.c: 27:     TCoord shapePosition;
 [v _shapePosition `S86 ~T0 @X0 1 a ]
 [v F932 `uc ~T0 @X0 -> 3 `i s ]
 [i F932
 :U ..
-"59
-[; ;main.c: 59:     char square_1[3] = { 0x07, 0x05, 0x02 };
+"28
+[; ;main.c: 28:     char square_1[3] = { 0x07, 0x05, 0x02 };
 -> -> 7 `i `uc
 -> -> 5 `i `uc
 -> -> 2 `i `uc
@@ -365,34 +257,224 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 [v _square_1 `uc ~T0 @X0 -> 3 `i a ]
 [e = _square_1 F932 ]
-"60
-[; ;main.c: 60:     int countElemntArray = 3;
+"29
+[; ;main.c: 29:     int countElemntArray = 3;
 [v _countElemntArray `i ~T0 @X0 1 a ]
 [e = _countElemntArray -> 3 `i ]
-"61
-[; ;main.c: 61:     _Bool reverse = 1;
-[v _reverse `a ~T0 @X0 1 a ]
-[e = _reverse -> -> 1 `i `a ]
-"63
-[; ;main.c: 63:     while(1){
-[e :U 103 ]
+"31
+[; ;main.c: 31:     while(1){
+[e :U 89 ]
 {
-"64
-[; ;main.c: 64:         SetPosition(&shapePosition, 0, 0);
+"32
+[; ;main.c: 32:         SetPosition(&shapePosition, 0, 0);
 [e ( _SetPosition (3 , , &U _shapePosition -> 0 `i -> 0 `i ]
-"65
-[; ;main.c: 65:         ChangeOfCoordinates(&shapePosition, square_1, countElemntArray, &reverse);
-[e ( _ChangeOfCoordinates (4 , , , &U _shapePosition &U _square_1 _countElemntArray &U _reverse ]
-"67
-[; ;main.c: 67:     }
+"33
+[; ;main.c: 33:         ChangeOfCoordinates(&shapePosition, square_1, countElemntArray);
+[e ( _ChangeOfCoordinates (3 , , &U _shapePosition &U _square_1 _countElemntArray ]
+"34
+[; ;main.c: 34:     }
 }
+[e :U 88 ]
+[e $U 89  ]
+[e :U 90 ]
+"35
+[; ;main.c: 35:     return;
+[e $UE 87  ]
+"36
+[; ;main.c: 36: }
+[e :UE 87 ]
+}
+"39
+[; ;main.c: 39: void ChangeOfCoordinates(TCoord * _shapePosition, char * _figure, int _countElemntArray){
+[v _ChangeOfCoordinates `(v ~T0 @X0 1 ef3`*S86`*uc`i ]
+{
+[e :U _ChangeOfCoordinates ]
+[v __shapePosition `*S86 ~T0 @X0 1 r1 ]
+[v __figure `*uc ~T0 @X0 1 r2 ]
+[v __countElemntArray `i ~T0 @X0 1 r3 ]
+[f ]
+"40
+[; ;main.c: 40:     const unsigned long delay = 100;
+[v F939 `Cul ~T0 @X0 1 s delay ]
+[i F939
+-> -> -> 100 `i `l `ul
+]
+"41
+[; ;main.c: 41:     char * rotateArray = calloc((size_t)_countElemntArray, sizeof(char));
+[v _rotateArray `*uc ~T0 @X0 1 a ]
+[e = _rotateArray -> ( _calloc (2 , -> __countElemntArray `ui -> # `uc `ui `*uc ]
+"42
+[; ;main.c: 42:     CopyArray(rotateArray, _figure, _countElemntArray);
+[e ( _CopyArray (3 , , _rotateArray __figure __countElemntArray ]
+"44
+[; ;main.c: 44:     int step = 0;
+[v _step `i ~T0 @X0 1 a ]
+[e = _step -> 0 `i ]
+"45
+[; ;main.c: 45:         do{
+[e :U 94 ]
+{
+"46
+[; ;main.c: 46:             for(int i = 0; i < 5; i++){
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 5 `i 95  ]
+[e $U 96  ]
+[e :U 95 ]
+{
+"47
+[; ;main.c: 47:                 switch (step){
+[e $U 99  ]
+{
+"48
+[; ;main.c: 48:                     case 0:
+[e :U 100 ]
+"49
+[; ;main.c: 49:                         MovieShape(right, _shapePosition, rotateArray, _countElemntArray);
+[e ( _MovieShape (4 , , , . `E885 3 __shapePosition _rotateArray __countElemntArray ]
+"50
+[; ;main.c: 50:                         break;
+[e $U 98  ]
+"51
+[; ;main.c: 51:                     case 1:
+[e :U 101 ]
+"52
+[; ;main.c: 52:                         MovieShape(down, _shapePosition, rotateArray, _countElemntArray);
+[e ( _MovieShape (4 , , , . `E885 0 __shapePosition _rotateArray __countElemntArray ]
+"53
+[; ;main.c: 53:                         break;
+[e $U 98  ]
+"54
+[; ;main.c: 54:                     case 2:
 [e :U 102 ]
-[e $U 103  ]
-[e :U 104 ]
+"55
+[; ;main.c: 55:                         MovieShape(left, _shapePosition, rotateArray, _countElemntArray);
+[e ( _MovieShape (4 , , , . `E885 2 __shapePosition _rotateArray __countElemntArray ]
+"56
+[; ;main.c: 56:                         break;
+[e $U 98  ]
+"57
+[; ;main.c: 57:                     case 3:
+[e :U 103 ]
+"58
+[; ;main.c: 58:                         MovieShape(up, _shapePosition, rotateArray, _countElemntArray);
+[e ( _MovieShape (4 , , , . `E885 1 __shapePosition _rotateArray __countElemntArray ]
+"59
+[; ;main.c: 59:                         break;
+[e $U 98  ]
+"60
+[; ;main.c: 60:                 }
+}
+[e $U 98  ]
+[e :U 99 ]
+[e [\ _step , $ -> 0 `i 100
+ , $ -> 1 `i 101
+ , $ -> 2 `i 102
+ , $ -> 3 `i 103
+ 98 ]
+[e :U 98 ]
+"61
+[; ;main.c: 61:                 _delay((unsigned long)((delay)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> F939 `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"63
+[; ;main.c: 63:             }
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 5 `i 95  ]
+[e :U 96 ]
+}
+"64
+[; ;main.c: 64:             RotateDirection(step, rotateArray, _countElemntArray);
+[e ( _RotateDirection (3 , , _step _rotateArray __countElemntArray ]
+"65
+[; ;main.c: 65:             step++;
+[e ++ _step -> 1 `i ]
+"66
+[; ;main.c: 66:         } while(step < 4);
+}
+[e $ < _step -> 4 `i 94  ]
+[e :U 93 ]
 "68
-[; ;main.c: 68:     return;
-[e $UE 101  ]
+[; ;main.c: 68:         free(rotateArray);
+[e ( _free (1 -> _rotateArray `*v ]
 "69
 [; ;main.c: 69: }
-[e :UE 101 ]
+[e :UE 91 ]
+}
+"71
+[; ;main.c: 71: void RotateDirection(int step, char * array_, int _countElemntArray ){
+[v _RotateDirection `(v ~T0 @X0 1 ef3`i`*uc`i ]
+{
+[e :U _RotateDirection ]
+[v _step `i ~T0 @X0 1 r1 ]
+[v _array_ `*uc ~T0 @X0 1 r2 ]
+[v __countElemntArray `i ~T0 @X0 1 r3 ]
+[f ]
+"72
+[; ;main.c: 72:     switch (step){
+[e $U 106  ]
+{
+"73
+[; ;main.c: 73:         case 0:
+[e :U 107 ]
+"74
+[; ;main.c: 74:             Reverse(array_, _countElemntArray);
+[e ( _Reverse (2 , _array_ __countElemntArray ]
+"75
+[; ;main.c: 75:             Rotate(array_, _countElemntArray);
+[e ( _Rotate (2 , _array_ __countElemntArray ]
+"76
+[; ;main.c: 76:             break;
+[e $U 105  ]
+"77
+[; ;main.c: 77:         case 1:
+[e :U 108 ]
+"78
+[; ;main.c: 78:             Rotate(array_, _countElemntArray);
+[e ( _Rotate (2 , _array_ __countElemntArray ]
+"79
+[; ;main.c: 79:             Reverse(array_, _countElemntArray);
+[e ( _Reverse (2 , _array_ __countElemntArray ]
+"80
+[; ;main.c: 80:             break;
+[e $U 105  ]
+"81
+[; ;main.c: 81:         case 2:
+[e :U 109 ]
+"82
+[; ;main.c: 82:             for(int i = 0; i < 3; i++){
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 3 `i 110  ]
+[e $U 111  ]
+[e :U 110 ]
+{
+"83
+[; ;main.c: 83:                 Rotate(array_, _countElemntArray);
+[e ( _Rotate (2 , _array_ __countElemntArray ]
+"84
+[; ;main.c: 84:             }
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 3 `i 110  ]
+[e :U 111 ]
+}
+"85
+[; ;main.c: 85:             break;
+[e $U 105  ]
+"86
+[; ;main.c: 86:     }
+}
+[e $U 105  ]
+[e :U 106 ]
+[e [\ _step , $ -> 0 `i 107
+ , $ -> 1 `i 108
+ , $ -> 2 `i 109
+ 105 ]
+[e :U 105 ]
+"87
+[; ;main.c: 87: }
+[e :UE 104 ]
 }

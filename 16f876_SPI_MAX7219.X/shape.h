@@ -28,6 +28,6 @@ void MovieRigth(TCoord * _shapePosition);
 void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray, int countElemntArray);
 void Rotate(char * array_, int length);
 void Reverse(char * array, int countElemnt);
-void InsertResult(char * array_, char * res, int countElemntArray);
+void CopyArray(char * array_, char * res, int countElemntArray);
 
 #endif	/* SHAPE_H */

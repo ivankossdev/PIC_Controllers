@@ -17,8 +17,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;/opt/microchip/xc8/v2.50/pic/include/c99/stdlib.h: 59: void *calloc (size_t, size_t);
 [v _calloc `(*v ~T0 @X0 0 ef2`ui`ui ]
 "31 ./shape.h
-[; ;./shape.h: 31: void InsertResult(char * array_, char * res, int countElemntArray);
-[v _InsertResult `(v ~T0 @X0 0 ef3`*uc`*uc`i ]
+[; ;./shape.h: 31: void CopyArray(char * array_, char * res, int countElemntArray);
+[v _CopyArray `(v ~T0 @X0 0 ef3`*uc`*uc`i ]
 "61 /opt/microchip/xc8/v2.50/pic/include/c99/stdlib.h
 [; ;/opt/microchip/xc8/v2.50/pic/include/c99/stdlib.h: 61: void free (void *);
 [v _free `(v ~T0 @X0 0 ef1`*v ]
@@ -446,8 +446,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 108 ]
 }
 "65
-[; ;shape.c: 65:         InsertResult(array_, res, countElemntArray);
-[e ( _InsertResult (3 , , _array_ _res _countElemntArray ]
+[; ;shape.c: 65:         CopyArray(array_, res, countElemntArray);
+[e ( _CopyArray (3 , , _array_ _res _countElemntArray ]
 "66
 [; ;shape.c: 66:     }
 }
@@ -460,26 +460,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 105 ]
 }
 "70
-[; ;shape.c: 70: void Reverse(char * array_, int countElemnt)
+[; ;shape.c: 70: void Reverse(char * array_, int countElemntArray)
 [v _Reverse `(v ~T0 @X0 1 ef2`*uc`i ]
 "71
 [; ;shape.c: 71: {
 {
 [e :U _Reverse ]
 "70
-[; ;shape.c: 70: void Reverse(char * array_, int countElemnt)
+[; ;shape.c: 70: void Reverse(char * array_, int countElemntArray)
 [v _array_ `*uc ~T0 @X0 1 r1 ]
-[v _countElemnt `i ~T0 @X0 1 r2 ]
+[v _countElemntArray `i ~T0 @X0 1 r2 ]
 "71
 [; ;shape.c: 71: {
 [f ]
 "72
-[; ;shape.c: 72:     for(int i = 0, j = countElemnt - 1; i < j; i++, j--)
+[; ;shape.c: 72:     for(int i = 0, j = countElemntArray - 1; i < j; i++, j--)
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
 [v _j `i ~T0 @X0 1 a ]
-[e = _j - _countElemnt -> 1 `i ]
+[e = _j - _countElemntArray -> 1 `i ]
 [e $U 117  ]
 [e :U 114 ]
 "73
@@ -508,10 +508,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 113 ]
 }
 "80
-[; ;shape.c: 80: void InsertResult(char * array_, char * res, int countElemntArray){
-[v _InsertResult `(v ~T0 @X0 1 ef3`*uc`*uc`i ]
+[; ;shape.c: 80: void CopyArray(char * array_, char * res, int countElemntArray){
+[v _CopyArray `(v ~T0 @X0 1 ef3`*uc`*uc`i ]
 {
-[e :U _InsertResult ]
+[e :U _CopyArray ]
 [v _array_ `*uc ~T0 @X0 1 r1 ]
 [v _res `*uc ~T0 @X0 1 r2 ]
 [v _countElemntArray `i ~T0 @X0 1 r3 ]

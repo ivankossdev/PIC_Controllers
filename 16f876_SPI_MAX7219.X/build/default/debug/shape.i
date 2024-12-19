@@ -1708,7 +1708,7 @@ void MovieRigth(TCoord * _shapePosition);
 void MovieShape(enum MovieDirection dir, TCoord * _shapePosition, char * shapeArray, int countElemntArray);
 void Rotate(char * array_, int length);
 void Reverse(char * array, int countElemnt);
-void InsertResult(char * array_, char * res, int countElemntArray);
+void CopyArray(char * array_, char * res, int countElemntArray);
 # 2 "shape.c" 2
 
 void SetPosition(TCoord * position, int x, int y){
@@ -1773,7 +1773,7 @@ void Rotate(char * array_, int countElemntArray){
                 res[_i] |= ((array_[x] >> _i ) & 1) << i;
             }
         }
-        InsertResult(array_, res, countElemntArray);
+        CopyArray(array_, res, countElemntArray);
     }
     free(res);
 }
@@ -1788,7 +1788,7 @@ void Reverse(char * array_, int countElemntArray)
     }
 }
 
-void InsertResult(char * array_, char * res, int countElemntArray){
+void CopyArray(char * array_, char * res, int countElemntArray){
     for(int y = 0; y < countElemntArray; y++){
         array_[y] = res[y];
     }
