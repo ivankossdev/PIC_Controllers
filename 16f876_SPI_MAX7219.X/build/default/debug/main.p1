@@ -313,8 +313,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 43:                 Reverse(_figure, _countElemntArray);
 [e ( _Reverse (2 , __figure __countElemntArray ]
 "44
-[; ;main.c: 44:                 _reverse = 0;
-[e = __reverse -> -> 0 `i `*a ]
+[; ;main.c: 44:                 *_reverse = 0;
+[e = *U __reverse -> -> 0 `i `a ]
 "45
 [; ;main.c: 45:             }
 }

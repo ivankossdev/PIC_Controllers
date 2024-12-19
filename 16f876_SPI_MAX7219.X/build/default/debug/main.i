@@ -1739,7 +1739,7 @@ void ChangeOfCoordinates(TCoord * _shapePosition, char * _figure, int _countElem
             }
             if(step == 0 && *_reverse) {
                 Reverse(_figure, _countElemntArray);
-                _reverse = 0;
+                *_reverse = 0;
             }
             Rotate(_figure, _countElemntArray);
             step++;
