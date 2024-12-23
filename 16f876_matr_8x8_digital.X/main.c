@@ -23,7 +23,7 @@ void main(void) {
     MatrixInit();
     PortBInit();
     TCoord shapePosition; 
-    char * pSimvol = calloc(8, sizeof(char));
+    char * pSimvol = (char *)calloc(8, sizeof(char));
     char Display[8] = {'\0'};
     bool bR = true;
     
