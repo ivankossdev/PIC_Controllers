@@ -30,3 +30,18 @@ char * GetDgigtal(int dig){
 
     return pDigial;
 }
+
+void Clear(char * _array, int length){
+    for(int i = 0; i < length; i++){
+        _array[i] = 0;
+    }
+}
+
+void Rotate(char * _array, char * res, int length){
+    Clear(res, length);
+    for(int _i = length - 1; _i >= 0; _i--){
+        for(int i = length - 1, x = 0; i >= 0; i--, x++){
+            res[_i] |= ((_array[x] >> _i ) & 1) << i;
+        }
+    }
+}
