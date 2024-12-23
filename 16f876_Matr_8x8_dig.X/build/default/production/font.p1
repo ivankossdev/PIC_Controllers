@@ -1,0 +1,211 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"4 font.c
+[; ;font.c: 4: const char simvol_0[8] = {0x0e, 0x11, 0x13, 0x15, 0x19, 0x11, 0x0e, 0x00};
+[v _simvol_0 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _simvol_0
+:U ..
+-> -> 14 `i `uc
+-> -> 17 `i `uc
+-> -> 19 `i `uc
+-> -> 21 `i `uc
+-> -> 25 `i `uc
+-> -> 17 `i `uc
+-> -> 14 `i `uc
+-> -> 0 `i `uc
+..
+]
+"5
+[; ;font.c: 5: const char simvol_1[8] = {0x04, 0x0c, 0x04, 0x04, 0x04, 0x04, 0x0e, 0x00};
+[v _simvol_1 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _simvol_1
+:U ..
+-> -> 4 `i `uc
+-> -> 12 `i `uc
+-> -> 4 `i `uc
+-> -> 4 `i `uc
+-> -> 4 `i `uc
+-> -> 4 `i `uc
+-> -> 14 `i `uc
+-> -> 0 `i `uc
+..
+]
+"6
+[; ;font.c: 6: const char simvol_2[8] = {0x0e, 0x11, 0x01, 0x02, 0x04, 0x08, 0x1f, 0x00};
+[v _simvol_2 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _simvol_2
+:U ..
+-> -> 14 `i `uc
+-> -> 17 `i `uc
+-> -> 1 `i `uc
+-> -> 2 `i `uc
+-> -> 4 `i `uc
+-> -> 8 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+..
+]
+"7
+[; ;font.c: 7: const char simvol_3[8] = {0x1f, 0x02, 0x04, 0x02, 0x01, 0x11, 0x0e, 0x00};
+[v _simvol_3 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _simvol_3
+:U ..
+-> -> 31 `i `uc
+-> -> 2 `i `uc
+-> -> 4 `i `uc
+-> -> 2 `i `uc
+-> -> 1 `i `uc
+-> -> 17 `i `uc
+-> -> 14 `i `uc
+-> -> 0 `i `uc
+..
+]
+"8
+[; ;font.c: 8: const char simvol_4[8] = {0x02, 0x06, 0x0a, 0x12, 0x1f, 0x02, 0x02, 0x00};
+[v _simvol_4 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _simvol_4
+:U ..
+-> -> 2 `i `uc
+-> -> 6 `i `uc
+-> -> 10 `i `uc
+-> -> 18 `i `uc
+-> -> 31 `i `uc
+-> -> 2 `i `uc
+-> -> 2 `i `uc
+-> -> 0 `i `uc
+..
+]
+"9
+[; ;font.c: 9: const char simvol_5[8] = {0x1f, 0x10, 0x1e, 0x01, 0x01, 0x11, 0x0e, 0x00};
+[v _simvol_5 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _simvol_5
+:U ..
+-> -> 31 `i `uc
+-> -> 16 `i `uc
+-> -> 30 `i `uc
+-> -> 1 `i `uc
+-> -> 1 `i `uc
+-> -> 17 `i `uc
+-> -> 14 `i `uc
+-> -> 0 `i `uc
+..
+]
+"10
+[; ;font.c: 10: const char simvol_6[8] = {0x06, 0x08, 0x10, 0x1e, 0x11, 0x11, 0x0e, 0x00};
+[v _simvol_6 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _simvol_6
+:U ..
+-> -> 6 `i `uc
+-> -> 8 `i `uc
+-> -> 16 `i `uc
+-> -> 30 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 14 `i `uc
+-> -> 0 `i `uc
+..
+]
+"11
+[; ;font.c: 11: const char simvol_7[8] = {0x1f, 0x01, 0x02, 0x04, 0x08, 0x08, 0x08, 0x00};
+[v _simvol_7 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _simvol_7
+:U ..
+-> -> 31 `i `uc
+-> -> 1 `i `uc
+-> -> 2 `i `uc
+-> -> 4 `i `uc
+-> -> 8 `i `uc
+-> -> 8 `i `uc
+-> -> 8 `i `uc
+-> -> 0 `i `uc
+..
+]
+"12
+[; ;font.c: 12: const char simvol_8[8] = {0x0e, 0x11, 0x11, 0x0e, 0x11, 0x11, 0x0e, 0x00};
+[v _simvol_8 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _simvol_8
+:U ..
+-> -> 14 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 14 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 14 `i `uc
+-> -> 0 `i `uc
+..
+]
+"13
+[; ;font.c: 13: const char simvol_9[8] = {0x0e, 0x11, 0x11, 0x0f, 0x01, 0x02, 0x0c, 0x00};
+[v _simvol_9 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _simvol_9
+:U ..
+-> -> 14 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 15 `i `uc
+-> -> 1 `i `uc
+-> -> 2 `i `uc
+-> -> 12 `i `uc
+-> -> 0 `i `uc
+..
+]
+"14
+[; ;font.c: 14: const char simvol_d_dot[8] = {0x00, 0x0c, 0x0c, 0x00, 0x0c, 0x0c, 0x00, 0x00};
+[v _simvol_d_dot `Cuc ~T0 @X0 -> 8 `i e ]
+[i _simvol_d_dot
+:U ..
+-> -> 0 `i `uc
+-> -> 12 `i `uc
+-> -> 12 `i `uc
+-> -> 0 `i `uc
+-> -> 12 `i `uc
+-> -> 12 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+]
+"15
+[; ;font.c: 15: const char simvol_space[8] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+[v _simvol_space `Cuc ~T0 @X0 -> 8 `i e ]
+[i _simvol_space
+:U ..
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+]
+"16
+[; ;font.c: 16: const char simvol_dot[8] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x18, 0x18, 0x00};
+[v _simvol_dot `Cuc ~T0 @X0 -> 8 `i e ]
+[i _simvol_dot
+:U ..
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 24 `i `uc
+-> -> 24 `i `uc
+-> -> 0 `i `uc
+..
+]
+"17
+[; ;font.c: 17: const char simvol_dash[8] = {0x00, 0x00, 0x00, 0x1f, 0x00, 0x00, 0x00, 0x00 };
+[v _simvol_dash `Cuc ~T0 @X0 -> 8 `i e ]
+[i _simvol_dash
+:U ..
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+]

@@ -1,0 +1,121 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F876 ]
+[d frameptr 0 ]
+"10 /opt/microchip/xc8/v2.50/pic/sources/c99/common/sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 /opt/microchip/xc8/v2.50/pic/sources/c99/common/Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 /opt/microchip/xc8/v2.50/pic/sources/c99/pic/__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"23 /home/ivan/MPLABXProjects/16f876_Matr_8x8_dig.X/main.c
+[v _main main `(v  1 e 1 0 ]
+"10 /home/ivan/MPLABXProjects/16f876_Matr_8x8_dig.X/matrix.c
+[v _MatrixClear MatrixClear `(v  1 e 1 0 ]
+"20
+[v _MatrixInit MatrixInit `(v  1 e 1 0 ]
+"31
+[v _MatrixSendToSegment MatrixSendToSegment `(v  1 e 1 0 ]
+"13 /home/ivan/MPLABXProjects/16f876_Matr_8x8_dig.X/portsinit.c
+[v _PortBInit PortBInit `(v  1 e 1 0 ]
+"3 /home/ivan/MPLABXProjects/16f876_Matr_8x8_dig.X/shape.c
+[v _SetPosition SetPosition `(v  1 e 1 0 ]
+"8
+[v _ShowShape ShowShape `(v  1 e 1 0 ]
+"9 /home/ivan/MPLABXProjects/16f876_Matr_8x8_dig.X/spi.c
+[v _SpiInit SpiInit `(v  1 e 1 0 ]
+"18
+[v _SpiSendByte SpiSendByte `(v  1 e 1 0 ]
+"166 /opt/microchip/mplabx/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8/pic/include/proc/pic16f876.h
+[v _PORTA PORTA `VEuc  1 e 1 @5 ]
+"216
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"703
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
+"710
+[v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
+"1220
+[v _TRISA TRISA `VEuc  1 e 1 @133 ]
+"1270
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"1332
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
+"1593
+[v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
+"2225
+[v _RA5 RA5 `VEb  1 e 0 @45 ]
+"2345
+[v _SSPIF SSPIF `VEb  1 e 0 @99 ]
+"8 /home/ivan/MPLABXProjects/16f876_Matr_8x8_dig.X/font.c
+[v _simvol_4 simvol_4 `DC[8]uc  1 e 8 0 ]
+"23 /home/ivan/MPLABXProjects/16f876_Matr_8x8_dig.X/main.c
+[v _main main `(v  1 e 1 0 ]
+{
+[s S48 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
+"27
+[v main@shapePosition shapePosition `S48  1 a 4 7 ]
+"37
+} 0
+"9 /home/ivan/MPLABXProjects/16f876_Matr_8x8_dig.X/spi.c
+[v _SpiInit SpiInit `(v  1 e 1 0 ]
+{
+"16
+} 0
+"8 /home/ivan/MPLABXProjects/16f876_Matr_8x8_dig.X/shape.c
+[v _ShowShape ShowShape `(v  1 e 1 0 ]
+{
+"10
+[v ShowShape@pos pos `i  1 a 2 2 ]
+"9
+[v ShowShape@_pos _pos `i  1 a 2 0 ]
+[s S48 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
+"8
+[v ShowShape@coord coord `*.39S48  1 p 2 4 ]
+[v ShowShape@countElemntArray countElemntArray `i  1 p 2 6 ]
+[v ShowShape@shapeArray shapeArray `*.24uc  1 p 1 8 ]
+"14
+} 0
+"3
+[v _SetPosition SetPosition `(v  1 e 1 0 ]
+{
+[s S48 . 4 `i 1 x 2 0 `i 1 y 2 2 ]
+[v SetPosition@position position `*.39S48  1 p 2 0 ]
+[v SetPosition@x x `i  1 p 2 2 ]
+[v SetPosition@y y `i  1 p 2 4 ]
+"6
+} 0
+"13 /home/ivan/MPLABXProjects/16f876_Matr_8x8_dig.X/portsinit.c
+[v _PortBInit PortBInit `(v  1 e 1 0 ]
+{
+"16
+} 0
+"20 /home/ivan/MPLABXProjects/16f876_Matr_8x8_dig.X/matrix.c
+[v _MatrixInit MatrixInit `(v  1 e 1 0 ]
+{
+"28
+} 0
+"10
+[v _MatrixClear MatrixClear `(v  1 e 1 0 ]
+{
+"12
+[v MatrixClear@i i `uc  1 a 1 6 ]
+"17
+} 0
+"31
+[v _MatrixSendToSegment MatrixSendToSegment `(v  1 e 1 0 ]
+{
+[v MatrixSendToSegment@segment segment `i  1 p 2 1 ]
+[v MatrixSendToSegment@data data `uc  1 p 1 3 ]
+"36
+} 0
+"18 /home/ivan/MPLABXProjects/16f876_Matr_8x8_dig.X/spi.c
+[v _SpiSendByte SpiSendByte `(v  1 e 1 0 ]
+{
+[v SpiSendByte@data data `uc  1 p 1 wreg ]
+[v SpiSendByte@data data `uc  1 p 1 wreg ]
+[v SpiSendByte@data data `uc  1 p 1 0 ]
+"22
+} 0

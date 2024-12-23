@@ -1737,7 +1737,7 @@ void main(void) {
 
 
 void ChangeOfCoordinates(TCoord * _shapePosition, char * _figure, int _countElemntArray){
-    const unsigned long delay = 150;
+    const unsigned long delay = 100;
     char * rotateArray = calloc((size_t)_countElemntArray, sizeof(char));
     CopyArray(rotateArray, _figure, _countElemntArray);
 
