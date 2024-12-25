@@ -52,7 +52,6 @@ void main(void) {
             __delay_ms(500);
         }
 
-        
         __delay_ms(1000);
         MatrixClear();
         MatrixClear();
