@@ -32,21 +32,26 @@ void MatrixSendTest(int segment, char data, int c,  char data2) {
     cs = 1;
 }
 
+void MatrixPrint(int seg_1, int seg_0){
+    for(int i = 0; i < 8; i++){
+        MatrixSendTest(i + 1,GetDgigtal(seg_1)[i], 1, GetDgigtal(seg_0)[i]);
+    }
+}
+
 void main(void) {
     SpiInit();
     MatrixInit();
     PortBInit();
     
     while(1){ 
-
-        for(int c = 0, d = 9 ; c < 10; c++, d--){
-//            pSimvol = GetDgigtal(c);
-//            pSimvol2 = GetDgigtal(d);
-            for(int i = 0; i < 8; i++){
-                MatrixSendTest(i + 1,GetDgigtal(c)[i], 1, GetDgigtal(d)[i]);
-            }
-            __delay_ms(500);
+        
+        for(int digital = 0; digital <= 99; digital++){
+            int s0 = (digital / 10) % 10;
+            int s1 = digital % 10;
+            MatrixPrint(s1, s0);
+            __delay_ms(100);
         }
+
 
         __delay_ms(1000);
         MatrixClear();

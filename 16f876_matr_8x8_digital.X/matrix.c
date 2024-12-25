@@ -22,7 +22,7 @@ void MatrixInit(void) {
     cs=1; 
     MatrixSendToSegment(0x09, 0x00);  
     MatrixSendToSegment(0x0b, 0x07); 
-    MatrixSendToSegment(0x0A, 0x02); 
+    MatrixSendToSegment(0x0A, 0x01); 
     MatrixSendToSegment(0x0c, 0x01); 
     MatrixClear();
 }
