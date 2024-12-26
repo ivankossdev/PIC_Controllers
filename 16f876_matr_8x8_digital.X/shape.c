@@ -1,18 +1,5 @@
 #include "shape.h"
 
-void SetPosition(TCoord * position, int x, int y){
-    position->x = x;
-    position->y = y;
-} 
-
-void ShowShape(TCoord * coord, int countElemntArray, char * shapeArray){
-    int _pos = 0;
-    for(int pos = 1 + coord->x; pos <= countElemntArray + coord->x; pos++){
-       _pos = pos - 1 - coord->x;
-       MatrixSendToSegment(pos, (char)(shapeArray[_pos] << coord->y));
-    }
-}
-
 char * GetDgigtal(int dig){
     char * pDigial = calloc(8, sizeof(char));
     switch(dig){
@@ -29,19 +16,4 @@ char * GetDgigtal(int dig){
     }
 
     return pDigial;
-}
-
-void Clear(char * _array, int length){
-    for(int i = 0; i < length; i++){
-        _array[i] = 0;
-    }
-}
-
-void Rotate(char * _array, char * res, int length){
-    Clear(res, length);
-    for(int _i = length - 1; _i >= 0; _i--){
-        for(int i = length - 1, x = 0; i >= 0; i--, x++){
-            res[_i] |= ((_array[x] >> _i ) & 1) << i;
-        }
-    }
 }
