@@ -17,6 +17,7 @@
  * pin 14 RC3      -> CLK               *
  * pin 16 RC5      -> DIN               *
  *******************END******************/
+
 void MatrixSpiSendWord(int segment, char data){
     SpiSendByte((char)segment);
     SpiSendByte(data);
@@ -36,36 +37,24 @@ void main(void) {
     SpiInit();
     MatrixInit();
     PortBInit();
-    int sA[4] = {4, 6, 1, 9};
+    int sA[4] = {'\0'};
     int MatrSegments = 4; 
     
     while(1){ 
-        ShowSimvolString(MatrSegments, sA);
+        for(int digitalUP = 0, digitalDOWN = 99; digitalUP <= 99; digitalUP++, digitalDOWN--){
+            sA[3] = digitalUP % 10;
+            sA[2] = (digitalUP / 10) % 10;
+            sA[1] = digitalDOWN % 10;
+            sA[0] = (digitalDOWN / 10) % 10;
+            ShowSimvolString(MatrSegments, sA);
+            __delay_ms(250);
+        }
+        
         __delay_ms(1000);
         MatrixClear();
         MatrixClear();
-        __delay_ms(2000);
+        __delay_ms(1000);
         
     }    
     return;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//        for(int digital = 0; digital <= 99; digital++){
-//            int s0 = (digital / 10) % 10;
-//            int s1 = digital % 10;
-//            MatrixPrint(s1, s0);
-//            __delay_ms(250);
-//        }
