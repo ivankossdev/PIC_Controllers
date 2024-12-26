@@ -22,19 +22,19 @@ void MatrixSpiSendWord(int segment, char data){
     SpiSendByte(data);
 }
 
-void MatrixSendTest(int segment, char data, int c,  char data2) {
+void MatrixSendTest(int segment, int c, char data1, char data0) {
     cs = 0;
-    MatrixSpiSendWord((char)segment, data);
+    MatrixSpiSendWord((char)segment, data1);
     int i = c;
     do{
-        MatrixSpiSendWord((char)segment, data2);
+        MatrixSpiSendWord((char)segment, data0);
     }while(--c);
     cs = 1;
 }
 
 void MatrixPrint(int seg_1, int seg_0){
     for(int i = 0; i < 8; i++){
-        MatrixSendTest(i + 1,GetDgigtal(seg_1)[i], 1, GetDgigtal(seg_0)[i]);
+        MatrixSendTest(i + 1, 1, GetDgigtal(seg_1)[i], GetDgigtal(seg_0)[i]);
     }
 }
 
@@ -49,10 +49,8 @@ void main(void) {
             int s0 = (digital / 10) % 10;
             int s1 = digital % 10;
             MatrixPrint(s1, s0);
-            __delay_ms(100);
+            __delay_ms(250);
         }
-
-
         __delay_ms(1000);
         MatrixClear();
         MatrixClear();
