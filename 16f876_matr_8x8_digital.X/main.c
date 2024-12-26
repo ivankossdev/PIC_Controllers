@@ -18,21 +18,6 @@
  * pin 16 RC5      -> DIN               *
  *******************END******************/
 
-void MatrixSpiSendWord(int segment, char data){
-    SpiSendByte((char)segment);
-    SpiSendByte(data);
-}
-
-void ShowSimvolString(int matrSegmentsCount, int sA[]){
-    for(int i = 0; i < 8; i++){
-        cs = 0;
-        for(int _i = matrSegmentsCount; _i >= 0; _i--){
-            MatrixSpiSendWord(i + 1, GetDgigtal(sA[_i])[i]);
-        }
-        cs = 1;
-    }
-}
-
 void main(void) {
     SpiInit();
     MatrixInit();

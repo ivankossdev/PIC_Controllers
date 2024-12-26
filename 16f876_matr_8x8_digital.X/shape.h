@@ -5,5 +5,7 @@
 #include "font.h"
 
 char * GetDgigtal(int dig);
+void MatrixSpiSendWord(int segment, char data);
+void ShowSimvolString(int matrSegmentsCount, int sA[]);
 
 #endif	/* SHAPE_H */
