@@ -1,11 +1,6 @@
 #include "display.h"
 
-char display[4][8] = {
-    {0b00000111, 0b00000111, 0b00000111, 0b00000000, 0b00000000, 0b00000111, 0b00000111, 0b00000111},
-    {0b00000000, 0b00000000, 0b11110000, 0b00010000, 0b00010000, 0b11110000, 0b00000000, 0b00000000},
-    {0b00000000, 0b00000000, 0b00001111, 0b00001000, 0b00001000, 0b00001111, 0b00000000, 0b00000000},
-    {0b11100000, 0b11100000, 0b11100000, 0b00000000, 0b00000000, 0b11100000, 0b11100000, 0b11100000},
-}; 
+char display[4][8] = {'\0'};
 
 char * GetDgigtal(int dig){
     char * pDigial = calloc(8, sizeof(char));
@@ -40,7 +35,26 @@ void ShowSimvolString(int matrSegmentsCount, int sA[]){
     }
 }
 
+void ClearDisplay(int matrSegmentsCount){
+    for(int i = 0; i < 8; i++){
+        cs = 0;
+        for(int _i = matrSegmentsCount; _i >= 0; _i--){
+            MatrixEnableLEDLine(i + 1, 0x00);
+        }
+        cs = 1;
+    }
+}
+
 void ShowDisplay(int matrSegmentsCount){
+    display[0][7] = 0xff; // y = 0, x = 0
+    display[1][6] = 0xff; // y = 1, x = 8 
+    display[2][5] = 0xff; // y = 2, x = 16 
+    display[3][4] = 0xff; // y = 3, x = 24
+    
+    display[3][3] = 0xff; 
+    display[2][2] = 0xff; 
+    display[1][1] = 0xff; 
+    display[0][0] = 0xff; 
     for(int ledLineMatr = 0; ledLineMatr < 8; ledLineMatr++){
         cs = 0;
         for(int segMatr = matrSegmentsCount; segMatr >= 0; segMatr--){

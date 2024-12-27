@@ -26,25 +26,24 @@ void main(void) {
     int sA[4] = {'\0'};
     
     while(1){ 
-        int counter = 10;
+        int counter = 99;
         for(int digitalUP = 0, digitalDOWN = counter; digitalUP <= counter; digitalUP++, digitalDOWN--){
             sA[3] = digitalUP % 10;
             sA[2] = (digitalUP / 10) % 10;
             sA[1] = digitalDOWN % 10;
             sA[0] = (digitalDOWN / 10) % 10;
             ShowSimvolString(MTR_DSP, sA);
-            __delay_ms(250);
+            __delay_ms(50);
         }
+        __delay_ms(1000);
         
-        MatrixClear();
-        MatrixClear();
+        ClearDisplay(MTR_DSP);
         __delay_ms(1000);
         
         ShowDisplay(MTR_DSP);
         __delay_ms(1000);
         
-        MatrixClear();
-        MatrixClear();
+        ClearDisplay(MTR_DSP);
         __delay_ms(1000);
         
     }    
