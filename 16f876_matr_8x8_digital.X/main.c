@@ -6,6 +6,7 @@
 #include "matrix.h"
 #include "shape.h"
 #include "font.h"
+#define MTR_DSP 4
 
 /****************PIC16F876***************
  * Connection PICkit4                   *
@@ -18,23 +19,36 @@
  * pin 16 RC5      -> DIN               *
  *******************END******************/
 
+void ShowDisplay(int matrSegmentsCount){
+    for(int i = 0; i < 8; i++){
+        cs = 0;
+        for(int _i = matrSegmentsCount; _i >= 0; _i--){
+            MatrixSpiSendWord(i + 1, display[_i][i]);
+        }
+        cs = 1;
+    }
+}
+
 void main(void) {
     SpiInit();
     MatrixInit();
     PortBInit();
     int sA[4] = {'\0'};
-    int MatrSegments = 4; 
     
     while(1){ 
-        for(int digitalUP = 0, digitalDOWN = 99; digitalUP <= 99; digitalUP++, digitalDOWN--){
+        int counter = 10;
+        for(int digitalUP = 0, digitalDOWN = counter; digitalUP <= counter; digitalUP++, digitalDOWN--){
             sA[3] = digitalUP % 10;
             sA[2] = (digitalUP / 10) % 10;
             sA[1] = digitalDOWN % 10;
             sA[0] = (digitalDOWN / 10) % 10;
-            ShowSimvolString(MatrSegments, sA);
+            ShowSimvolString(MTR_DSP, sA);
             __delay_ms(250);
         }
-        
+        MatrixClear();
+        MatrixClear();
+        __delay_ms(1000);
+        ShowDisplay(MTR_DSP);
         __delay_ms(1000);
         MatrixClear();
         MatrixClear();
