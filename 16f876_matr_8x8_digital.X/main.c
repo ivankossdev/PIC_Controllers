@@ -4,7 +4,7 @@
 #include "settings.h"
 #include "spi.h"
 #include "matrix.h"
-#include "shape.h"
+#include "display.h"
 #include "font.h"
 #define MTR_DSP 4
 
@@ -18,21 +18,6 @@
  * pin 14 RC3      -> CLK               *
  * pin 16 RC5      -> DIN               *
  *******************END******************/
-
-
-void ShowDisplay(int matrSegmentsCount){
-    for(int ledLineMatr = 0; ledLineMatr < 8; ledLineMatr++){
-        cs = 0;
-        for(int segMatr = matrSegmentsCount; segMatr >= 0; segMatr--){
-            /* Цикл передает в матрицу значение массива 
-             * display[сегмент матрицы][0 - 8 линейка светодиода] 
-             */
-            MatrixSpiSendWord(ledLineMatr + 1, display[segMatr][ledLineMatr]);
-        }
-        cs = 1;
-    }
-}
-
 
 void main(void) {
     SpiInit();
