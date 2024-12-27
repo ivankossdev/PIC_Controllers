@@ -40,9 +40,14 @@ void main(void) {
         ClearDisplay(MTR_DSP);
         __delay_ms(1000);
         
+        InsertInDisplayArray((char *)fig_0, 7, 2, 5);
         ShowDisplay(MTR_DSP);
         __delay_ms(1000);
         
+        InsertInDisplayArray((char *)fig_0, 4, 1, 5);
+        ShowDisplay(MTR_DSP);
+        __delay_ms(1000);
+        ClearDisplayArray();
         ClearDisplay(MTR_DSP);
         __delay_ms(1000);
         

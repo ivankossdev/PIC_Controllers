@@ -46,15 +46,7 @@ void ClearDisplay(int matrSegmentsCount){
 }
 
 void ShowDisplay(int matrSegmentsCount){
-    display[0][7] = 0xff; // y = 0, x = 0
-    display[1][6] = 0xff; // y = 1, x = 8 
-    display[2][5] = 0xff; // y = 2, x = 16 
-    display[3][4] = 0xff; // y = 3, x = 24
-    
-    display[3][3] = 0xff; 
-    display[2][2] = 0xff; 
-    display[1][1] = 0xff; 
-    display[0][0] = 0xff; 
+
     for(int ledLineMatr = 0; ledLineMatr < 8; ledLineMatr++){
         cs = 0;
         for(int segMatr = matrSegmentsCount; segMatr >= 0; segMatr--){
@@ -66,3 +58,28 @@ void ShowDisplay(int matrSegmentsCount){
         cs = 1;
     }
 }
+
+void InsertInDisplayArray(char * ar,int cY, int cX, int arElements){
+    for(int i = 0, j = cY; i < arElements; i++, j--){
+        display[cX][j] |= *(ar + i);
+    }
+}
+
+void ClearDisplayArray(void){
+    for(int i = 0; i < 4; i++){
+        for(int j = 0; j < 8; j++){
+            display[i][j] = 0x00; 
+        }
+        
+    }
+}
+
+//    display[0][7] = 0xff; // y = 0, x = 0
+//    display[1][6] = 0xff; // y = 1, x = 8 
+//    display[2][5] = 0xff; // y = 2, x = 16 
+//    display[3][4] = 0xff; // y = 3, x = 24
+//    
+//    display[3][3] = 0xff; 
+//    display[2][2] = 0xff; 
+//    display[1][1] = 0xff; 
+//    display[0][0] = 0xff; 
