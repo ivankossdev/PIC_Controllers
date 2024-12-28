@@ -6,6 +6,7 @@
 #include "matrix.h"
 #include "display.h"
 #include "font.h"
+#define DELAY 250
 
 /****************PIC16F876***************
  * Connection PICkit4                   *
@@ -18,39 +19,32 @@
  * pin 16 RC5      -> DIN               *
  *******************END******************/
 
-void Demo(void){
-    int sA[4] = {'\0'};
-    int counter = 10;
-    for(int digitalUP = 0, digitalDOWN = counter; digitalUP <= counter; digitalUP++, digitalDOWN--){
-        sA[3] = digitalUP % 10;
-        sA[2] = (digitalUP / 10) % 10;
-        sA[1] = digitalDOWN % 10;
-        sA[0] = (digitalDOWN / 10) % 10;
-        ShowSimvolString(MTR_DSP, sA);
-        __delay_ms(100);
-    }
-    __delay_ms(1000);
-    ClearDisplay();
-    __delay_ms(1000);
-}
-
 void main(void) {
     SpiInit();
     MatrixInit();
     PortBInit();
-    Demo();
+    
     while(1){ 
+        NoNameDgFn(1, 7, 3, 8);
+        ShowDisplay();
+        __delay_ms(DELAY);
         
         InsertInDisplayArray((char *)fig_0, 7, 2, 5);
         ShowDisplay();
-        __delay_ms(1000);
+        __delay_ms(DELAY);
         
         InsertInDisplayArray((char *)fig_0, 4, 1, 5);
         ShowDisplay();
+        __delay_ms(DELAY);
+        
+        NoNameDgFn(4, 7, 0, 8);
+        ShowDisplay();
         __delay_ms(1000);
+        
+        
         ClearDisplayArray();
         ClearDisplay();
-        __delay_ms(1000);
+        __delay_ms(DELAY);
         
     }    
     return;

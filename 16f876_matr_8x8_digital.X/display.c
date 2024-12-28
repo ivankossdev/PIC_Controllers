@@ -1,39 +1,12 @@
 #include "display.h"
 
-char display[4][8] = {'\0'};
-
-char * GetDgigtal(int dig){
-    char * pDigial = calloc(8, sizeof(char));
-    switch(dig){
-        case 0: pDigial = (char *)simvol_0; break;
-        case 1: pDigial = (char *)simvol_1; break;
-        case 2: pDigial = (char *)simvol_2; break;
-        case 3: pDigial = (char *)simvol_3; break;
-        case 4: pDigial = (char *)simvol_4; break;
-        case 5: pDigial = (char *)simvol_5; break;
-        case 6: pDigial = (char *)simvol_6; break;
-        case 7: pDigial = (char *)simvol_7; break;
-        case 8: pDigial = (char *)simvol_8; break;
-        case 9: pDigial = (char *)simvol_9; break;
-    }
-
-    return pDigial;
-}
+char display[MTR_DSP][8] = {'\0'};
 
 void MatrixEnableLEDLine(int segment, char data){
     SpiSendByte((char)segment);
     SpiSendByte(data);
 }
 
-void ShowSimvolString(int matrSegmentsCount, int sA[]){
-    for(int i = 0; i < 8; i++){
-        cs = 0;
-        for(int _i = matrSegmentsCount; _i >= 0; _i--){
-            MatrixEnableLEDLine(i + 1, GetDgigtal(sA[_i])[i]);
-        }
-        cs = 1;
-    }
-}
 
 void ClearDisplay(void){
     for(int i = 0; i < 8; i++){
@@ -70,6 +43,30 @@ void ClearDisplayArray(void){
             display[i][j] = 0x00; 
         }
     }
+}
+
+void Reverse(char * arrFnt, char * revArrFnt, int countElemntArray)
+{
+    for(int i = 0, j = countElemntArray - 1; i < j; i++, j--)
+    {
+        char t = arrFnt[i];
+        revArrFnt[i] = arrFnt[j];
+        revArrFnt[j] = t;
+    }  
+}
+
+void NoNameDgFn(int dig, int cY, int cX, int arElements){
+    char * revArray = calloc((size_t)arElements, sizeof(char));
+    
+    switch(dig){
+        case 0: Reverse((char *)simvol_0, revArray, arElements); InsertInDisplayArray((char *)revArray, cY, cX, arElements); break;
+        case 1: Reverse((char *)simvol_1, revArray, arElements); InsertInDisplayArray((char *)revArray, cY, cX, arElements); break;
+        case 2: Reverse((char *)simvol_2, revArray, arElements); InsertInDisplayArray((char *)revArray, cY, cX, arElements); break;
+        case 3: Reverse((char *)simvol_3, revArray, arElements); InsertInDisplayArray((char *)revArray, cY, cX, arElements); break;
+        case 4: Reverse((char *)simvol_4, revArray, arElements); InsertInDisplayArray((char *)revArray, cY, cX, arElements); break;
+        case 5: Reverse((char *)simvol_5, revArray, arElements); InsertInDisplayArray((char *)revArray, cY, cX, arElements); break;
+    }
+    free(revArray);
 }
 
 //    display[0][7] = 0xff; // y = 0, x = 0
