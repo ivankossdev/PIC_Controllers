@@ -9,8 +9,8 @@ void MatrixEnableLEDLine(int segment, char data);
 void ShowSimvolString(int matrSegmentsCount, int sA[]);
 void ClearDisplay(void);
 void ShowDisplay(void);
-void InsertInDisplayArray(char * ar,int cY, int cX, int arElements);
+void InsertShapeInDspArr(char * ar,int cY, int cX, int arElements);
 void ClearDisplayArray(void);
-void NoNameDgFn(int dig, int cY, int cX, int arElements);
+void InsertSimvInDspArr(int dig, int cY, int cX, int arElements);
 
 #endif	/* DISPLAY_H */

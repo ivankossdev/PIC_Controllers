@@ -25,19 +25,19 @@ void main(void) {
     PortBInit();
     
     while(1){ 
-        NoNameDgFn(1, 7, 3, 8);
+        InsertSimvInDspArr(1, 7, 3, 8);
         ShowDisplay();
         __delay_ms(DELAY);
         
-        InsertInDisplayArray((char *)fig_0, 7, 2, 5);
+        InsertShapeInDspArr((char *)fig_0, 7, 2, 5);
         ShowDisplay();
         __delay_ms(DELAY);
         
-        InsertInDisplayArray((char *)fig_0, 4, 1, 5);
+        InsertShapeInDspArr((char *)fig_0, 4, 1, 5);
         ShowDisplay();
         __delay_ms(DELAY);
         
-        NoNameDgFn(4, 7, 0, 8);
+        InsertSimvInDspArr(4, 7, 0, 8);
         ShowDisplay();
         __delay_ms(1000);
         

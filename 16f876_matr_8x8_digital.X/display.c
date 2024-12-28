@@ -31,7 +31,7 @@ void ShowDisplay(void){
     }
 }
 
-void InsertInDisplayArray(char * ar,int cY, int cX, int arElements){
+void InsertShapeInDspArr(char * ar,int cY, int cX, int arElements){
     for(int i = 0, j = cY; i < arElements; i++, j--){
         display[cX][j] |= *(ar + i);
     }
@@ -55,16 +55,20 @@ void Reverse(char * arrFnt, char * revArrFnt, int countElemntArray)
     }  
 }
 
-void NoNameDgFn(int dig, int cY, int cX, int arElements){
+void InsertSimvInDspArr(int dig, int cY, int cX, int arElements){
     char * revArray = calloc((size_t)arElements, sizeof(char));
     
     switch(dig){
-        case 0: Reverse((char *)simvol_0, revArray, arElements); InsertInDisplayArray((char *)revArray, cY, cX, arElements); break;
-        case 1: Reverse((char *)simvol_1, revArray, arElements); InsertInDisplayArray((char *)revArray, cY, cX, arElements); break;
-        case 2: Reverse((char *)simvol_2, revArray, arElements); InsertInDisplayArray((char *)revArray, cY, cX, arElements); break;
-        case 3: Reverse((char *)simvol_3, revArray, arElements); InsertInDisplayArray((char *)revArray, cY, cX, arElements); break;
-        case 4: Reverse((char *)simvol_4, revArray, arElements); InsertInDisplayArray((char *)revArray, cY, cX, arElements); break;
-        case 5: Reverse((char *)simvol_5, revArray, arElements); InsertInDisplayArray((char *)revArray, cY, cX, arElements); break;
+        case 0: Reverse((char *)simvol_0, revArray, arElements); InsertShapeInDspArr((char *)revArray, cY, cX, arElements); break;
+        case 1: Reverse((char *)simvol_1, revArray, arElements); InsertShapeInDspArr((char *)revArray, cY, cX, arElements); break;
+        case 2: Reverse((char *)simvol_2, revArray, arElements); InsertShapeInDspArr((char *)revArray, cY, cX, arElements); break;
+        case 3: Reverse((char *)simvol_3, revArray, arElements); InsertShapeInDspArr((char *)revArray, cY, cX, arElements); break;
+        case 4: Reverse((char *)simvol_4, revArray, arElements); InsertShapeInDspArr((char *)revArray, cY, cX, arElements); break;
+        case 5: Reverse((char *)simvol_5, revArray, arElements); InsertShapeInDspArr((char *)revArray, cY, cX, arElements); break;
+        case 6: Reverse((char *)simvol_6, revArray, arElements); InsertShapeInDspArr((char *)revArray, cY, cX, arElements); break;
+        case 7: Reverse((char *)simvol_7, revArray, arElements); InsertShapeInDspArr((char *)revArray, cY, cX, arElements); break;
+        case 8: Reverse((char *)simvol_8, revArray, arElements); InsertShapeInDspArr((char *)revArray, cY, cX, arElements); break;
+        case 9: Reverse((char *)simvol_9, revArray, arElements); InsertShapeInDspArr((char *)revArray, cY, cX, arElements); break;
     }
     free(revArray);
 }
