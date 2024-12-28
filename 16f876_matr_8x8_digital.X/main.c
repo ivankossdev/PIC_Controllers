@@ -39,7 +39,7 @@ void main(void) {
         
         InsertSimvInDspArr(4, 7, 0, 8);
         ShowDisplay();
-        __delay_ms(1000);
+        __delay_ms(DELAY);
         
         ClearDspArrSgm(3);
         InsertSimvInDspArr(2, 7, 3, 8);
