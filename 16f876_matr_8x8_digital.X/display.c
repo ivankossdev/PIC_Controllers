@@ -37,12 +37,18 @@ void InsertShapeInDspArr(char * ar,int cY, int cX, int arElements){
     }
 }
 
-void ClearDisplayArray(void){
+void ClearDspArr(void){
     for(int i = 0; i < MTR_DSP; i++){
         for(int j = 0; j < 8; j++){
             display[i][j] = 0x00; 
         }
     }
+}
+
+void ClearDspArrSgm(int seg){
+    for(int j = 0; j < 8; j++){
+            display[seg][j] = 0x00; 
+        }
 }
 
 void Reverse(char * arrFnt, char * revArrFnt, int countElemntArray)

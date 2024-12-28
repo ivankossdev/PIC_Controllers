@@ -41,8 +41,13 @@ void main(void) {
         ShowDisplay();
         __delay_ms(1000);
         
+        ClearDspArrSgm(3);
+        InsertSimvInDspArr(2, 7, 3, 8);
+        ShowDisplay();
+        __delay_ms(1000);
         
-        ClearDisplayArray();
+        
+        ClearDspArr();
         ClearDisplay();
         __delay_ms(DELAY);
         
