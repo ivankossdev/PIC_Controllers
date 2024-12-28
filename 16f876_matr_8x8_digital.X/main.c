@@ -25,9 +25,7 @@ void main(void) {
     PortBInit();
     
     while(1){ 
-        InsertSimvInDspArr(1, 7, 3, 8);
-        ShowDisplay();
-        __delay_ms(DELAY);
+
         
         InsertShapeInDspArr((char *)fig_0, 7, 2, 5);
         ShowDisplay();
@@ -37,15 +35,18 @@ void main(void) {
         ShowDisplay();
         __delay_ms(DELAY);
         
-        InsertSimvInDspArr(4, 7, 0, 8);
+        InsertShapeInDspArr((char *)fig_0, 6, 0, 5);
         ShowDisplay();
         __delay_ms(DELAY);
         
-        ClearDspArrSgm(3);
-        InsertSimvInDspArr(2, 7, 3, 8);
-        ShowDisplay();
-        __delay_ms(1000);
+        for(int i = 0; i <= 9; i++){
+            ClearDspArrSgm(3);
+            InsertSimvInDspArr(i, 7, 3, 8);
+            ShowDisplay();
+            __delay_ms(DELAY);    
+        }
         
+        __delay_ms(1000);
         
         ClearDspArr();
         ClearDisplay();
