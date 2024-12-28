@@ -46,7 +46,6 @@ void ClearDisplay(void){
 }
 
 void ShowDisplay(void){
-
     for(int ledLineMatr = 0; ledLineMatr < 8; ledLineMatr++){
         cs = 0;
         for(int segMatr = MTR_DSP; segMatr >= 0; segMatr--){

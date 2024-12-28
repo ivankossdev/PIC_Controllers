@@ -18,26 +18,28 @@
  * pin 16 RC5      -> DIN               *
  *******************END******************/
 
+void Demo(void){
+    int sA[4] = {'\0'};
+    int counter = 10;
+    for(int digitalUP = 0, digitalDOWN = counter; digitalUP <= counter; digitalUP++, digitalDOWN--){
+        sA[3] = digitalUP % 10;
+        sA[2] = (digitalUP / 10) % 10;
+        sA[1] = digitalDOWN % 10;
+        sA[0] = (digitalDOWN / 10) % 10;
+        ShowSimvolString(MTR_DSP, sA);
+        __delay_ms(100);
+    }
+    __delay_ms(1000);
+    ClearDisplay();
+    __delay_ms(1000);
+}
+
 void main(void) {
     SpiInit();
     MatrixInit();
     PortBInit();
-    int sA[4] = {'\0'};
-    
+    Demo();
     while(1){ 
-        int counter = 99;
-        for(int digitalUP = 0, digitalDOWN = counter; digitalUP <= counter; digitalUP++, digitalDOWN--){
-            sA[3] = digitalUP % 10;
-            sA[2] = (digitalUP / 10) % 10;
-            sA[1] = digitalDOWN % 10;
-            sA[0] = (digitalDOWN / 10) % 10;
-            ShowSimvolString(MTR_DSP, sA);
-            __delay_ms(50);
-        }
-        __delay_ms(1000);
-        
-        ClearDisplay();
-        __delay_ms(1000);
         
         InsertInDisplayArray((char *)fig_0, 7, 2, 5);
         ShowDisplay();
