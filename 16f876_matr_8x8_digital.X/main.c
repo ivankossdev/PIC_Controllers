@@ -6,7 +6,6 @@
 #include "matrix.h"
 #include "display.h"
 #include "font.h"
-#define MTR_DSP 4
 
 /****************PIC16F876***************
  * Connection PICkit4                   *
@@ -37,18 +36,18 @@ void main(void) {
         }
         __delay_ms(1000);
         
-        ClearDisplay(MTR_DSP);
+        ClearDisplay();
         __delay_ms(1000);
         
         InsertInDisplayArray((char *)fig_0, 7, 2, 5);
-        ShowDisplay(MTR_DSP);
+        ShowDisplay();
         __delay_ms(1000);
         
         InsertInDisplayArray((char *)fig_0, 4, 1, 5);
-        ShowDisplay(MTR_DSP);
+        ShowDisplay();
         __delay_ms(1000);
         ClearDisplayArray();
-        ClearDisplay(MTR_DSP);
+        ClearDisplay();
         __delay_ms(1000);
         
     }    

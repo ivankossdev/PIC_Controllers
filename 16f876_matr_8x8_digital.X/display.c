@@ -35,21 +35,21 @@ void ShowSimvolString(int matrSegmentsCount, int sA[]){
     }
 }
 
-void ClearDisplay(int matrSegmentsCount){
+void ClearDisplay(void){
     for(int i = 0; i < 8; i++){
         cs = 0;
-        for(int _i = matrSegmentsCount; _i >= 0; _i--){
+        for(int _i = MTR_DSP; _i >= 0; _i--){
             MatrixEnableLEDLine(i + 1, 0x00);
         }
         cs = 1;
     }
 }
 
-void ShowDisplay(int matrSegmentsCount){
+void ShowDisplay(void){
 
     for(int ledLineMatr = 0; ledLineMatr < 8; ledLineMatr++){
         cs = 0;
-        for(int segMatr = matrSegmentsCount; segMatr >= 0; segMatr--){
+        for(int segMatr = MTR_DSP; segMatr >= 0; segMatr--){
             /* Цикл передает в матрицу значение массива 
              * display[сегмент матрицы 0 - 3][0 - 7 линейка светодиода] 
              */
@@ -66,11 +66,10 @@ void InsertInDisplayArray(char * ar,int cY, int cX, int arElements){
 }
 
 void ClearDisplayArray(void){
-    for(int i = 0; i < 4; i++){
+    for(int i = 0; i < MTR_DSP; i++){
         for(int j = 0; j < 8; j++){
             display[i][j] = 0x00; 
         }
-        
     }
 }
 
