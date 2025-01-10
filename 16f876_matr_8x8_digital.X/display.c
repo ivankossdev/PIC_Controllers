@@ -77,15 +77,15 @@ void ClearDspArrSgm(int seg){
         }
 }
 
-void Reverse(char * arrFnt, char * revArrFnt, int countElemntArray)
-{
-    for(int i = 0, j = countElemntArray - 1; i < j; i++, j--)
-    {
-        char t = arrFnt[i];
-        revArrFnt[i] = arrFnt[j];
-        revArrFnt[j] = t;
-    }  
-}
+//void ReverseArrayDisplay(char * arrFnt, char * revArrFnt, int countElemntArray)
+//{
+//    for(int i = 0, j = countElemntArray - 1; i < j; i++, j--)
+//    {
+//        char t = arrFnt[i];
+//        revArrFnt[i] = arrFnt[j];
+//        revArrFnt[j] = t;
+//    }  
+//}
 
 void InsertSimvInDspArr(int dig, int cY, int matrSegmant, int arElements){
     switch(dig){

@@ -20,7 +20,7 @@
  * pin 16 RC5      -> DIN               *
  *******************END******************/
 
-char fig_1[8] = { 
+const char fig_1[8] = { 
     0b11000011, 
     0b11000011, 
     0b00100100, 
@@ -34,26 +34,20 @@ void main(void) {
     SpiInit();
     MatrixInit();
     PortBInit();
-    
+    ClearDisplay();
     while(1){ 
         ShowDisplay();
         __delay_ms(1000);
         ClearDspArr();
-        InsertShapeInDspArr((char *)fig_0, 7, SEGMENT_3, 5);
-        ShowDisplay();
-        __delay_ms(DELAY);
-        
-        InsertShapeInDspArr((char *)fig_0, 4, SEGMENT_2, 5);
-        ShowDisplay();
-        __delay_ms(DELAY);
-        
         InsertShapeInDspArr((char *)fig_1, 7, SEGMENT_1, 8);
+        InsertShapeInDspArr((char *)fig_1, 7, SEGMENT_4, 8);
         ShowDisplay();
-        __delay_ms(DELAY);
 
-        for(int i = 0; i <= 9; i++){
-            ClearDspArrSgm(3);
-            InsertSimvInDspArr(i, 7, SEGMENT_4, 8);
+        for(int i = 0; i < 100; i++){
+            ClearDspArrSgm(SEGMENT_2);
+            ClearDspArrSgm(SEGMENT_3);
+            InsertSimvInDspArr(i / 10, 7, SEGMENT_2, 8);
+            InsertSimvInDspArr(i % 10, 7, SEGMENT_3, 8);
             ShowDisplay();
             __delay_ms(DELAY);    
         }
