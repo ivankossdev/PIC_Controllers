@@ -27,30 +27,32 @@ void main(void) {
     while(1){ 
 
         
-        InsertShapeInDspArr((char *)fig_0, 7, 2, 5);
+//        InsertShapeInDspArr((char *)fig_0, 7, 2, 5);
+//        ShowDisplay();
+//        __delay_ms(DELAY);
+//        
+//        InsertShapeInDspArr((char *)fig_0, 4, 1, 5);
+//        ShowDisplay();
+//        __delay_ms(DELAY);
+//        
+//        InsertShapeInDspArr((char *)fig_0, 6, 0, 5);
+//        ShowDisplay();
+//        __delay_ms(DELAY);
+//
+//        for(int i = 0; i <= 9; i++){
+//            ClearDspArrSgm(3);
+//            InsertSimvInDspArr(i, 7, 3, 8);
+//            ShowDisplay();
+//            __delay_ms(DELAY);    
+//        }
+//        
+//        __delay_ms(1000);
+        
+//        ClearDspArr();
         ShowDisplay();
-        __delay_ms(DELAY);
-        
-        InsertShapeInDspArr((char *)fig_0, 4, 1, 5);
-        ShowDisplay();
-        __delay_ms(DELAY);
-        
-        InsertShapeInDspArr((char *)fig_0, 6, 0, 5);
-        ShowDisplay();
-        __delay_ms(DELAY);
-        
-        for(int i = 0; i <= 9; i++){
-            ClearDspArrSgm(3);
-            InsertSimvInDspArr(i, 7, 3, 8);
-            ShowDisplay();
-            __delay_ms(DELAY);    
-        }
-        
         __delay_ms(1000);
-        
-        ClearDspArr();
         ClearDisplay();
-        __delay_ms(DELAY);
+        __delay_ms(1000);
         
     }    
     return;

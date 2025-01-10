@@ -1,8 +1,33 @@
 #include "display.h"
 
-char display[MTR_DSP][8] = {'\0'};
+char display[MTR_DSP][8] = {
+    { 0b00000011, 0b00000011, 0b00000011, 0b00000011, 0b00000011, 0b00000011, 0b00000011, 0b00000011 }, // [0]
+    { 0b11110000, 0b00110000, 0b00110000, 0b00110000, 0b00110000, 0b00110000, 0b00110000, 0b11110000 }, // [1]
+    { 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000 }, // [2]
+    { 0b00000001, 0b00000001, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b11000000, 0b11000000 }, // [3]
+};
+/*         [0]          [1]        [2]         [3]
+ * [0] 0b00000011, 0b11110000, 0b00000000, 0b00000001,
+ * [1] 0b00000011, 0b00110000, 0b00000000, 0b00000001,
+ * [2] 0b00000011, 0b00110000, 0b00000000, 0b00000000,
+ * [3] 0b00000011, 0b00110000, 0b00000000, 0b00000000,
+ * [4] 0b00000011, 0b00110000, 0b00000000, 0b00000000,
+ * [5] 0b00000011, 0b00110000, 0b00000000, 0b00000000,
+ * [6] 0b00000011, 0b00110000, 0b00000000, 0b11000000,
+ * [7] 0b00000011, 0b11110000, 0b00000000, 0b11000000,
+ */
+
+char ReverseChar(char ch){
+    char rv = 0;
+    for(int i = 0, t = 7; i < 8; i++, t--){
+        rv |= ((ch >> i) & 0x01) << t;
+    }
+    
+    return rv;
+}
 
 void MatrixEnableLEDLine(int segment, char data){
+    data = ReverseChar(data);
     SpiSendByte((char)segment);
     SpiSendByte(data);
 }
@@ -19,13 +44,15 @@ void ClearDisplay(void){
 }
 
 void ShowDisplay(void){
-    for(int ledLineMatr = 0; ledLineMatr < 8; ledLineMatr++){
+    for(int ledColumn = 0, ledLine = 8; ledColumn < 8; ledColumn++, ledLine--){
+        
         cs = 0;
         for(int segMatr = MTR_DSP; segMatr >= 0; segMatr--){
             /* Цикл передает в матрицу значение массива 
-             * display[сегмент матрицы 0 - 3][0 - 7 линейка светодиода] 
+             * display[сегмент матрицы [1 - 4][0 - 7 линейка светодиода] 
              */
-            MatrixEnableLEDLine(ledLineMatr + 1, display[segMatr][ledLineMatr]);
+            
+            MatrixEnableLEDLine(ledLine, display[segMatr][ledColumn]);
         }
         cs = 1;
     }
@@ -78,13 +105,3 @@ void InsertSimvInDspArr(int dig, int cY, int cX, int arElements){
     }
     free(revArray);
 }
-
-//    display[0][7] = 0xff; // y = 0, x = 0
-//    display[1][6] = 0xff; // y = 1, x = 8 
-//    display[2][5] = 0xff; // y = 2, x = 16 
-//    display[3][4] = 0xff; // y = 3, x = 24
-//    
-//    display[3][3] = 0xff; 
-//    display[2][2] = 0xff; 
-//    display[1][1] = 0xff; 
-//    display[0][0] = 0xff; 
