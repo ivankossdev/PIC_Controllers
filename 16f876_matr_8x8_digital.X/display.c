@@ -3,18 +3,18 @@
 char display[MTR_DSP][8] = {
     { 0b00000011, 0b00000011, 0b00000011, 0b00000011, 0b00000011, 0b00000011, 0b00000011, 0b00000011 }, // [0]
     { 0b11110000, 0b00110000, 0b00110000, 0b00110000, 0b00110000, 0b00110000, 0b00110000, 0b11110000 }, // [1]
-    { 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000 }, // [2]
-    { 0b00000001, 0b00000001, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b11000000, 0b11000000 }, // [3]
+    { 0b00000011, 0b00000011, 0b00000011, 0b00000011, 0b00000011, 0b00000011, 0b00000011, 0b00000011 }, // [2]
+    { 0b11110000, 0b00110000, 0b00110000, 0b00110000, 0b00110000, 0b00110000, 0b00110000, 0b11110000 }  // [3]
 };
 /*         [0]          [1]        [2]         [3]
- * [0] 0b00000011, 0b11110000, 0b00000000, 0b00000001,
- * [1] 0b00000011, 0b00110000, 0b00000000, 0b00000001,
- * [2] 0b00000011, 0b00110000, 0b00000000, 0b00000000,
- * [3] 0b00000011, 0b00110000, 0b00000000, 0b00000000,
- * [4] 0b00000011, 0b00110000, 0b00000000, 0b00000000,
- * [5] 0b00000011, 0b00110000, 0b00000000, 0b00000000,
- * [6] 0b00000011, 0b00110000, 0b00000000, 0b11000000,
- * [7] 0b00000011, 0b11110000, 0b00000000, 0b11000000,
+ * [0] 0b00000011, 0b11110000, 0b00000011, 0b11110000,
+ * [1] 0b00000011, 0b00110000, 0b00000011, 0b00110000,
+ * [2] 0b00000011, 0b00110000, 0b00000011, 0b00110000,
+ * [3] 0b00000011, 0b00110000, 0b00000011, 0b00110000,
+ * [4] 0b00000011, 0b00110000, 0b00000011, 0b00110000,
+ * [5] 0b00000011, 0b00110000, 0b00000011, 0b00110000,
+ * [6] 0b00000011, 0b00110000, 0b00000011, 0b00110000,
+ * [7] 0b00000011, 0b11110000, 0b00000011, 0b11110000,
  */
 
 char ReverseChar(char ch){
@@ -51,16 +51,15 @@ void ShowDisplay(void){
             /* Цикл передает в матрицу значение массива 
              * display[сегмент матрицы [1 - 4][0 - 7 линейка светодиода] 
              */
-            
             MatrixEnableLEDLine(ledLine, display[segMatr][ledColumn]);
         }
         cs = 1;
     }
 }
 
-void InsertShapeInDspArr(char * ar,int cY, int cX, int arElements){
-    for(int i = 0, j = cY; i < arElements; i++, j--){
-        display[cX][j] |= *(ar + i);
+void InsertShapeInDspArr(char * ar,int cY, int matrSegmant, int arElements){
+    for(int i = arElements - 1, j = cY; i >= 0; i--, j--){
+        display[matrSegmant][j] |= *(ar + i);
     }
 }
 
@@ -88,20 +87,17 @@ void Reverse(char * arrFnt, char * revArrFnt, int countElemntArray)
     }  
 }
 
-void InsertSimvInDspArr(int dig, int cY, int cX, int arElements){
-    char * revArray = calloc((size_t)arElements, sizeof(char));
-    
+void InsertSimvInDspArr(int dig, int cY, int matrSegmant, int arElements){
     switch(dig){
-        case 0: Reverse((char *)simvol_0, revArray, arElements); InsertShapeInDspArr((char *)revArray, cY, cX, arElements); break;
-        case 1: Reverse((char *)simvol_1, revArray, arElements); InsertShapeInDspArr((char *)revArray, cY, cX, arElements); break;
-        case 2: Reverse((char *)simvol_2, revArray, arElements); InsertShapeInDspArr((char *)revArray, cY, cX, arElements); break;
-        case 3: Reverse((char *)simvol_3, revArray, arElements); InsertShapeInDspArr((char *)revArray, cY, cX, arElements); break;
-        case 4: Reverse((char *)simvol_4, revArray, arElements); InsertShapeInDspArr((char *)revArray, cY, cX, arElements); break;
-        case 5: Reverse((char *)simvol_5, revArray, arElements); InsertShapeInDspArr((char *)revArray, cY, cX, arElements); break;
-        case 6: Reverse((char *)simvol_6, revArray, arElements); InsertShapeInDspArr((char *)revArray, cY, cX, arElements); break;
-        case 7: Reverse((char *)simvol_7, revArray, arElements); InsertShapeInDspArr((char *)revArray, cY, cX, arElements); break;
-        case 8: Reverse((char *)simvol_8, revArray, arElements); InsertShapeInDspArr((char *)revArray, cY, cX, arElements); break;
-        case 9: Reverse((char *)simvol_9, revArray, arElements); InsertShapeInDspArr((char *)revArray, cY, cX, arElements); break;
+        case 0: InsertShapeInDspArr((char *)simvol_0, cY, matrSegmant, arElements); break;
+        case 1: InsertShapeInDspArr((char *)simvol_1, cY, matrSegmant, arElements); break;
+        case 2: InsertShapeInDspArr((char *)simvol_2, cY, matrSegmant, arElements); break;
+        case 3: InsertShapeInDspArr((char *)simvol_3, cY, matrSegmant, arElements); break;
+        case 4: InsertShapeInDspArr((char *)simvol_4, cY, matrSegmant, arElements); break;
+        case 5: InsertShapeInDspArr((char *)simvol_5, cY, matrSegmant, arElements); break;
+        case 6: InsertShapeInDspArr((char *)simvol_6, cY, matrSegmant, arElements); break;
+        case 7: InsertShapeInDspArr((char *)simvol_7, cY, matrSegmant, arElements); break;
+        case 8: InsertShapeInDspArr((char *)simvol_8, cY, matrSegmant, arElements); break;
+        case 9: InsertShapeInDspArr((char *)simvol_9, cY, matrSegmant, arElements); break;
     }
-    free(revArray);
 }

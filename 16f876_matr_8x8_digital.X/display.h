@@ -4,6 +4,10 @@
 #include "matrix.h"
 #include "font.h"
 #define MTR_DSP 4
+#define SEGMENT_1 0
+#define SEGMENT_2 1
+#define SEGMENT_3 2
+#define SEGMENT_4 3
 
 void MatrixEnableLEDLine(int segment, char data);
 void ShowSimvolString(int matrSegmentsCount, int sA[]);

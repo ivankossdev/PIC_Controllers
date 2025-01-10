@@ -8,6 +8,7 @@
 #include "font.h"
 #define DELAY 250
 
+
 /****************PIC16F876***************
  * Connection PICkit4                   *
  * pin 28 RB7/PGD  -> green             *
@@ -19,41 +20,47 @@
  * pin 16 RC5      -> DIN               *
  *******************END******************/
 
+char fig_1[8] = { 
+    0b11000011, 
+    0b11000011, 
+    0b00100100, 
+    0b00011000, 
+    0b00011000, 
+    0b00100100, 
+    0b11000011, 
+    0b11000011 };
+
 void main(void) {
     SpiInit();
     MatrixInit();
     PortBInit();
     
     while(1){ 
-
-        
-//        InsertShapeInDspArr((char *)fig_0, 7, 2, 5);
-//        ShowDisplay();
-//        __delay_ms(DELAY);
-//        
-//        InsertShapeInDspArr((char *)fig_0, 4, 1, 5);
-//        ShowDisplay();
-//        __delay_ms(DELAY);
-//        
-//        InsertShapeInDspArr((char *)fig_0, 6, 0, 5);
-//        ShowDisplay();
-//        __delay_ms(DELAY);
-//
-//        for(int i = 0; i <= 9; i++){
-//            ClearDspArrSgm(3);
-//            InsertSimvInDspArr(i, 7, 3, 8);
-//            ShowDisplay();
-//            __delay_ms(DELAY);    
-//        }
-//        
-//        __delay_ms(1000);
-        
-//        ClearDspArr();
         ShowDisplay();
         __delay_ms(1000);
-        ClearDisplay();
+        ClearDspArr();
+        InsertShapeInDspArr((char *)fig_0, 7, SEGMENT_3, 5);
+        ShowDisplay();
+        __delay_ms(DELAY);
+        
+        InsertShapeInDspArr((char *)fig_0, 4, SEGMENT_2, 5);
+        ShowDisplay();
+        __delay_ms(DELAY);
+        
+        InsertShapeInDspArr((char *)fig_1, 7, SEGMENT_1, 8);
+        ShowDisplay();
+        __delay_ms(DELAY);
+
+        for(int i = 0; i <= 9; i++){
+            ClearDspArrSgm(3);
+            InsertSimvInDspArr(i, 7, SEGMENT_4, 8);
+            ShowDisplay();
+            __delay_ms(DELAY);    
+        }
+        
         __delay_ms(1000);
         
+        ClearDspArr();
     }    
     return;
 }
