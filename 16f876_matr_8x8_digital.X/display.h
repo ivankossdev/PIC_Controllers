@@ -3,6 +3,7 @@
 #include "spi.h"
 #include "matrix.h"
 #include "font.h"
+#include <stdbool.h>
 #define MTR_DSP 4
 #define SEGMENT_1 0
 #define SEGMENT_2 1
@@ -17,5 +18,6 @@ void InsertShapeInDspArr(char * ar,int cY, int cX, int arElements);
 void ClearDspArr(void);
 void ClearDspArrSgm(int seg);
 void InsertSimvInDspArr(int dig, int cY, int cX, int arElements);
+void ShifRightOneBit(void);
 
 #endif	/* DISPLAY_H */
