@@ -101,7 +101,7 @@ void InsertSimvInDspArr(int dig, int cY, int matrSegmant, int arElements){
         case 9: InsertShapeInDspArr((char *)simvol_9, cY, matrSegmant, arElements); break;
     }
 }
-char CheckEndBit(char data){
+char CheckEndBit0(char data){
     return (data & 0x01) ? 1 : 0;
 }
 
@@ -112,7 +112,7 @@ void ShifRightOneBit(void){
     do{
         /* Сдвиг вправо, сохраняем bit[0] в буфер */
         for(int i = 0; i <  MTR_DSP; i++){
-            shiftBuffer[i] = CheckEndBit(display[i][count]);
+            shiftBuffer[i] = CheckEndBit0(display[i][count]);
             display[i][count] =  display[i][count] >> 1; 
         }
         
@@ -124,4 +124,23 @@ void ShifRightOneBit(void){
         
         count++;
     }while(count < 8);
+}
+
+void ShiftLeftOneBit(void){
+    int row = 7;
+    char shiftBuffer[4] = {'\0'};
+    /* Читаем построчно и сдвигаем на 1 бит c 7 байта (count 7) в массиве*/
+    do{
+        /* Сдвиг влево, сохраняем bit[7] в буфер */
+        for(int i = 0; i <  MTR_DSP; i++){
+            shiftBuffer[i] = display[i][row] & 0b10000000;
+            display[i][row] = (char)(display[i][row] << 1);
+        }
+        
+        /* Вставляем bit[7] в следующий сегмент, в bit[0] */
+        for(int column = MTR_DSP - 1; column >=1  ; column--){
+                display[column - 1][row] |= shiftBuffer[column] >> 7;
+        }
+        
+    }while(row--);
 }

@@ -6,7 +6,7 @@
 #include "matrix.h"
 #include "display.h"
 #include "font.h"
-#define DELAY 100
+#define DELAY 50
 
 
 /****************PIC16F876***************
@@ -35,13 +35,17 @@ void main(void) {
     MatrixInit();
     PortBInit();
     ClearDisplay();
+    bool on = true;
     
     while(1){ 
         InsertShapeInDspArr((char *)fig_1, 7, SEGMENT_1, 8);
         InsertShapeInDspArr((char *)fig_1, 7, SEGMENT_4, 8);
+        InsertSimvInDspArr(9, 7, SEGMENT_2, 8);
+        InsertSimvInDspArr(9, 7, SEGMENT_3, 8);
         ShowDisplay();
+        __delay_ms(1000);
 
-        for(int i = 0; i <= 20; i++){
+        for(int i = 0; i <= 10; i++){
             ClearDspArrSgm(SEGMENT_2);
             ClearDspArrSgm(SEGMENT_3);
             InsertSimvInDspArr(i / 10, 7, SEGMENT_2, 8);
@@ -52,13 +56,21 @@ void main(void) {
         
         __delay_ms(1000);
         
+        
         int i = 32;
         do{
             ShowDisplay();
             __delay_ms(100);
-            ShifRightOneBit(); 
+            if(on){
+                ShiftLeftOneBit();
+            }else{
+                ShifRightOneBit();
+                
+            }
+            
         }while(i--);
-        
+        if(on) on = false;
+        else on = true;
         __delay_ms(1000);
     }    
     return;

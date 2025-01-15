@@ -19,5 +19,6 @@ void ClearDspArr(void);
 void ClearDspArrSgm(int seg);
 void InsertSimvInDspArr(int dig, int cY, int cX, int arElements);
 void ShifRightOneBit(void);
+void ShiftLeftOneBit(void);
 
 #endif	/* DISPLAY_H */
