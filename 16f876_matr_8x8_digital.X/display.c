@@ -106,24 +106,24 @@ char CheckEndBit0(char data){
 }
 
 void ShifRightOneBit(void){
-    int count = 0; 
+    int row = 0; 
     char shiftBuffer[4] = {'\0'};
     /* Читаем построчно и сдвигаем на 1 бит */
     do{
         /* Сдвиг вправо, сохраняем bit[0] в буфер */
         for(int i = 0; i <  MTR_DSP; i++){
-            shiftBuffer[i] = CheckEndBit0(display[i][count]);
-            display[i][count] =  display[i][count] >> 1; 
+            shiftBuffer[i] = CheckEndBit0(display[i][row]);
+            display[i][row] =  display[i][row] >> 1; 
         }
         
         /* Вставляем bit[0] в следующий сегмент, в bit[7] */
-        for(int i = 0; i <  MTR_DSP; i++ ){
-            if((i + 1) < MTR_DSP) 
-                display[i + 1][count] |= shiftBuffer[i] << 7;
+        for(int column = 0; column <  MTR_DSP; column++ ){
+            if((column + 1) < MTR_DSP) 
+                display[column + 1][row] |= shiftBuffer[column] << 7;
         }
         
-        count++;
-    }while(count < 8);
+        row++;
+    }while(row < 8);
 }
 
 void ShiftLeftOneBit(void){
