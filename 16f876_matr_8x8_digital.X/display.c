@@ -57,8 +57,8 @@ void ShowDisplay(void){
     }
 }
 
-void InsertShapeInDspArr(char * ar, int cY, int matrSegmant, int arElements){
-    for(int i = arElements - 1, j = cY; i >= 0; i--, j--){
+void InsertShapeInSegment(char * ar, int matrSegmant, int arElements){
+    for(int i = arElements - 1, j = 7; i >= 0; i--, j--){
         display[matrSegmant][j] |= *(ar + i);
     }
 }
@@ -77,18 +77,18 @@ void ClearDspArrSgm(int seg){
         }
 }
 
-void InsertSimvInDspArr(int dig, int matrSegmant, int arElements){
+void InsertSimvInSegment(int dig, int matrSegmant, int arElements){
     switch(dig){
-        case 0: InsertShapeInDspArr((char *)simvol_0, 7, matrSegmant, arElements); break;
-        case 1: InsertShapeInDspArr((char *)simvol_1, 7, matrSegmant, arElements); break;
-        case 2: InsertShapeInDspArr((char *)simvol_2, 7, matrSegmant, arElements); break;
-        case 3: InsertShapeInDspArr((char *)simvol_3, 7, matrSegmant, arElements); break;
-        case 4: InsertShapeInDspArr((char *)simvol_4, 7, matrSegmant, arElements); break;
-        case 5: InsertShapeInDspArr((char *)simvol_5, 7, matrSegmant, arElements); break;
-        case 6: InsertShapeInDspArr((char *)simvol_6, 7, matrSegmant, arElements); break;
-        case 7: InsertShapeInDspArr((char *)simvol_7, 7, matrSegmant, arElements); break;
-        case 8: InsertShapeInDspArr((char *)simvol_8, 7, matrSegmant, arElements); break;
-        case 9: InsertShapeInDspArr((char *)simvol_9, 7, matrSegmant, arElements); break;
+        case 0: InsertShapeInSegment((char *)simvol_0, matrSegmant, arElements); break;
+        case 1: InsertShapeInSegment((char *)simvol_1, matrSegmant, arElements); break;
+        case 2: InsertShapeInSegment((char *)simvol_2, matrSegmant, arElements); break;
+        case 3: InsertShapeInSegment((char *)simvol_3, matrSegmant, arElements); break;
+        case 4: InsertShapeInSegment((char *)simvol_4, matrSegmant, arElements); break;
+        case 5: InsertShapeInSegment((char *)simvol_5, matrSegmant, arElements); break;
+        case 6: InsertShapeInSegment((char *)simvol_6, matrSegmant, arElements); break;
+        case 7: InsertShapeInSegment((char *)simvol_7, matrSegmant, arElements); break;
+        case 8: InsertShapeInSegment((char *)simvol_8, matrSegmant, arElements); break;
+        case 9: InsertShapeInSegment((char *)simvol_9, matrSegmant, arElements); break;
     }
 }
 
