@@ -20,6 +20,24 @@
  * pin 16 RC5      -> DIN               *
  *******************END******************/
 
+void TestShiftDispImage(bool *on){
+        int i = 32;
+        do{
+            ShowDisplay();
+            __delay_ms(100);
+            if(*on){
+                ShiftLeftOneBit();
+            }else{
+                ShifRightOneBit();
+                
+            }
+            
+        }while(i--);
+        if(*on) *on = false;
+        else *on = true;
+        __delay_ms(1000);
+}
+
 const char fig_1[8] = { 
     0b11000011, 
     0b11000011, 
@@ -56,22 +74,8 @@ void main(void) {
         
         __delay_ms(1000);
         
-        
-        int i = 32;
-        do{
-            ShowDisplay();
-            __delay_ms(100);
-            if(on){
-                ShiftLeftOneBit();
-            }else{
-                ShifRightOneBit();
-                
-            }
-            
-        }while(i--);
-        if(on) on = false;
-        else on = true;
-        __delay_ms(1000);
+        TestShiftDispImage(&on);
+
     }    
     return;
 }
