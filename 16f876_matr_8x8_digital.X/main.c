@@ -54,28 +54,47 @@ void main(void) {
     PortBInit();
     ClearDisplay();
     bool on = true;
+    TCrd cord;
     
     while(1){ 
-        InsertShapeInSegment((char *)fig_1, SEGMENT_1, 8);
-        InsertShapeInSegment((char *)fig_1, SEGMENT_4, 8);
-        InsertSimvInSegment(9, SEGMENT_2, 8);
-        InsertSimvInSegment(9, SEGMENT_3, 8);
+//        InsertShapeInSegment((char *)fig_1, SEGMENT_1, 8);
+//        InsertShapeInSegment((char *)fig_1, SEGMENT_4, 8);
+//        InsertSimvInSegment(9, SEGMENT_2, 8);
+//        InsertSimvInSegment(9, SEGMENT_3, 8);
+//        ShowDisplay();
+//        __delay_ms(1000);
+//
+//        for(int i = 0; i <= 10; i++){
+//            ClearDspArrSgm(SEGMENT_2);
+//            ClearDspArrSgm(SEGMENT_3);
+//            InsertSimvInSegment(i / 10, SEGMENT_2, 8);
+//            InsertSimvInSegment(i % 10, SEGMENT_3, 8);
+//            ShowDisplay();
+//            __delay_ms(DELAY);    
+//        }
+//        
+//        __delay_ms(1000);
+//        
+//        TestShiftDispImage(&on);
+//        
+//        ------------------------------------
+        cord.x = 0;
+        cord.y = 0;
+        InsertShapeByCord(&cord);
         ShowDisplay();
         __delay_ms(1000);
-
-        for(int i = 0; i <= 10; i++){
-            ClearDspArrSgm(SEGMENT_2);
-            ClearDspArrSgm(SEGMENT_3);
-            InsertSimvInSegment(i / 10, SEGMENT_2, 8);
-            InsertSimvInSegment(i % 10, SEGMENT_3, 8);
-            ShowDisplay();
-            __delay_ms(DELAY);    
-        }
-        
+        ClearDspArr();
+        ShowDisplay();
         __delay_ms(1000);
         
-        TestShiftDispImage(&on);
-
+        cord.x = 1;
+        cord.y = 0;
+        InsertShapeByCord(&cord);
+        ShowDisplay();
+        __delay_ms(1000);
+        ClearDspArr();
+        ShowDisplay();
+        __delay_ms(1000);
     }    
     return;
 }

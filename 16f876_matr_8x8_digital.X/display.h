@@ -10,6 +10,11 @@
 #define SEGMENT_3 2
 #define SEGMENT_4 3
 
+typedef struct{
+    int x;
+    int y;
+} TCrd;
+
 void MatrixEnableLEDLine(int segment, char data);
 void ShowSimvolString(int matrSegmentsCount, int sA[]);
 void ClearDisplay(void);
@@ -20,5 +25,6 @@ void ClearDspArrSgm(int seg);
 void InsertSimvInSegment(int dig, int matrSegmant, int arElements);
 void ShifRightOneBit(void);
 void ShiftLeftOneBit(void);
+void InsertShapeByCord(TCrd * cord);
 
 #endif	/* DISPLAY_H */
