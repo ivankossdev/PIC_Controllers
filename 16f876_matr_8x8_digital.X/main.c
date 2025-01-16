@@ -58,16 +58,16 @@ void main(void) {
     while(1){ 
         InsertShapeInDspArr((char *)fig_1, 7, SEGMENT_1, 8);
         InsertShapeInDspArr((char *)fig_1, 7, SEGMENT_4, 8);
-        InsertSimvInDspArr(9, 7, SEGMENT_2, 8);
-        InsertSimvInDspArr(9, 7, SEGMENT_3, 8);
+        InsertSimvInDspArr(9, SEGMENT_2, 8);
+        InsertSimvInDspArr(9, SEGMENT_3, 8);
         ShowDisplay();
         __delay_ms(1000);
 
         for(int i = 0; i <= 10; i++){
             ClearDspArrSgm(SEGMENT_2);
             ClearDspArrSgm(SEGMENT_3);
-            InsertSimvInDspArr(i / 10, 7, SEGMENT_2, 8);
-            InsertSimvInDspArr(i % 10, 7, SEGMENT_3, 8);
+            InsertSimvInDspArr(i / 10, SEGMENT_2, 8);
+            InsertSimvInDspArr(i % 10, SEGMENT_3, 8);
             ShowDisplay();
             __delay_ms(DELAY);    
         }
