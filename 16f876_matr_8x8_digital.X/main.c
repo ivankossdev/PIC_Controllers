@@ -48,6 +48,17 @@ const char fig_1[8] = {
     0b11000011, 
     0b11000011 };
 
+const char fig_2[8] = {
+    0b00001000, 
+    0b00001100, 
+    0b11111110, 
+    0b11111111, 
+    0b11111110, 
+    0b00001100, 
+    0b00001000, 
+    0b00000000
+};
+
 void main(void) {
     SpiInit();
     MatrixInit();
@@ -78,18 +89,18 @@ void main(void) {
         TestShiftDispImage(&on);
 //        
 //        ------------------------------------
-        int y = 0;
-        do{
-            for(int x = 0; x < 32; x++){
-                cord.x = x;
-                cord.y = y;
-                InsertWordByCord(&cord, 0b11100111);
-                ShowDisplay();
-                __delay_ms(50);
-                ClearDspArr();
-            } 
-            y++;
-        }while(y < 8);
+
+        for(int x = 0; x < 33; x++){
+            cord.x = x;
+            cord.y = 0;
+            InsertShapeByCord(&cord, (char *)fig_2, 8);
+            ShowDisplay();
+            __delay_ms(50);
+            ClearDspArr();
+        } 
+        
+        __delay_ms(1000);
+
     }    
     return;
 }

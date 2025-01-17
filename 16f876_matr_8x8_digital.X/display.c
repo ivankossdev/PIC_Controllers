@@ -166,6 +166,14 @@ void InsertWordByCord(TCrd *cord, char word){
     }
 }
 
+void InsertShapeByCord(TCrd *cord, char shape[], int cntArray){
+    for(int i = 0; i < cntArray; i++){
+        cord->y = i;
+        InsertWordByCord(cord, shape[i]);
+       
+    }
+}
+
 /*  y    x [0]          [1]        [2]         [3]
  * [0] 0b11000000, 0b00000000, 0b00000000, 0b00000000, (y=0 x=0) (y=0 x=1)
  * [1] 0b00000000, 0b00000000, 0b00000000, 0b00000000,

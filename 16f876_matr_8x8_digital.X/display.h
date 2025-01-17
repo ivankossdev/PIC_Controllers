@@ -26,5 +26,6 @@ void InsertSimvInSegment(int dig, int matrSegmant, int arElements);
 void ShifRightOneBit(void);
 void ShiftLeftOneBit(void);
 void InsertWordByCord(TCrd *cord, char word);
+void InsertShapeByCord(TCrd *cord, char shape[], int cntArray);
 
 #endif	/* DISPLAY_H */
