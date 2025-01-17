@@ -25,6 +25,6 @@ void ClearDspArrSgm(int seg);
 void InsertSimvInSegment(int dig, int matrSegmant, int arElements);
 void ShifRightOneBit(void);
 void ShiftLeftOneBit(void);
-void InsertShapeByCord(TCrd *cord);
+void InsertWordByCord(TCrd *cord);
 
 #endif	/* DISPLAY_H */

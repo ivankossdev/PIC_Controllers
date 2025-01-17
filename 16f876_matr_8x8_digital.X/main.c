@@ -57,37 +57,39 @@ void main(void) {
     TCrd cord;
     
     while(1){ 
-//        InsertShapeInSegment((char *)fig_1, SEGMENT_1, 8);
-//        InsertShapeInSegment((char *)fig_1, SEGMENT_4, 8);
-//        InsertSimvInSegment(9, SEGMENT_2, 8);
-//        InsertSimvInSegment(9, SEGMENT_3, 8);
-//        ShowDisplay();
-//        __delay_ms(1000);
-//
-//        for(int i = 0; i <= 10; i++){
-//            ClearDspArrSgm(SEGMENT_2);
-//            ClearDspArrSgm(SEGMENT_3);
-//            InsertSimvInSegment(i / 10, SEGMENT_2, 8);
-//            InsertSimvInSegment(i % 10, SEGMENT_3, 8);
-//            ShowDisplay();
-//            __delay_ms(DELAY);    
-//        }
-//        
-//        __delay_ms(1000);
-//        
-//        TestShiftDispImage(&on);
+        InsertShapeInSegment((char *)fig_1, SEGMENT_1, 8);
+        InsertShapeInSegment((char *)fig_1, SEGMENT_4, 8);
+        InsertSimvInSegment(9, SEGMENT_2, 8);
+        InsertSimvInSegment(9, SEGMENT_3, 8);
+        ShowDisplay();
+        __delay_ms(1000);
+
+        for(int i = 0; i <= 10; i++){
+            ClearDspArrSgm(SEGMENT_2);
+            ClearDspArrSgm(SEGMENT_3);
+            InsertSimvInSegment(i / 10, SEGMENT_2, 8);
+            InsertSimvInSegment(i % 10, SEGMENT_3, 8);
+            ShowDisplay();
+            __delay_ms(DELAY);    
+        }
+        
+        __delay_ms(1000);
+        
+        TestShiftDispImage(&on);
 //        
 //        ------------------------------------
-        for(int i = 0; i < 32; i++){
-            cord.x = i;
-            cord.y = 0;
-            InsertShapeByCord(&cord);
-            ShowDisplay();
-            __delay_ms(250);
-            ClearDspArr();
-            ShowDisplay();
-            __delay_ms(250);
-        }
+        int y = 0;
+        do{
+            for(int x = 0; x < 32; x++){
+                cord.x = x;
+                cord.y = y;
+                InsertWordByCord(&cord);
+                ShowDisplay();
+                __delay_ms(10);
+                ClearDspArr();
+            } 
+            y++;
+        }while(y < 8);
     }    
     return;
 }

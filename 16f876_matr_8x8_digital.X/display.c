@@ -132,17 +132,17 @@ void ShiftLeftOneBit(void){
     }while(row--);
 }
 
-int GetShiftStep(unsigned char *fig){
+int GetWidthShapeSegment(unsigned char * fig){
     int shift = 0;
     while(1){
         for(int i = 0; i < 8; i++){
-            if((fig[i] << shift) & 0b10000000) return shift;
+            if((fig[i] << shift) & 0b10000000) return 8 - shift;
         }
         shift++;
     }
 }
 
-void InsertShapeByCord(TCrd *cord){
+void InsertWordByCord(TCrd *cord){
     /* Переменная column сегмент матрицы */
     int column = 0;
     
@@ -158,7 +158,6 @@ void InsertShapeByCord(TCrd *cord){
     else if(cord->x >= 24 && cord->x < 32){
         display[column + 3][cord->y] |= 0b10000000 >> cord->x - 24;
     }
-    
 }
 
 /*  y    x [0]          [1]        [2]         [3]
