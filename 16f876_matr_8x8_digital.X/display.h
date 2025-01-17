@@ -19,12 +19,12 @@ void MatrixEnableLEDLine(int segment, char data);
 void ShowSimvolString(int matrSegmentsCount, int sA[]);
 void ClearDisplay(void);
 void ShowDisplay(void);
-void InsertShapeInSegment(char * ar, int matrSegmant, int arElements);
+void InsertShapeInSegment(char *ar, int matrSegmant, int arElements);
 void ClearDspArr(void);
 void ClearDspArrSgm(int seg);
 void InsertSimvInSegment(int dig, int matrSegmant, int arElements);
 void ShifRightOneBit(void);
 void ShiftLeftOneBit(void);
-void InsertShapeByCord(TCrd * cord);
+void InsertShapeByCord(TCrd *cord);
 
 #endif	/* DISPLAY_H */

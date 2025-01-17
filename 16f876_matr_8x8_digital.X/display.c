@@ -57,7 +57,7 @@ void ShowDisplay(void){
     }
 }
 
-void InsertShapeInSegment(char * ar, int matrSegmant, int arElements){
+void InsertShapeInSegment(char *ar, int matrSegmant, int arElements){
     for(int i = arElements - 1, j = 7; i >= 0; i--, j--){
         display[matrSegmant][j] |= *(ar + i);
     }
@@ -132,7 +132,7 @@ void ShiftLeftOneBit(void){
     }while(row--);
 }
 
-int GetShiftStep(unsigned char * fig){
+int GetShiftStep(unsigned char *fig){
     int shift = 0;
     while(1){
         for(int i = 0; i < 8; i++){
@@ -142,10 +142,23 @@ int GetShiftStep(unsigned char * fig){
     }
 }
 
-void InsertShapeByCord(TCrd * cord){
+void InsertShapeByCord(TCrd *cord){
+    /* Переменная column сегмент матрицы */
+    int column = 0;
+    
     if(cord->x < 8) {
-        display[0][0] |= 0b10000000 >> cord->x; 
+        display[column][cord->y] |= 0b10000000 >> cord->x; 
     }
+    else if(cord->x >= 8 && cord->x < 16){
+        display[column + 1][cord->y] |= 0b10000000 >> cord->x - 8; 
+    }
+    else if(cord->x >= 16 && cord->x < 24){
+        display[column + 2][cord->y] |= 0b10000000 >> cord->x - 16;
+    }
+    else if(cord->x >= 24 && cord->x < 32){
+        display[column + 3][cord->y] |= 0b10000000 >> cord->x - 24;
+    }
+    
 }
 
 /*  y    x [0]          [1]        [2]         [3]

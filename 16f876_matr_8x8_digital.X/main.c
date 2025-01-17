@@ -78,23 +78,16 @@ void main(void) {
 //        TestShiftDispImage(&on);
 //        
 //        ------------------------------------
-        cord.x = 0;
-        cord.y = 0;
-        InsertShapeByCord(&cord);
-        ShowDisplay();
-        __delay_ms(1000);
-        ClearDspArr();
-        ShowDisplay();
-        __delay_ms(1000);
-        
-        cord.x = 1;
-        cord.y = 0;
-        InsertShapeByCord(&cord);
-        ShowDisplay();
-        __delay_ms(1000);
-        ClearDspArr();
-        ShowDisplay();
-        __delay_ms(1000);
+        for(int i = 0; i < 32; i++){
+            cord.x = i;
+            cord.y = 0;
+            InsertShapeByCord(&cord);
+            ShowDisplay();
+            __delay_ms(250);
+            ClearDspArr();
+            ShowDisplay();
+            __delay_ms(250);
+        }
     }    
     return;
 }
