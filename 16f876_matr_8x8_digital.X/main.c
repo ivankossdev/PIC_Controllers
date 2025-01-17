@@ -83,9 +83,9 @@ void main(void) {
             for(int x = 0; x < 32; x++){
                 cord.x = x;
                 cord.y = y;
-                InsertWordByCord(&cord);
+                InsertWordByCord(&cord, 0b11100111);
                 ShowDisplay();
-                __delay_ms(10);
+                __delay_ms(50);
                 ClearDspArr();
             } 
             y++;

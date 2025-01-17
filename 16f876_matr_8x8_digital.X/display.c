@@ -142,21 +142,27 @@ int GetWidthShapeSegment(unsigned char * fig){
     }
 }
 
-void InsertWordByCord(TCrd *cord){
+void InsertWordByCord(TCrd *cord, char word){
     /* Переменная column сегмент матрицы */
-    int column = 0;
+    int column = 0; char buffer = 0;
     
     if(cord->x < 8) {
-        display[column][cord->y] |= 0b10000000 >> cord->x; 
+        buffer = (char)(word << (8 - cord->x));
+        display[column][cord->y] |= word >> cord->x; 
+        display[column + 1][cord->y] |= buffer;
     }
     else if(cord->x >= 8 && cord->x < 16){
-        display[column + 1][cord->y] |= 0b10000000 >> cord->x - 8; 
+        buffer = (char)(word << (16 - cord->x));
+        display[column + 1][cord->y] |= word >> (cord->x - 8); 
+        display[column + 2][cord->y] |= buffer;
     }
     else if(cord->x >= 16 && cord->x < 24){
-        display[column + 2][cord->y] |= 0b10000000 >> cord->x - 16;
+        buffer = (char)(word << (24 - cord->x));
+        display[column + 2][cord->y] |= word >> (cord->x - 16);
+        display[column + 3][cord->y] |= buffer;
     }
     else if(cord->x >= 24 && cord->x < 32){
-        display[column + 3][cord->y] |= 0b10000000 >> cord->x - 24;
+        display[column + 3][cord->y] |= word >> (cord->x - 24);
     }
 }
 
