@@ -132,7 +132,7 @@ void ShiftLeftOneBit(void){
     }while(row--);
 }
 
-int GetWidthShapeSegment(unsigned char * fig){
+int GetWidthShapeSegment(char * fig){
     int shift = 0;
     while(1){
         for(int i = 0; i < 8; i++){
@@ -167,10 +167,12 @@ void InsertWordByCord(TCrd *cord, char word){
 }
 
 void InsertShapeByCord(TCrd *cord, char shape[], int cntArray){
+    /* Расчитываем свдиг для установки фигуры в 0 позицию  */
+    int setZeroPozition = 8 - GetWidthShapeSegment(shape);
     for(int i = 0; i < cntArray; i++){
         cord->y = i;
-        InsertWordByCord(cord, shape[i]);
-       
+        /* Устанавливаем фигуру в 0 поизцию */
+        InsertWordByCord(cord, (char)(shape[i] << setZeroPozition));   
     }
 }
 
