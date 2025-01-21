@@ -22,10 +22,10 @@ void ShowDisplay(void);
 void InsertShapeInSegment(char *ar, int matrSegmant, int arElements);
 void ClearDspArr(void);
 void ClearDspArrSgm(int seg);
-void InsertSimvInSegment(int dig, int matrSegmant, int arElements);
 void ShifRightOneBit(void);
 void ShiftLeftOneBit(void);
 void InsertWordByCord(TCrd *cord, char word);
 void InsertShapeByCord(TCrd *cord, char shape[], int cntArray);
+void InsertSimvByCord(TCrd *cord, int dig);
 
 #endif	/* DISPLAY_H */

@@ -77,21 +77,6 @@ void ClearDspArrSgm(int seg){
         }
 }
 
-void InsertSimvInSegment(int dig, int matrSegmant, int arElements){
-    switch(dig){
-        case 0: InsertShapeInSegment((char *)simvol_0, matrSegmant, arElements); break;
-        case 1: InsertShapeInSegment((char *)simvol_1, matrSegmant, arElements); break;
-        case 2: InsertShapeInSegment((char *)simvol_2, matrSegmant, arElements); break;
-        case 3: InsertShapeInSegment((char *)simvol_3, matrSegmant, arElements); break;
-        case 4: InsertShapeInSegment((char *)simvol_4, matrSegmant, arElements); break;
-        case 5: InsertShapeInSegment((char *)simvol_5, matrSegmant, arElements); break;
-        case 6: InsertShapeInSegment((char *)simvol_6, matrSegmant, arElements); break;
-        case 7: InsertShapeInSegment((char *)simvol_7, matrSegmant, arElements); break;
-        case 8: InsertShapeInSegment((char *)simvol_8, matrSegmant, arElements); break;
-        case 9: InsertShapeInSegment((char *)simvol_9, matrSegmant, arElements); break;
-    }
-}
-
 void ShifRightOneBit(void){
     int row = 0; 
     char shiftBuffer[MTR_DSP] = {'\0'};
@@ -173,6 +158,21 @@ void InsertShapeByCord(TCrd *cord, char shape[], int cntArray){
         cord->y = i;
         /* Устанавливаем фигуру в 0 поизцию */
         InsertWordByCord(cord, (char)(shape[i] << setZeroPozition));   
+    }
+}
+
+void InsertSimvByCord(TCrd *cord, int dig){
+    switch(dig){
+        case 0: InsertShapeByCord(cord, (char *)simvol_0, 8); break;
+        case 1: InsertShapeByCord(cord, (char *)simvol_1, 8); break;
+        case 2: InsertShapeByCord(cord, (char *)simvol_2, 8); break;
+        case 3: InsertShapeByCord(cord, (char *)simvol_3, 8); break;
+        case 4: InsertShapeByCord(cord, (char *)simvol_4, 8); break;
+        case 5: InsertShapeByCord(cord, (char *)simvol_5, 8); break;
+        case 6: InsertShapeByCord(cord, (char *)simvol_6, 8); break;
+        case 7: InsertShapeByCord(cord, (char *)simvol_7, 8); break;
+        case 8: InsertShapeByCord(cord, (char *)simvol_8, 8); break;
+        case 9: InsertShapeByCord(cord, (char *)simvol_9, 8); break;
     }
 }
 

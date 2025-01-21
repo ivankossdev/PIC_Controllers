@@ -70,16 +70,36 @@ void main(void) {
     while(1){ 
         InsertShapeInSegment((char *)fig_1, SEGMENT_1, 8);
         InsertShapeInSegment((char *)fig_1, SEGMENT_4, 8);
-        InsertSimvInSegment(9, SEGMENT_2, 8);
-        InsertSimvInSegment(9, SEGMENT_3, 8);
+        cord.x = 10;
+        cord.y = 0;
+        InsertSimvByCord(&cord, 9);
+        cord.x = 17;
+        cord.y = 0;
+        InsertSimvByCord(&cord, 9);
         ShowDisplay();
         __delay_ms(1000);
 
-        for(int i = 0; i <= 10; i++){
+        for(int i = 0; i <= 20; i++){
             ClearDspArrSgm(SEGMENT_2);
             ClearDspArrSgm(SEGMENT_3);
-            InsertSimvInSegment(i / 10, SEGMENT_2, 8);
-            InsertSimvInSegment(i % 10, SEGMENT_3, 8);
+            
+            
+            cord.y = 0;
+            if((i / 10) == 1){
+                cord.x = 12;
+            }
+            else{
+                cord.x = 10; 
+            }
+            InsertSimvByCord(&cord, i / 10);
+            
+            cord.y = 0;
+            if((i % 10) == 1){
+                cord.x = 19;
+            }else{
+                cord.x = 17;
+            }
+            InsertSimvByCord(&cord, i % 10);
             ShowDisplay();
             __delay_ms(DELAY);    
         }
