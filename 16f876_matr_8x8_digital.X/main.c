@@ -113,6 +113,7 @@ void main(void) {
         for(int x = 0; x < 33; x++){
             cord.x = x;
             cord.y = 0;
+            if(x > 10) cord.y = 1;
             InsertShapeByCord(&cord, (char *)fig_2, 8);
             ShowDisplay();
             __delay_ms(50);

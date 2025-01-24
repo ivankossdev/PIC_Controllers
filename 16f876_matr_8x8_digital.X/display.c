@@ -154,11 +154,14 @@ void InsertWordByCord(TCrd *cord, char word){
 void InsertShapeByCord(TCrd *cord, char shape[], int cntArray){
     /* Расчитываем свдиг для установки фигуры в 0 позицию  */
     int setZeroPozition = 8 - GetWidthShapeSegment(shape);
+    int tmp = cord->y;
     for(int i = 0; i < cntArray; i++){
-        cord->y = i;
+        cord->y += i;
         /* Устанавливаем фигуру в 0 поизцию */
         InsertWordByCord(cord, (char)(shape[i] << setZeroPozition));   
+        cord->y = tmp;
     }
+    
 }
 
 void InsertSimvByCord(TCrd *cord, int dig){
