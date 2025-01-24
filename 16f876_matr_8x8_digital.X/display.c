@@ -1,4 +1,5 @@
 #include "display.h"
+#include <string.h>
 
 char display[MTR_DSP][8] = {
     { 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000 }, // [0]
@@ -164,6 +165,18 @@ void InsertShapeByCord(TCrd *cord, char shape[], int cntArray){
     
 }
 
+void SliceShapeByCordY(char *shape, int position){
+    TCrd cord; cord.y = 0, cord.x = 31; 
+    int setZeroPozition = 8 - GetWidthShapeSegment(shape);
+    char tmp = 0; 
+    
+    for(int i = 0; i < 8; i++){
+        cord.y = i;
+        tmp = (char)(shape[i] << setZeroPozition);
+        InsertWordByCord(&cord, (tmp << position) & 0b10000000 );   
+    }
+}
+
 void InsertSimvByCord(TCrd *cord, int dig){
     switch(dig){
         case 0: InsertShapeByCord(cord, (char *)simvol_0, 8); break;
@@ -177,4 +190,18 @@ void InsertSimvByCord(TCrd *cord, int dig){
         case 8: InsertShapeByCord(cord, (char *)simvol_8, 8); break;
         case 9: InsertShapeByCord(cord, (char *)simvol_9, 8); break;
     }
+}
+
+void RunLeftString(char *str){
+    int i = 0;
+    TCrd s_crd; s_crd.x = 26; s_crd.y = 0;
+    
+    do{
+        InsertSimvByCord(&s_crd, (str[i] & 0x0f));
+        
+        ShowDisplay();
+        __delay_ms(1000);
+        ClearDspArr();
+        i++;
+    }while(str[i] != '\0');
 }

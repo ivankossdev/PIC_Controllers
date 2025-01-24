@@ -26,6 +26,8 @@ void ShifRightOneBit(void);
 void ShiftLeftOneBit(void);
 void InsertWordByCord(TCrd *cord, char word);
 void InsertShapeByCord(TCrd *cord, char shape[], int cntArray);
+void SliceShapeByCordY(char *shape, int position);
 void InsertSimvByCord(TCrd *cord, int dig);
+void RunLeftString(char *str);
 
 #endif	/* DISPLAY_H */

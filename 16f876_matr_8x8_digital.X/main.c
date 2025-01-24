@@ -68,6 +68,33 @@ void main(void) {
     TCrd cord;
     
     while(1){ 
+        int stp = 32; 
+        
+        for(int i = 0; i < 8; i++){
+            SliceShapeByCordY((char *)fig_1, i);
+            ShowDisplay();
+            __delay_ms(100);
+            ShiftLeftOneBit();
+            stp--;
+        }
+        
+        for(int i = 0; i < 8; i++){
+            SliceShapeByCordY((char *)fig_2, i);
+            ShowDisplay();
+            __delay_ms(100);
+            ShiftLeftOneBit();
+            stp--;
+        } 
+        while(stp){
+            ShowDisplay();
+            __delay_ms(100);
+            ShiftLeftOneBit();
+            stp--;
+        }
+        
+        __delay_ms(1000);
+        ClearDspArr();
+        
         InsertShapeInSegment((char *)fig_1, SEGMENT_1, 8);
         InsertShapeInSegment((char *)fig_1, SEGMENT_4, 8);
         cord.x = 10;
@@ -124,3 +151,4 @@ void main(void) {
     }    
     return;
 }
+
