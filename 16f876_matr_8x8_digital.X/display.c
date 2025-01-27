@@ -168,12 +168,12 @@ void InsertShapeByCord(TCrd *cord, char shape[], int cntArray){
 void SliceShapeByCordY(char *shape, int position){
     TCrd cord; cord.y = 0, cord.x = 31; 
     int setZeroPozition = 8 - GetWidthShapeSegment(shape);
-    char tmp = 0; 
+    char shapePositoin = 0; 
     
     for(int i = 0; i < 8; i++){
         cord.y = i;
-        tmp = (char)(shape[i] << setZeroPozition);
-        InsertWordByCord(&cord, (tmp << position) & 0b10000000 );   
+        shapePositoin = (char)(shape[i] << setZeroPozition);
+        InsertWordByCord(&cord, (shapePositoin << position) & 0b10000000 );   
     }
 }
 
@@ -192,16 +192,34 @@ void InsertSimvByCord(TCrd *cord, int dig){
     }
 }
 
+char *GetSimvolArray(char ch){
+    char *bufer = calloc(8, sizeof(char));
+    switch(ch){
+        case '0': bufer = (char *)simvol_0; break;
+        case '1': bufer = (char *)simvol_1; break;
+        case '2': bufer = (char *)simvol_2; break;
+        case '3': bufer = (char *)simvol_3; break;
+        case '4': bufer = (char *)simvol_4; break;
+        case '5': bufer = (char *)simvol_5; break;
+        case '6': bufer = (char *)simvol_6; break;
+        case '7': bufer = (char *)simvol_7; break;
+        case '8': bufer = (char *)simvol_8; break;
+        case '9': bufer = (char *)simvol_9; break;
+    }
+    
+    return bufer;
+}    
+
 void RunLeftString(char *str){
-    int i = 0;
-    TCrd s_crd; s_crd.x = 26; s_crd.y = 0;
+    int c = 0;
     
     do{
-        InsertSimvByCord(&s_crd, (str[i] & 0x0f));
-        
-        ShowDisplay();
-        __delay_ms(1000);
-        ClearDspArr();
-        i++;
-    }while(str[i] != '\0');
+        for(int i = 0; i < GetWidthShapeSegment(GetSimvolArray(str[c])); i++){
+            SliceShapeByCordY(GetSimvolArray(str[c]), i);
+            ShowDisplay();
+            __delay_ms(100);
+            ShiftLeftOneBit();
+        }
+        c++;
+    }while(str[c] != '\0');
 }
