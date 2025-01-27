@@ -177,21 +177,6 @@ void SliceShapeByCordY(char *shape, int position){
     }
 }
 
-void InsertSimvByCord(TCrd *cord, int dig){
-    switch(dig){
-        case 0: InsertShapeByCord(cord, (char *)simvol_0, 8); break;
-        case 1: InsertShapeByCord(cord, (char *)simvol_1, 8); break;
-        case 2: InsertShapeByCord(cord, (char *)simvol_2, 8); break;
-        case 3: InsertShapeByCord(cord, (char *)simvol_3, 8); break;
-        case 4: InsertShapeByCord(cord, (char *)simvol_4, 8); break;
-        case 5: InsertShapeByCord(cord, (char *)simvol_5, 8); break;
-        case 6: InsertShapeByCord(cord, (char *)simvol_6, 8); break;
-        case 7: InsertShapeByCord(cord, (char *)simvol_7, 8); break;
-        case 8: InsertShapeByCord(cord, (char *)simvol_8, 8); break;
-        case 9: InsertShapeByCord(cord, (char *)simvol_9, 8); break;
-    }
-}
-
 char *GetSimvolArray(char ch){
     char *bufer = calloc(8, sizeof(char));
     switch(ch){
@@ -205,6 +190,7 @@ char *GetSimvolArray(char ch){
         case '7': bufer = (char *)simvol_7; break;
         case '8': bufer = (char *)simvol_8; break;
         case '9': bufer = (char *)simvol_9; break;
+        case '.': bufer = (char *)simvol_dot; break;
     }
     
     return bufer;
@@ -214,7 +200,8 @@ void RunLeftString(char *str){
     int c = 0;
     
     do{
-        for(int i = 0; i < GetWidthShapeSegment(GetSimvolArray(str[c])); i++){
+        int width = GetWidthShapeSegment(GetSimvolArray(str[c]));
+        for(int i = 0; i <= width; i++){
             SliceShapeByCordY(GetSimvolArray(str[c]), i);
             ShowDisplay();
             __delay_ms(100);
