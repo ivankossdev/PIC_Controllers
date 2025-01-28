@@ -118,13 +118,17 @@ void ShiftLeftOneBit(void){
     }while(row--);
 }
 
+/* Рассчитывает ширину символа */
 int GetWidthShapeSegment(char * fig){
     int shift = 0;
+    /* Расчет ширины символа */
     while(1){
         for(int i = 0; i < 8; i++){
             if((fig[i] << shift) & 0b10000000) return 8 - shift;
         }
         shift++;
+        /* Значение по умолчанию */
+        if (shift >= 8) return 5; 
     }
 }
 
@@ -166,7 +170,7 @@ void InsertShapeByCord(TCrd *cord, char shape[], int cntArray){
 }
 
 void SliceShapeByCordY(char *shape, int position){
-    TCrd cord; cord.y = 0, cord.x = 31; 
+    TCrd cord; cord.y = 0, cord.x = MTR_DSP * 8 - 1; 
     int setZeroPozition = 8 - GetWidthShapeSegment(shape);
     char shapePositoin = 0; 
     
@@ -191,6 +195,9 @@ char *GetSimvolArray(char ch){
         case '8': bufer = (char *)simvol_8; break;
         case '9': bufer = (char *)simvol_9; break;
         case '.': bufer = (char *)simvol_dot; break;
+        case ' ': bufer = (char *)simvol_space; break; 
+        case ':': bufer = (char *)simvol_d_dot; break;
+        case '-': bufer = (char *)simvol_dash; break;
     }
     
     return bufer;

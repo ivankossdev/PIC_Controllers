@@ -11,3 +11,6 @@ extern const char simvol_7[8];
 extern const char simvol_8[8];
 extern const char simvol_9[8];
 extern const char simvol_dot[8];
+extern const char simvol_space[8];
+extern const char simvol_d_dot[8];
+extern const char simvol_dash[8];

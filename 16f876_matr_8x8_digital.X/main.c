@@ -27,7 +27,7 @@ void main(void) {
     ClearDisplay();
     
     while(1){ 
-        RunLeftString("0123456789.");
+        RunLeftString(": 012.34-56789 :");
         int i = 16;
         while(i){
             ShowDisplay();
