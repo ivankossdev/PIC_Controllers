@@ -198,6 +198,7 @@ char *GetSimvolArray(char ch){
         case ' ': bufer = (char *)simvol_space; break; 
         case ':': bufer = (char *)simvol_d_dot; break;
         case '-': bufer = (char *)simvol_dash; break;
+        case 'A': bufer = (char *)simvol_A; break;
     }
     
     return bufer;

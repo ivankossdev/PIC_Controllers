@@ -27,7 +27,7 @@ void main(void) {
     ClearDisplay();
     
     while(1){ 
-        RunLeftString(": 012.34-56789 :");
+        RunLeftString("AAA 012.34-56:789");
         int i = 16;
         while(i){
             ShowDisplay();

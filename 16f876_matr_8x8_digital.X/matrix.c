@@ -18,7 +18,7 @@ void MatrixClear (void)
 
 
 void MatrixInit(void) {
-    __delay_ms(100);
+//    __delay_ms(100);
     cs=1; 
     MatrixSendToSegment(0x09, 0x00);  
     MatrixSendToSegment(0x0b, 0x07); 
