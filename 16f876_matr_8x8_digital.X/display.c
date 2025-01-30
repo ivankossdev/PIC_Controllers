@@ -220,8 +220,34 @@ char *GetSimvolArray(char ch){
         case 'U': bufer = (char *)simvol_U; break;
         case 'V': bufer = (char *)simvol_V; break;
         case 'W': bufer = (char *)simvol_W; break;
+        case 'X': bufer = (char *)simvol_X; break;
         case 'Y': bufer = (char *)simvol_Y; break;
         case 'Z': bufer = (char *)simvol_Z; break;
+        case 'a': bufer = (char *)simvol_a; break;
+        case 'b': bufer = (char *)simvol_b; break;
+        case 'c': bufer = (char *)simvol_c; break;
+        case 'd': bufer = (char *)simvol_d; break;
+        case 'e': bufer = (char *)simvol_e; break;
+        case 'f': bufer = (char *)simvol_f; break;
+        case 'g': bufer = (char *)simvol_g; break;
+        case 'h': bufer = (char *)simvol_h; break;
+        case 'i': bufer = (char *)simvol_i; break;
+        case 'j': bufer = (char *)simvol_j; break;
+        case 'k': bufer = (char *)simvol_k; break;
+        case 'l': bufer = (char *)simvol_l; break;
+        case 'm': bufer = (char *)simvol_m; break;
+        case 'n': bufer = (char *)simvol_n; break;
+        case 'o': bufer = (char *)simvol_o; break;
+        case 'p': bufer = (char *)simvol_p; break;
+        case 'r': bufer = (char *)simvol_r; break;
+        case 's': bufer = (char *)simvol_s; break;
+        case 't': bufer = (char *)simvol_t; break;
+        case 'u': bufer = (char *)simvol_u; break;
+        case 'v': bufer = (char *)simvol_v; break;
+        case 'w': bufer = (char *)simvol_w; break;
+        case 'x': bufer = (char *)simvol_x; break;
+        case 'y': bufer = (char *)simvol_y; break;
+        case 'z': bufer = (char *)simvol_z; break;
     }
     
     return bufer;

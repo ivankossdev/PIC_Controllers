@@ -27,7 +27,7 @@ void main(void) {
     ClearDisplay();
     
     while(1){ 
-        RunLeftString("HELLO LED PROJECT ON CONTROLLER PIC16F876");
+        RunLeftString("Hello led project 9-127.ru");
         int i = 16;
         while(i){
             ShowDisplay();
