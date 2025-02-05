@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include "settings.h"
 #include "spi.h"
+#include "timer1.h"
 #include "matrix.h"
 #include "display.h"
 #include "font.h"
@@ -20,11 +21,23 @@
  * pin 16 RC5      -> DIN               *
  *******************END******************/
 
+void __interrupt() tim1ISR(void)
+{
+    if(TMR1IE&&TMR1IF)
+    {
+        TMR1L=0xEE;
+        TMR1H=0x85;
+        TMR1IF=0;
+    }
+}
+
+
 void main(void) {
     SpiInit();
     MatrixInit();
     PortBInit();
     ClearDisplay();
+    timerOneInit();
     
     while(1){ 
         RunLeftString("Hello led project 9-127.ru");

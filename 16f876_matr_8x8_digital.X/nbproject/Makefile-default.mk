@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=font.c main.c matrix.c portsinit.c spi.c display.c
+SOURCEFILES_QUOTED_IF_SPACED=font.c main.c matrix.c portsinit.c spi.c display.c timer1.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/font.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/matrix.p1 ${OBJECTDIR}/portsinit.p1 ${OBJECTDIR}/spi.p1 ${OBJECTDIR}/display.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/font.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/matrix.p1.d ${OBJECTDIR}/portsinit.p1.d ${OBJECTDIR}/spi.p1.d ${OBJECTDIR}/display.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/font.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/matrix.p1 ${OBJECTDIR}/portsinit.p1 ${OBJECTDIR}/spi.p1 ${OBJECTDIR}/display.p1 ${OBJECTDIR}/timer1.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/font.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/matrix.p1.d ${OBJECTDIR}/portsinit.p1.d ${OBJECTDIR}/spi.p1.d ${OBJECTDIR}/display.p1.d ${OBJECTDIR}/timer1.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/font.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/matrix.p1 ${OBJECTDIR}/portsinit.p1 ${OBJECTDIR}/spi.p1 ${OBJECTDIR}/display.p1
+OBJECTFILES=${OBJECTDIR}/font.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/matrix.p1 ${OBJECTDIR}/portsinit.p1 ${OBJECTDIR}/spi.p1 ${OBJECTDIR}/display.p1 ${OBJECTDIR}/timer1.p1
 
 # Source Files
-SOURCEFILES=font.c main.c matrix.c portsinit.c spi.c display.c
+SOURCEFILES=font.c main.c matrix.c portsinit.c spi.c display.c timer1.c
 
 
 
@@ -136,6 +136,14 @@ ${OBJECTDIR}/display.p1: display.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/display.d ${OBJECTDIR}/display.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/display.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/timer1.p1: timer1.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/timer1.p1.d 
+	@${RM} ${OBJECTDIR}/timer1.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/timer1.p1 timer1.c 
+	@-${MV} ${OBJECTDIR}/timer1.d ${OBJECTDIR}/timer1.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/timer1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/font.p1: font.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
@@ -184,6 +192,14 @@ ${OBJECTDIR}/display.p1: display.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/display.p1 display.c 
 	@-${MV} ${OBJECTDIR}/display.d ${OBJECTDIR}/display.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/display.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/timer1.p1: timer1.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/timer1.p1.d 
+	@${RM} ${OBJECTDIR}/timer1.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/timer1.p1 timer1.c 
+	@-${MV} ${OBJECTDIR}/timer1.d ${OBJECTDIR}/timer1.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/timer1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 
