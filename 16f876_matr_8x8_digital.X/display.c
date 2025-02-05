@@ -1,5 +1,6 @@
 #include "display.h"
 #include <string.h>
+#include "timer.h"
 
 char display[MTR_DSP][8] = {
     { 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000 }, // [0]

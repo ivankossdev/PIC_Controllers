@@ -6,6 +6,7 @@
 #include "matrix.h"
 #include "display.h"
 #include "font.h"
+#include "timer.h"
 #define DELAY 50
 
 
@@ -19,14 +20,35 @@
  * pin 14 RC3      -> CLK               *
  * pin 16 RC5      -> DIN               *
  *******************END******************/
+void __interrupt() interruptHandler(void)
+{
+    if(TMR1IE && TMR1IF)
+    {
+        TMR1L = 0xee;
+        TMR1H = 0x85;
+        TMR1IF = 0;
+        if(flagTimerOne) 
+        {
+            flagTimerOne = false;
+            PORTB |= 1 << 0;
+        }
+        else 
+        {
+            flagTimerOne = true;
+            PORTB &= ~(1 << 0);
+        }
+    }
+}
 
 void main(void) {
     SpiInit();
     MatrixInit();
     PortBInit();
     ClearDisplay();
+    timerOneInit();
     
     while(1){ 
+        
         RunLeftString("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tristique, felis sit amet laoreet nec.");
         int i = 16;
         while(i){
