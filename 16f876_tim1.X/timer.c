@@ -12,15 +12,3 @@ void timerOneInit(void){
     TMR1IE=1;
     TMR1ON=1;
 }
-
-void __interrupt() tim1ISR(void)
-{
-    if(TMR1IE&&TMR1IF)
-    {
-        TMR1L=0xEE;
-        TMR1H=0x85;
-        TMR1IF=0;
-        if(flagTimerOne) flagTimerOne = false;
-        else flagTimerOne = true;
-    }
-}
