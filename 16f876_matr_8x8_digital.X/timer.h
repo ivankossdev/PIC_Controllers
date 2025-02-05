@@ -4,6 +4,7 @@
 #include <stdbool.h>
 void timerOneInit(void);
 bool flagTimerOne = true;
+extern int ic;
 
 #endif	/* TIMER_H */
 

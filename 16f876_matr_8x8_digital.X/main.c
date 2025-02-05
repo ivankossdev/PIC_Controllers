@@ -20,6 +20,7 @@
  * pin 14 RC3      -> CLK               *
  * pin 16 RC5      -> DIN               *
  *******************END******************/
+
 void __interrupt() interruptHandler(void)
 {
     if(TMR1IE && TMR1IF)
@@ -27,15 +28,19 @@ void __interrupt() interruptHandler(void)
         TMR1L = 0xee;
         TMR1H = 0x85;
         TMR1IF = 0;
-        if(flagTimerOne) 
-        {
-            flagTimerOne = false;
-            PORTB |= 1 << 0;
-        }
-        else 
-        {
-            flagTimerOne = true;
-            PORTB &= ~(1 << 0);
+        ic--;
+        if(!ic){
+            if(flagTimerOne) 
+            {
+                flagTimerOne = false;
+                PORTB |= 1 << 0;
+            }
+            else 
+            {
+                flagTimerOne = true;
+                PORTB &= ~(1 << 0);
+            }
+            ic = 10;
         }
     }
 }
@@ -49,11 +54,11 @@ void main(void) {
     
     while(1){ 
         
-        RunLeftString("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tristique, felis sit amet laoreet nec.");
+        RunLeftString("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
         int i = 16;
         while(i){
             ShowDisplay();
-            __delay_ms(100);
+            __delay_ms(50);
             ShiftLeftOneBit();
             i--;
         }

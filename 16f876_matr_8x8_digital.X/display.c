@@ -265,7 +265,7 @@ void RunLeftString(char *str){
         for(int i = 0; i <= width; i++){
             SliceShapeByCordY(GetSimvolArray(str[c]), i);
             ShowDisplay();
-            __delay_ms(100);
+            __delay_ms(50);
             ShiftLeftOneBit();
         }
         c++;
