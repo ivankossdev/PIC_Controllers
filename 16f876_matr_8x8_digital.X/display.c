@@ -198,6 +198,7 @@ char *GetSimvolArray(char ch){
         case ' ': bufer = (char *)simvol_space; break; 
         case ':': bufer = (char *)simvol_d_dot; break;
         case '-': bufer = (char *)simvol_dash; break;
+        case ',': bufer = (char *)simvol_zap; break;
         case 'A': bufer = (char *)simvol_A; break;
         case 'B': bufer = (char *)simvol_B; break;
         case 'C': bufer = (char *)simvol_C; break;
@@ -220,6 +221,7 @@ char *GetSimvolArray(char ch){
         case 'U': bufer = (char *)simvol_U; break;
         case 'V': bufer = (char *)simvol_V; break;
         case 'W': bufer = (char *)simvol_W; break;
+        case 'Q': bufer = (char *)simvol_Q; break;
         case 'X': bufer = (char *)simvol_X; break;
         case 'Y': bufer = (char *)simvol_Y; break;
         case 'Z': bufer = (char *)simvol_Z; break;
@@ -245,6 +247,7 @@ char *GetSimvolArray(char ch){
         case 'u': bufer = (char *)simvol_u; break;
         case 'v': bufer = (char *)simvol_v; break;
         case 'w': bufer = (char *)simvol_w; break;
+        case 'q': bufer = (char *)simvol_q; break;
         case 'x': bufer = (char *)simvol_x; break;
         case 'y': bufer = (char *)simvol_y; break;
         case 'z': bufer = (char *)simvol_z; break;
